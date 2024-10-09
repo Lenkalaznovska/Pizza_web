@@ -21,9 +21,18 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
                         <p>Telefon: ${phone}</p>
                         <p>Adresa: ${address}</p>
                         <p>Objednané pizzy: ${orderList.join(', ')}</p>
-                        <p>Celková cena: 0 Kč</p>`;
+                        <p>Celková cena: ${calculateTotal()} Kč</p>`;
     
     document.getElementById('orderSummary').innerHTML = orderSummary;
     document.getElementById('orderForm').reset();
     orderList = [];
 });
+
+function calculateTotal() {
+    const prices = {
+        'Margherita': 100,
+        'Pepperoni': 120,
+        'Havajská': 130
+    };
+    return orderList.reduce((total, pizza) => total + prices[pizza], 0);
+}
