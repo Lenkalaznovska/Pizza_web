@@ -8,69 +8,84 @@
 </head>
 <body>
     <header>
-        <h1>Pizzerie San Marino</h1>
-        <nav>
-            <ul>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#order">Objednávka</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-                <li><a href="#login">Přihlásit se</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>Pizzerie San Marino</h1>
+            <nav>
+                <ul>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#order">Objednávka</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                    <li><a href="#login">Přihlásit se</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <section id="info">
-        <h2>Informace</h2>
-        <p>Adresa: Obránců míru 2721, 27201 Kladno</p>
-        <p>Email: <a href="mailto:sanmarino@pizzakladno.cz">sanmarino@pizzakladno.cz</a></p>
-        <p>Telefon: 604 633 373, 312 686 996</p>
-        <p>Rozvoz: 10:45 - 21:15</p>
-        <p>Otevírací doba: 10:45 - 21:15</p>
+        <div class="container">
+            <h2>Informace</h2>
+            <p>Adresa: Obránců míru 2721, 27201 Kladno</p>
+            <p>Email: <a href="mailto:sanmarino@pizzakladno.cz">sanmarino@pizzakladno.cz</a></p>
+            <p>Telefon: 604 633 373, 312 686 996</p>
+            <p>Rozvoz: 10:45 - 21:15</p>
+            <p>Otevírací doba: 10:45 - 21:15</p>
+        </div>
     </section>
 
     <section id="menu">
-        <h2>Naše Menu</h2>
-        <div class="pizza" id="margherita">
-            <h3>Margherita</h3>
-            <p>Tomatová omáčka, mozzarella, bazalka.</p>
-            <button onclick="addToOrder('Margherita')">Objednat</button>
-        </div>
-        <div class="pizza" id="pepperoni">
-            <h3>Pepperoni</h3>
-            <p>Tomatová omáčka, mozzarella, pepperoni.</p>
-            <button onclick="addToOrder('Pepperoni')">Objednat</button>
-        </div>
-        <div class="pizza" id="hawaiian">
-            <h3>Havajská</h3>
-            <p>Tomatová omáčka, mozzarella, šunka, ananas.</p>
-            <button onclick="addToOrder('Havajská')">Objednat</button>
+        <div class="container">
+            <h2>Naše Menu</h2>
+            <div class="pizza">
+                <h3>Margherita</h3>
+                <p>Tomatová omáčka, mozzarella, bazalka.</p>
+                <span class="price">100 Kč</span>
+                <button onclick="addToOrder('Margherita')">Objednat</button>
+            </div>
+            <div class="pizza">
+                <h3>Pepperoni</h3>
+                <p>Tomatová omáčka, mozzarella, pepperoni.</p>
+                <span class="price">120 Kč</span>
+                <button onclick="addToOrder('Pepperoni')">Objednat</button>
+            </div>
+            <div class="pizza">
+                <h3>Havajská</h3>
+                <p>Tomatová omáčka, mozzarella, šunka, ananas.</p>
+                <span class="price">130 Kč</span>
+                <button onclick="addToOrder('Havajská')">Objednat</button>
+            </div>
         </div>
     </section>
 
     <section id="order">
-        <h2>Objednávka</h2>
-        <form id="orderForm">
-            <label for="name">Jméno:</label>
-            <input type="text" id="name" required>
+        <div class="container">
+            <h2>Objednávka</h2>
+            <form id="orderForm">
+                <label for="name">Jméno:</label>
+                <input type="text" id="name" required>
 
-            <label for="phone">Telefon:</label>
-            <input type="tel" id="phone" required>
+                <label for="phone">Telefon:</label>
+                <input type="tel" id="phone" required>
 
-            <label for="address">Adresa:</label>
-            <input type="text" id="address" required>
+                <label for="address">Adresa:</label>
+                <input type="text" id="address" required>
 
-            <button type="submit">Odeslat objednávku</button>
-        </form>
-        <div id="orderSummary"></div>
+                <button type="submit">Odeslat objednávku</button>
+            </form>
+            <div id="orderSummary"></div>
+        </div>
     </section>
 
     <section id="contact">
-        <h2>Kontaktujte nás</h2>
-        <p>Máte otázky? Neváhejte nás kontaktovat!</p>
+        <div class="container">
+            <h2>Kontaktujte nás</h2>
+            <p>Máte otázky? Neváhejte nás kontaktovat!</p>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Pizzerie San Marino. Všechna práva vyhrazena.</p>
+        <div class="container">
+            <p>&copy; 2024 Pizzerie San Marino. Všechna práva vyhrazena.</p>
+        </div>
     </footer>
 
     <script src="index.js"></script>
