@@ -1,93 +1,80 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Pizzerie San Marino</title>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Pizzerie San Marino</h1>
-            <nav>
-                <ul>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#order">Objednávka</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
-                    <li><a href="#login">Přihlásit se</a></li>
-                </ul>
-            </nav>
+<section id="objednavky">
+    <div class="container">
+        <h2>Objednávky</h2>
+        <div class="contact-info">
+            <p>Telefon: <strong>604 633 373</strong></p>
+            <p>Alternativní telefon: <strong>312 686 996</strong></p>
+            <p>Rozvoz: <strong>10:45 - 21:15</strong></p>
+            <p>Otevírací doba: <strong>10:45 - 21:15</strong></p>
+            <p><a href="registrace.html">Registrace | Přihlásit se</a></p>
+            <p>Cena rozvozu: <strong>00 Kč</strong></p>
         </div>
-    </header>
-
-    <section id="info">
-        <div class="container">
-            <h2>Informace</h2>
-            <p>Adresa: Obránců míru 2721, 27201 Kladno</p>
-            <p>Email: <a href="mailto:sanmarino@pizzakladno.cz">sanmarino@pizzakladno.cz</a></p>
-            <p>Telefon: 604 633 373, 312 686 996</p>
-            <p>Rozvoz: 10:45 - 21:15</p>
-            <p>Otevírací doba: 10:45 - 21:15</p>
-        </div>
-    </section>
-
-    <section id="menu">
-        <div class="container">
-            <h2>Naše Menu</h2>
-            <div class="pizza">
-                <h3>Margherita</h3>
-                <p>Tomatová omáčka, mozzarella, bazalka.</p>
-                <span class="price">100 Kč</span>
-                <button onclick="addToOrder('Margherita')">Objednat</button>
-            </div>
-            <div class="pizza">
-                <h3>Pepperoni</h3>
-                <p>Tomatová omáčka, mozzarella, pepperoni.</p>
-                <span class="price">120 Kč</span>
-                <button onclick="addToOrder('Pepperoni')">Objednat</button>
-            </div>
-            <div class="pizza">
-                <h3>Havajská</h3>
-                <p>Tomatová omáčka, mozzarella, šunka, ananas.</p>
-                <span class="price">130 Kč</span>
-                <button onclick="addToOrder('Havajská')">Objednat</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="order">
-        <div class="container">
-            <h2>Objednávka</h2>
-            <form id="orderForm">
-                <label for="name">Jméno:</label>
-                <input type="text" id="name" required>
-
-                <label for="phone">Telefon:</label>
-                <input type="tel" id="phone" required>
-
-                <label for="address">Adresa:</label>
-                <input type="text" id="address" required>
-
-                <button type="submit">Odeslat objednávku</button>
-            </form>
-            <div id="orderSummary"></div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2>Kontaktujte nás</h2>
-            <p>Máte otázky? Neváhejte nás kontaktovat!</p>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Pizzerie San Marino. Všechna práva vyhrazena.</p>
-        </div>
-    </footer>
-
-    <script src="index.js"></script>
-</body>
-</html>
+        <h3>Rozvoz pizzy, burgerů a jídla | San Marino Kladno</h3>
+        
+        <h3>Menu Pizzy</h3>
+        <p>Před vložením pizzy do košíku si vyberte velikost pizzy a to: Ø 24cm MALÁ nebo naši MAXI pizzu Ø 40cm!</p>
+        
+        <ul class="pizza-menu">
+            <li>172 Kč - 46. Pizza se sýrem - PIZZA podle SVÉ CHUTI<br>Tomatový základ, Sýr</li>
+            <li>176 Kč - 1. Pizza se šunkou<br>Šunka, Tomatový základ, Sýr</li>
+            <li>181 Kč - 2. Pizza se šunkou a zeleninou<br>Šunka, Tomatový základ, Sýr</li>
+            <li>177 Kč - 3. Pizza se žampióny<br>Žampióny - konzervované, Šunka, Tomatový základ, Sýr</li>
+            <li>180 Kč - 4. Pizza se žampióny a zeleninou<br>Žampióny - konzervované, Šunka, Tomatový základ, Sýr, Zelenina</li>
+            <li>180 Kč - 5. Pizza se salámem<br>Tomatový základ, Cibule, Salám - Herkules, Sýr</li>
+            <li>185 Kč - 6. Pizza se salámem a zeleninou<br>Tomatový základ, Salám - Herkules, Sýr, Zelenina</li>
+            <li>175 Kč - 7. Pizza se šunkou a salámem<br>Šunka, Tomatový základ, Salám - Herkules, Sýr</li>
+            <li>180 Kč - 8. Pizza se šunkou, salámem a zeleninou<br>Šunka, Tomatový základ, Salám - Herkules, Sýr, Zelenina</li>
+            <li>184 Kč - 9. Pizza se šunkou, salámem a žampióny<br>Žampióny - konzervované, Šunka, Tomatový základ, Sýr</li>
+            <li>190 Kč - 10. Pizza se šunkou, salámem, žampióny a zeleninou<br>Žampióny - konzervované, Šunka, Tomatový základ, Salám - Herkules, Sýr, Zelenina</li>
+            <li>195 Kč - 11. Pizza sýrová<br>Tomatový základ, Uzený sýr, Hermelín, Olivy, Sýr</li>
+            <li>210 Kč - 12. Pizza rybí<br>Tomatový základ, Cibule, Žampióny - konzervované, Tuňák, Sýr, Olejovky</li>
+            <li>191 Kč - 13. Pizza s feferony<br>Tomatový základ, Feferonky, Sýr, Olejovky</li>
+            <li>168 Kč - 14. Pizza zeleninová<br>Tomatový základ, Cibule, Zelenina, Olivy, Sýr</li>
+            <li>227 Kč - 15. Pizza quatro<br>Tomatový základ, Šunka, Salám - Herkules, Žampióny - konzervované, Zelenina, Uzený sýr, Hermelín, Olivy, Sýr, Olejovky</li>
+            <li>172 Kč - 16. Pizza studentská<br>Tomatový základ, Salám - Herkules, Žampióny - konzervované, Zelenina, Sýr</li>
+            <li>201 Kč - 17. Pizza mix<br>Tomatový základ, Šunka, Žampióny - konzervované, Cibule, Tuňák, Feferonky, Sýr</li>
+            <li>193 Kč - 18. Pizza havajská s ananasem<br>Tomatový základ, Šunka, Ananas, Sýr</li>
+            <li>193 Kč - 18. Pizza havajská s broskví<br>Tomatový základ, Šunka, Broskev, Sýr</li>
+            <li>193 Kč - 19. Pizza exotic<br>Tomatový základ, Šunka, Ananas, Sýr, Broskev</li>
+            <li>201 Kč - 25. Pizza s krabím masem<br>Tomatový základ, Tuňák, Žampióny - konzervované, Sýr, Krabí tyčinky</li>
+            <li>203 Kč - 26. Pizza s krabím masem a zeleninou<br>Tomatový základ, Tuňák, Žampióny - konzervované, Zelenina, Sýr, Krabí tyčinky</li>
+            <li>204 Kč - 27. Pizza s krabím masem a šunkou<br>Tomatový základ, Šunka, Žampióny - konzervované, Sýr, Krabí tyčinky</li>
+            <li>213 Kč - 28. Pizza s krabím masem, šunkou a zeleninou<br>Tomatový základ, Šunka, Žampióny - konzervované, Zelenina, Sýr, Krabí tyčinky</li>
+            <li>215 Kč - 29. Pizza rybí se šunkou<br>Tomatový základ, Šunka, Tuňák, Žampióny - konzervované, Cibule, Sýr, Olejovky</li>
+            <li>220 Kč - 30. Pizza rybí s krabím masem<br>Tomatový základ, Tuňák, Žampióny - konzervované, Cibule, Sýr, Olejovky, Krabí tyčinky</li>
+            <li>215 Kč - 32. Pizza sýrová s uzeným TOFU<br>Tomatový základ, Uzený sýr, Hermelín, Olivy, Sýr, TOFU uzené</li>
+            <li>270 Kč - 33. Pizza se šunkou, krabím masem a krevetami<br>Tomatový základ, Šunka, Tuňák, Žampióny - konzervované, Olivy, Sýr, Pórek, Krevety, Krabí tyčinky</li>
+            <li>274 Kč - 34. Pizza mořská<br>Tomatový základ, Tuňák, Krevety, Žampióny - konzervované, Cibule, Sýr, Olejovky, Krabí tyčinky</li>
+            <li>194 Kč - 35. Pizza se žampióny a pórkem<br>Tomatový základ, Šunka, Žampióny - konzervované, Pórek, Sýr</li>
+            <li>231 Kč - 36. Pizza kombi<br>Tomatový základ, Šunka, Salám - Herkules, Uzený sýr, Hermelín, Žampióny - konzervované, Pórek, Olivy, Sýr</li>
+            <li>204 Kč - 37. Pizza s ančovičkami<br>Tomatový základ, Ančovičky, Cibule, Sýr</li>
+            <li>306 Kč - 38. Pizza San Marino<br>Tomatový základ, Šunka, Salám - Herkules, Uzený sýr, Hermelín, Tuňák, Žampióny - konzervované, Pórek, Krevety, Feferonky, Olivy, Sýr</li>
+            <li>193 Kč - 39. Pizza s uzeným masem a žampióny<br>Tomatový základ, Žampióny - konzervované, Sýr, Uzené maso</li>
+            <li>222 Kč - 40. Pizza s uzeným masem, žampióny, špenátem a vejcem<br>Tomatový základ, Žampióny - konzervované, Špenát, Sýr, Vejce, Uzené maso</li>
+            <li>218 Kč - 41. Pizza s žampióny, šunkou, vejcem a tatarskou omáčkou<br>Tomatový základ, Žampióny - konzervované, Šunka, Sýr, Vejce, Tatarská omáčka</li>
+            <li>192 Kč - 42. Pizza s kuřecím masem<br>Tomatový základ, Kuřecí maso, Žampióny - konzervované, Sýr</li>
+            <li>205 Kč - 43. Pizza se špenátem, vejcem a uzeným masem<br>Tomatový základ, Sýr, Vejce, Špenát, Uzené maso</li>
+            <li>195 Kč - 44. Pizza s feferonky a masem<br>Tomatový základ, Šunka, Feferonky, Sýr</li>
+            <li>239 Kč - 45. Pizza s houbami<br>Tomatový základ, Houbový základ, Žampióny - konzervované, Sýr</li>
+            <li>238 Kč - 47. Pizza s nivou a šunkou<br>Tomatový základ, Šunka, Niva, Sýr</li>
+            <li>197 Kč - 48. Pizza s feferonky a nivou<br>Tomatový základ, Feferonky, Niva, Sýr</li>
+            <li>231 Kč - 49. Pizza s parmazánem<br>Tomatový základ, Šunka, Parmazán, Sýr</li>
+            <li>230 Kč - 50. Pizza s česnekem a bylinkami<br>Tomatový základ, Sýr, Česnek, Bylinky</li>
+            <li>240 Kč - 51. Pizza s tvarohem a bylinkami<br>Tomatový základ, Sýr, Tvaroh, Bylinky</li>
+            <li>198 Kč - 52. Pizza s olivami<br>Tomatový základ, Olivy, Sýr</li>
+            <li>197 Kč - 53. Pizza s nivou a olivami<br>Tomatový základ, Niva, Olivy, Sýr</li>
+        </ul>
+        
+        <h3>Další pokrmy</h3>
+        <ul class="další-pokrmy">
+            <li>102 Kč - Burger San Marino (s přílohou)</li>
+            <li>75 Kč - Hranolky (130g)</li>
+            <li>90 Kč - Smažený sýr</li>
+            <li>90 Kč - Kuřecí nugety (5ks)</li>
+            <li>82 Kč - Míchaný salát</li>
+        </ul>
+        
+        <h3>Platba</h3>
+        <p>Přijímáme hotovost, platební karty a online platby.</p>
+    </div>
+</section>
