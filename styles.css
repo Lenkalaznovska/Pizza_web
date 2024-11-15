@@ -1,8 +1,7 @@
 /* Globální styly */
 body {
-    background: linear-gradient(to bottom, #002b5b, #003f87) no-repeat, url('images/snowflakes.png');
-    background-size: cover, contain;
-    color: white;
+    background: linear-gradient(to bottom, #daf6db, #a7e3a1); /* Světle zelený vánoční motiv */
+    color: #002b5b; /* Modrozelený text */
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
@@ -12,8 +11,8 @@ body {
 h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #FFD700; /* Zlatý odstín */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    color: #ff4500; /* Vánoční červená */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* Kontejner pro obrázek */
@@ -24,16 +23,16 @@ h1 {
 
 /* Obrázek stromečku */
 .tree-image {
-    width: 490px; /* Snížená velikost o 10px */
+    width: 490px; /* Snížená velikost */
     height: 380px; /* Výška snížena o 10px */
     cursor: pointer;
-    transition: transform 2s; /* Slower rotation for smoother effect */
+    transition: transform 2s; /* Slower rotation */
     border-radius: 15px; /* Zaoblení rohů obrázku */
 }
 
 /* Efekt otáčení */
 .tree-image.rotate {
-    transform: rotateY(180deg); /* Rotate the image 180 degrees */
+    transform: rotateY(180deg);
 }
 
 /* Zadní strana obrázku (text slevového kódu) */
@@ -43,13 +42,13 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Increased transparency */
+    background-color: rgba(0, 0, 0, 0.6); /* Zvýšená průhlednost */
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.8rem; /* Larger font for better visibility */
-    font-weight: bold; /* Bold text */
+    font-size: 1.8rem; /* Větší text */
+    font-weight: bold; /* Text tučný */
     border-radius: 15px; /* Zaoblení rohů textového pole */
     visibility: hidden;
     opacity: 0;
@@ -61,15 +60,3 @@ h1 {
     visibility: visible;
     opacity: 1;
 }
-
-/* Sníh */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('images/snowflakes.png') repeat;
-    z-index: -1;
-    opacity: 0.6
