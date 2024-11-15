@@ -31,40 +31,40 @@
             }
         };
 
-        // Discount code generation and interaction
-        function generateDiscountMessage() {
-            const random = Math.random();
-            if (random < 0.6) {
-                return null; // 60% chance for "Dnes to nevyšlo"
-            } else if (random < 0.85) {
-                return 'VANOCE5'; // 25% chance for "VANOCE5"
-            } else if (random < 0.95) {
-                return 'VANOCE10'; // 10% chance for "VANOCE10"
-            } else {
-                return 'VANOCE15'; // 5% chance for "VANOCE15"
-            }
+// Discount code generation and interaction
+function generateDiscountMessage() {
+    const random = Math.random();
+    if (random < 0.6) {
+        return null; // 60% chance for "Dnes to nevyšlo"
+    } else if (random < 0.85) {
+        return 'VANOCE5'; // 25% chance for "VANOCE5"
+    } else if (random < 0.95) {
+        return 'VANOCE10'; // 10% chance for "VANOCE10"
+    } else {
+        return 'VANOCE15'; // 5% chance for "VANOCE15"
+    }
+}
+
+document.getElementById('tree-image').addEventListener('click', function () {
+    const treeImage = document.getElementById('tree-image');
+    const treeBack = document.getElementById('tree-back');
+    treeImage.classList.add('rotate');
+    treeBack.style.visibility = 'visible'; // Show the message container
+
+    setTimeout(() => {
+        const message = generateDiscountMessage();
+        const treeMessageElement = document.getElementById('tree-message');
+
+        if (message) {
+            treeMessageElement.innerHTML = message + "<br>Slevu uplatníte na našem webu.<br>Platnost kódu je do 31.12.2024";
+        } else {
+            treeMessageElement.innerHTML = "Dnes to nevyšlo, přijďte zase zítra!";
         }
 
-        document.getElementById('tree-image').addEventListener('click', function () {
-            const treeImage = document.getElementById('tree-image');
-            const treeBack = document.getElementById('tree-back');
-            treeImage.classList.add('rotate');
-            treeBack.style.visibility = 'visible'; // Show the message container
-
-            setTimeout(() => {
-                const message = generateDiscountMessage();
-                const treeMessageElement = document.getElementById('tree-message');
-
-                if (message) {
-                    treeMessageElement.innerHTML = message + "<br>Slevu uplatníte na našem webu.<br>Platnost kódu je do 31.12.2024";
-                } else {
-                    treeMessageElement.innerHTML = "Dnes to nevyšlo, přijďte zase zítra!";
-                }
-
-                treeImage.classList.remove('rotate'); // Stops animation but keeps it rotated
-                treeImage.style.transform = "rotateY(180deg)"; // Locks rotation
-            }, 2000); // 2-second rotation
-        });
+        treeImage.classList.remove('rotate'); // Stops animation but keeps it rotated
+        treeImage.style.transform = "rotateY(180deg)"; // Locks rotation
+    }, 2000); // 2-second rotation
+});
     </script>
 </body>
 </html>
