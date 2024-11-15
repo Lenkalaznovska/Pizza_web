@@ -7,56 +7,51 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="snowflakes"></div>
     <h1>Virtuální vánoční stromeček</h1>
     <div id="tree-container">
         <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image" id="tree-image">
-        <div id="tree-back" class="tree-back"><span id="discount-code"></span></div>
+        <div id="tree-back" class="tree-back">
+            <span id="tree-message"></span>
+        </div>
     </div>
-
     <script>
-        // Funkce pro generování slevového kódu s pravděpodobností
-        function generateDiscountCode() {
-            const randomChance = Math.random();
+        // Snow animation
+        document.body.onload = () => {
+            const snowContainer = document.createElement('div');
+            snowContainer.classList.add('snow');
+            document.body.appendChild(snowContainer);
 
-            if (randomChance < 0.1) {
-                return 'VANOCE15'; // 10% šance
-            } else if (randomChance < 0.3) {
-                return 'VANOCE10'; // 20% šance
+            for (let i = 0; i < 50; i++) {
+                const flake = document.createElement('div');
+                flake.className = 'flake';
+                flake.style.left = Math.random() * 100 + '%';
+                flake.style.animationDelay = Math.random() * 10 + 's';
+                snowContainer.appendChild(flake);
+            }
+        };
+
+        // Discount code generation and interaction
+        function generateDiscountMessage() {
+            const random = Math.random();
+            if (random < 0.1) {
+                return 'VANOCE15';
+            } else if (random < 0.3) {
+                return 'VANOCE10';
             } else {
-                return null; // 70% šance
+                return 'VANOCE5';
             }
         }
 
-        // Přidání události kliknutí na stromeček
         document.getElementById('tree-image').addEventListener('click', function () {
             const treeImage = document.getElementById('tree-image');
             treeImage.classList.add('rotate');
-            setTimeout(function () {
-                const discountCode = generateDiscountCode();
-                const discountText = document.getElementById('discount-code');
-                if (discountCode) {
-                    discountText.textContent = discountCode;
-                } else {
-                    discountText.textContent = "Dnes to nevyšlo, přijďte zase zítra.";
-                }
-            }, 2000);
+            setTimeout(() => {
+                const message = generateDiscountMessage();
+                document.getElementById('tree-message').textContent = 
+                    message.includes('VANOCE') ? `Slevový kód: ${message}` : "Dnes to nevyšlo, přijďte zase zítra.";
+                treeImage.classList.remove('rotate');
+            }, 2000); // 2-second rotation
         });
-
-        // Animace padajícího sněhu
-        function createSnowflakes() {
-            const snowflakesContainer = document.getElementById('snowflakes');
-            for (let i = 0; i < 50; i++) {
-                const flake = document.createElement('div');
-                flake.className = 'snowflake';
-                flake.style.left = `${Math.random() * 100}%`;
-                flake.style.animationDuration = `${Math.random() * 3 + 2}s`;
-                flake.style.opacity = `${Math.random()}`;
-                flake.style.fontSize = `${Math.random() * 10 + 10}px`;
-                snowflakesContainer.appendChild(flake);
-            }
-        }
-        createSnowflakes();
     </script>
 </body>
 </html>
