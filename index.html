@@ -8,32 +8,44 @@
 </head>
 <body>
     <h1>Virtuální vánoční stromeček</h1>
-    <div class="tree">
-        <div class="star"></div>
-        <div class="lights">
-            <div class="light"></div>
-            <div class="light"></div>
-            <div class="light"></div>
-        </div>
-    </div>
-    <div class="gifts">
-        <div class="gift" data-code="VANOCE5"></div>
-        <div class="gift" data-code="VANOCE10"></div>
-        <div class="gift" data-code="VANOCE15"></div>
-    </div>
-    <script>
-        // Rozbalení dárků
-        const gifts = document.querySelectorAll('.gift');
+    <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image">
 
-        gifts.forEach(gift => {
-            gift.addEventListener('click', () => {
-                const code = gift.getAttribute('data-code');
-                gift.textContent = `Slevový kód: ${code}`;
-                gift.style.backgroundColor = 'gold';
-                gift.style.color = 'black';
-                gift.style.pointerEvents = 'none'; // Zamezí opakovanému kliknutí
+    <div class="gifts">
+        <!-- Generování dárků -->
+        <div class="gift small" data-code="VANOCE5">VANOCE5</div>
+        <div class="gift medium" data-code="VANOCE10">VANOCE10</div>
+        <div class="gift large" data-code="VANOCE15">VANOCE15</div>
+        <div class="gift small" data-code="VANOCE5">VANOCE5</div>
+        <div class="gift medium" data-code="VANOCE10">VANOCE10</div>
+        <div class="gift large" data-code="VANOCE15">VANOCE15</div>
+        <!-- Další dárky dle potřeby -->
+    </div>
+
+    <script>
+        // Ověření IP adresy (falešná simulace, pro server-side použijte např. PHP)
+        const today = new Date().toDateString();
+        const userGiftOpenDate = localStorage.getItem('lastOpenedDate');
+
+        if (userGiftOpenDate === today) {
+            alert("Dnes už jste svůj dárek otevřeli. Přijďte zase zítra.");
+            document.querySelectorAll('.gift').forEach(gift => gift.style.pointerEvents = 'none');
+        } else {
+            // Interaktivita dárků
+            const gifts = document.querySelectorAll('.gift');
+            gifts.forEach(gift => {
+                gift.addEventListener('click', () => {
+                    if (!localStorage.getItem('lastOpenedDate')) {
+                        const code = gift.getAttribute('data-code');
+                        gift.textContent = `Slevový kód: ${code}`;
+                        gift.style.backgroundColor = 'gold';
+                        gift.style.color = 'black';
+                        localStorage.setItem('lastOpenedDate', today); // Nastaví dnešní datum
+                        gifts.forEach(gift => gift.style.pointerEvents = 'none'); // Zamezí dalšímu klikání
+                        alert("Přijďte zase zítra!");
+                    }
+                });
             });
-        });
+        }
     </script>
 </body>
 </html>
