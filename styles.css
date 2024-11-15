@@ -102,10 +102,8 @@
 /* Thank you message styles */
 #thank-you-message {
     margin-top: 20px;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0; /* Remove padding to reduce the space around the text */
+    background-color: transparent; /* Remove the white background */
     max-width: 50%; /* Further reduce width to make text even more compact */
     margin-left: auto;
     margin-right: auto;
