@@ -35,7 +35,7 @@
             const treeImage = document.getElementById('tree-image');
             treeImage.classList.add('rotate');
             setTimeout(function() {
-                treeImage.classList.remove('rotate');
+                treeImage.classList.add('rotated'); // Zanechání obrázku otočeného
                 const discountCode = generateDiscountCode(); // Vygenerování slevového kódu
                 const treeBack = document.getElementById('tree-back');
                 const notification = document.getElementById('notification');
