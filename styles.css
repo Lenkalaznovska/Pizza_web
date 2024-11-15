@@ -8,6 +8,29 @@ body {
     margin: 0;
 }
 
+/* Christmas-themed heading */
+h1 {
+    font-size: 3rem;
+    color: #3cb371; /* Festive green */
+    text-shadow: 2px 2px 5px #006400, 0 0 10px #228b22; /* Shadow and glow effect */
+    font-weight: bold;
+    margin-bottom: 30px;
+    animation: shimmer 3s infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+    0% {
+        text-shadow: 2px 2px 5px #006400, 0 0 10px #228b22;
+    }
+    50% {
+        text-shadow: 4px 4px 10px #32cd32, 0 0 15px #90ee90;
+    }
+    100% {
+        text-shadow: 2px 2px 5px #006400, 0 0 10px #228b22;
+    }
+}
+
 /* Snow animation */
 .snow {
     position: fixed;
