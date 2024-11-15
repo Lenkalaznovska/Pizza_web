@@ -45,15 +45,6 @@
             // Generování kódu nebo zprávy
             const code = generateCode();
             treeMessage.textContent = code;  // Zobrazení kódu nebo zprávy
-
-            // Pro testování otočení vícekrát (Pokud chcete)
-            setTimeout(() => {
-                tree.style.transform = 'rotateY(0deg)'; // Zpět na původní pozici
-                setTimeout(() => {
-                    tree.style.transform = 'rotateY(180deg)';
-                    treeMessage.textContent = generateCode(); // Opět generování nového kódu nebo zprávy
-                }, 1000);
-            }, 2000); // Otočení po 2 sekundách a opět po 1 sekundě zpět
         });
     </script>
 
