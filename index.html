@@ -14,11 +14,11 @@
     <div id="notification" class="notification"></div>
 
     <script>
-        // Funkce pro generování slevového kódu
+        // Funkce pro generování slevového kódu pro testování
         function generateDiscountCode() {
             const codes = ['VANOCE5', 'VANOCE10', 'VANOCE15'];
-            // Pro testovací účely bude vždy generováno 'VANOCE10'
-            return 'VANOCE10';
+            const randomCode = codes[Math.floor(Math.random() * codes.length)]; // Generování náhodného kódu
+            return randomCode;
         }
 
         // Přidání události kliknutí na stromeček
@@ -27,9 +27,13 @@
             const notification = document.getElementById('notification');
             
             // Zobrazení modrého pruhu s kódem pod stromečkem
-            notification.textContent = `Váš slevový kód je: ${discountCode}. Platný do 31.12.2024`;
+            notification.textContent = `Váš slevový kód je: ${discountCode} Platný do 31.12.2024`;
             notification.style.display = 'block';  // Zobrazení pruhu
         });
     </script>
+
+    <!-- Sněžení -->
+    <div class="snow"></div>
+
 </body>
 </html>
