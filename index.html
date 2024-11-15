@@ -8,38 +8,36 @@
 </head>
 <body>
     <h1>Virtuální vánoční stromeček</h1>
-    <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image" id="tree-image">
-    
-    <!-- Modrý pruh s notifikací, který je skrytý, dokud zákazník neklikne -->
+
+    <!-- Obal pro stromeček s možností otočení -->
+    <div class="tree-container" id="tree-container">
+        <div class="tree" id="tree">
+            <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image">
+            <div class="tree-back">
+                <p id="tree-message">Dnes žádná odměna. Přijďte zase zítra!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifikace pro zobrazení zprávy -->
     <div id="notification" class="notification"></div>
 
     <script>
-        // Funkce pro generování slevového kódu pro testování
-        function generateDiscountCode() {
-            const codes = ['VANOCE5', 'VANOCE10', 'VANOCE15'];
-            const randomCode = codes[Math.floor(Math.random() * codes.length)]; // Generování náhodného kódu
-            return randomCode;
-        }
-
         // Přidání události kliknutí na stromeček
-        document.getElementById('tree-image').addEventListener('click', function() {
-            const discountCode = generateDiscountCode(); // Vygenerování slevového kódu
+        document.getElementById('tree-container').addEventListener('click', function() {
+            const tree = document.getElementById('tree');
+            const treeMessage = document.getElementById('tree-message');
             const notification = document.getElementById('notification');
             
-            // Zobrazení modrého pruhu s kódem pod stromečkem
-            notification.textContent = `Váš slevový kód je: ${discountCode} Platný do 31.12.2024`;
-            notification.style.display = 'block';  // Zobrazení pruhu
+            // Otočení stromečku
+            tree.style.transform = 'rotateY(180deg)';  // Otočení o 180 stupňů
+            
+            // Zobrazení zprávy
+            treeMessage.textContent = "Dnes žádná odměna. Přijďte zase zítra!";
 
-            // Generování kódu a notifikace pro další generování nebo "žádná odměna"
-            setTimeout(function() {
-                const noReward = Math.random() < 0.5; // 50% šance na žádnou odměnu
-                if (noReward) {
-                    notification.textContent = `Dnes žádná odměna. Přijďte zítra!`;
-                } else {
-                    const newCode = generateDiscountCode();
-                    notification.textContent = `Váš nový kód je: ${newCode} Platný do 31.12.2024`;
-                }
-            }, 3000); // Po 3 sekundách se zobrazí nový kód nebo zpráva
+            // Zobrazení notifikace pod stromečkem
+            notification.textContent = treeMessage.textContent;
+            notification.style.display = 'block';  // Zobrazení pruhu s informací
         });
     </script>
 
