@@ -30,6 +30,10 @@ h1 {
     transform-style: preserve-3d;
 }
 
+.tree-front, .tree-back {
+    backface-visibility: hidden;
+}
+
 .tree-image {
     width: 100%;
     height: auto;
@@ -49,10 +53,10 @@ h1 {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    backface-visibility: hidden; /* Skrytí zadní strany při normálním pohledu */
     padding: 20px;
     text-align: center;
     font-size: 1.2rem;
+    backface-visibility: hidden; /* Skrytí zadní strany při normálním pohledu */
 }
 
 /* Sněžení - animace */
