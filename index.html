@@ -52,7 +52,7 @@
             setTimeout(() => {
                 const message = generateDiscountMessage();
                 if (message) {
-                    document.getElementById('tree-message').textContent = message;
+                    document.getElementById('tree-message').textContent = message + " (Platnost do 31.12.2024)";
                 } else {
                     document.getElementById('tree-message').textContent = "Dnes to nevyšlo, přijďte zase zítra!";
                 }
