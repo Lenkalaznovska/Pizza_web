@@ -23,6 +23,20 @@
     <div id="notification" class="notification"></div>
 
     <script>
+        // Funkce pro generování kódu podle pravděpodobnosti
+        function generateCode() {
+            const random = Math.random();
+            if (random < 0.05) {
+                return "VANOCE5";  // 5% šance na kód VANOCE5
+            } else if (random < 0.15) {
+                return "VANOCE10";  // 10% šance na kód VANOCE10
+            } else if (random < 0.30) {
+                return "VANOCE15";  // 15% šance na kód VANOCE15
+            } else {
+                return "Nic";  // 70% šance na nic
+            }
+        }
+
         // Přidání události kliknutí na stromeček
         document.getElementById('tree-container').addEventListener('click', function() {
             const tree = document.getElementById('tree');
@@ -31,13 +45,23 @@
             
             // Otočení stromečku
             tree.style.transform = 'rotateY(180deg)';  // Otočení o 180 stupňů
-            
-            // Zobrazení zprávy
-            treeMessage.textContent = "Dnes žádná odměna. Přijďte zase zítra!";
 
-            // Zobrazení notifikace pod stromečkem
-            notification.textContent = treeMessage.textContent;
+            // Generování kódu
+            const code = generateCode();
+            treeMessage.textContent = code;
+
+            // Zobrazení zprávy v notifikaci
+            notification.textContent = code;
             notification.style.display = 'block';  // Zobrazení pruhu s informací
+
+            // Pro testování otočení vícekrát (Pokud chcete)
+            setTimeout(() => {
+                tree.style.transform = 'rotateY(0deg)'; // Zpět na původní pozici
+                setTimeout(() => {
+                    tree.style.transform = 'rotateY(180deg)';
+                    treeMessage.textContent = generateCode(); // Opět generování nového kódu
+                }, 1000);
+            }, 2000); // Otočení po 2 sekundách a opět po 1 sekundě zpět
         });
     </script>
 
