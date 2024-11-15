@@ -14,18 +14,19 @@
             <span id="tree-message"></span>
         </div>
     </div>
+
     <script>
-        // Function to generate the discount code or message
+        // Function to generate the discount code or a friendly message
         function generateMessage() {
             const random = Math.random();
             if (random < 0.1) {
-                return 'Slevový kód: VANOCE15';
+                return 'VANOCE15'; // 15% discount
             } else if (random < 0.3) {
-                return 'Slevový kód: VANOCE10';
+                return 'VANOCE10'; // 10% discount
             } else if (random < 0.6) {
-                return 'Slevový kód: VANOCE5';
+                return 'VANOCE5';  // 5% discount
             } else {
-                return 'Dnes to nevyšlo, přijďte zítra!';
+                return 'Dnes to nevyšlo, přijďte zítra!'; // No discount today
             }
         }
 
@@ -33,13 +34,13 @@
         const treeBack = document.getElementById('tree-back');
         const treeMessage = document.getElementById('tree-message');
 
-        // Click event for the tree image
+        // Event listener for image click
         treeImage.addEventListener('click', function () {
             treeImage.classList.add('rotate');
             setTimeout(() => {
                 const message = generateMessage();
                 treeMessage.textContent = message;
-                treeImage.style.display = 'none'; // Hide the image
+                treeImage.style.display = 'none'; // Hide the front image
                 treeBack.style.visibility = 'visible'; // Show the back
             }, 2000); // Rotation duration: 2 seconds
         });
