@@ -8,50 +8,28 @@
 </head>
 <body>
     <h1>Virtuální vánoční stromeček</h1>
-
-    <!-- Obal pro stromeček s možností otočení -->
-    <div class="tree-container" id="tree-container">
-        <div class="tree" id="tree">
-            <div class="tree-front">
-                <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image">
-            </div>
-            <div class="tree-back">
-                <p id="tree-message">Dnes žádná odměna. Přijďte zase zítra!</p>
-            </div>
-        </div>
-    </div>
+    <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image" id="tree-image">
+    <div id="notification" class="notification"></div>
 
     <script>
-        // Funkce pro generování kódu podle pravděpodobnosti
-        function generateCode() {
-            const random = Math.random();
-            if (random < 0.05) {
-                return "VANOCE5";  // 5% šance na kód VANOCE5
-            } else if (random < 0.15) {
-                return "VANOCE10";  // 10% šance na kód VANOCE10
-            } else if (random < 0.30) {
-                return "VANOCE15";  // 15% šance na kód VANOCE15
-            } else {
-                return "Dnes žádná odměna. Přijďte zase zítra!";  // 70% šance na nic
-            }
+        // Funkce pro generování slevového kódu
+        function generateDiscountCode() {
+            const codes = ['VANOCE5', 'VANOCE10', 'VANOCE15'];
+            const randomCode = codes[Math.floor(Math.random() * codes.length)];
+            return randomCode;
         }
 
         // Přidání události kliknutí na stromeček
-        document.getElementById('tree-container').addEventListener('click', function() {
-            const tree = document.getElementById('tree');
-            const treeMessage = document.getElementById('tree-message');
+        document.getElementById('tree-image').addEventListener('click', function() {
+            const discountCode = generateDiscountCode(); // Vygenerování slevového kódu
+            const notification = document.getElementById('notification');
             
-            // Otočení stromečku
-            tree.style.transform = 'rotateY(180deg)';  // Otočení o 180 stupňů
-
-            // Generování kódu nebo zprávy
-            const code = generateCode();
-            treeMessage.textContent = code;  // Zobrazení kódu nebo zprávy
+            if (discountCode) {
+                notification.textContent = "Váš slevový kód je: " + discountCode;
+            } else {
+                notification.textContent = "Dnes pro vás žádný slevový kód není.";
+            }
         });
     </script>
-
-    <!-- Sněžení -->
-    <div class="snow"></div>
-
 </body>
 </html>
