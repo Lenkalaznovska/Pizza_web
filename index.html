@@ -49,13 +49,14 @@
             treeImage.classList.add('rotate');
             treeBack.style.visibility = 'visible'; // Show the message container
 
-            // Change background color on rotation
-            treeBack.style.backgroundColor = '#77b55e'; // Lighter green color
-
             setTimeout(() => {
                 const message = generateDiscountMessage();
-                document.getElementById('tree-message').textContent =
-                    message + " - Dnes to nevyšlo, přijďte zase zítra!"; // Add the fallback message
+                if (message) {
+                    document.getElementById('tree-message').textContent = message;
+                } else {
+                    document.getElementById('tree-message').textContent = "Dnes to nevyšlo, přijďte zase zítra!";
+                }
+
                 treeImage.classList.remove('rotate'); // Stops animation but keeps it rotated
                 treeImage.style.transform = "rotateY(180deg)"; // Locks rotation
             }, 2000); // 2-second rotation
