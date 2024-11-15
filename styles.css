@@ -21,7 +21,7 @@ h1 {
 
 /* Obrázek stromečku */
 .tree-image {
-    width: 300px;
+    width: 500px; /* Zvýšení velikosti obrázku */
     height: auto;
     cursor: pointer;
     transition: transform 2s; /* Slower rotation for smoother effect */
