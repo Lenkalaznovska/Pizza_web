@@ -1,33 +1,66 @@
-/* Globální styly */
+/* Globální styl */
 body {
-    background: linear-gradient(to bottom, #daf6db, #a7e3a1); /* Světle zelený vánoční motiv */
-    color: #002b5b; /* Modrozelený text */
+    background: linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d); /* Vánoční přechod */
+    color: #ffffff;
     font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
     margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow: hidden; /* Skryje přetečení při sněhu */
 }
 
+/* Padající sníh */
+#snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    color: white;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* Nadpis */
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #ff4500; /* Vánoční červená */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    font-size: 3rem;
+    margin: 20px 0;
+    color: #ffde59; /* Vánoční zlatá */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 /* Kontejner pro obrázek */
 #tree-container {
     position: relative;
-    display: inline-block;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60vh; /* Zabírá více prostoru vertikálně */
 }
 
 /* Obrázek stromečku */
 .tree-image {
-    width: 490px; /* Snížená velikost */
-    height: 380px; /* Výška snížena o 10px */
+    width: 550px; /* Zvýšená velikost */
+    height: auto;
     cursor: pointer;
-    transition: transform 2s; /* Slower rotation */
-    border-radius: 15px; /* Zaoblení rohů obrázku */
+    transition: transform 2s;
+    border-radius: 25px; /* Zaoblení rohů obrázku */
 }
 
 /* Efekt otáčení */
@@ -35,21 +68,21 @@ h1 {
     transform: rotateY(180deg);
 }
 
-/* Zadní strana obrázku (text slevového kódu) */
+/* Zadní strana obrázku */
 #tree-back {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Zvýšená průhlednost */
+    background-color: rgba(0, 0, 0, 0.6);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.8rem; /* Větší text */
-    font-weight: bold; /* Text tučný */
-    border-radius: 15px; /* Zaoblení rohů textového pole */
+    font-size: 2rem; /* Větší text */
+    font-weight: bold;
+    border-radius: 25px;
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.5s;
