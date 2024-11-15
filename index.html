@@ -29,6 +29,17 @@
             // Zobrazení modrého pruhu s kódem pod stromečkem
             notification.textContent = `Váš slevový kód je: ${discountCode} Platný do 31.12.2024`;
             notification.style.display = 'block';  // Zobrazení pruhu
+
+            // Generování kódu a notifikace pro další generování nebo "žádná odměna"
+            setTimeout(function() {
+                const noReward = Math.random() < 0.5; // 50% šance na žádnou odměnu
+                if (noReward) {
+                    notification.textContent = `Dnes žádná odměna. Přijďte zítra!`;
+                } else {
+                    const newCode = generateDiscountCode();
+                    notification.textContent = `Váš nový kód je: ${newCode} Platný do 31.12.2024`;
+                }
+            }, 3000); // Po 3 sekundách se zobrazí nový kód nebo zpráva
         });
     </script>
 
