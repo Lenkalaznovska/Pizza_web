@@ -10,6 +10,7 @@
     <h1>Virtuální vánoční stromeček</h1>
     <div id="tree-container">
         <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image" id="tree-image">
+        <div id="tree-back" class="tree-back">Slevový kód: <span id="discount-code"></span></div>
     </div>
     <div id="notification" class="notification"></div>
 
@@ -34,17 +35,17 @@
             const treeImage = document.getElementById('tree-image');
             treeImage.classList.add('rotate');
             setTimeout(function() {
-                treeImage.classList.remove('rotate');
                 const discountCode = generateDiscountCode(); // Vygenerování slevového kódu
                 const notification = document.getElementById('notification');
                 
                 // Zobrazení slevového kódu nebo zprávy
                 if (discountCode) {
-                    notification.textContent = "Máte nový slevový kód: " + discountCode;
+                    document.getElementById('discount-code').textContent = discountCode;
+                    notification.textContent = "Máte nový slevový kód!";
                 } else {
                     notification.textContent = "Dnes pro vás žádný slevový kód není.";
                 }
-            }, 1000); // Doba otáčení 1 sekunda
+            }, 2000); // Zpoždění pro zajištění otáčení obrázku, 2 sekundy
         });
     </script>
 </body>
