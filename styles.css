@@ -21,13 +21,14 @@ h1 {
     cursor: pointer;
 }
 
-/* Notifikace */
+/* Notifikace - modrý pruh, skrytý až do kliknutí */
 .notification {
+    display: none; /* Pruh je skrytý, dokud zákazník neklikne */
+    background-color: #0056b3; /* Modrá barva */
     margin-top: 20px;
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 5px;
 }
