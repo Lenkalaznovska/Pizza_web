@@ -14,23 +14,10 @@
             <span id="tree-message"></span>
         </div>
     </div>
+    <div id="notification" class="notification"></div>
+
     <script>
-        // Snow animation
-        document.body.onload = () => {
-            const snowContainer = document.createElement('div');
-            snowContainer.classList.add('snow');
-            document.body.appendChild(snowContainer);
-
-            for (let i = 0; i < 50; i++) {
-                const flake = document.createElement('div');
-                flake.className = 'flake';
-                flake.style.left = Math.random() * 100 + '%';
-                flake.style.animationDelay = Math.random() * 10 + 's';
-                snowContainer.appendChild(flake);
-            }
-        };
-
-        // Discount code generation and interaction
+        // Generate discount code
         function generateDiscountMessage() {
             const random = Math.random();
             if (random < 0.1) {
@@ -42,16 +29,23 @@
             }
         }
 
+        // Handle tree click
         document.getElementById('tree-image').addEventListener('click', function () {
             const treeImage = document.getElementById('tree-image');
+            const treeMessage = document.getElementById('tree-message');
+            const notification = document.getElementById('notification');
+
+            // Add rotation animation
             treeImage.classList.add('rotate');
+
+            // Display message after rotation
             setTimeout(() => {
+                treeImage.style.transform = "rotateY(180deg)"; // Lock rotation
                 const message = generateDiscountMessage();
-                document.getElementById('tree-message').textContent =
-                    message || "Dnes to nevyšlo, přijďte zase zítra.";
-                treeImage.classList.remove('rotate'); // Stops animation but keeps it rotated
-                treeImage.style.transform = "rotateY(180deg)"; // Locks rotation
-            }, 2000); // 2-second rotation
+                treeMessage.textContent = message || "Dnes to nevyšlo, přijďte zase zítra.";
+                notification.textContent = message ? "Máte nový slevový kód!" : "";
+                treeImage.classList.remove('rotate');
+            }, 2000); // 2-second rotation duration
         });
     </script>
 </body>
