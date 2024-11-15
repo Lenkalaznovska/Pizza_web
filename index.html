@@ -9,8 +9,8 @@
 <body>
     <h1>Virtuální vánoční stromeček</h1>
     <div id="tree-container">
-        <div id="tree-back" class="tree-back">Slevový kód: <span id="discount-code"></span></div>
         <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image" id="tree-image">
+        <div id="tree-back" class="tree-back">Slevový kód: <span id="discount-code"></span></div>
     </div>
     <div id="notification" class="notification"></div>
 
@@ -33,20 +33,19 @@
         document.getElementById('tree-image').addEventListener('click', function() {
             // Otáčení obrázku
             const treeImage = document.getElementById('tree-image');
-            const treeBack = document.getElementById('tree-back');
-            const notification = document.getElementById('notification');
-            
             treeImage.classList.add('rotate');
             setTimeout(function() {
-                treeImage.classList.add('rotated'); // Zanechání obrázku otočeného
+                treeImage.classList.remove('rotate');
                 const discountCode = generateDiscountCode(); // Vygenerování slevového kódu
-
+                const treeBack = document.getElementById('tree-back');
+                const notification = document.getElementById('notification');
+                
                 // Zobrazení slevového kódu nebo zprávy
                 if (discountCode) {
                     document.getElementById('discount-code').textContent = discountCode;
                     notification.textContent = "Máte nový slevový kód!";
                 } else {
-                    notification.textContent = "Dnes to nevyšlo. Přijďte zase zítra.";
+                    notification.textContent = "Dnes pro vás žádný slevový kód není.";
                     treeBack.textContent = "Dnes tu není žádná odměna, přijďte zase zítra.";
                 }
             }, 1000); // Doba otáčení 1 sekunda
