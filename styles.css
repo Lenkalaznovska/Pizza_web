@@ -1,110 +1,106 @@
-        /* Body styling with Pizzakladno background color */
-        body {
-            background-color: #e3f2fd; /* Pizzakladno soft light blue color */
-            font-family: Arial, sans-serif;
-            color: #002b5b; /* Dark blue for contrast */
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+/* Body styling with Pizzakladno background color */
+body {
+    background-color: #e3f2fd; /* Pizzakladno soft light blue color */
+    font-family: Arial, sans-serif;
+    color: #002b5b; /* Dark blue for contrast */
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
 
-        /* Christmas-themed heading */
-        h1 {
-            font-size: 2.5rem;
-            color: #2e8b57; /* Muted green */
-            text-shadow: 1px 1px 3px #004d1a;
-            font-weight: bold;
-            margin-bottom: 30px;
-            animation: shimmer 6s infinite;
-        }
+/* Christmas-themed heading */
+h1 {
+    font-size: 2.5rem;
+    color: #2e8b57; /* Muted green */
+    text-shadow: 1px 1px 3px #004d1a;
+    font-weight: bold;
+    margin-bottom: 30px;
+    animation: shimmer 6s infinite;
+}
 
-        /* Softer shimmer effect */
-        @keyframes shimmer {
-            0%, 100% {
-                text-shadow: 1px 1px 3px #004d1a;
-            }
-            50% {
-                text-shadow: 2px 2px 6px #006622;
-            }
-        }
+/* Softer shimmer effect */
+@keyframes shimmer {
+    0%, 100% {
+        text-shadow: 1px 1px 3px #004d1a;
+    }
+    50% {
+        text-shadow: 2px 2px 6px #006622;
+    }
+}
 
-        /* Snow animation */
-        .snow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
+/* Snow animation */
+.snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
 
-        .flake {
-            position: absolute;
-            top: -10px;
-            width: 8px;
-            height: 8px;
-            background: white;
-            opacity: 0.8;
-            border-radius: 50%;
-            animation: fall 10s linear infinite;
-        }
+.flake {
+    position: absolute;
+    top: -10px;
+    width: 8px;
+    height: 8px;
+    background: white;
+    opacity: 0.8;
+    border-radius: 50%;
+    animation: fall 10s linear infinite;
+}
 
-        @keyframes fall {
-            to {
-                transform: translateY(100vh);
-            }
-        }
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
 
-        /* Center the tree container */
-        #tree-container {
-            margin: 50px auto;
-            position: relative;
-            display: inline-block;
-        }
+/* Center the tree container */
+#tree-container {
+    margin: 50px auto;
+    position: relative;
+    display: inline-block;
+}
 
-        /* Tree image styling */
-        .tree-image {
-            width: 450px; /* Enlarged image size */
-            height: auto;
-            cursor: pointer;
-            border-radius: 20px; /* Rounded corners */
-            transition: transform 2s;
-        }
+/* Tree image styling */
+.tree-image {
+    width: 450px; /* Enlarged image size */
+    height: auto;
+    cursor: pointer;
+    border-radius: 20px; /* Rounded corners */
+    transition: transform 2s;
+}
 
-        .tree-image.rotate {
-            transform: rotateY(180deg);
-        }
+.tree-image.rotate {
+    transform: rotateY(180deg);
+}
 
-        /* Back content */
-        .tree-back {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            background-color: rgba(0, 43, 91, 0.8); /* Darker transparent background */
-            border-radius: 20px;
-            opacity: 1;
-            visibility: hidden; /* Initially hidden */
-        }
+/* Back content */
+.tree-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: rgba(0, 43, 91, 0.8); /* Darker transparent background */
+    border-radius: 20px;
+    opacity: 1;
+    visibility: hidden; /* Initially hidden */
+}
 
 /* Thank you message styles */
 #thank-you-message {
     margin-top: 20px;
     padding: 5px 10px; /* Reduced padding for a tighter fit */
     background-color: #ffffff; /* White background behind the text */
-    max-width: 40%; /* Smaller container width */
+    max-width: calc(40% - 30px); /* Smaller container width reduced by 30px from left and right */
     margin-left: auto;
     margin-right: auto;
     color: #333; /* Darker color for contrast */
@@ -126,7 +122,7 @@
     }
 
     #thank-you-message {
-        max-width: 70%; /* Slightly wider text container on small screens */
+        max-width: calc(70% - 30px); /* Slightly wider text container on small screens, reduced by 30px */
         font-size: 0.85em; /* Slightly smaller font on mobile */
     }
 }
