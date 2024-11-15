@@ -23,7 +23,7 @@ h1 {
 .tree-image {
     width: 300px;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 0; /* Removing margin to remove the space under the image */
     cursor: pointer;
     transition: transform 1s;
 }
@@ -33,34 +33,14 @@ h1 {
     transform: rotateY(180deg);
 }
 
-/* Zadní strana obrázku (text slevového kódu) */
+/* Zadní strana obrázku (text slevového kódu) - Removed */
 #tree-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    border-radius: 10px;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.5s;
+    display: none; /* Hide the text behind the tree image */
 }
 
-/* Zobrazení zadní strany při otáčení */
-.tree-image.rotate + #tree-back {
-    visibility: visible;
-    opacity: 1;
-}
-
-/* Notifikace */
+/* Notifikace - Removed the text under the image */
 .notification {
-    margin-top: 20px;
+    margin-top: 0; /* Removed extra space for notification */
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
