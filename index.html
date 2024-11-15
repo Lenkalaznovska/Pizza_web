@@ -30,13 +30,10 @@
 
         // Přidání události kliknutí na stromeček
         document.getElementById('tree-image').addEventListener('click', function() {
-            // Otáčení obrázku
             const treeImage = document.getElementById('tree-image');
             treeImage.classList.add('rotate');
             setTimeout(function() {
                 const discountCode = generateDiscountCode(); // Vygenerování slevového kódu
-                
-                // Zobrazení slevového kódu nebo alternativní zprávy
                 const treeBack = document.getElementById('tree-back');
                 const discountText = document.getElementById('discount-code');
                 if (discountCode) {
