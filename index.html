@@ -9,25 +9,16 @@
 <body>
     <h1>Virtuální vánoční stromeček</h1>
     <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image" id="tree-image">
+    
+    <!-- Modrý pruh s notifikací, který je skrytý, dokud zákazník neklikne -->
     <div id="notification" class="notification"></div>
 
     <script>
         // Funkce pro generování slevového kódu
         function generateDiscountCode() {
             const codes = ['VANOCE5', 'VANOCE10', 'VANOCE15'];
-            const randomCode = codes[Math.floor(Math.random() * codes.length)];
-            return randomCode;
-        }
-
-        // Funkce pro generování zprávy v případě, že kód není vygenerován
-        function generateNoCodeMessage() {
-            const messages = [
-                "Dnes to nevyslo, zkuste to zítra.",
-                "Bohužel, dnes žádný slevový kód není.",
-                "Zkuste štěstí zítra, dnes to nevyšlo.",
-                "Dnes vám kód nepadl, zítra to může být jinak!"
-            ];
-            return messages[Math.floor(Math.random() * messages.length)];
+            // Pro testovací účely bude vždy generováno 'VANOCE10'
+            return 'VANOCE10';
         }
 
         // Přidání události kliknutí na stromeček
@@ -35,11 +26,9 @@
             const discountCode = generateDiscountCode(); // Vygenerování slevového kódu
             const notification = document.getElementById('notification');
             
-            if (discountCode) {
-                notification.textContent = `Váš slevový kód je: ${discountCode}. Platný do 31.12.2024.`;
-            } else {
-                notification.textContent = generateNoCodeMessage();
-            }
+            // Zobrazení modrého pruhu s kódem pod stromečkem
+            notification.textContent = `Váš slevový kód je: ${discountCode}. Platný do 31.12.2024`;
+            notification.style.display = 'block';  // Zobrazení pruhu
         });
     </script>
 </body>
