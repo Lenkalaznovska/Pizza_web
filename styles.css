@@ -65,7 +65,7 @@ h1 {
 
 /* Tree image styling */
 .tree-image {
-    width: 400px; /* Adjusted size */
+    width: 450px; /* Enlarged image size */
     height: auto;
     cursor: pointer;
     border-radius: 20px; /* Rounded corners */
@@ -89,8 +89,8 @@ h1 {
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
-    background-color: rgba(0, 43, 91, 0.85); /* Darker and transparent for better visibility */
+    background-color: rgba(0, 43, 91, 0); /* Transparent background */
     border-radius: 20px;
     opacity: 1;
-    visibility: visible;
+    visibility: hidden; /* Initially hidden */
 }
