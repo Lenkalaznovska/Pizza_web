@@ -47,8 +47,8 @@ h1 {
     align-items: center;
     font-size: 1.5rem;
     border-radius: 10px;
-    visibility: visible; /* Zadní strana je viditelná ihned po otočení */
-    opacity: 1;
+    visibility: hidden; /* Zadní strana není viditelná, dokud není obrázek otočený */
+    opacity: 0;
     transition: opacity 0.5s;
 }
 
@@ -64,6 +64,7 @@ h1 {
 }
 
 /* Zanechání obrázku otočeného */
-.tree-image.rotated {
-    transform: rotateY(180deg);
+.tree-image.rotated + #tree-back {
+    visibility: visible;
+    opacity: 1;
 }
