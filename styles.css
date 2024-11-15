@@ -106,12 +106,12 @@
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 60%; /* Further reduce the width to make text wrap to even more lines */
+    max-width: 50%; /* Further reduce width to make text even more compact */
     margin-left: auto;
     margin-right: auto;
     color: #333;
-    font-size: 1rem; /* Keep the font size the same */
-    line-height: 1.5; /* Slightly increase line spacing for better readability */
+    font-size: 0.9rem; /* Make font smaller */
+    line-height: 1.3; /* Reduce line height for tighter text */
     text-align: center;
 }
 
@@ -127,7 +127,7 @@
     }
 
     #thank-you-message {
-        max-width: 85%; /* Make text container wider on small screens */
-        font-size: 0.9em; /* Slightly smaller font on mobile */
+        max-width: 80%; /* Make text container wider on small screens */
+        font-size: 0.85em; /* Slightly smaller font on mobile */
     }
 }
