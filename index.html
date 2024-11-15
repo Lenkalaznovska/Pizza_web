@@ -8,46 +8,28 @@
 </head>
 <body>
     <h1>Virtuální vánoční stromeček</h1>
-    <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image">
-
-    <div class="gifts">
-        <!-- Generování dárků -->
-        <div class="gift" data-code="VANOCE5"></div>
-        <div class="gift" data-code="VANOCE10"></div>
-        <div class="gift" data-code="VANOCE15"></div>
-        <div class="gift" data-code="V tomto dárku není ukryta odměna."></div>
-        <div class="gift" data-code="VANOCE5"></div>
-        <div class="gift" data-code="VANOCE10"></div>
-        <div class="gift" data-code="V tomto dárku není ukryta odměna."></div>
-        <div class="gift" data-code="VANOCE15"></div>
-        <div class="gift" data-code="V tomto dárku není ukryta odměna."></div>
-        <div class="gift" data-code="VANOCE5"></div>
-        <div class="gift" data-code="VANOCE10"></div>
-        <div class="gift" data-code="V tomto dárku není ukryta odměna."></div>
-    </div>
+    <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image" id="tree-image">
+    <div id="notification" class="notification"></div>
 
     <script>
-        const today = new Date().toDateString();
-        const userGiftOpenDate = localStorage.getItem('lastOpenedDate');
-
-        if (userGiftOpenDate === today) {
-            alert("Dnes už jste svůj dárek otevřeli. Přijďte zase zítra.");
-            document.querySelectorAll('.gift').forEach(gift => gift.style.pointerEvents = 'none');
-        } else {
-            const gifts = document.querySelectorAll('.gift');
-            gifts.forEach(gift => {
-                gift.addEventListener('click', () => {
-                    if (!localStorage.getItem('lastOpenedDate')) {
-                        const code = gift.getAttribute('data-code');
-                        gift.textContent = code;
-                        gift.style.pointerEvents = 'none';
-                        localStorage.setItem('lastOpenedDate', today); // Nastaví dnešní datum
-                        gifts.forEach(g => g.style.pointerEvents = 'none'); // Zamezí dalším klikáním
-                        alert("Přijďte zase zítra!");
-                    }
-                });
-            });
+        // Funkce pro generování slevového kódu
+        function generateDiscountCode() {
+            const codes = ['VANOCE5', 'VANOCE10', 'VANOCE15'];
+            const randomCode = codes[Math.floor(Math.random() * codes.length)];
+            return randomCode;
         }
+
+        // Přidání události kliknutí na stromeček
+        document.getElementById('tree-image').addEventListener('click', function() {
+            const discountCode = generateDiscountCode(); // Vygenerování slevového kódu
+            const notification = document.getElementById('notification');
+            
+            if (discountCode) {
+                notification.textContent = "Váš slevový kód je: " + discountCode;
+            } else {
+                notification.textContent = "Dnes pro vás žádný slevový kód není.";
+            }
+        });
     </script>
 </body>
 </html>
