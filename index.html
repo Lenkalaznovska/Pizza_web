@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>🎄 Virtuální vánoční stromeček 🎄</h1>
+    <h1>Virtuální vánoční stromeček</h1>
     <div id="tree-container">
         <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image" id="tree-image">
         <div id="tree-back" class="tree-back">
@@ -34,11 +34,11 @@
         function generateDiscountMessage() {
             const random = Math.random();
             if (random < 0.1) {
-                return 'VANOCE15';
+                return 'Slevový kód: VANOCE15';
             } else if (random < 0.3) {
-                return 'VANOCE10';
+                return 'Slevový kód: VANOCE10';
             } else {
-                return 'VANOCE5';
+                return 'Slevový kód: VANOCE5';
             }
         }
 
@@ -47,8 +47,8 @@
             treeImage.classList.add('rotate');
             setTimeout(() => {
                 const message = generateDiscountMessage();
-                document.getElementById('tree-message').textContent = 
-                    message.includes('VANOCE') ? `Slevový kód: ${message}` : "Dnes to nevyšlo, přijďte zase zítra.";
+                document.getElementById('tree-message').textContent =
+                    message || "Dnes to nevyšlo, přijďte zase zítra.";
                 treeImage.classList.remove('rotate'); // Stops animation but keeps it rotated
                 treeImage.style.transform = "rotateY(180deg)"; // Locks rotation
             }, 2000); // 2-second rotation
