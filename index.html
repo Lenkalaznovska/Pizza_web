@@ -35,11 +35,11 @@
         function generateDiscountMessage() {
             const random = Math.random();
             if (random < 0.1) {
-                return 'Slevový kód: VANOCE15';
+                return 'VANOCE15';
             } else if (random < 0.3) {
-                return 'Slevový kód: VANOCE10';
+                return 'VANOCE10';
             } else {
-                return 'Slevový kód: VANOCE5';
+                return 'VANOCE5';
             }
         }
 
@@ -49,10 +49,13 @@
             treeImage.classList.add('rotate');
             treeBack.style.visibility = 'visible'; // Show the message container
 
+            // Change background color on rotation
+            treeBack.style.backgroundColor = '#77b55e'; // Lighter green color
+
             setTimeout(() => {
                 const message = generateDiscountMessage();
                 document.getElementById('tree-message').textContent =
-                    message || "Dnes to nevyšlo, přijďte zase zítra.";
+                    message + " - Dnes to nevyšlo, přijďte zase zítra!"; // Add the fallback message
                 treeImage.classList.remove('rotate'); // Stops animation but keeps it rotated
                 treeImage.style.transform = "rotateY(180deg)"; // Locks rotation
             }, 2000); // 2-second rotation
