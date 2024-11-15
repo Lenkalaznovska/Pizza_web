@@ -38,8 +38,10 @@
                 return 'VANOCE15';
             } else if (random < 0.3) {
                 return 'VANOCE10';
-            } else {
+            } else if (random < 0.6) {
                 return 'VANOCE5';
+            } else {
+                return null; // Ensures that sometimes no discount code is generated
             }
         }
 
@@ -51,10 +53,12 @@
 
             setTimeout(() => {
                 const message = generateDiscountMessage();
+                const treeMessageElement = document.getElementById('tree-message');
+
                 if (message) {
-                    document.getElementById('tree-message').textContent = message + " (Platnost do 31.12.2024)";
+                    treeMessageElement.textContent = message + " Platnost kódu je do 31.12.2024";
                 } else {
-                    document.getElementById('tree-message').textContent = "Dnes to nevyšlo, přijďte zase zítra!";
+                    treeMessageElement.textContent = "Dnes to nevyšlo, přijďte zase zítra!";
                 }
 
                 treeImage.classList.remove('rotate'); // Stops animation but keeps it rotated
