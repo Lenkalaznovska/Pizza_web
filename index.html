@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="snowflakes"></div>
     <h1>Virtuální vánoční stromeček</h1>
     <div id="tree-container">
         <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image" id="tree-image">
@@ -16,33 +17,46 @@
     <script>
         // Funkce pro generování slevového kódu s pravděpodobností
         function generateDiscountCode() {
-            const randomChance = Math.random(); // Náhodné číslo mezi 0 a 1
+            const randomChance = Math.random();
 
-            // Nastavení pravděpodobnosti pro 15% slevu (např. 10% šance na 15% slevu)
             if (randomChance < 0.1) {
                 return 'VANOCE15'; // 10% šance
             } else if (randomChance < 0.3) {
                 return 'VANOCE10'; // 20% šance
             } else {
-                return null; // 70% šance, žádný slevový kód
+                return null; // 70% šance
             }
         }
 
         // Přidání události kliknutí na stromeček
-        document.getElementById('tree-image').addEventListener('click', function() {
+        document.getElementById('tree-image').addEventListener('click', function () {
             const treeImage = document.getElementById('tree-image');
             treeImage.classList.add('rotate');
-            setTimeout(function() {
-                const discountCode = generateDiscountCode(); // Vygenerování slevového kódu
-                const treeBack = document.getElementById('tree-back');
+            setTimeout(function () {
+                const discountCode = generateDiscountCode();
                 const discountText = document.getElementById('discount-code');
                 if (discountCode) {
-                    discountText.textContent = discountCode; // Zobrazení slevového kódu
+                    discountText.textContent = discountCode;
                 } else {
-                    discountText.textContent = "Dnes to nevyšlo, přijďte zase zítra."; // Alternativní zpráva
+                    discountText.textContent = "Dnes to nevyšlo, přijďte zase zítra.";
                 }
-            }, 2000); // Zpoždění pro zajištění otáčení obrázku, 2 sekundy
+            }, 2000);
         });
+
+        // Animace padajícího sněhu
+        function createSnowflakes() {
+            const snowflakesContainer = document.getElementById('snowflakes');
+            for (let i = 0; i < 50; i++) {
+                const flake = document.createElement('div');
+                flake.className = 'snowflake';
+                flake.style.left = `${Math.random() * 100}%`;
+                flake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                flake.style.opacity = `${Math.random()}`;
+                flake.style.fontSize = `${Math.random() * 10 + 10}px`;
+                snowflakesContainer.appendChild(flake);
+            }
+        }
+        createSnowflakes();
     </script>
 </body>
 </html>
