@@ -19,9 +19,9 @@ h1 {
     display: inline-block;
 }
 
-/* Obrázek stromečku - zvětšení o 50% */
+/* Obrázek stromečku */
 .tree-image {
-    width: 450px; /* Zvětšeno o 50% */
+    width: 300px;
     height: auto;
     margin-bottom: 20px;
     cursor: pointer;
@@ -47,9 +47,15 @@ h1 {
     align-items: center;
     font-size: 1.5rem;
     border-radius: 10px;
-    visibility: hidden; /* Zadní strana není viditelná, dokud není obrázek otočený */
+    visibility: hidden;
     opacity: 0;
     transition: opacity 0.5s;
+}
+
+/* Zobrazení zadní strany při otáčení */
+.tree-image.rotate + #tree-back {
+    visibility: visible;
+    opacity: 1;
 }
 
 /* Notifikace */
@@ -61,10 +67,4 @@ h1 {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 5px;
-}
-
-/* Zanechání obrázku otočeného */
-.tree-image.rotated + #tree-back {
-    visibility: visible;
-    opacity: 1;
 }
