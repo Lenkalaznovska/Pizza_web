@@ -13,12 +13,49 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Kontejner pro obrázek */
+#tree-container {
+    position: relative;
+    display: inline-block;
+}
+
 /* Obrázek stromečku */
 .tree-image {
     width: 300px;
     height: auto;
     margin-bottom: 20px;
     cursor: pointer;
+    transition: transform 1s;
+}
+
+/* Efekt otáčení */
+.tree-image.rotate {
+    transform: rotateY(180deg);
+}
+
+/* Zadní strana obrázku (text slevového kódu) */
+#tree-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/* Zobrazení zadní strany při otáčení */
+.tree-image.rotate + #tree-back {
+    visibility: visible;
+    opacity: 1;
 }
 
 /* Notifikace */
