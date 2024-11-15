@@ -1,32 +1,33 @@
-/* Globální styl */
+/* Body styling with Pizzakladno background color */
 body {
-    background: linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d); /* Vánoční přechod */
-    color: #ffffff;
+    background-color: #e3f2fd; /* Pizzakladno soft light blue color */
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    color: #002b5b; /* Dark blue for contrast */
     text-align: center;
-    overflow: hidden; /* Skryje přetečení při sněhu */
+    padding: 20px;
+    margin: 0;
 }
 
-/* Padající sníh */
-#snowflakes {
+/* Snow animation */
+.snow {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 10;
+    overflow: hidden;
 }
 
-.snowflake {
+.flake {
     position: absolute;
     top: -10px;
-    color: white;
-    animation-name: fall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    width: 8px;
+    height: 8px;
+    background: white;
+    opacity: 0.8;
+    border-radius: 50%;
+    animation: fall 10s linear infinite;
 }
 
 @keyframes fall {
@@ -35,61 +36,47 @@ body {
     }
 }
 
-/* Nadpis */
-h1 {
-    font-size: 3rem;
-    margin: 20px 0;
-    color: #ffde59; /* Vánoční zlatá */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-/* Kontejner pro obrázek */
+/* Center the tree container */
 #tree-container {
+    margin: 50px auto;
     position: relative;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 60vh; /* Zabírá více prostoru vertikálně */
+    display: inline-block;
 }
 
-/* Obrázek stromečku */
+/* Tree image styling */
 .tree-image {
-    width: 550px; /* Zvýšená velikost */
+    width: 350px; /* Adjusted size */
     height: auto;
     cursor: pointer;
+    border-radius: 20px; /* Rounded corners */
     transition: transform 2s;
-    border-radius: 25px; /* Zaoblení rohů obrázku */
 }
 
-/* Efekt otáčení */
 .tree-image.rotate {
     transform: rotateY(180deg);
 }
 
-/* Zadní strana obrázku */
-#tree-back {
+/* Back content */
+.tree-back {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem; /* Větší text */
+    color: white;
+    font-size: 1.5rem;
     font-weight: bold;
-    border-radius: 25px;
-    visibility: hidden;
+    background-color: rgba(0, 43, 91, 0.9);
+    border-radius: 20px;
     opacity: 0;
-    transition: opacity 0.5s;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
 }
 
-/* Zobrazení zadní strany při otáčení */
-.tree-image.rotate + #tree-back {
-    visibility: visible;
+.tree-image.rotate + .tree-back {
     opacity: 1;
+    visibility: visible;
 }
