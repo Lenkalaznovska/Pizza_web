@@ -21,10 +21,11 @@ h1 {
 
 /* Obrázek stromečku */
 .tree-image {
-    width: 500px; /* Zvýšení velikosti obrázku */
+    width: 490px; /* Snížená velikost o 10px */
     height: auto;
     cursor: pointer;
     transition: transform 2s; /* Slower rotation for smoother effect */
+    border-radius: 15px; /* Zaoblení rohů obrázku */
 }
 
 /* Efekt otáčení */
@@ -46,7 +47,7 @@ h1 {
     align-items: center;
     font-size: 1.8rem; /* Larger font for better visibility */
     font-weight: bold; /* Bold text */
-    border-radius: 10px;
+    border-radius: 15px; /* Zaoblení rohů textového pole */
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.5s;
