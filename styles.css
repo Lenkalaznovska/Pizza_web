@@ -10,24 +10,21 @@ body {
 
 /* Christmas-themed heading */
 h1 {
-    font-size: 3rem;
-    color: #3cb371; /* Festive green */
-    text-shadow: 2px 2px 5px #006400, 0 0 10px #228b22; /* Shadow and glow effect */
+    font-size: 2.5rem;
+    color: #2e8b57; /* Muted green */
+    text-shadow: 1px 1px 3px #004d1a;
     font-weight: bold;
     margin-bottom: 30px;
-    animation: shimmer 3s infinite;
+    animation: shimmer 6s infinite;
 }
 
-/* Shimmer effect */
+/* Softer shimmer effect */
 @keyframes shimmer {
-    0% {
-        text-shadow: 2px 2px 5px #006400, 0 0 10px #228b22;
+    0%, 100% {
+        text-shadow: 1px 1px 3px #004d1a;
     }
     50% {
-        text-shadow: 4px 4px 10px #32cd32, 0 0 15px #90ee90;
-    }
-    100% {
-        text-shadow: 2px 2px 5px #006400, 0 0 10px #228b22;
+        text-shadow: 2px 2px 6px #006622;
     }
 }
 
@@ -94,12 +91,6 @@ h1 {
     font-weight: bold;
     background-color: rgba(0, 43, 91, 0.9);
     border-radius: 20px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s, visibility 0.5s;
-}
-
-.tree-image.rotate + .tree-back {
     opacity: 1;
     visibility: visible;
 }
