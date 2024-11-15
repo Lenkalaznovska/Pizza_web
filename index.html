@@ -12,7 +12,6 @@
         <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image" id="tree-image">
         <div id="tree-back" class="tree-back">Slevový kód: <span id="discount-code"></span></div>
     </div>
-    <div id="notification" class="notification"></div>
 
     <script>
         // Funkce pro generování slevového kódu s pravděpodobností
@@ -36,14 +35,10 @@
             treeImage.classList.add('rotate');
             setTimeout(function() {
                 const discountCode = generateDiscountCode(); // Vygenerování slevového kódu
-                const notification = document.getElementById('notification');
                 
-                // Zobrazení slevového kódu nebo zprávy
+                // Zobrazení slevového kódu
                 if (discountCode) {
                     document.getElementById('discount-code').textContent = discountCode;
-                    notification.textContent = "Máte nový slevový kód!";
-                } else {
-                    notification.textContent = "Dnes pro vás žádný slevový kód není.";
                 }
             }, 2000); // Zpoždění pro zajištění otáčení obrázku, 2 sekundy
         });
