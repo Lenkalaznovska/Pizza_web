@@ -34,14 +34,14 @@
         // Discount code generation and interaction
         function generateDiscountMessage() {
             const random = Math.random();
-            if (random < 0.1) {
-                return 'VANOCE15';
-            } else if (random < 0.3) {
-                return 'VANOCE10';
-            } else if (random < 0.6) {
-                return 'VANOCE5';
+            if (random < 0.6) {
+                return null; // 60% chance for "Dnes to nevyšlo"
+            } else if (random < 0.85) {
+                return 'VANOCE5'; // 25% chance for "VANOCE5"
+            } else if (random < 0.95) {
+                return 'VANOCE10'; // 10% chance for "VANOCE10"
             } else {
-                return null; // Ensures that sometimes no discount code is generated
+                return 'VANOCE15'; // 5% chance for "VANOCE15"
             }
         }
 
@@ -56,9 +56,9 @@
                 const treeMessageElement = document.getElementById('tree-message');
 
                 if (message) {
-                    treeMessageElement.textContent = message + " Platnost kódu je do 31.12.2024";
+                    treeMessageElement.innerHTML = message + "<br>(Platnost do 31.12.2024)";
                 } else {
-                    treeMessageElement.textContent = "Dnes to nevyšlo, přijďte zase zítra!";
+                    treeMessageElement.innerHTML = "Dnes to nevyšlo, přijďte zase zítra!";
                 }
 
                 treeImage.classList.remove('rotate'); // Stops animation but keeps it rotated
