@@ -92,5 +92,5 @@ h1 {
     background-color: rgba(0, 43, 91, 0.9);
     border-radius: 20px;
     opacity: 1;
-    visibility: visible;
+    visibility: hidden; /* Initially hidden */
 }
