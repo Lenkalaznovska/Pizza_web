@@ -10,7 +10,7 @@
     <h1>Virtuální vánoční stromeček</h1>
     <div id="tree-container">
         <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image" id="tree-image">
-        <div id="tree-back" class="tree-back">Slevový kód: <span id="discount-code"></span></div>
+        <div id="tree-back" class="tree-back"><span id="discount-code"></span></div>
     </div>
 
     <script>
@@ -24,7 +24,7 @@
             } else if (randomChance < 0.3) {
                 return 'VANOCE10'; // 20% šance
             } else {
-                return 'VANOCE5'; // 70% šance
+                return null; // 70% šance, žádný slevový kód
             }
         }
 
@@ -36,9 +36,13 @@
             setTimeout(function() {
                 const discountCode = generateDiscountCode(); // Vygenerování slevového kódu
                 
-                // Zobrazení slevového kódu
+                // Zobrazení slevového kódu nebo alternativní zprávy
+                const treeBack = document.getElementById('tree-back');
+                const discountText = document.getElementById('discount-code');
                 if (discountCode) {
-                    document.getElementById('discount-code').textContent = discountCode;
+                    discountText.textContent = discountCode; // Zobrazení slevového kódu
+                } else {
+                    discountText.textContent = "Dnes to nevyšlo. Přijďte zase zítra."; // Alternativní zpráva
                 }
             }, 2000); // Zpoždění pro zajištění otáčení obrázku, 2 sekundy
         });
