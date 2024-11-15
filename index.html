@@ -14,38 +14,34 @@
             <span id="tree-message"></span>
         </div>
     </div>
-    <div id="notification" class="notification"></div>
-
     <script>
-        // Generate discount code
-        function generateDiscountMessage() {
+        // Function to generate the discount code or message
+        function generateMessage() {
             const random = Math.random();
             if (random < 0.1) {
                 return 'Slevový kód: VANOCE15';
             } else if (random < 0.3) {
                 return 'Slevový kód: VANOCE10';
-            } else {
+            } else if (random < 0.6) {
                 return 'Slevový kód: VANOCE5';
+            } else {
+                return 'Dnes to nevyšlo, přijďte zítra!';
             }
         }
 
-        // Handle tree click
-        document.getElementById('tree-image').addEventListener('click', function () {
-            const treeImage = document.getElementById('tree-image');
-            const treeMessage = document.getElementById('tree-message');
-            const notification = document.getElementById('notification');
+        const treeImage = document.getElementById('tree-image');
+        const treeBack = document.getElementById('tree-back');
+        const treeMessage = document.getElementById('tree-message');
 
-            // Add rotation animation
+        // Click event for the tree image
+        treeImage.addEventListener('click', function () {
             treeImage.classList.add('rotate');
-
-            // Display message after rotation
             setTimeout(() => {
-                treeImage.style.transform = "rotateY(180deg)"; // Lock rotation
-                const message = generateDiscountMessage();
-                treeMessage.textContent = message || "Dnes to nevyšlo, přijďte zase zítra.";
-                notification.textContent = message ? "Máte nový slevový kód!" : "";
-                treeImage.classList.remove('rotate');
-            }, 2000); // 2-second rotation duration
+                const message = generateMessage();
+                treeMessage.textContent = message;
+                treeImage.style.display = 'none'; // Hide the image
+                treeBack.style.visibility = 'visible'; // Show the back
+            }, 2000); // Rotation duration: 2 seconds
         });
     </script>
 </body>
