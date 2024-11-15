@@ -3,31 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Úvodní Stránka</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Virtuální vánoční stromeček</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>San Marino Kladno</h1>
-        <p>Rozvoz pizzy, burgerů a dalšího jídla</p>
-    </header>
-
-    <!-- Slider Section -->
-    <section class="slider">
-        <div class="slides">
-            <div class="slide" style="background-image: url('images/qr-code-FB.png');"></div>
-            <div class="slide" style="background-image: url('images/qr-code-IG.png');"></div>
+    <h1>Virtuální vánoční stromeček</h1>
+    <div class="tree">
+        <div class="star"></div>
+        <div class="lights">
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
         </div>
-    </section>
+    </div>
+    <div class="gifts">
+        <div class="gift" data-code="VANOCE5"></div>
+        <div class="gift" data-code="VANOCE10"></div>
+        <div class="gift" data-code="VANOCE15"></div>
+    </div>
+    <script>
+        // Rozbalení dárků
+        const gifts = document.querySelectorAll('.gift');
 
-    <!-- Contact Section -->
-    <section class="contact">
-        <h2>Kontaktujte nás</h2>
-        <p><strong>Adresa:</strong> Obránců míru 2721, Kladno</p>
-        <p><strong>Telefon:</strong> <a href="tel:+420604633373">604 633 373</a></p>
-        <p><strong>Email:</strong> sanmarino@pizzakladno.cz</p>
-    </section>
-
-    <script src="script.js"></script>
+        gifts.forEach(gift => {
+            gift.addEventListener('click', () => {
+                const code = gift.getAttribute('data-code');
+                gift.textContent = `Slevový kód: ${code}`;
+                gift.style.backgroundColor = 'gold';
+                gift.style.color = 'black';
+                gift.style.pointerEvents = 'none'; // Zamezí opakovanému kliknutí
+            });
+        });
+    </script>
 </body>
 </html>
