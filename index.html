@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtuální vánoční stromeček</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Virtuální vánoční stromeček</h1>
@@ -14,7 +14,7 @@
             <span id="tree-message"></span>
         </div>
     </div>
-
+    
     <script>
         // Snow animation
         document.body.onload = () => {
@@ -31,35 +31,46 @@
             }
         };
 
-        // Discount code generation and interaction
+        // Discount code generation with probabilities
         function generateDiscountMessage() {
             const random = Math.random();
-            if (random < 0.1) {
-                return 'VANOCE15';
-            } else if (random < 0.3) {
-                return 'VANOCE10';
-            } else {
-                return 'VANOCE5';
+            let message = "";
+
+            // More likely to give 5% discount
+            if (random < 0.6) {
+                message = 'Slevový kód: VANOCE5 - Platnost do 31.12.2024';
             }
+            // Less likely to give 10% discount
+            else if (random < 0.85) {
+                message = 'Slevový kód: VANOCE10 - Platnost do 31.12.2024';
+            }
+            // Least likely to give 15% discount
+            else {
+                message = 'Slevový kód: VANOCE15 - Platnost do 31.12.2024';
+            }
+
+            return message;
         }
 
         document.getElementById('tree-image').addEventListener('click', function () {
             const treeImage = document.getElementById('tree-image');
-            const treeBack = document.getElementById('tree-back');
             treeImage.classList.add('rotate');
-            treeBack.style.visibility = 'visible'; // Show the message container
-
+            
             setTimeout(() => {
                 const message = generateDiscountMessage();
-                if (message) {
-                    document.getElementById('tree-message').textContent = message;
-                } else {
-                    document.getElementById('tree-message').textContent = "Dnes to nevyšlo, přijďte zase zítra!";
-                }
+                const treeMessage = document.getElementById('tree-message');
+                
+                // Display the discount code
+                treeMessage.textContent = message;
+
+                // After showing the discount, show the "Dnes to nevyšlo" message
+                setTimeout(() => {
+                    treeMessage.textContent += " | Dnes to nevyšlo, přijďte zase zítra.";
+                }, 1500); // Add the "try again" message after 1.5 seconds
 
                 treeImage.classList.remove('rotate'); // Stops animation but keeps it rotated
                 treeImage.style.transform = "rotateY(180deg)"; // Locks rotation
-            }, 2000); // 2-second rotation
+            }, 2000); // 2-second rotation delay
         });
     </script>
 </body>
