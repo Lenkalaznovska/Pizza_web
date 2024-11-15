@@ -30,38 +30,37 @@ h1 {
 }
 
 .gift {
+    width: 100px;
+    height: 100px;
+    background-image: url('images/darek.png');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: red;
-    color: white;
-    font-weight: bold;
-    text-align: center;
     cursor: pointer;
     transition: transform 0.3s, background-color 0.3s;
     border: 2px solid white;
+    font-size: 0.9rem;
 }
 
 .gift:hover {
     transform: scale(1.1);
-    background-color: #ff4747;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Velikosti dárků */
-.gift.small {
-    width: 60px;
-    height: 60px;
-    font-size: 10px;
+.gift:active {
+    background-color: gold;
+    color: black;
 }
 
-.gift.medium {
-    width: 90px;
-    height: 90px;
-    font-size: 14px;
-}
-
-.gift.large {
-    width: 120px;
-    height: 120px;
-    font-size: 18px;
+/* Text zobrazený po kliknutí */
+.gift.clicked {
+    font-size: 1.1rem;
+    color: black;
+    background-color: white;
+    cursor: default;
 }
