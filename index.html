@@ -41,12 +41,12 @@
 // Discount code generation and interaction
 function generateDiscountMessage() {
     const random = Math.random();
-    if (random < 0.7) {
-        return 'VANOCE5'; // 70% chance for "VANOCE5"
-    } else if (random < 0.85) {
+    if (random < 0.75) {
+        return 'VANOCE5'; // 75% chance for "VANOCE5"
+    } else if (random < 0.9) {
         return 'VANOCE10'; // 15% chance for "VANOCE10"
     } else {
-        return 'VANOCE15'; // 15% chance for "VANOCE15"
+        return 'VANOCE15'; // 10% chance for "VANOCE15"
     }
 }
 
