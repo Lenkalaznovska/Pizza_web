@@ -38,19 +38,17 @@
             }
         };
 
-        // Discount code generation and interaction
-        function generateDiscountMessage() {
-            const random = Math.random();
-            if (random < 0.7) {
-                return null; // 70% chance for "Dnes to nevyšlo"
-            } else if (random < 0.85) {
-                return 'VANOCE5'; // 15% chance for "VANOCE5"
-            } else if (random < 0.95) {
-                return 'VANOCE10'; // 10% chance for "VANOCE10"
-            } else {
-                return 'VANOCE15'; // 5% chance for "VANOCE15"
-            }
-        }
+// Discount code generation and interaction
+function generateDiscountMessage() {
+    const random = Math.random();
+    if (random < 0.7) {
+        return 'VANOCE5'; // 70% chance for "VANOCE5"
+    } else if (random < 0.85) {
+        return 'VANOCE10'; // 15% chance for "VANOCE10"
+    } else {
+        return 'VANOCE15'; // 15% chance for "VANOCE15"
+    }
+}
 
         document.getElementById('tree-image').addEventListener('click', function () {
             const treeImage = document.getElementById('tree-image');
