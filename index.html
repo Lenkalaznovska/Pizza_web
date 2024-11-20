@@ -4,7 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vánoční stromeček plný slev</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Body styling with Pizzakladno background color */
+        body {
+            background-color: #e3f2fd; /* Pizzakladno soft light blue color */
+            font-family: Arial, sans-serif;
+            color: #002b5b; /* Dark blue for contrast */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* Christmas-themed heading */
+        h1 {
+            font-size: 2.5rem;
+            color: #2e8b57; /* Muted green */
+            text-shadow: 1px 1px 3px #004d1a;
+            font-weight: bold;
+            margin-bottom: 30px;
+            animation: shimmer 6s infinite;
+        }
+
+        /* Softer shimmer effect */
+        @keyframes shimmer {
+            0%, 100% {
+                text-shadow: 1px 1px 3px #004d1a;
+            }
+            50% {
+                text-shadow: 2px 2px 6px #006622;
+            }
+        }
+
+        /* Snow animation */
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .flake {
+            position: absolute;
+            top: -10px;
+            width: 8px;
+            height: 8px;
+            background: white;
+            opacity: 0.8;
+            border-radius: 50%;
+            animation: fall 10s linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Center the tree container */
+        #tree-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 500px; /* Limiting the width */
+        }
+
+        /* Tree image styling */
+        .tree-image {
+            width: 90%; /* Make the image fluid */
+            max-width: 450px; /* Set a max-width for large screens */
+            height: auto;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: transform 2s;
+        }
+
+        .tree-image.rotate {
+            transform: rotateY(180deg);
+        }
+
+        /* Back content */
+        .tree-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            background-color: rgba(0, 43, 91, 0.8); /* Darker transparent background */
+            border-radius: 20px;
+            opacity: 1;
+            visibility: hidden; /* Initially hidden */
+        }
+
+        /* Thank you message styles */
+        #thank-you-message {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.4;
+            text-align: center;
+            border-radius: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem; /* Adjust the heading font size */
+            }
+
+            #tree-container {
+                width: 90%; /* Make the tree container take more width */
+            }
+
+            .tree-image {
+                width: 100%; /* Ensure the tree image is fully responsive */
+                max-width: none;
+            }
+
+            #thank-you-message {
+                max-width: 90%; /* Make the thank you message more responsive */
+                font-size: 0.9rem; /* Slightly smaller font on mobile */
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>Vánoční stromeček plný slev</h1>
@@ -15,11 +159,8 @@
         </div>
     </div>
 
-    <!-- Added holiday message below the tree image -->
-    <div id="thank-you-message" style="text-align: center; margin-top: 20px;">
-<div id="thank-you-message">
-    <p>Rádi bychom poděkovali všem našim skvělým zákazníkům za vaši podporu v tomto roce! Budeme se na vás zase těšit v roce 2025.<br><br>Nezapomeňte nás sledovat na našich sociálních sítích na Facebooku <strong>San Marino Kladno</strong> a Instagramu <strong>pizzakladno</strong>, kde budete vždy v obraze o slevách, akcích a novinkách a dalším obsahu.<br><br>Šťastné a veselé Vánoce a hodně úspěchů v novém roce!</p>
-</div>
+    <div id="thank-you-message">
+        <p>Rádi bychom poděkovali všem našim skvělým zákazníkům za vaši podporu v tomto roce! Budeme se na vás zase těšit v roce 2025.<br><br>Nezapomeňte nás sledovat na našich sociálních sítích na Facebooku <strong>San Marino Kladno</strong> a Instagramu <strong>pizzakladno</strong>, kde budete vždy v obraze o slevách, akcích a novinkách a dalším obsahu.<br><br>Šťastné a veselé Vánoce a hodně úspěchů v novém roce!</p>
     </div>
 
     <script>
@@ -38,23 +179,23 @@
             }
         };
 
-// Discount code generation and interaction
-function generateDiscountMessage() {
-    const random = Math.random();
-    if (random < 0.75) {
-        return 'VANOCE5'; // 75% chance for "VANOCE5"
-    } else if (random < 0.9) {
-        return 'VANOCE10'; // 15% chance for "VANOCE10"
-    } else {
-        return 'VANOCE15'; // 10% chance for "VANOCE15"
-    }
-}
+        // Discount code generation and interaction
+        function generateDiscountMessage() {
+            const random = Math.random();
+            if (random < 0.75) {
+                return 'VANOCE5';
+            } else if (random < 0.9) {
+                return 'VANOCE10';
+            } else {
+                return 'VANOCE15';
+            }
+        }
 
         document.getElementById('tree-image').addEventListener('click', function () {
             const treeImage = document.getElementById('tree-image');
             const treeBack = document.getElementById('tree-back');
             treeImage.classList.add('rotate');
-            treeBack.style.visibility = 'visible'; // Show the message container
+            treeBack.style.visibility = 'visible';
 
             setTimeout(() => {
                 const message = generateDiscountMessage();
@@ -66,9 +207,9 @@ function generateDiscountMessage() {
                     treeMessageElement.innerHTML = "Dnes to nevyšlo, přijďte zase zítra!";
                 }
 
-                treeImage.classList.remove('rotate'); // Stops animation but keeps it rotated
-                treeImage.style.transform = "rotateY(180deg)"; // Locks rotation
-            }, 2000); // 2-second rotation
+                treeImage.classList.remove('rotate');
+                treeImage.style.transform = "rotateY(180deg)";
+            }, 2000);
         });
     </script>
 </body>
