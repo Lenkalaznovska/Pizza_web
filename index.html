@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vánoční stromeček plný slev</title>
     <style>
-        /* Body styling with Pizzakladno background color */
+        /* Body styling with yellow Pizzakladno background color */
         body {
-            background-color: #e3f2fd; /* Pizzakladno soft light blue color */
+            background-color: #ffcc00; /* Žlutá barva pozadí jako na www.pizzakladno.cz */
             font-family: Arial, sans-serif;
-            color: #002b5b; /* Dark blue for contrast */
+            color: #002b5b; /* Tmavě modrá barva textu pro kontrast */
             margin: 0;
             padding: 20px;
             display: flex;
@@ -23,10 +23,13 @@
         /* Christmas-themed heading */
         h1 {
             font-size: 2.5rem;
-            color: #2e8b57; /* Muted green */
+            color: #2e8b57; /* Tlumená zelená barva */
             text-shadow: 1px 1px 3px #004d1a;
             font-weight: bold;
-            margin-bottom: 30px;
+            margin-top: 50px; /* Posun dolů o 50px */
+            padding: 20px; /* Přidání vnitřního odsazení */
+            background-color: #ffffff; /* Bílé pozadí pro kontrast */
+            border-radius: 10px; /* Zaoblení okrajů */
             animation: shimmer 6s infinite;
         }
 
@@ -76,13 +79,13 @@
             align-items: center;
             margin: 20px auto;
             width: 100%;
-            max-width: 500px; /* Limiting the width */
+            max-width: 500px; /* Omezení šířky */
         }
 
         /* Tree image styling */
         .tree-image {
-            width: 90%; /* Make the image fluid */
-            max-width: 450px; /* Set a max-width for large screens */
+            width: 90%; /* Obraz se přizpůsobí šířce */
+            max-width: 450px; /* Nastavení maximální šířky pro větší obrazovky */
             height: auto;
             cursor: pointer;
             border-radius: 20px;
@@ -106,10 +109,10 @@
             color: white;
             font-size: 1.5rem;
             font-weight: bold;
-            background-color: rgba(0, 43, 91, 0.8); /* Darker transparent background */
+            background-color: rgba(0, 43, 91, 0.8); /* Tmavší transparentní pozadí */
             border-radius: 20px;
             opacity: 1;
-            visibility: hidden; /* Initially hidden */
+            visibility: hidden; /* Skryté na začátku */
         }
 
         /* Thank you message styles */
@@ -131,21 +134,21 @@
         /* Mobile responsiveness */
         @media (max-width: 600px) {
             h1 {
-                font-size: 1.8rem; /* Adjust the heading font size */
+                font-size: 1.8rem; /* Přizpůsobení velikosti nadpisu */
             }
 
             #tree-container {
-                width: 90%; /* Make the tree container take more width */
+                width: 90%; /* Kontejner stromku zabírá více šířky */
             }
 
             .tree-image {
-                width: 100%; /* Ensure the tree image is fully responsive */
+                width: 100%; /* Obraz stromku je plně responzivní */
                 max-width: none;
             }
 
             #thank-you-message {
-                max-width: 90%; /* Make the thank you message more responsive */
-                font-size: 0.9rem; /* Slightly smaller font on mobile */
+                max-width: 90%; /* Přizpůsobení šířky pro mobil */
+                font-size: 0.9rem; /* Mírně menší písmo na mobilu */
             }
         }
     </style>
