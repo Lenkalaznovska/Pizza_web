@@ -136,7 +136,10 @@
         const userIp = getUserIp();
         const discountCodeElement = document.getElementById('discount-code');
         const discountCode = generateDiscountCode(userIp);
-        discountCodeElement.innerHTML = `Slevový kód: <span style="font-size: 2rem; color: yellow;">${discountCode}</span>`;
+        discountCodeElement.innerHTML = `
+            Slevový kód: <span style="font-size: 2rem; color: yellow;">${discountCode}</span><br><br>
+            Uplatněte ho na našem webu. Platnost kódu je do <strong>31. 12. 2024</strong>.
+        `;
     </script>
 </body>
 </html>
