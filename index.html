@@ -3,21 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slevové kódy</title>
+    <title>Vánoční slevové kódy</title>
     <style>
-        .text-section {
-            background-color: #ffffff;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 600px;
-            color: #333;
-            font-size: 18px;
-            line-height: 1.5;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
+        /* Styling pro slevovou sekci */
         .discount-section {
             margin: 20px auto;
             padding: 20px;
@@ -33,76 +21,93 @@
     </style>
 </head>
 <body>
-    <!-- Textace poděkování -->
-    <div class="text-section">
-        <p>Rádi bychom poděkovali všem našim skvělým zákazníkům za vaši podporu v tomto roce!<br><br>
-        Šťastné a veselé Vánoce a hodně úspěchů v novém roce!</p>
-    </div>
-
-    <!-- Sekce pro slevový kód -->
     <div class="discount-section" id="discount-code">
-        <!-- Slevový kód bude vygenerován zde -->
+        <!-- Zde se zobrazí slevový kód -->
     </div>
 
     <script>
-        // Pole slevových kódů
-        const discountCodes5 = [
-            "SNEHOVA5", "KOUZELNE5", "POHADKA5", "CERVENA5", "ZLATA5", 
-            "ZIMNIKRASA5", "TRPYT5", "JESLICKY5", "ROZSVICENO5", "COKOLADA5", 
-            "MANDARINKA5", "HVEZDICKA5", "STROMECEK5", "KAMNA5", "TEPLICKO5", 
-            "JABLICKA5", "JABLICKO5", "ZDOBENI5", "ZIMNIDEN5", "KRYSTAL5", 
-            "PREKVAPENI5", "SANKY5", "VANOCNI5", "ADVENT5", "ZVONKY5", 
-            "ANDELSKY5", "LASKAVY5", "HARMONIE5", "STEDRYVECER5", "LEDOVY5", 
-            "SNEHOVAKOULE5", "RADOSTNE5", "ZAZRAK5", "HREJIVY5", "HREJIVE5", 
-            "KOMETA5", "STRIBRNY5", "ANDELE5", "DOMACIPOHODA5", "KRB5", 
-            "PECENI5", "KARAMEL5", "KOMINICEK5", "STESTI5", "NADEJE5", 
-            "PRANICKO5", "SLADKOST5", "SNEZENI5", "ZARIVE5"
-        ];
+        // Seznam slevových kódů
+        const discountCodes = {
+            '5%': [
+                'SNEHOVA5', 'KOUZELNE5', 'POHADKA5', 'CERVENA5', 'ZLATA5',
+                'ZIMNIKRASA5', 'TRPYT5', 'JESLICKY5', 'ROZSVICENO5', 'COKOLADA5',
+                'MANDARINKA5', 'HVEZDICKA5', 'STROMECEK5', 'KAMNA5', 'TEPLICKO5',
+                'JABLICKA5', 'JABLICKO5', 'ZDOBENI5', 'ZIMNIDEN5', 'KRYSTAL5',
+                'PREKVAPENI5', 'SANKY5', 'VANOCNI5', 'ADVENT5', 'ZVONKY5',
+                'ANDELSKY5', 'LASKAVY5', 'HARMONIE5', 'STEDRYVECER5', 'LEDOVY5',
+                'SNEHOVAKOULE5', 'RADOSTNE5', 'ZAZRAK5', 'HREJIVY5', 'HREJIVE5',
+                'KOMETA5', 'STRIBRNY5', 'ANDELE5', 'DOMACIPOHODA5', 'KRB5',
+                'PECENI5', 'KARAMEL5', 'KOMINICEK5', 'STESTI5', 'NADEJE5',
+                'PRANICKO5', 'SLADKOST5', 'SNEZENI5', 'ZARIVE5'
+            ],
+            '10%': [
+                'ZIMNIRADOVANKY10', 'STEDRYVECER10', 'SANKOVANI10', 'PERNICKY10', 'SVIT10',
+                'STRIBRNA10', 'KOUZLODOMOVA10', 'HREJIVYDEN10', 'MRAZIVYDEN10', 'OSLAVY10',
+                'OSLAVA10', 'SVATEK10', 'RADOSTNEOKAMZIKY10', 'RADOSTNECINKNUTI10', 'SNEZNY10',
+                'SNEHULE10', 'KRASNAZIMA10', 'PUNC10', 'POKOJNESVATKY10', 'ADVENTNICAS10',
+                'MALEZAZRAKY10', 'MALYZAZRAK10', 'POHADKY10', 'ANDELSKYSVIT10', 'SVETLOHVEZD10',
+                'NOCNIOBLOHA10', 'TEPLODOMOVA10', 'OZDOBENYSTROMEK10', 'STASTNEOKAMZIKY10', 'CASLASKY10',
+                'DOMOV10', 'KOUZELNEVANOCE10', 'KOUZLOVANOC10', 'NADSENI10', 'SNEHULACEK10',
+                'SNEHULACCI10', 'HARMONICKACHVILE10', 'HARMONICKECHVILE10', 'ANDELSKESVETLO10', 'SLADKECHVILE10',
+                'DARUJSVETLO10', 'ZVONKY10', 'RADOSTI10', 'CERVENAHVEZDA10', 'MRAZ10',
+                'KRASAADVENTU10', 'JEDLE10', 'SMRK10', 'BOROVICE10', 'HVEZDNY10'
+            ],
+            '15%': [
+                'ADVENTNICAS15', 'ZIMNISVETLO15', 'NADELENO15', 'HARMONICKEVANOCE15', 'KRB15',
+                'ZAREHVEZDY15', 'ZARIVEHVEZDY15', 'CASZAZRAKU15', 'KOUZLADOMOVA15', 'ZIMNIZAZRAK15',
+                'ZARIVYDEN15', 'ANDEL15', 'LASKY15', 'STEDRYDAREK15', 'PRANISTESTI15',
+                'ZARIVEOCI15', 'NADEJE15', 'RADOSTI15', 'VANOCNISNENI15', 'POHADKY15',
+                'VANOCNIDARKY15', 'MRAZ15', 'DARKY15', 'DAREK15', 'RADOSTNEVANOCE15',
+                'OZDOBENYSTROMEK15', 'JESLICKY15', 'PREKVAPENI15'
+            ]
+        };
 
-        const discountCodes10 = [
-            "ZIMNIRADOVANKY10", "STEDRYVECER10", "SANKOVANI10", "PERNICKY10", "SVIT10",
-            "STRIBRNA10", "KOUZLODOMOVA10", "HREJIVYDEN10", "MRAZIVYDEN10", "OSLAVY10",
-            "OSLAVA10", "SVATEK10", "RADOSTNEOKAMZIKY10", "RADOSTNECINKNUTI10", "SNEZNY10",
-            "SNEHULE10", "KRASNAZIMA10", "PUNC10", "POKOJNESVATKY10", "ADVENTNICAS10",
-            "MALEZAZRAKY10", "MALYZAZRAK10", "POHADKY10", "ANDELSKYSVIT10", "SVETLOHVEZD10",
-            "NOCNIOBLOHA10", "TEPLODOMOVA10", "OZDOBENYSTROMEK10", "STASTNEOKAMZIKY10", "CASLASKY10",
-            "DOMOV10", "KOUZELNEVANOCE10", "KOUZLOVANOC10", "NADSENI10", "SNEHULACEK10"
-        ];
-
-        const discountCodes15 = [
-            "ADVENTNICAS15", "ZIMNISVETLO15", "NADELENO15", "HARMONICKEVANOCE15", "KRB15",
-            "ZAREHVEZDY15", "ZARIVEHVEZDY15", "CASZAZRAKU15", "KOUZLADOMOVA15", "ZIMNIZAZRAK15",
-            "ZARIVYDEN15", "ANDEL15", "LASKY15", "STEDRYDAREK15", "PRANISTESTI15",
-            "ZARIVEOCI15", "NADEJE15", "RADOSTI15", "VANOCNISNENI15", "POHADKY15",
-            "VANOCNIDARKY15", "MRAZ15", "DARKY15", "DAREK15", "RADOSTNEVANOCE15"
-        ];
-
-        // Funkce pro generování náhodného slevového kódu
-        function generateDiscountCode() {
-            const random = Math.random();
-
-            if (random < 0.75 && discountCodes5.length > 0) {
-                return discountCodes5.splice(Math.floor(Math.random() * discountCodes5.length), 1)[0];
-            } else if (random < 0.95 && discountCodes10.length > 0) {
-                return discountCodes10.splice(Math.floor(Math.random() * discountCodes10.length), 1)[0];
-            } else if (discountCodes15.length > 0) {
-                return discountCodes15.splice(Math.floor(Math.random() * discountCodes15.length), 1)[0];
+        // Funkce pro získání IP adresy uživatele
+        async function getUserIp() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                return data.ip;
+            } catch (error) {
+                console.error('Nepodařilo se získat IP adresu.', error);
+                return null;
             }
-            return "VYPRODANO"; // Pokud jsou všechny kódy vyčerpány
         }
 
-        // Kontrola a uložení do localStorage
-        const ip = "uniqueUserKey"; // V reálném prostředí použijte skutečnou IP nebo unikátní identifikátor
-        let discountCode = localStorage.getItem(ip);
+        // Funkce pro generování kódu
+        function generateDiscountCode(ipAddress) {
+            const allCodes = Object.values(discountCodes).flat();
+            let assignedCode = localStorage.getItem(ipAddress);
 
-        if (!discountCode) {
-            discountCode = generateDiscountCode();
-            localStorage.setItem(ip, discountCode);
+            if (!assignedCode) {
+                const availableCodes = allCodes.filter(code => !Object.values(localStorage).includes(code));
+                if (availableCodes.length === 0) {
+                    alert('Všechny slevové kódy již byly rozděleny.');
+                    return null;
+                }
+
+                assignedCode = availableCodes[Math.floor(Math.random() * availableCodes.length)];
+                localStorage.setItem(ipAddress, assignedCode);
+            }
+
+            return assignedCode;
         }
 
-        // Zobrazení kódu
-        const discountCodeElement = document.getElementById("discount-code");
-        discountCodeElement.innerHTML = `Váš slevový kód: <span style="font-size: 2rem; color: yellow;">${discountCode}</span><br><br>Platnost kódu do 31.12.2024.`;
+        // Zobrazení slevového kódu
+        async function displayDiscountCode() {
+            const ipAddress = await getUserIp();
+            if (ipAddress) {
+                const discountCodeElement = document.getElementById('discount-code');
+                const discountCode = generateDiscountCode(ipAddress);
+                if (discountCode) {
+                    discountCodeElement.textContent = `Váš slevový kód: ${discountCode}`;
+                }
+            } else {
+                alert('Nepodařilo se získat IP adresu.');
+            }
+        }
+
+        displayDiscountCode();
     </script>
 </body>
 </html>
