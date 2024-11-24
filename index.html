@@ -3,217 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vánoční stromeček plný slev</title>
+    <title>Slevové kódy</title>
     <style>
-        /* Body styling with yellow Pizzakladno background color */
-        body {
-            background-color: #ffcc00; /* Žlutá barva pozadí jako na www.pizzakladno.cz */
-            font-family: Arial, sans-serif;
-            color: #002b5b; /* Tmavě modrá barva textu pro kontrast */
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            box-sizing: border-box;
-        }
-
-        /* Christmas-themed heading */
-        h1 {
-            font-size: 2.5rem;
-            color: #2e8b57; /* Tlumená zelená barva */
-            text-shadow: 1px 1px 3px #004d1a;
-            font-weight: bold;
-            margin-top: 50px; /* Posun dolů o 50px */
-            padding: 20px; /* Přidání vnitřního odsazení */
-            background-color: #ffffff; /* Bílé pozadí pro kontrast */
-            border-radius: 10px; /* Zaoblení okrajů */
-            animation: shimmer 6s infinite;
-        }
-
-        /* Softer shimmer effect */
-        @keyframes shimmer {
-            0%, 100% {
-                text-shadow: 1px 1px 3px #004d1a;
-            }
-            50% {
-                text-shadow: 2px 2px 6px #006622;
-            }
-        }
-
-        /* Snow animation */
-        .snow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .flake {
-            position: absolute;
-            top: -10px;
-            width: 8px;
-            height: 8px;
-            background: white;
-            opacity: 0.8;
-            border-radius: 50%;
-            animation: fall 10s linear infinite;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(100vh);
-            }
-        }
-
-        /* Center the tree container */
-        #tree-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .text-section {
+            background-color: #ffffff;
             margin: 20px auto;
-            width: 100%;
-            max-width: 500px; /* Omezení šířky */
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            color: #333;
+            font-size: 18px;
+            line-height: 1.5;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
-        /* Tree image styling */
-        .tree-image {
-            width: 90%; /* Obraz se přizpůsobí šířce */
-            max-width: 450px; /* Nastavení maximální šířky pro větší obrazovky */
-            height: auto;
-            cursor: pointer;
-            border-radius: 20px;
-            transition: transform 2s;
-        }
-
-        .tree-image.rotate {
-            transform: rotateY(180deg);
-        }
-
-        /* Back content */
-        .tree-back {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .discount-section {
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            background-color: #2e8b57;
             color: white;
             font-size: 1.5rem;
             font-weight: bold;
-            background-color: rgba(0, 43, 91, 0.8); /* Tmavší transparentní pozadí */
-            border-radius: 20px;
-            opacity: 1;
-            visibility: hidden; /* Skryté na začátku */
-        }
-
-        /* Thank you message styles */
-        #thank-you-message {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 500px;
-            color: #333;
-            font-size: 1rem;
-            line-height: 1.4;
             text-align: center;
-            border-radius: 10px;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8rem; /* Přizpůsobení velikosti nadpisu */
-            }
-
-            #tree-container {
-                width: 90%; /* Kontejner stromku zabírá více šířky */
-            }
-
-            .tree-image {
-                width: 100%; /* Obraz stromku je plně responzivní */
-                max-width: none;
-            }
-
-            #thank-you-message {
-                max-width: 90%; /* Přizpůsobení šířky pro mobil */
-                font-size: 0.9rem; /* Mírně menší písmo na mobilu */
-            }
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
-    <h1>Vánoční stromeček plný slev</h1>
-    <div id="tree-container">
-        <img src="images/VANOCE.jpg" alt="Vánoční stromeček" class="tree-image" id="tree-image">
-        <div id="tree-back" class="tree-back">
-            <span id="tree-message"></span>
-        </div>
+    <!-- Textace poděkování -->
+    <div class="text-section">
+        <p>Rádi bychom poděkovali všem našim skvělým zákazníkům za vaši podporu v tomto roce!<br><br>
+        Šťastné a veselé Vánoce a hodně úspěchů v novém roce!</p>
     </div>
 
-    <div id="thank-you-message">
-        <p>Rádi bychom poděkovali všem našim skvělým zákazníkům za vaši podporu v tomto roce! Budeme se na vás zase těšit v roce 2025.<br><br>Nezapomeňte nás sledovat na našich sociálních sítích na Facebooku <strong>San Marino Kladno</strong> a Instagramu <strong>pizzakladno</strong>, kde budete vždy v obraze o slevách, akcích a novinkách a dalším obsahu.<br><br>Šťastné a veselé Vánoce a hodně úspěchů v novém roce!</p>
+    <!-- Sekce pro slevový kód -->
+    <div class="discount-section" id="discount-code">
+        <!-- Slevový kód bude vygenerován zde -->
     </div>
 
     <script>
-        // Snow animation
-        document.body.onload = () => {
-            const snowContainer = document.createElement('div');
-            snowContainer.classList.add('snow');
-            document.body.appendChild(snowContainer);
+        // Pole slevových kódů
+        const discountCodes5 = [
+            "SNEHOVA5", "KOUZELNE5", "POHADKA5", "CERVENA5", "ZLATA5", 
+            "ZIMNIKRASA5", "TRPYT5", "JESLICKY5", "ROZSVICENO5", "COKOLADA5", 
+            "MANDARINKA5", "HVEZDICKA5", "STROMECEK5", "KAMNA5", "TEPLICKO5", 
+            "JABLICKA5", "JABLICKO5", "ZDOBENI5", "ZIMNIDEN5", "KRYSTAL5", 
+            "PREKVAPENI5", "SANKY5", "VANOCNI5", "ADVENT5", "ZVONKY5", 
+            "ANDELSKY5", "LASKAVY5", "HARMONIE5", "STEDRYVECER5", "LEDOVY5", 
+            "SNEHOVAKOULE5", "RADOSTNE5", "ZAZRAK5", "HREJIVY5", "HREJIVE5", 
+            "KOMETA5", "STRIBRNY5", "ANDELE5", "DOMACIPOHODA5", "KRB5", 
+            "PECENI5", "KARAMEL5", "KOMINICEK5", "STESTI5", "NADEJE5", 
+            "PRANICKO5", "SLADKOST5", "SNEZENI5", "ZARIVE5"
+        ];
 
-            for (let i = 0; i < 50; i++) {
-                const flake = document.createElement('div');
-                flake.className = 'flake';
-                flake.style.left = Math.random() * 100 + '%';
-                flake.style.animationDelay = Math.random() * 10 + 's';
-                snowContainer.appendChild(flake);
-            }
-        };
+        const discountCodes10 = [
+            "ZIMNIRADOVANKY10", "STEDRYVECER10", "SANKOVANI10", "PERNICKY10", "SVIT10",
+            "STRIBRNA10", "KOUZLODOMOVA10", "HREJIVYDEN10", "MRAZIVYDEN10", "OSLAVY10",
+            "OSLAVA10", "SVATEK10", "RADOSTNEOKAMZIKY10", "RADOSTNECINKNUTI10", "SNEZNY10",
+            "SNEHULE10", "KRASNAZIMA10", "PUNC10", "POKOJNESVATKY10", "ADVENTNICAS10",
+            "MALEZAZRAKY10", "MALYZAZRAK10", "POHADKY10", "ANDELSKYSVIT10", "SVETLOHVEZD10",
+            "NOCNIOBLOHA10", "TEPLODOMOVA10", "OZDOBENYSTROMEK10", "STASTNEOKAMZIKY10", "CASLASKY10",
+            "DOMOV10", "KOUZELNEVANOCE10", "KOUZLOVANOC10", "NADSENI10", "SNEHULACEK10"
+        ];
 
-        // Discount code generation and interaction
-        function generateDiscountMessage() {
+        const discountCodes15 = [
+            "ADVENTNICAS15", "ZIMNISVETLO15", "NADELENO15", "HARMONICKEVANOCE15", "KRB15",
+            "ZAREHVEZDY15", "ZARIVEHVEZDY15", "CASZAZRAKU15", "KOUZLADOMOVA15", "ZIMNIZAZRAK15",
+            "ZARIVYDEN15", "ANDEL15", "LASKY15", "STEDRYDAREK15", "PRANISTESTI15",
+            "ZARIVEOCI15", "NADEJE15", "RADOSTI15", "VANOCNISNENI15", "POHADKY15",
+            "VANOCNIDARKY15", "MRAZ15", "DARKY15", "DAREK15", "RADOSTNEVANOCE15"
+        ];
+
+        // Funkce pro generování náhodného slevového kódu
+        function generateDiscountCode() {
             const random = Math.random();
-            if (random < 0.75) {
-                return 'VANOCE5';
-            } else if (random < 0.9) {
-                return 'VANOCE10';
-            } else {
-                return 'VANOCE15';
+
+            if (random < 0.75 && discountCodes5.length > 0) {
+                return discountCodes5.splice(Math.floor(Math.random() * discountCodes5.length), 1)[0];
+            } else if (random < 0.95 && discountCodes10.length > 0) {
+                return discountCodes10.splice(Math.floor(Math.random() * discountCodes10.length), 1)[0];
+            } else if (discountCodes15.length > 0) {
+                return discountCodes15.splice(Math.floor(Math.random() * discountCodes15.length), 1)[0];
             }
+            return "VYPRODANO"; // Pokud jsou všechny kódy vyčerpány
         }
 
-        document.getElementById('tree-image').addEventListener('click', function () {
-            const treeImage = document.getElementById('tree-image');
-            const treeBack = document.getElementById('tree-back');
-            treeImage.classList.add('rotate');
-            treeBack.style.visibility = 'visible';
+        // Kontrola a uložení do localStorage
+        const ip = "uniqueUserKey"; // V reálném prostředí použijte skutečnou IP nebo unikátní identifikátor
+        let discountCode = localStorage.getItem(ip);
 
-            setTimeout(() => {
-                const message = generateDiscountMessage();
-                const treeMessageElement = document.getElementById('tree-message');
+        if (!discountCode) {
+            discountCode = generateDiscountCode();
+            localStorage.setItem(ip, discountCode);
+        }
 
-                if (message) {
-                    treeMessageElement.innerHTML = message + "<br><br>Slevu uplatníte na našem webu<br>Platnost kódu je do 31.12.2024";
-                } else {
-                    treeMessageElement.innerHTML = "Dnes to nevyšlo, přijďte zase zítra!";
-                }
-
-                treeImage.classList.remove('rotate');
-                treeImage.style.transform = "rotateY(180deg)";
-            }, 2000);
-        });
+        // Zobrazení kódu
+        const discountCodeElement = document.getElementById("discount-code");
+        discountCodeElement.innerHTML = `Váš slevový kód: <span style="font-size: 2rem; color: yellow;">${discountCode}</span><br><br>Platnost kódu do 31.12.2024.`;
     </script>
 </body>
 </html>
