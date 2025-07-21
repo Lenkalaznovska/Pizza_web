@@ -174,7 +174,6 @@
     }
     .top-badge {
         display: inline-block;
-        /* UPRAVENO: Pozadí jako u .cta-text */
         background: rgba(0, 0, 0, 0.6);
         border-radius: 10px;
         padding: 15px 25px;
@@ -202,12 +201,14 @@
         border-radius: 10px;
         display: inline-block;
     }
+    
+    /* NOVÉ STYLY PRO TLAČÍTKA A EFEKT */
     .buttons {
+        position: relative; /* Důležité pro pozicování pulzujícího efektu */
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-        /* UPRAVENO: Posunuto níže */
         margin-top: 3rem;
     }
     .buttons a {
@@ -220,27 +221,47 @@
         border-radius: 9999px;
         padding: 1rem 2rem;
         text-decoration: none;
-        transition: background-color 0.3s, transform 0.2s ease;
+        color: white;
         width: 100%;
         max-width: 320px;
-        color: white;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        /* UPRAVENO: Sjednocená barva a bílý okraj */
         background-color: #E20B18;
         border: 2px solid white;
+        position: relative; /* Důležité pro pozicování pulzujícího efektu */
+        z-index: 2; /* Tlačítko je nad efektem */
+        transition: background-color 0.3s ease; /* Změněno pro plynulý hover */
     }
     .buttons a:hover {
         background-color: #c00a15;
-        transform: scale(1.05);
     }
-    
-    @keyframes lure-pulse {
-        0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-        70% { box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+
+    /* Nový dynamický pulzující efekt ZA TLAČÍTKY */
+    .animate-lure-pulse::before {
+        content: '';
+        position: absolute;
+        z-index: 1; /* Efekt je pod tlačítkem */
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #E20B18;
+        border-radius: 9999px;
+        animation: dynamic-pulse 2s infinite;
     }
-    .animate-lure-pulse {
-        animation: lure-pulse 2s infinite;
+    @keyframes dynamic-pulse {
+        0% {
+            transform: translate(-50%, -50%) scale(0.95);
+            opacity: 0.7;
+        }
+        70% {
+            transform: translate(-50%, -50%) scale(1.2);
+            opacity: 0;
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(0.95);
+            opacity: 0;
+        }
     }
     
     /* ----- RESPONZIVITA ----- */
@@ -302,6 +323,8 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                    <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
+                   <path d="M15 7a2 2 0 0 1 2 2"></path>
+                   <path d="M15 3a6 6 0 0 1 6 6"></path>
                 </svg>
                 <span>+420 604 633 373</span>
             </a>
@@ -310,6 +333,12 @@
             </a>
         </div>
     </div>
+
+    <main>
+        </main>
+
+    <footer>
+        </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
