@@ -97,220 +97,79 @@
     }
     </script>
     
-<style>
-    /* ----- ZÁKLADNÍ STYLY ----- */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    html, body {
-        font-family: 'Arial', sans-serif;
-        background: #f0f0f0; /* Jednodušší pozadí pro spodní část */
-        color: #333;
-        overflow-x: hidden;
-    }
-
-    /* ----- HEADER A LOGO ----- */
-    header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 100;
-        padding: 1rem;
-    }
-    .logo {
-        position: absolute;
-        z-index: 101;
-        left: 2.5rem;
-        top: 1.5rem;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    .logo.hidden {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    .logo img {
-        height: 60px; /* Výchozí velikost loga */
-        width: auto;
-        border: 2px solid white;
-        background-color: rgba(0,0,0,0.3);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        border-radius: 10% 0 10% 0;
-    }
-
-    /* ----- SLIDER A OBSAH NA NĚM ----- */
-    .slider {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-        background-color: #1a1a1a;
-    }
-    .slides {
-        display: flex;
-        transition: transform 1s ease;
-        height: 100%;
-    }
-    .slide {
-        min-width: 100%;
-        height: 100%;
-    }
-    .slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-    }
-    .content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: #fff;
-        width: 90%;
-        z-index: 50;
-    }
-    .top-badge {
-        display: inline-block;
-        background: rgba(0, 0, 0, 0.6);
-        border-radius: 10px;
-        padding: 15px 25px;
-        margin-bottom: 2rem;
-    }
-    .top-badge span {
-        font-size: 1.25rem;
-        font-weight: bold;
-        color: white;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    }
-    .content h1 {
-        font-size: 65px;
-        margin-bottom: 20px;
-        font-weight: 900;
-        text-transform: uppercase;
-        text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
-        white-space: nowrap;
-    }
-    .cta-text {
-        font-size: 24px;
-        font-weight: bold;
-        background: rgba(0, 0, 0, 0.6);
-        padding: 15px 25px;
-        border-radius: 10px;
-        display: inline-block;
-        margin-top: 2rem; /* Odsazení od tlačítek */
-    }
-    .buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 2rem;
-    }
-    .buttons a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.75rem;
-        font-weight: bold;
-        font-size: 1.125rem;
-        border-radius: 9999px;
-        padding: 1rem 2rem;
-        text-decoration: none;
-        transition: background-color 0.3s, transform 0.2s ease;
-        width: 100%;
-        max-width: 320px;
-        color: white;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        /* UPRAVENO: Sjednocená barva a bílý okraj */
-        background-color: #E20B18;
-        border: 2px solid white;
-    }
-    .buttons a:hover {
-        background-color: #c00a15; /* Tmavší odstín pro hover */
-        transform: scale(1.05);
-    }
-    
-    /* UPRAVENO: Pulzující efekt (bílý stín, nedeformuje tlačítko) */
-    @keyframes lure-pulse {
-        0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-        70% { box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-    }
-    .animate-lure-pulse {
-        animation: lure-pulse 2s infinite;
-    }
-
-    /* ----- OSTATNÍ SEKCE ----- */
-    .pizza-section {
-        padding: 50px 20px;
-        max-width: 1100px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .section-content {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
-    }
-    .text-content {
-        flex: 1;
-        min-width: 300px;
-    }
-    .pizza-section.reverse .section-content {
-        flex-direction: row-reverse;
-    }
-    .pizza-section h2 {
-        font-size: 2.2rem;
-        color: #ff4500;
-        margin-bottom: 1rem;
-    }
-    .pizza-section p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-    }
-    .section-image {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
-    
-    /* ----- RESPONZIVITA ----- */
-    @media (max-width: 900px) {
-        .section-content, .pizza-section.reverse .section-content {
-            flex-direction: column;
-            text-align: center;
-        }
-        .text-content {
-            order: 2;
-        }
-        .section-image {
-            order: 1;
-            max-width: 400px;
-        }
-    }
-    @media (max-width: 768px) {
-        .logo { left: 1rem; top: 1rem; }
-        .logo img { height: 50px; }
-        .content h1 { font-size: 45px; white-space: normal; }
-        .cta-text { font-size: 20px; }
-    }
-    @media (min-width: 640px) {
-        .buttons {
-            flex-direction: row;
-            justify-content: center;
-            gap: 1.5rem;
-        }
+    <style>
+        /* Základní styly a styly pro header a slider */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { font-family: 'Arial', sans-serif; background-color: #FFFFFF; overflow-x: hidden; }
+        header { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1rem; }
+        .logo { position: absolute; z-index: 101; left: 2.5rem; top: 1.5rem; transition: opacity 0.3s ease, transform 0.3s ease; }
+        .logo.hidden { opacity: 0; transform: scale(0.8); }
+        .logo img { height: 60px; width: auto; border: 2px solid white; background-color: rgba(0,0,0,0.3); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 10% 0 10% 0; }
+        .slider { position: relative; width: 100%; height: 100vh; overflow: hidden; background-color: #1a1a1a; }
+        .slides { display: flex; transition: transform 1s ease; height: 100%; }
+        .slide { min-width: 100%; height: 100%; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        
+        /* Styly pro obsah na slideru */
+        .content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #fff; width: 90%; z-index: 50; }
+        .top-badge { display: inline-block; background-color: rgba(255, 255, 255, 0.4); border-radius: 9999px; padding: 0.75rem 1.5rem; margin-bottom: 2rem; }
+        .top-badge span { font-size: 1.125rem; font-weight: 600; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+        .content h1 { font-size: 65px; margin-bottom: 20px; font-weight: 900; text-transform: uppercase; text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9); white-space: nowrap; }
+        .cta-text { font-size: 24px; font-weight: bold; background: rgba(0, 0, 0, 0.6); padding: 15px 25px; border-radius: 10px; display: inline-block; margin-top: 20px; }
+        
+        /* NOVÉ STYLY PRO TLAČÍTKA */
+        .buttons { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 2rem; }
         .buttons a {
-            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-weight: bold;
+            font-size: 1.125rem;
+            border-radius: 9999px;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            color: white;
+            width: 100%;
+            max-width: 320px;
+            /* Nový styl tlačítek */
+            background-color: #E20B18;
+            border: 2px solid transparent; /* Okraj pro konzistenci velikosti */
+            transition: background-color 0.3s, transform 0.2s ease;
         }
-    }
-</style>
+        .buttons a:hover {
+            background-color: #c00a15;
+            transform: scale(1.05);
+        }
+        /* Druhé tlačítko s okrajem */
+        .buttons .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        .buttons .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Pulzující efekt */
+        @keyframes lure-pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+            70% { transform: scale(1.08); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+        .animate-lure-pulse {
+            animation: lure-pulse 1.8s infinite;
+        }
 
+        /* Responzivita */
+        @media (min-width: 640px) {
+            .buttons { flex-direction: row; justify-content: center; gap: 1.5rem; }
+            .buttons a { width: auto; }
+        }
+        @media (max-width: 768px) {
+            .content h1 { font-size: 45px; white-space: normal; }
+            .cta-text { font-size: 20px; }
+        }
+    </style>
 </head>
 <body>
 
