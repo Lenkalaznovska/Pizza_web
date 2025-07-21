@@ -98,7 +98,7 @@
     </script>
     
 <style>
-    /* Vaše původní styly */
+    /* ----- ZÁKLADNÍ STYLY ----- */
     * {
         margin: 0;
         padding: 0;
@@ -106,46 +106,40 @@
     }
     html, body {
         font-family: 'Arial', sans-serif;
-        background: linear-gradient(180deg, #d1d1d1, #ffffff);
+        background: #f0f0f0; /* Jednodušší pozadí pro spodní část */
         color: #333;
         overflow-x: hidden;
     }
+
+    /* ----- HEADER A LOGO ----- */
     header {
-        background-color: transparent;
-        color: #fff;
-        height: 120px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: fixed;
         top: 0;
         width: 100%;
-        z-index: 10;
-        padding: 20px 10px;
+        z-index: 100;
+        padding: 1rem;
     }
     .logo {
         position: absolute;
-        z-index: 15;
-        left: 50px;
-        top: 30px;
-        transform: translateX(0) scale(1);
-        transition: transform 0.5s ease, opacity 0.3s ease;
-        border: 2px solid white;
-        background-color: transparent;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        border-radius: 10% 0 10% 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .logo img {
-        height: 60px;
-        display: block;
+        z-index: 101;
+        left: 2.5rem;
+        top: 1.5rem;
+        transition: opacity 0.3s ease, transform 0.3s ease;
     }
     .logo.hidden {
         opacity: 0;
-        transform: translateX(0) scale(0.5) rotate(-180deg);
+        transform: scale(0.8);
     }
+    .logo img {
+        height: 60px; /* Výchozí velikost loga */
+        width: auto;
+        border: 2px solid white;
+        background-color: rgba(0,0,0,0.3);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10% 0 10% 0;
+    }
+
+    /* ----- SLIDER A OBSAH NA NĚM ----- */
     .slider {
         position: relative;
         width: 100%;
@@ -176,7 +170,20 @@
         text-align: center;
         color: #fff;
         width: 90%;
-        z-index: 5;
+        z-index: 50;
+    }
+    .top-badge {
+        display: inline-block;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        padding: 15px 25px;
+        margin-bottom: 2rem;
+    }
+    .top-badge span {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
     .content h1 {
         font-size: 65px;
@@ -193,22 +200,7 @@
         padding: 15px 25px;
         border-radius: 10px;
         display: inline-block;
-    }
-
-    /* NOVÉ A UPRAVENÉ STYLY */
-    .top-badge {
-        display: inline-block;
-        /* UPRAVENO: Pozadí jako u .cta-text */
-        background: rgba(0, 0, 0, 0.6);
-        border-radius: 10px;
-        padding: 15px 25px;
-        margin-bottom: 2rem;
-    }
-    .top-badge span {
-        font-size: 1.25rem; /* Zvětšeno pro lepší viditelnost */
-        font-weight: bold;
-        color: white;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        margin-top: 2rem; /* Odsazení od tlačítek */
     }
     .buttons {
         display: flex;
@@ -237,30 +229,76 @@
         border: 2px solid white;
     }
     .buttons a:hover {
-        background-color: #c00a15;
+        background-color: #c00a15; /* Tmavší odstín pro hover */
         transform: scale(1.05);
     }
     
-    /* UPRAVENO: Pulzující efekt je nyní bílý */
+    /* UPRAVENO: Pulzující efekt (bílý stín, nedeformuje tlačítko) */
     @keyframes lure-pulse {
-        0% {
-            transform: scale(1);
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-        }
-        70% {
-            transform: scale(1.05);
-            box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0);
-        }
-        100% {
-            transform: scale(1);
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-        }
+        0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+        70% { box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
     }
     .animate-lure-pulse {
         animation: lure-pulse 2s infinite;
     }
+
+    /* ----- OSTATNÍ SEKCE ----- */
+    .pizza-section {
+        padding: 50px 20px;
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .section-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .text-content {
+        flex: 1;
+        min-width: 300px;
+    }
+    .pizza-section.reverse .section-content {
+        flex-direction: row-reverse;
+    }
+    .pizza-section h2 {
+        font-size: 2.2rem;
+        color: #ff4500;
+        margin-bottom: 1rem;
+    }
+    .pizza-section p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    .section-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
     
-    /* Responzivita */
+    /* ----- RESPONZIVITA ----- */
+    @media (max-width: 900px) {
+        .section-content, .pizza-section.reverse .section-content {
+            flex-direction: column;
+            text-align: center;
+        }
+        .text-content {
+            order: 2;
+        }
+        .section-image {
+            order: 1;
+            max-width: 400px;
+        }
+    }
+    @media (max-width: 768px) {
+        .logo { left: 1rem; top: 1rem; }
+        .logo img { height: 50px; }
+        .content h1 { font-size: 45px; white-space: normal; }
+        .cta-text { font-size: 20px; }
+    }
     @media (min-width: 640px) {
         .buttons {
             flex-direction: row;
@@ -271,31 +309,43 @@
             width: auto;
         }
     }
-    @media (max-width: 768px) {
-        .content h1 { font-size: 45px; white-space: normal; }
-        .cta-text { font-size: 20px; }
-    }
 </style>
-    
+
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <img src="images/logo.webp" alt="Logo Pizzerie San Marino Kladno" style="width: 120px; height: auto;">
+            <a href="#">
+                <img src="images/logo.webp" alt="Logo Pizzerie San Marino Kladno">
+            </a>
         </div>
     </header>
 
     <div class="slider">
         <div class="slides">
             <div class="slide">
-                <img src="images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp" alt="Detail naší originální pizzy s uzeným masem a špenátem, kterou ti dovezeme po Kladně a okolí." title="Naše pizzy ti dovezeme až ke dveřím! Objednej si pohodlně online." width="1920" height="1080" />
+                <img 
+                    src="images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp" 
+                    alt="Detail naší originální pizzy s uzeným masem a špenátem, kterou ti dovezeme po Kladně a okolí." 
+                    width="1920" 
+                    height="1080" />
             </div>
             <div class="slide">
-                <img src="images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp" alt="Legendární dvojitý burger 'Jako kráva' se slaninou, hranolky a omáčkou připravený v naší kladenské pizzerii." title="Máš chuť na pořádný burger? Objev legendu 'Jako kráva' s rozvozem po Kladně a okolí (do 20 km)!" loading="lazy" width="1920" height="1080" />
+                <img 
+                    src="images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp" 
+                    alt="Legendární dvojitý burger 'Jako kráva' se slaninou a hranolky, připravený v naší kladenské pizzerii." 
+                    loading="lazy" 
+                    width="1920" 
+                    height="1080" />
             </div>
             <div class="slide">
-                <img src="images/pizzerie-san-marino-kladno-nabidka-jidla.webp" alt="Ukázka jídel z naší nabídky – pizza, burger a salát. Vše s rozvozem po Kladně a okolí do 20 km." title="Dovezeme ti to! Objev celou naši nabídku s rozvozem po Kladně a okolí." loading="lazy" width="1920" height="1080" />
+                <img 
+                    src="images/pizzerie-san-marino-kladno-nabidka-jidla.webp" 
+                    alt="Ukázka jídel z naší nabídky – pizza, burger a salát. Vše s rozvozem po Kladně a okolí do 20 km." 
+                    loading="lazy" 
+                    width="1920" 
+                    height="1080" />
             </div>
         </div>
     </div>
@@ -306,28 +356,29 @@
         </div>
         
         <h1>Pizzerie San Marino Kladno</h1>
-        <p class="cta-text">
-            🤤 Tvůj hlad nepočká – a my to víme!<br>
-            Dopřej si pořádnou dávku chuti a nech si ji přivést až ke dveřím! 🚀
-        </p>
 
         <div class="buttons">
-             <a href="tel:+420604633373" class="btn-primary animate-lure-pulse">
+            <a href="tel:+420604633373" class="animate-lure-pulse">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                    <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
                 </svg>
                 <span>+420 604 633 373</span>
             </a>
-            <a href="https://pizza.pizzakladno.cz/" class="btn-secondary animate-lure-pulse">
+            <a href="https://pizza.pizzakladno.cz/" class="animate-lure-pulse">
                 <span>Objednat online</span>
             </a>
         </div>
+        
+        <p class="cta-text">
+            🤤 Tvůj hlad nepočká – a my to víme!<br>
+            Dopřej si pořádnou dávku chuti a nech si ji přivést až ke dveřím! 🚀
+        </p>
     </div>
 
-    <script>
+  <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // --- Původní logika pro slider a logo ---
+            // --- Logika pro slider ---
             let currentSlide = 0;
             const slidesContainer = document.querySelector(".slider .slides");
             const totalSlides = document.querySelectorAll(".slider .slide").length;
@@ -341,14 +392,15 @@
                 }, 4000);
             }
 
+            // --- Logika pro skrývání loga při scrollování ---
             const logo = document.querySelector(".logo");
             let lastScrollY = 0;
             window.addEventListener("scroll", () => {
                 let currentScrollY = window.scrollY;
                 if (logo) {
-                    if (currentScrollY > 250 && currentScrollY > lastScrollY) {
+                    if (currentScrollY > 150 && currentScrollY > lastScrollY) {
                         logo.classList.add("hidden");
-                    } else if (currentScrollY <= 200) {
+                    } else if (currentScrollY <= 100) {
                         logo.classList.remove("hidden");
                     }
                 }
