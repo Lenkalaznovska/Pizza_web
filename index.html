@@ -173,7 +173,7 @@
 </head>
 <body>
 
-    <header>
+   <header>
         <div class="logo">
             <a href="#">
                 <img src="images/logo.webp" alt="Logo Pizzerie San Marino Kladno">
@@ -184,27 +184,13 @@
     <div class="slider">
         <div class="slides">
             <div class="slide">
-                <img 
-                    src="images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp" 
-                    alt="Detail naší originální pizzy s uzeným masem a špenátem, kterou ti dovezeme po Kladně a okolí." 
-                    width="1920" 
-                    height="1080" />
+                <img src="images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp" alt="Detail naší originální pizzy s uzeným masem a špenátem." width="1920" height="1080" />
             </div>
             <div class="slide">
-                <img 
-                    src="images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp" 
-                    alt="Legendární dvojitý burger 'Jako kráva' se slaninou a hranolky, připravený v naší kladenské pizzerii." 
-                    loading="lazy" 
-                    width="1920" 
-                    height="1080" />
+                <img src="images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp" alt="Legendární dvojitý burger 'Jako kráva' se slaninou a hranolky." loading="lazy" width="1920" height="1080" />
             </div>
             <div class="slide">
-                <img 
-                    src="images/pizzerie-san-marino-kladno-nabidka-jidla.webp" 
-                    alt="Ukázka jídel z naší nabídky – pizza, burger a salát. Vše s rozvozem po Kladně a okolí do 20 km." 
-                    loading="lazy" 
-                    width="1920" 
-                    height="1080" />
+                <img src="images/pizzerie-san-marino-kladno-nabidka-jidla.webp" alt="Ukázka jídel z naší nabídky s rozvozem po Kladně." loading="lazy" width="1920" height="1080" />
             </div>
         </div>
     </div>
@@ -215,6 +201,11 @@
         </div>
         
         <h1>Pizzerie San Marino Kladno</h1>
+        
+        <p class="cta-text">
+            🤤 Tvůj hlad nepočká – a my to víme!<br>
+            Dopřej si pořádnou dávku chuti a nech si ji přivést až ke dveřím! 🚀
+        </p>
 
         <div class="buttons">
             <a href="tel:+420604633373" class="animate-lure-pulse">
@@ -224,20 +215,15 @@
                 </svg>
                 <span>+420 604 633 373</span>
             </a>
-            <a href="https://pizza.pizzakladno.cz/" class="animate-lure-pulse">
+            <a href="https://pizza.pizzakladno.cz/" class="btn-secondary animate-lure-pulse">
                 <span>Objednat online</span>
             </a>
         </div>
-        
-        <p class="cta-text">
-            🤤 Tvůj hlad nepočká – a my to víme!<br>
-            Dopřej si pořádnou dávku chuti a nech si ji přivést až ke dveřím! 🚀
-        </p>
     </div>
 
-  <script>
+    <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // --- Logika pro slider ---
+            // --- Logika pro slider a logo ---
             let currentSlide = 0;
             const slidesContainer = document.querySelector(".slider .slides");
             const totalSlides = document.querySelectorAll(".slider .slide").length;
@@ -251,7 +237,6 @@
                 }, 4000);
             }
 
-            // --- Logika pro skrývání loga při scrollování ---
             const logo = document.querySelector(".logo");
             let lastScrollY = 0;
             window.addEventListener("scroll", () => {
