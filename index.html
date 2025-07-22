@@ -131,9 +131,8 @@
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
         .logo img {
-            height: 80px; /* ZVĚTŠENO */
+            height: 80px;
             width: auto;
-            /* ODSTRANĚNO ORAMOVÁNÍ, POZADÍ A STÍN */
         }
 
         /* ----- SLIDER A OBSAH NA NĚM ----- */
@@ -220,7 +219,7 @@
             padding: 0.75rem 1.5rem;
             display: inline-flex;
             align-items: center;
-            justify-content: center; /* PŘIDÁNO PRO LEPŠÍ ZAROVNÁNÍ, KDYŽ JE TAM JEN TEXT */
+            justify-content: center;
             gap: 0.75rem;
             text-decoration: none;
             transition: background-color 0.3s ease, transform 0.2s ease;
@@ -308,8 +307,8 @@
             Dopřej si pořádnou dávku chuti a nech si ji přivést až ke dveřím! 🚀
         </p>
 
-        <div class="buttons">
-            <a href="tel:+420604633373" class="cervene-tlacitko animate-lure-pulse">
+        <div class="buttons animate-lure-pulse">
+            <a href="tel:+420604633373" class="cervene-tlacitko">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
@@ -318,11 +317,11 @@
                 </svg>
                 <span>+420 604 633 373</span>
             </a>
-            <a href="https://www.pizzakladno.cz/" class="cervene-tlacitko animate-lure-pulse">
+            <a href="https://www.pizzakladno.cz/" class="cervene-tlacitko">
                 <span>Objednat online</span>
             </a>
         </div>
-        </div>
+    </div>
 
     <main>
         <section class="relative z-20 -mt-20 w-full flex justify-center px-4" style="font-family: 'Montserrat', sans-serif;">
@@ -409,8 +408,6 @@
             }
 
             setInterval(nextSlide, 5000); // Mění slide každých 5 sekund
-
-            // EFEKT PRO SCROLLOVÁNÍ LOGA BYL ODSTRANĚN
         });
     </script>
 
