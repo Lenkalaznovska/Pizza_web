@@ -128,7 +128,7 @@
             z-index: 101;
             left: 2.5rem;
             top: 1.5rem;
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            /* ODSTRANĚNA VLASTNOST TRANSITION */
         }
         .logo img {
             height: 80px;
@@ -232,23 +232,30 @@
             height: 1.5rem;
         }
 
-        /* Pulzující efekt */
-        @keyframes lure-pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-            }
-            70% {
-                transform: scale(1.08);
-                box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-            }
+        /* ====== ZMĚNA ANIMACE PRO SYNCHRONIZACI ====== */
+
+        /* Animace jen pro ZVĚTŠENÍ (pro rodičovský prvek .buttons) */
+        @keyframes pulse-scale {
+            0% { transform: scale(1); }
+            70% { transform: scale(1.08); }
+            100% { transform: scale(1); }
         }
+
+        /* Animace jen pro ZÁŘENÍ (pro jednotlivá tlačítka) */
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+            70% { box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+        
+        /* Třída pro rodiče, která synchronizuje zvětšení */
         .animate-lure-pulse {
-            animation: lure-pulse 1.8s infinite;
+            animation: pulse-scale 1.8s infinite;
+        }
+
+        /* Nová třída pro tlačítka, která jim přidá záři */
+        .animate-glow {
+            animation: pulse-glow 1.8s infinite;
         }
         
         /* ----- RESPONZIVITA ----- */
@@ -308,7 +315,7 @@
         </p>
 
         <div class="buttons animate-lure-pulse">
-            <a href="tel:+420604633373" class="cervene-tlacitko">
+            <a href="tel:+420604633373" class="cervene-tlacitko animate-glow">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
@@ -317,7 +324,7 @@
                 </svg>
                 <span>+420 604 633 373</span>
             </a>
-            <a href="https://www.pizzakladno.cz/" class="cervene-tlacitko">
+            <a href="https://www.pizzakladno.cz/" class="cervene-tlacitko animate-glow">
                 <span>Objednat online</span>
             </a>
         </div>
