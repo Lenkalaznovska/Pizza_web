@@ -97,7 +97,7 @@
     }
     </script>
 
-  <style>
+<style>
         /* ----- ZÁKLADNÍ STYLY ----- */
         * {
             margin: 0;
@@ -166,7 +166,8 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            /* Změněno: Posunuto o 15px níže */
+            transform: translate(-50%, calc(-50% + 15px));
             text-align: center;
             color: #fff;
             width: 90%;
@@ -208,7 +209,6 @@
             flex-direction: column;
             align-items: center;
             gap: 1rem;
-            /* Změněno: Posunuto o 10px níže */
             margin-top: calc(3rem + 10px); 
         }
         .buttons a {
@@ -228,6 +228,10 @@
             border: none;
             transition: background-color 0.3s ease, transform 0.3s;
             position: relative; 
+        }
+        /* Přidáno: Zabraňuje zalamování textu při animaci */
+        .buttons a span {
+            white-space: nowrap;
         }
         .buttons a:hover {
             background-color: #c00a15;
@@ -257,7 +261,6 @@
             .buttons {
                 flex-direction: row;
                 justify-content: center;
-                /* Změněno: Větší mezera */
                 gap: 2.5rem; 
             }
             .buttons a {
