@@ -97,7 +97,7 @@
     }
     </script>
 
-<style>
+  <style>
         /* ----- ZÁKLADNÍ STYLY ----- */
         * {
             margin: 0;
@@ -166,7 +166,6 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            /* Změněno: Posunuto o 15px níže */
             transform: translate(-50%, calc(-50% + 15px));
             text-align: center;
             color: #fff;
@@ -229,9 +228,12 @@
             transition: background-color 0.3s ease, transform 0.3s;
             position: relative; 
         }
-        /* Přidáno: Zabraňuje zalamování textu při animaci */
         .buttons a span {
             white-space: nowrap;
+        }
+        /* PŘIDÁNO: Zabrání deformaci ikony při animaci */
+        .buttons a svg {
+            flex-shrink: 0;
         }
         .buttons a:hover {
             background-color: #c00a15;
