@@ -117,7 +117,6 @@
 
         /* ----- HEADER A LOGO ----- */
         header {
-            /* ZMĚNĚNO NA 'absolute', ABY SE HEADER SCROLLOVAL SE STRÁNKOU */
             position: absolute; 
             top: 0;
             width: 100%;
@@ -255,6 +254,25 @@
         .animate-glow {
             animation: pulse-glow 1.8s infinite;
         }
+
+        /* ========== ZDE JE NOVÁ ANIMACE PRO OBRÁZKY V KARTÁCH ========== */
+        @keyframes card-image-pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            70% {
+                transform: scale(1.08);
+                box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+        .animate-card-image {
+            animation: card-image-pulse 1.8s infinite;
+        }
         
         /* ----- RESPONZIVITA ----- */
         @media (min-width: 640px) {
@@ -329,7 +347,7 @@
     </div>
 
     <main>
-        <section class="relative z-20 w-full flex justify-center px-4 -mt-24" style="font-family: 'Montserrat', sans-serif;">
+        <section class="relative z-20 w-full flex justify-center px-4" style="margin-top: -94px; font-family: 'Montserrat', sans-serif;">
             <div class="bg-white text-gray-800 rounded-2xl shadow-xl px-6 py-6 md:px-10 md:py-5 flex flex-col md:flex-row flex-wrap items-center justify-center gap-y-8 md:gap-y-4 gap-x-8 lg:gap-x-16 max-w-6xl transition-all duration-500 ease-in-out hover:shadow-2xl">
                 <div class="flex items-center gap-x-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" /></svg>
@@ -370,7 +388,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </a>
                         </div>
-                        <img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Pizza se šunkou a zeleninou" class="animate-lure-pulse absolute -bottom-4 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full object-cover" style="margin-left: -15px; margin-top: -60px;">
+                        <img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Pizza se šunkou a zeleninou" class="animate-card-image absolute -bottom-4 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full object-cover" style="margin-left: -15px; margin-top: -75px;">
                     </div>
                     <div class="relative rounded-3xl p-8 min-h-[470px] flex flex-col justify-start overflow-hidden" style="background-color: #E20B18;">
                         <div>
@@ -380,7 +398,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </a>
                         </div>
-                        <img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Burger s batátovými hranolky" class="animate-lure-pulse absolute -bottom-4 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full object-cover" style="margin-left: -15px; margin-top: -60px;">
+                        <img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Burger s batátovými hranolky" class="animate-card-image absolute -bottom-4 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full object-cover" style="margin-left: -15px; margin-top: -75px;">
                     </div>
                     <div class="relative rounded-3xl p-8 min-h-[470px] flex flex-col justify-start overflow-hidden md:col-span-2 lg:col-span-1" style="background-color: #FCDFA3;">
                         <div>
@@ -390,7 +408,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </a>
                         </div>
-                        <img src="images/kureci-speciality-wing-it-kladno.webp" alt="Kuřecí speciality Wing It" class="animate-lure-pulse absolute -bottom-4 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full object-cover" style="margin-left: -15px; margin-top: -60px;">
+                        <img src="images/kureci-speciality-wing-it-kladno.webp" alt="Kuřecí speciality Wing It" class="animate-card-image absolute -bottom-4 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full object-cover" style="margin-left: -15px; margin-top: -75px;">
                     </div>
                 </div>
             </div>
