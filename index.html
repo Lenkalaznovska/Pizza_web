@@ -97,7 +97,7 @@
     }
     </script>
 
-    <style>
+  <style>
         /* ----- ZÁKLADNÍ STYLY ----- */
         * {
             margin: 0;
@@ -208,7 +208,8 @@
             flex-direction: column;
             align-items: center;
             gap: 1rem;
-            margin-top: 3rem;
+            /* Změněno: Posunuto o 10px níže */
+            margin-top: calc(3rem + 10px); 
         }
         .buttons a {
             display: flex;
@@ -224,7 +225,7 @@
             width: 100%;
             max-width: 320px;
             background-color: #E20B18;
-            border: none; /* Odstraněn okraj */
+            border: none;
             transition: background-color 0.3s ease, transform 0.3s;
             position: relative; 
         }
@@ -256,7 +257,8 @@
             .buttons {
                 flex-direction: row;
                 justify-content: center;
-                gap: 1.5rem;
+                /* Změněno: Větší mezera */
+                gap: 2.5rem; 
             }
             .buttons a {
                 width: auto;
