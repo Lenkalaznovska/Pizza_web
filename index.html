@@ -221,6 +221,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 0.75rem;
             font-weight: bold;
             font-size: 1.125rem;
             border-radius: 9999px;
@@ -234,31 +235,18 @@
             transition: background-color 0.3s ease, transform 0.3s;
             position: relative; 
         }
+        .buttons a span {
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .buttons a svg {
+            flex-shrink: 0;
+        }
         .buttons a:hover {
             background-color: #c00a15;
         }
 
-        /* Oprava animace - obsah se již nezvětšuje */
-        .button-content {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            animation: unscale-content 1.8s infinite;
-        }
-        .button-content span, .button-content svg {
-             flex-shrink: 0;
-        }
-        .button-content span {
-            white-space: nowrap;
-        }
-
-        @keyframes unscale-content {
-            0% { transform: scale(1); }
-            70% { transform: scale(calc(1 / 1.08)); }
-            100% { transform: scale(1); }
-        }
-
-        /* Finální pulzující efekt s přiblížením */
+        /* Pulzující efekt z referenčního kódu */
         @keyframes lure-pulse {
             0% {
                 transform: scale(1);
@@ -332,20 +320,16 @@
 
         <div class="buttons">
             <a href="tel:+420604633373" class="animate-lure-pulse">
-                <div class="button-content">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
-                        <path d="M15 7a2 2 0 0 1 2 2"></path>
-                        <path d="M15 3a6 6 0 0 1 6 6"></path>
-                    </svg>
-                    <span>+420 604 633 373</span>
-                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
+                    <path d="M15 7a2 2 0 0 1 2 2"></path>
+                    <path d="M15 3a6 6 0 0 1 6 6"></path>
+                </svg>
+                <span>+420 604 633 373</span>
             </a>
             <a href="https://pizza.pizzakladno.cz/" class="animate-lure-pulse">
-                <div class="button-content">
-                    <span>Objednat online</span>
-                </div>
+                <span>Objednat online</span>
             </a>
         </div>
     </div>
