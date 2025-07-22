@@ -101,7 +101,7 @@
     }
     </script>
 
-    <style>
+  <style>
         /* ----- ZÁKLADNÍ STYLY ----- */
         * {
             margin: 0;
@@ -113,9 +113,6 @@
             background: #f0f0f0;
             color: #333;
             overflow-x: hidden;
-        }
-        .font-cursive {
-            font-family: 'Pacifico', cursive;
         }
 
         /* ----- HEADER A LOGO ----- */
@@ -218,32 +215,7 @@
             margin-top: calc(3rem + 10px); 
         }
         .buttons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            font-weight: bold;
-            font-size: 1.125rem;
-            border-radius: 9999px;
-            padding: 1rem 2rem;
             text-decoration: none;
-            color: white;
-            width: 100%;
-            max-width: 320px;
-            background-color: #E20B18;
-            border: none;
-            transition: background-color 0.3s ease, transform 0.3s;
-            position: relative; 
-        }
-        .buttons a span {
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        .buttons a svg {
-            flex-shrink: 0;
-        }
-        .buttons a:hover {
-            background-color: #c00a15;
         }
 
         /* Pulzující efekt z referenčního kódu */
@@ -271,9 +243,6 @@
                 flex-direction: row;
                 justify-content: center;
                 gap: 2.5rem; 
-            }
-            .buttons a {
-                width: auto;
             }
         }
         @media (max-width: 768px) {
@@ -319,8 +288,8 @@
         </p>
 
         <div class="buttons">
-            <a href="tel:+420604633373" class="animate-lure-pulse">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <a href="tel:+420604633373" class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors duration-300 text-white font-bold text-base lg:text-lg rounded-full px-6 py-3 lg:px-8 lg:py-4 flex items-center gap-x-3 animate-lure-pulse">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
                     <path d="M15 7a2 2 0 0 1 2 2"></path>
@@ -328,11 +297,16 @@
                 </svg>
                 <span>+420 604 633 373</span>
             </a>
-            <a href="https://pizza.pizzakladno.cz/" class="animate-lure-pulse">
+            <a href="https://pizza.pizzakladno.cz/" class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors duration-300 text-white font-bold text-base lg:text-lg rounded-full px-6 py-3 lg:px-8 lg:py-4 flex items-center gap-x-3 animate-lure-pulse">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M10 14l11 -11" />
+                    <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                 </svg>
                 <span>Objednat online</span>
             </a>
         </div>
-    </div>
+        </div>
 
     <main>
         <section class="relative z-20 -mt-20 w-full flex justify-center px-4" style="font-family: 'Montserrat', sans-serif;">
