@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Pacifico&display=swap" rel="stylesheet">
     <meta name="theme-color" content="#1a1a1a" />
     <title>Pizzerie San Marino – Pizza jinak již od roku 1994</title>
-    <meta name="description" content="Pizzerie San Marino to jsou originální pizzy, legendární burgery, kuřecí speciality Wing It a další dobroty. Pohodlné online objednání s doručením až k vašim dveřím." />
-    <meta name="keywords" content="pizzerie san marino kladno, pizza kladno rozvoz, burgr jako kráva kladno, wing it kladno, restaurace kladno" />
+    <meta name="description" content="Pizzerie San Marino to jsou originální pizzy pečené ve formě, legendární burgery a další dobroty. Poskládejte si pizzu podle sebe! Pohodlné online objednání s doručením až k vám." />
+    <meta name="keywords" content="pizzerie san marino kladno, pizza kladno rozvoz, originál pizza kladno, pizza podle sebe, burgr jako kráva kladno, wing it kladno, restaurace kladno" />
     <meta name="author" content="Lenka Lážnovská" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.pizzakladno.cz/" />
@@ -24,7 +24,7 @@
     <meta property="og:locale" content="cs_CZ" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Pizzerie San Marino – Pizza jinak již od roku 1994" />
-    <meta property="og:description" content="Pizzerie San Marino to jsou originální pizzy, legendární burgery, kuřecí speciality Wing It a další dobroty s doručením až k vašim dveřím." />
+    <meta property="og:description" content="Pizzerie San Marino to jsou originální pizzy pečené ve formě, legendární burgery a další dobroty. Poskládejte si pizzu podle sebe! Pohodlné online objednání s doručením až k vám." />
     <meta property="og:url" content="https://www.pizzakladno.cz/" />
     <meta property="og:site_name" content="Pizzerie San Marino Kladno" />
     <meta property="og:image" content="https://www.pizzakladno.cz/images/pizzerie-san-marino-kladno-nabidka-jidla.webp" />
@@ -34,7 +34,7 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Pizzerie San Marino – Pizza jinak již od roku 1994" />
-    <meta name="twitter:description" content="Pizzerie San Marino to jsou originální pizzy, legendární burgery, kuřecí speciality Wing It a další dobroty s doručením až k vašim dveřím." />
+    <meta name="twitter:description" content="Pizzerie San Marino to jsou originální pizzy pečené ve formě, legendární burgery a další dobroty. Poskládejte si pizzu podle sebe! Pohodlné online objednání s doručením až k vám." />
     <meta name="twitter:image" content="https://www.pizzakladno.cz/images/pizzerie-san-marino-kladno-nabidka-jidla.webp" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -300,7 +300,8 @@
         }
         .bg-parchment {
             background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
-            background-size: 100% 100%;
+            background-size: cover;
+            background-position: center center;
             background-repeat: no-repeat;
         }
     </style>
@@ -376,7 +377,7 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-x-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M15 19l2 2l4 -4" /></svg>
+                        <svg xmlns="http="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M15 19l2 2l4 -4" /></svg>
                         <div class="flex flex-col text-left">
                             <span class="font-bold text-gray-800 text-lg">Rezervace</span>
                             <a href="tel:+420604633373" class="text-[#E20B18] underline font-semibold text-base">Rezervovat místo</a>
@@ -427,42 +428,54 @@
             </section>
 
             <div class="relative" style="font-family: 'Montserrat', sans-serif;">
-                <section class="bg-parchment pt-20 pb-16 relative z-10">
+                <section class="bg-parchment pt-20 pb-24 relative z-10">
                     <div class="container mx-auto px-6 md:px-12 lg:px-24">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                            <div>
-                                <p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Tradice již od roku 1994</p>
-                                <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide text-gray-900">PROČ PIZZA U NÁS?</h2>
-                                <p class="mt-6 text-gray-700 leading-relaxed">
-                                    Chceš pizzu přesně podle sebe? V San Marinu v Kladně si ji můžeš poskládat tak, jak máš rád. Víc sýra? Není problém. Extra zelenina nebo pořádná dávka masa? Jasně. A co ti nechutná, to prostě vynecháš. Tady si pizzu děláš podle sebe – bez kompromisů.
+                            <div class="text-white">
+                                <p class="font-cursive text-white text-4xl" style="position:relative; top: -15px;">Tohle není Itálie!</p>
+                                <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide text-white">Naše pizza, náš originál – To je San Marino Kladno</h2>
+                                <p class="mt-6 leading-relaxed font-semibold">
+                                     Tradice již od roku 1994! 🍕
                                 </p>
-                                <div class="mt-8 space-y-4">
+                                <h3 class="text-2xl font-bold uppercase mt-10 mb-4">Naše pizzy pečeme jinak!</h3>
+                                <div class="space-y-4">
                                     <div class="flex items-start gap-x-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                        </svg>
-                                        <span class="text-gray-800 font-medium">Těsto je nadýchané s křupavým okrajem.</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                        <span class="font-medium">Ve formách, které dodávají těstu dokonalý tvar a strukturu.</span>
                                     </div>
                                     <div class="flex items-start gap-x-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                        </svg>
-                                        <span class="text-gray-800 font-medium">Zasypané sýrem, který vytváří zlatavou rozpečenou vrstvu.</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                        <span class="font-medium">Těsto je nadýchané s křupavým okrajem.</span>
                                     </div>
                                     <div class="flex items-start gap-x-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                        </svg>
-                                        <span class="text-gray-800 font-medium">Bohatá porce kvalitních surovin.</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                        <span class="font-medium">Zasypané sýrem, který vytváří zlatavou rozpečenou vrstvu.</span>
+                                    </div>
+                                    <div class="flex items-start gap-x-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                        <span class="font-medium">Bohatá porce kvalitních a čerstvých surovin.</span>
+                                    </div>
+                                    <div class="flex items-start gap-x-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                        <span class="font-medium">Vyladěné recepty, které dělají naši pizzu jedinečnou.</span>
                                     </div>
                                 </div>
-                                <a href="#" class="inline-block mt-10 border border-gray-800 bg-[#FDF6E3] rounded-full px-10 py-4 text-gray-900 font-bold hover:bg-[#faeed9] transition-colors">
+                                
+                                <h3 class="text-2xl font-bold uppercase mt-10 mb-4">Poskládejte si svou vlastní pizzu</h3>
+                                <p class="mt-4 leading-relaxed">
+                                    Máte rádi pizzu, která je přesně podle vašich představ? U nás máte tu možnost! Chcete pizzu přesně podle svého gusta? V Pizzerii San Marino Kladno si ji můžete sestavit sami! 🍕 Vyberte si z našich čerstvých surovin a vytvořte si pizzu podle svých chutí – více sýra, extra zelenina, pořádná dávka masa nebo odeberte to, co vám nevyhovuje! 🧀🥓🥬
+                                </p>
+
+                                <p class="mt-8 font-bold text-lg">
+                                    Jsme TOP 4. Pizzerie na Kladně!🏅 Přijďte ochutnat pizzu, kterou nikde jinde nenajdete.
+                                </p>
+                                <a href="#" class="inline-block mt-10 border-2 border-white bg-transparent rounded-full px-10 py-4 text-white font-bold hover:bg-white hover:text-[#E20B18] transition-colors">
                                     Vytvořit vlastní pizzu
                                 </a>
                             </div>
                             <div class="flex flex-col items-center">
                                 <div class="relative w-full max-w-md aspect-square">
-                                    <img :src="gallery.images[gallery.currentIndex]" alt="Pizza v galerii" class="w-full h-full object-cover rounded-2xl">
+                                    <img :src="gallery.images[gallery.currentIndex]" alt="Originální pizza San Marino Kladno" class="w-full h-full object-cover rounded-2xl shadow-2xl">
                                     <button @click="prevImage" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -476,7 +489,7 @@
                                 </div>
                                 <div class="mt-6 flex items-center justify-center gap-x-3">
                                     <template v-for="(image, index) in gallery.images" :key="index">
-                                        <button @click="goToImage(index)" :class="['h-4 w-4 rounded-full transition-colors', gallery.currentIndex === index ? 'bg-[#E20B18]' : 'border-2 border-[#E20B18] hover:bg-[#e20b18]/20']"></button>
+                                        <button @click="goToImage(index)" :class="['h-4 w-4 rounded-full transition-colors', gallery.currentIndex === index ? 'bg-[#E20B18]' : 'border-2 border-white hover:bg-[#e20b18]/50']"></button>
                                     </template>
                                 </div>
                             </div>
