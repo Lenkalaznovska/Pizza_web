@@ -55,54 +55,54 @@
 	</noscript>
 	<script type="application/ld+json">
 	{
-	  "@context": "https://schema.org",
-	  "@type": "Restaurant",
-	  "name": "Pizzerie San Marino Kladno",
-	  "image": "https://www.pizzakladno.cz/images/pizzerie-san-marino-kladno-nabidka-jidla.webp",
-	  "@id": "https://www.pizzakladno.cz/",
-	  "url": "https://www.pizzakladno.cz/",
-	  "telephone": "+420604633373",
-	  "address": {
+		"@context": "https://schema.org",
+		"@type": "Restaurant",
+		"name": "Pizzerie San Marino Kladno",
+		"image": "https://www.pizzakladno.cz/images/pizzerie-san-marino-kladno-nabidka-jidla.webp",
+		"@id": "https://www.pizzakladno.cz/",
+		"url": "https://www.pizzakladno.cz/",
+		"telephone": "+420604633373",
+		"address": {
 		"@type": "PostalAddress",
 		"streetAddress": "Obránců míru 2721",
 		"addressLocality": "Kladno",
 		"postalCode": "27201",
 		"addressCountry": "CZ"
-	  },
-	  "servesCuisine": ["Pizza", "Burger", "Kuřecí speciality", "Saláty", "Těstoviny"],
-	  "priceRange": "$$",
-	  "aggregateRating": {
+		},
+		"servesCuisine": ["Pizza", "Burger", "Kuřecí speciality", "Saláty", "Těstoviny"],
+		"priceRange": "$$",
+		"aggregateRating": {
 		"@type": "AggregateRating",
 		"ratingValue": "4.5",
 		"ratingCount": "2380"
-	  },
-	  "openingHoursSpecification": [
+		},
+		"openingHoursSpecification": [
 		{
-		  "@type": "OpeningHoursSpecification",
-		  "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-		  "opens": "11:00",
-		  "closes": "21:15"
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+			"opens": "11:00",
+			"closes": "21:15"
 		},
 		{
-		  "@type": "OpeningHoursSpecification",
-		  "dayOfWeek": "Monday",
-		  "opens": "11:00",
-		  "closes": "21:15",
-		  "description": "Pouze pro online a telefonické objednávky. Osobní vyzvednutí u výdejního místa vedle kuchyně nebo rozvoz až k vašim dveřím."
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": "Monday",
+			"opens": "11:00",
+			"closes": "21:15",
+			"description": "Pouze pro online a telefonické objednávky. Osobní vyzvednutí u výdejního místa vedle kuchyně nebo rozvoz až k vašim dveřím."
 		}
-	  ],
-	  "menu": "https://www.pizzakladno.cz/",
-	  "sameAs": [
+		],
+		"menu": "https://www.pizzakladno.cz/",
+		"sameAs": [
 		"https://www.facebook.com/profile.php?id=100095016576324",
 		"https://www.instagram.com/pizzakladno/",
 		"https://www.tiktok.com/@pizzakladno",
 		"https://www.foodora.cz/restaurant/i8wo/pizzerie-san-marino",
 		"https://www.firmy.cz/detail/293070-pizzerie-san-marino-kladno-krocehlavy.html"
-	  ]
+		]
 	}
 	</script>
 
-  <style>
+	<style>
 		/* ----- ZÁKLADNÍ STYLY ----- */
 		* {
 			margin: 0;
@@ -118,11 +118,10 @@
 
 		/* ----- HEADER A LOGO ----- */
 		header {
-			position: absolute; 
+			position: absolute;
 			top: 0;
 			width: 100%;
 			z-index: 100;
-			padding: 1rem;
 		}
 		.logo {
 			position: absolute;
@@ -206,7 +205,7 @@
 			flex-direction: column;
 			align-items: center;
 			gap: 1rem;
-			margin-top: 3rem; 
+			margin-top: 3rem;
 		}
 
 		.cervene-tlacitko {
@@ -294,7 +293,7 @@
 			.buttons {
 				flex-direction: row;
 				justify-content: center;
-				gap: 2.5rem; 
+				gap: 2.5rem;
 			}
 		}
 		@media (min-width: 1024px) { /* lg breakpoint */
@@ -319,20 +318,17 @@
 		}
 		
 		/* === STYLY PRO PŘECHOD SEKCÍ === */
-        .pricelist-bg-bottom {
-            background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
-            background-size: cover;
-            background-position: center;
-            filter: grayscale(1);
-        }
-
-        .pricelist-bg-top {
-            background-image: url('images/pizzerie-san-marino-kladno-nabidka-jidla.webp');
-            background-size: cover;
-            background-position: center;
-            -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-        }
+		.pricelist-bg-bottom {
+			background-image: url('images/pozadi2.jpg');
+			background-size: cover;
+			background-position: center;
+			filter: grayscale(1);
+		}
+		.pricelist-bg-top {
+			background-image: url('images/pizzerie-san-marino-kladno-nabidka-jidla.webp');
+			background-size: cover;
+			background-position: center bottom;
+		}
 	</style>
 </head>
 <body style="background-color: white;">
@@ -512,13 +508,13 @@
 			</div>
 		</section>
 		
-		<div class="relative -mt-16 z-0">
+		<div class="relative -mt-12 z-0">
 			<div class="relative">
 				<div class="absolute inset-0 pricelist-bg-bottom z-0"></div>
 				<div class="absolute inset-0 pricelist-bg-top z-10"></div>
 				<div class="absolute inset-0 z-15" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 60%);"></div>
 				<section class="relative z-20 bg-transparent">
-					<div class="container mx-auto px-4 md:px-12 lg:px-20 text-center pt-40 pb-16">
+					<div class="container mx-auto px-4 md:px-12 lg:px-20 text-center pt-48 pb-16">
 						<p class="font-cursive text-white text-4xl mb-2" style="position:relative; top: -15px;">Top výběr</p>
 						<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">NEJČASTĚJI OBJEDNÁVANÁ JÍDLA</h2>
 						
