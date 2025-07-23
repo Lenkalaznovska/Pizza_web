@@ -231,32 +231,62 @@
             width: 1.5rem;
             height: 1.5rem;
         }
+        
+        /* ----- NOVÉ STYLY PRO SEKCI TOP VÝBĚR A ANIMACE ----- */
+        .pricelist-bg-bottom {
+            background-image: url('images/pozadi2.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(1);
+        }
 
-        /* Animace jen pro ZVĚTŠENÍ (pro rodičovský prvek .buttons) */
+        .pricelist-bg-top {
+            background-image: url('images/sanmarino.webp');
+            background-size: cover;
+            background-position: center;
+            -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+        }
+        
+        @keyframes lure-pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            70% {
+                transform: scale(1.08);
+                box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+
+        .animate-lure-pulse {
+            animation: lure-pulse 1.8s infinite;
+        }
+
         @keyframes pulse-scale {
             0% { transform: scale(1); }
             70% { transform: scale(1.08); }
             100% { transform: scale(1); }
         }
 
-        /* Animace jen pro ZÁŘENÍ (pro jednotlivá tlačítka) */
         @keyframes pulse-glow {
             0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
             70% { box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
             100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
         
-        /* Třída pro rodiče, která synchronizuje zvětšení */
         .animate-lure-pulse {
             animation: pulse-scale 1.8s infinite;
         }
 
-        /* Nová třída pro tlačítka, která jim přidá záři */
         .animate-glow {
             animation: pulse-glow 1.8s infinite;
         }
 
-        /* Animace pro obrázky v kartách (obnoveno) */
         @keyframes card-image-pulse {
             0% {
                 transform: scale(1);
@@ -294,7 +324,7 @@
             .cta-text { font-size: 20px; }
         }
 
-        /* ----- NOVĚ PŘIDANÉ STYLY ----- */
+        /* ----- OSTATNÍ STYLY ----- */
         .font-cursive {
             font-family: 'Pacifico', cursive;
         }
@@ -346,6 +376,8 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
+                    <path d="M15 7a2 2 0 0 1 2 2"></path>
+                    <path d="M15 3a6 6 0 0 1 6 6"></path>
                 </svg>
                 <span>+420 604 633 373</span>
             </a>
@@ -423,16 +455,54 @@
                     </div>
                 </div>
             </section>
-
+            
+            <div class="relative">
+                 <section class="relative z-20 bg-transparent">
+                    <div class="container mx-auto px-4 md:px-12 lg:px-20 text-center pt-40 pb-16">
+                        <p class="font-cursive text-white text-4xl mb-2" style="position:relative; top: -15px;">Top výběr</p>
+                        <h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">NEJČASTĚJI OBJEDNÁVANÁ JÍDLA</h2>
+                        
+                        <div class="flex justify-center flex-wrap gap-4 my-8">
+                            <button @click="activeCategory = 'pizza'" :class="activeCategory === 'pizza' ? 'bg-[#E20B18] text-white font-bold' : 'bg-black/40 border border-white/50 text-white font-semibold hover:bg-white/20'" class="py-2 px-6 rounded-full transition-colors">Pizzy ø24cm</button>
+                            <button @click="activeCategory = 'burger'" :class="activeCategory === 'burger' ? 'bg-[#E20B18] text-white font-bold' : 'bg-black/40 border border-white/50 text-white font-semibold hover:bg-white/20'" class="py-2 px-6 rounded-full transition-colors">Burgery</button>
+                            <button @click="activeCategory = 'chicken'" :class="activeCategory === 'chicken' ? 'bg-[#E20B18] text-white font-bold' : 'bg-black/40 border border-white/50 text-white font-semibold hover:bg-white/20'" class="py-2 px-6 rounded-full transition-colors">Kuřecí speciality</button>
+                        </div>
+                        
+                        <div class="max-w-5xl mx-auto bg-black/40 backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-8">
+                            <div class="space-y-4">
+                                <div v-for="item in activeList" :key="item.id" class="flex flex-col md:flex-row items-center justify-between text-white border-b border-white/20 py-3 last:border-b-0 gap-4">
+                                    <div class="flex-grow text-left w-full">
+                                        <p class="font-bold text-md md:text-lg">{{ item.id }}. {{ item.name }}</p>
+                                        <p class="text-sm text-gray-300">{{ item.description }}</p>
+                                    </div>
+                                    <div class="flex items-center gap-x-2 md:gap-x-4 w-full md:w-auto justify-end flex-shrink-0">
+                                        <span class="font-bold text-lg md:text-xl min-w-[70px] text-left">
+                                            <span v-if="activeCategory !== 'pizza'">od </span>{{ item.price }} Kč
+                                        </span>
+                                        <button class="bg-gray-700/60 hover:bg-gray-600/60 transition-colors text-white font-semibold py-2 px-3 md:px-6 rounded-full text-sm">Upravit</button>
+                                        <button class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors text-white font-bold py-2 px-3 md:px-6 rounded-full text-sm">Objednat</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <a href="#" class="inline-block bg-[#E20B18] text-white font-bold py-3 px-8 rounded-full hover:bg-[#c00a15] transition-colors duration-300 animate-lure-pulse">
+                                Zobrazit celé menu
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
             <div class="relative" style="font-family: 'Montserrat', sans-serif;">
                 <section class="bg-parchment pt-20 pb-16 relative z-10">
                     <div class="container mx-auto px-6 md:px-12 lg:px-24">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div>
-                                <p class="font-cursive text-4xl" style="position:relative; top: -15px; color: white;">Tohle není žádná Itálie, to je tradice již od roku 1994!</p>
+                                <p class="font-cursive text-4xl" style="position:relative; top: -15px; color: white;">Tradice již od roku 1994</p>
                                 <h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide" style="color: white;">PROČ PIZZA U NÁS?</h2>
                                 <p class="mt-6 leading-relaxed" style="color: white;">
-                                     Chceš pizzu přesně podle sebe? V San Marinu v Kladně si ji můžeš poskládat tak, jak máš rád. Víc sýra? Není problém. Extra zelenina nebo pořádná dávka masa? Jasně. A co ti nechutná, to prostě vynecháš. Tady si pizzu děláš podle sebe – bez kompromisů. Přijďte ochutnat pizzu, kterou nikde jinde nenajdete.
+                                    Chceš pizzu přesně podle sebe? V San Marinu v Kladně si ji můžeš poskládat tak, jak máš rád. Víc sýra? Není problém. Extra zelenina nebo pořádná dávka masa? Jasně. A co ti nechutná, to prostě vynecháš. Tady si pizzu děláš podle sebe – bez kompromisů.
                                 </p>
                                 <div class="mt-8 space-y-4">
                                     <div class="flex items-start gap-x-3">
@@ -452,18 +522,6 @@
                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                                         </svg>
                                         <span class="font-medium" style="color: white;">Bohatá porce kvalitních surovin.</span>
-                                    </div>
-                                     <div class="flex items-start gap-x-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                        </svg>
-                                        <span class="font-medium" style="color: white;">Pečeme ve formách pro dokonalý tvar a strukturu.</span>
-                                    </div>
-                                     <div class="flex items-start gap-x-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                        </svg>
-                                        <span class="font-medium" style="color: white;">Vyladěné recepty, které dělají naši pizzu jedinečnou.</span>
                                     </div>
                                 </div>
                                 <a href="#" class="cervene-tlacitko inline-block mt-10">
@@ -531,7 +589,33 @@
                             'images/detske-menu-v-pizzerii-san-marino-kladno-mala-pizza-pro-deti-se-syrem-a-zeleninou-a-zampiony-podavana-s-oblibenym-kinder-vajickem-jako-prekvapenim.webp',
                             'images/dve-cerstve-upecene-pizzy-v-krabicich-pripravene-na-rozvoz-vlevo-pizza-se-slaninou-vpravo-syrova-pizza-s-nivou-hermelinem-a-olivami.webp'
                         ]
-                    }
+                    },
+                    activeCategory: 'pizza', // Výchozí aktivní kategorie
+                    topPizzas: [
+                        { id: 2, name: 'Pizza se šunkou', description: 'Tomatový základ, sýr, šunka', price: '169' },
+                        { id: 7, name: 'Pizza se šunkou a salámem', description: 'Tomatový základ, sýr, šunka, salám', price: '184' },
+                        { id: 18, name: 'Pizza Havaj', description: 'Smetanový základ, sýr, šunka, ananas', price: '184' },
+                        { id: 11, name: 'Pizza Sýrová', description: 'Tomatový základ, sýr', price: '174' },
+                    ],
+                    topBurgers: [
+                        { id: 4, name: 'BACON Burger', description: '100g hovězí maso, slanina, čedar, BBQ omáčka, salát, rajče, cibulka', price: '159' },
+                        { id: 1, name: 'CHEESE Burger', description: '100g hovězí maso, čedar, salát, rajče, cibulka, dresink', price: '149' },
+                        { id: 6, name: 'JALAPEÑO Burger', description: '100g hovězí maso, čedar, jalapeños, salát, rajče, pikantní dresink', price: '159' },
+                        { id: 2, name: 'BARBECUE Burger', description: '100g hovězí maso, čedar, slanina, BBQ omáčka, smažená cibulka', price: '159' },
+                    ],
+                    topChicken: [
+                        { id: 1, name: 'Marinovaná křídla', description: '6 ks', price: '169' },
+                        { id: 2, name: 'Obalovaná křídla', description: '6 ks', price: '169' },
+                        { id: 3, name: 'Kuřecí stripsy', description: '3 ks', price: '129' },
+                    ]
+                }
+            },
+            computed: {
+                activeList() {
+                    if (this.activeCategory === 'pizza') return this.topPizzas;
+                    if (this.activeCategory === 'burger') return this.topBurgers;
+                    if (this.activeCategory === 'chicken') return this.topChicken;
+                    return [];
                 }
             },
             methods: {
