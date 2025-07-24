@@ -55,54 +55,54 @@
 	</noscript>
 	<script type="application/ld+json">
 	{
-	  "@context": "https://schema.org",
-	  "@type": "Restaurant",
-	  "name": "Pizzerie San Marino Kladno",
-	  "image": "https://www.pizzakladno.cz/images/pizzerie-san-marino-kladno-nabidka-jidla.webp",
-	  "@id": "https://www.pizzakladno.cz/",
-	  "url": "https://www.pizzakladno.cz/",
-	  "telephone": "+420604633373",
-	  "address": {
+	  "@context": "https://schema.org",
+	  "@type": "Restaurant",
+	  "name": "Pizzerie San Marino Kladno",
+	  "image": "https://www.pizzakladno.cz/images/pizzerie-san-marino-kladno-nabidka-jidla.webp",
+	  "@id": "https://www.pizzakladno.cz/",
+	  "url": "https://www.pizzakladno.cz/",
+	  "telephone": "+420604633373",
+	  "address": {
 		"@type": "PostalAddress",
 		"streetAddress": "Obránců míru 2721",
 		"addressLocality": "Kladno",
 		"postalCode": "27201",
 		"addressCountry": "CZ"
-	  },
-	  "servesCuisine": ["Pizza", "Burger", "Kuřecí speciality", "Saláty", "Těstoviny"],
-	  "priceRange": "$$",
-	  "aggregateRating": {
+	  },
+	  "servesCuisine": ["Pizza", "Burger", "Kuřecí speciality", "Saláty", "Těstoviny"],
+	  "priceRange": "$$",
+	  "aggregateRating": {
 		"@type": "AggregateRating",
 		"ratingValue": "4.5",
 		"ratingCount": "2380"
-	  },
-	  "openingHoursSpecification": [
+	  },
+	  "openingHoursSpecification": [
 		{
-		  "@type": "OpeningHoursSpecification",
-		  "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-		  "opens": "11:00",
-		  "closes": "21:15"
+		  "@type": "OpeningHoursSpecification",
+		  "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+		  "opens": "11:00",
+		  "closes": "21:15"
 		},
 		{
-		  "@type": "OpeningHoursSpecification",
-		  "dayOfWeek": "Monday",
-		  "opens": "11:00",
-		  "closes": "21:15",
-		  "description": "Pouze pro online a telefonické objednávky. Osobní vyzvednutí u výdejního místa vedle kuchyně nebo rozvoz až k vašim dveřím."
+		  "@type": "OpeningHoursSpecification",
+		  "dayOfWeek": "Monday",
+		  "opens": "11:00",
+		  "closes": "21:15",
+		  "description": "Pouze pro online a telefonické objednávky. Osobní vyzvednutí u výdejního místa vedle kuchyně nebo rozvoz až k vašim dveřím."
 		}
-	  ],
-	  "menu": "https://www.pizzakladno.cz/",
-	  "sameAs": [
+	  ],
+	  "menu": "https://www.pizzakladno.cz/",
+	  "sameAs": [
 		"https://www.facebook.com/profile.php?id=100095016576324",
 		"https://www.instagram.com/pizzakladno/",
 		"https://www.tiktok.com/@pizzakladno",
 		"https://www.foodora.cz/restaurant/i8wo/pizzerie-san-marino",
 		"https://www.firmy.cz/detail/293070-pizzerie-san-marino-kladno-krocehlavy.html"
-	  ]
+	  ]
 	}
 	</script>
 
-  <style>
+  <style>
 		/* ----- ZÁKLADNÍ STYLY ----- */
 		* {
 			margin: 0;
@@ -316,6 +316,9 @@
 			background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
 			background-size: 100% 100%;
 			background-repeat: no-repeat;
+			/* === Změna pro prolnutí pozadí === */
+			-webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+			mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
 		}
 		
 		/* === STYLY PRO PŘECHOD SEKCÍ === */
