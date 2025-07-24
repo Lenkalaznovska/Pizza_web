@@ -312,11 +312,10 @@
 		.font-cursive {
 			font-family: 'Pacifico', cursive;
 		}
-		.bg-parchment {
+		.bg-green-texture {
+			background-color: #017D4D; /* Fallback */
 			background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
-			background-size: 100% auto;
-			background-repeat: no-repeat;
-			background-position: bottom center;
+			background-size: cover;
 		}
 		
 		/* === STYLY PRO PŘECHOD SEKCÍ === */
@@ -331,6 +330,36 @@
 			background-size: cover;
 			background-position: center;
 		}
+
+		/* === ODDĚLOVAČE SEKCÍ === */
+		.divider-top, .divider-bottom {
+			position: relative;
+			z-index: 1;
+		}
+		.divider-top::before, .divider-bottom::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 80px; /* Výška potrhaného okraje */
+			background-size: cover;
+			background-repeat: no-repeat;
+			z-index: 10;
+		}
+		.divider-top::before {
+			top: 0;
+			transform: translateY(-50%);
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3e%3cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' style='fill:%23ffffff;'%3e%3c/path%3e%3c/svg%3e");
+		}
+		.divider-bottom::after {
+			bottom: 0;
+			transform: translateY(50%) rotate(180deg);
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3e%3cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' style='fill:%23ffffff;'%3e%3c/path%3e%3c/svg%3e");
+		}
+		.divider-bottom.green-divider::after {
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3e%3cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' style='fill:%23017D4D;'%3e%3c/path%3e%3c/svg%3e");
+		}
+
 	</style>
 </head>
 <body style="background-color: white;">
@@ -453,70 +482,72 @@
 			</div>
 		</section>
 		
-		<section class="bg-parchment pt-20 pb-24 relative z-10" style="font-family: 'Montserrat', sans-serif;">
-			<div class="container mx-auto px-6 md:px-12 lg:px-24">
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-					<div>
-						<p class="font-cursive text-4xl" style="position:relative; top: -15px; color: white;">Tradice již od roku 1994</p>
-						<h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide" style="color: white;">PROČ PIZZA U NÁS?</h2>
-						<p class="mt-6 leading-relaxed" style="color: white;">
-							Chceš pizzu přesně podle sebe? V San Marinu v Kladně si ji můžeš poskládat tak, jak máš rád. Víc sýra? Není problém. Extra zelenina nebo pořádná dávka masa? Jasně. A co ti nechutná, to prostě vynecháš. Tady si pizzu děláš podle sebe – bez kompromisů.
-						</p>
-						<div class="mt-8 space-y-4">
-							<div class="flex items-start gap-x-3">
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-								</svg>
-								<span class="font-medium" style="color: white;">Těsto je nadýchané s křupavým okrajem.</span>
+		<div class="divider-top divider-bottom bg-green-texture">
+			<section class="pt-32 pb-32" style="font-family: 'Montserrat', sans-serif;">
+				<div class="container mx-auto px-6 md:px-12 lg:px-24">
+					<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+						<div>
+							<p class="font-cursive text-4xl" style="position:relative; top: -15px; color: white;">Tradice již od roku 1994</p>
+							<h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide" style="color: white;">PROČ PIZZA U NÁS?</h2>
+							<p class="mt-6 leading-relaxed" style="color: white;">
+								Chceš pizzu přesně podle sebe? V San Marinu v Kladně si ji můžeš poskládat tak, jak máš rád. Víc sýra? Není problém. Extra zelenina nebo pořádná dávka masa? Jasně. A co ti nechutná, to prostě vynecháš. Tady si pizzu děláš podle sebe – bez kompromisů.
+							</p>
+							<div class="mt-8 space-y-4">
+								<div class="flex items-start gap-x-3">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+										<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+									</svg>
+									<span class="font-medium" style="color: white;">Těsto je nadýchané s křupavým okrajem.</span>
+								</div>
+								<div class="flex items-start gap-x-3">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+										<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+									</svg>
+									<span class="font-medium" style="color: white;">Zasypané sýrem, který vytváří zlatavou rozpečenou vrstvu.</span>
+								</div>
+								<div class="flex items-start gap-x-3">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+										<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+									</svg>
+									<span class="font-medium" style="color: white;">Bohatá porce kvalitních surovin.</span>
+								</div>
 							</div>
-							<div class="flex items-start gap-x-3">
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-								</svg>
-								<span class="font-medium" style="color: white;">Zasypané sýrem, který vytváří zlatavou rozpečenou vrstvu.</span>
-							</div>
-							<div class="flex items-start gap-x-3">
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-								</svg>
-								<span class="font-medium" style="color: white;">Bohatá porce kvalitních surovin.</span>
-							</div>
+							<a href="#" class="cervene-tlacitko inline-block mt-10">
+								Vytvořit vlastní pizzu
+							</a>
 						</div>
-						<a href="#" class="cervene-tlacitko inline-block mt-10">
-							Vytvořit vlastní pizzu
-						</a>
-					</div>
-					<div class="flex flex-col items-center">
-						<div class="relative w-full max-w-md aspect-square">
-							<img :src="gallery.images[gallery.currentIndex]" alt="Pizza v galerii" class="w-full h-full object-cover rounded-2xl">
-							<button @click="prevImage" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-								</svg>
-							</button>
-							<button @click="nextImage" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-								</svg>
-							</button>
-						</div>
-						<div class="mt-6 flex items-center justify-center gap-x-3">
-							<template v-for="(image, index) in gallery.images" :key="index">
-								<button @click="goToImage(index)" :class="['h-4 w-4 rounded-full transition-colors', gallery.currentIndex === index ? 'bg-[#E20B18]' : 'border-2 border-white hover:bg-white/20']"></button>
-							</template>
+						<div class="flex flex-col items-center">
+							<div class="relative w-full max-w-md aspect-square">
+								<img :src="gallery.images[gallery.currentIndex]" alt="Pizza v galerii" class="w-full h-full object-cover rounded-2xl">
+								<button @click="prevImage" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+									</svg>
+								</button>
+								<button @click="nextImage" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+									</svg>
+								</button>
+							</div>
+							<div class="mt-6 flex items-center justify-center gap-x-3">
+								<template v-for="(image, index) in gallery.images" :key="index">
+									<button @click="goToImage(index)" :class="['h-4 w-4 rounded-full transition-colors', gallery.currentIndex === index ? 'bg-[#E20B18]' : 'border-2 border-white hover:bg-white/20']"></button>
+								</template>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
-		
-		<div class="relative -mt-16 z-0">
-			<div class="relative">
+			</section>
+		</div>
+
+		<div class="relative bg-green-texture">
+			<div class="relative -mt-20 divider-bottom green-divider">
 				<div class="absolute inset-0 pricelist-bg-bottom z-0"></div>
 				<div class="absolute inset-0 pricelist-bg-top z-10"></div>
 				<div class="absolute inset-0 z-15" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 60%);"></div>
 				<section class="relative z-20 bg-transparent">
-					<div class="container mx-auto px-4 md:px-12 lg:px-20 text-center pt-24 pb-16">
+					<div class="container mx-auto px-4 md:px-12 lg:px-20 text-center pt-32 pb-32">
 						<p class="font-cursive text-white text-4xl mb-2" style="position:relative; top: -15px;">Top výběr</p>
 						<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">NEJČASTĚJI OBJEDNÁVANÁ JÍDLA</h2>
 						
@@ -555,8 +586,8 @@
 		</div>
 	</div>
 
-	<footer>
-	</footer>
+	<footer class="bg-green-texture py-8">
+		</footer>
 
 	<script>
 		// Jednoduchý skript pro slider
