@@ -320,7 +320,8 @@
 		
 		/* === STYLY PRO PŘECHOD SEKCÍ === */
 		.pricelist-bg-bottom {
-			background-image: url('images/pizzerie-san-marino-kladno-nabidka-jidla.webp'); /* Změna na tvůj obrázek */
+			/* Pozadí pod hlavním obrázkem, pokud by prosvítal. Může být stejný. */
+			background-image: url('images/pizzerie-san-marino-kladno-nabidka-jidla.webp');
 			background-size: cover;
 			background-position: center;
 			filter: grayscale(1);
@@ -329,6 +330,8 @@
 			background-image: url('images/pizzerie-san-marino-kladno-nabidka-jidla.webp');
 			background-size: cover;
 			background-position: center;
+			-webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+			mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
 		}
 	</style>
 </head>
