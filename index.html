@@ -122,7 +122,7 @@
 			top: 0;
 			width: 100%;
 			z-index: 100;
-			padding: 1rem;
+			/* padding: 1rem; <-- TENTO ŘÁDEK JSEM ODSTRANIL, ABY ZMIZELA MEZERA NAD LOGEM */
 		}
 		.logo {
 			position: absolute;
@@ -511,13 +511,13 @@
 			</div>
 		</section>
 		
-		<div class="relative -mt-48 z-0">
+		<div class="relative -mt-56 z-0">
 			<div class="relative">
 				<div class="absolute inset-0 pricelist-bg-bottom z-0"></div>
 				<div class="absolute inset-0 pricelist-bg-top z-10"></div>
 				<div class="absolute inset-0 z-15" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 60%);"></div>
 				<section class="relative z-20 bg-transparent">
-					<div class="container mx-auto px-4 md:px-12 lg:px-20 text-center pt-40 pb-16">
+					<div class="container mx-auto px-4 md:px-12 lg:px-20 text-center pt-80 pb-16">
 						<p class="font-cursive text-white text-4xl mb-2" style="position:relative; top: -15px;">Top výběr</p>
 						<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-white">NEJČASTĚJI OBJEDNÁVANÁ JÍDLA</h2>
 						
