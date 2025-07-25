@@ -127,7 +127,7 @@
 			position: absolute;
 			z-index: 101;
 			left: 2.5rem;
-			top: 1.5rem;
+			top: calc(1.5rem + 15px); /* Posunuto o 15px dolů */
 		}
 		.logo img {
 			height: 80px;
@@ -410,7 +410,7 @@
 										</li>
 									</ul>
 									<div class="mt-6 text-center">
-										<a href="#" class="inline-block bg-white text-green-700 hover:bg-green-100 font-bold py-3 px-8 rounded-full transition-all duration-300 animate-lure-pulse opacity-0 group-hover:opacity-100" :style="{ transitionDelay: (topPizzas.length * 100 + 200) + 'ms' }">
+										<a href="#" class="inline-block bg-white text-red-600 hover:bg-red-100 font-bold py-3 px-8 rounded-full transition-all duration-300 animate-lure-pulse opacity-0 group-hover:opacity-100" :style="{ transitionDelay: (topPizzas.length * 100 + 200) + 'ms' }">
 											Objednat Pizzu
 										</a>
 									</div>
