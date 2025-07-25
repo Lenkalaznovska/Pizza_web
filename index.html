@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cs" class="scroll-smooth">
+<html lang="cs">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,7 +36,7 @@
 	<meta name="twitter:title" content="Pizzerie San Marino – Pizza jinak již od roku 1994" />
 	<meta name="twitter:description" content="V Pizzerii San Marino najdeš originální pizzy, legendární burgery a další dobroty. Objednej si pohodlně online a my ti to dovezeme až ke dveřím." />
 	<meta name="twitter:image" content="https://www.pizzakladno.cz/images/pizzerie-san-marino-kladno-nabidka-jidla.webp" />
-	
+	<script src="https://cdn.tailwindcss.com"></script>
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -57,347 +57,290 @@
 	</noscript>
 	<script type="application/ld+json">
 	{
-	  "@context": "https://schema.org",
-	  "@type": "Restaurant",
-	  "name": "Pizzerie San Marino Kladno",
-	  "image": "https://www.pizzakladno.cz/images/pizzerie-san-marino-kladno-nabidka-jidla.webp",
-	  "@id": "https://www.pizzakladno.cz/",
-	  "url": "https://www.pizzakladno.cz/",
-	  "telephone": "+420604633373",
-	  "address": {
+	  "@context": "https://schema.org",
+	  "@type": "Restaurant",
+	  "name": "Pizzerie San Marino Kladno",
+	  "image": "https://www.pizzakladno.cz/images/pizzerie-san-marino-kladno-nabidka-jidla.webp",
+	  "@id": "https://www.pizzakladno.cz/",
+	  "url": "https://www.pizzakladno.cz/",
+	  "telephone": "+420604633373",
+	  "address": {
 		"@type": "PostalAddress",
 		"streetAddress": "Obránců míru 2721",
 		"addressLocality": "Kladno",
 		"postalCode": "27201",
 		"addressCountry": "CZ"
-	  },
-	  "servesCuisine": ["Pizza", "Burger", "Kuřecí speciality", "Saláty", "Těstoviny"],
-	  "priceRange": "$$",
-	  "aggregateRating": {
+	  },
+	  "servesCuisine": ["Pizza", "Burger", "Kuřecí speciality", "Saláty", "Těstoviny"],
+	  "priceRange": "$$",
+	  "aggregateRating": {
 		"@type": "AggregateRating",
 		"ratingValue": "4.5",
 		"ratingCount": "2380"
-	  },
-	  "openingHoursSpecification": [
+	  },
+	  "openingHoursSpecification": [
 		{
-		  "@type": "OpeningHoursSpecification",
-		  "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-		  "opens": "11:00",
-		  "closes": "21:15"
+		  "@type": "OpeningHoursSpecification",
+		  "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+		  "opens": "11:00",
+		  "closes": "21:15"
 		},
 		{
-		  "@type": "OpeningHoursSpecification",
-		  "dayOfWeek": "Monday",
-		  "opens": "11:00",
-		  "closes": "21:15",
-		  "description": "V pondělí si u nás objednáš jen online nebo po telefonu. Jídlo si pak můžeš vyzvednout u výdejního okénka nebo ti ho dovezeme až ke dveřím."
+		  "@type": "OpeningHoursSpecification",
+		  "dayOfWeek": "Monday",
+		  "opens": "11:00",
+		  "closes": "21:15",
+		  "description": "V pondělí si u nás objednáš jen online nebo po telefonu. Jídlo si pak můžeš vyzvednout u výdejního okénka nebo ti ho dovezeme až ke dveřím."
 		}
-	  ],
-	  "menu": "https://www.pizzakladno.cz/",
-	  "sameAs": [
+	  ],
+	  "menu": "https://www.pizzakladno.cz/",
+	  "sameAs": [
 		"https://www.facebook.com/profile.php?id=100095016576324",
 		"https://www.instagram.com/pizzakladno/",
 		"https://www.tiktok.com/@pizzakladno",
 		"https://www.foodora.cz/restaurant/i8wo/pizzerie-san-marino",
 		"https://www.firmy.cz/detail/293070-pizzerie-san-marino-kladno-krocehlavy.html"
-	  ]
+	  ]
 	}
 	</script>
 
-	<style>
-		/*
-		! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
-		*/
-		*,:after,:before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
-		:after,:before{--tw-content:""}
-		html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}
-		body{margin:0;line-height:inherit}
-		h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}
-		a{color:inherit;text-decoration:inherit}
-		b,strong{font-weight:bolder}
-		img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}
-		img,video{max-width:100%;height:auto}
-		hr{height:0;color:inherit;border-top-width:1px}
-		button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}
-		button,select{text-transform:none}
-		[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}
-		
+  <style>
 		/* ----- ZÁKLADNÍ STYLY ----- */
-		* { margin: 0; padding: 0; box-sizing: border-box; }
-		html, body { font-family: 'Montserrat', sans-serif; background: #f0f0f0; color: #333; overflow-x: hidden; }
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		html, body {
+			font-family: 'Montserrat', sans-serif;
+			background: #f0f0f0;
+			color: #333;
+			overflow-x: hidden;
+		}
 
 		/* ----- LOGO ----- */
-		.logo { position: absolute; z-index: 101; left: 1.5rem; top: 1.5rem; }
-		.logo img { height: 60px; width: auto; }
+		.logo {
+			position: absolute;
+			z-index: 101;
+			left: 2.5rem;
+			top: 1.5rem; 
+		}
+		.logo img {
+			height: 80px;
+			width: auto;
+		}
 
 		/* ----- SLIDER A OBSAH NA NĚM ----- */
-		.slider { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; overflow: hidden; background-color: #1a1a1a; }
-		.slides { display: flex; transition: transform 1s ease; height: 100%; }
-		.slide { min-width: 100%; height: 100%; }
-		.slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
-		.content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #fff; width: 90%; z-index: 50; }
-		.content h1 { font-family: 'Montserrat', sans-serif; font-size: 45px; margin-bottom: 20px; font-weight: 900; text-transform: uppercase; text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9); white-space: normal; }
-		.cta-text { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: bold; background: rgba(0, 0, 0, 0.6); padding: 15px 25px; border-radius: 10px; display: inline-block; }
+		.slider {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100vh;
+			overflow: hidden;
+			background-color: #1a1a1a;
+		}
+		.slides {
+			display: flex;
+			transition: transform 1s ease;
+			height: 100%;
+		}
+		.slide {
+			min-width: 100%;
+			height: 100%;
+		}
+		.slide img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+		.content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			color: #fff;
+			width: 90%;
+			z-index: 50;
+		}
+		.top-badge {
+			display: inline-block;
+			background: rgba(0, 0, 0, 0.6);
+			border-radius: 10px;
+			padding: 15px 25px;
+			margin-bottom: 2rem;
+		}
+		.top-badge span {
+			font-size: 1.25rem;
+			font-weight: bold;
+			color: white;
+			text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+		}
+		.content h1 {
+			font-family: 'Montserrat', sans-serif;
+			font-size: 65px;
+			margin-bottom: 20px;
+			font-weight: 900;
+			text-transform: uppercase;
+			text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
+			white-space: nowrap;
+		}
+		.cta-text {
+			font-family: 'Montserrat', sans-serif;
+			font-size: 24px;
+			font-weight: bold;
+			background: rgba(0, 0, 0, 0.6);
+			padding: 15px 25px;
+			border-radius: 10px;
+			display: inline-block;
+		}
 		
 		/* ----- STYLY PRO TLAČÍTKA A EFEKT ----- */
-		.buttons { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 3rem; }
-		.tlacitko-zaklad { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; border-radius: 9999px; padding: 0.75rem 1.5rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; text-decoration: none; transition: all 0.3s ease; }
-		.tlacitko-zaklad svg { width: 1.5rem; height: 1.5rem; }
-		
-        /* OPRAVENÁ ANIMACE - DVA EFEKTY */
-		@keyframes pulse-scale { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-		@keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); } 70% { box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } }
-		
-        /* Kontejner tlačítek se jemně zvětšuje */
-        .buttons.animate-pulse { animation: pulse-scale 2.2s infinite ease-in-out; }
-        /* Jednotlivá tlačítka mají kulatou záři */
-		.tlacitko-zaklad.animate-glow { animation: pulse-glow 2.2s infinite; }
-		
-		.font-cursive { font-family: 'Pacifico', cursive; }
-		.bg-parchment { background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp'); background-size: cover; background-position: center; }
-		
-		/* --- STYLY PRO RECENZE (SWIPER) --- */
-		.swiper-container-reviews .swiper-slide { aspect-ratio: 4 / 3; background-color: #FFFFFF; border: 2px solid #D1D5DB; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; overflow: hidden; box-sizing: border-box; }
-		.swiper-container-reviews .swiper-slide img { width: 100%; height: 100%; object-fit: contain; }
-		.review-swiper-button-prev, .review-swiper-button-next { position: absolute; top: 50%; transform: translateY(-50%); z-index: 20; cursor: pointer; background-color: #E20B18; border-radius: 9999px; padding: 0.75rem; transition: background-color 0.2s; }
-		.review-swiper-button-prev:hover, .review-swiper-button-next:hover { background-color: #c00a15; }
-		.review-swiper-button-prev { left: -10px; }
-		.review-swiper-button-next { right: -10px; }
-		.review-swiper-button-prev svg, .review-swiper-button-next svg { color: white; width: 1.5rem; height: 1.5rem; }
-
-		.day-row.font-bold { font-weight: 700; }
-		.\!text-yellow-300 { color: #facc15 !important; }
-
-		/* Tailwind Utility Classes Definitions */
-		.container{width:100%;margin-left:auto;margin-right:auto;padding-left:1.5rem;padding-right:1.5rem}
-		.absolute{position:absolute}
-		.relative{position:relative}
-		.inset-0{inset:0}
-		.top-1\/2{top:50%}
-		.left-2{left:.5rem}
-		.right-2{right:.5rem}
-		.z-0{z-index:0}
-		.z-10{z-index:10}
-		.z-20{z-index:20}
-		.mx-auto{margin-left:auto;margin-right:auto}
-		.-mt-8{margin-top:-2rem}
-		.-mt-\[135px\]{margin-top:-135px}
-		.-mb-8{margin-bottom:-2rem}
-		.mb-2{margin-bottom:.5rem}
-		.mb-4{margin-bottom:1rem}
-		.mb-8{margin-bottom:2rem}
-		.mb-12{margin-bottom:3rem}
-		.mr-12{margin-right:3rem}
-		.mt-2{margin-top:.5rem}
-		.mt-4{margin-top:1rem}
-		.mt-6{margin-top:1.5rem}
-		.mt-8{margin-top:2rem}
-		.mt-10{margin-top:2.5rem}
-		.mt-12{margin-top:3rem}
-		.mt-16{margin-top:4rem}
-		.mt-auto{margin-top:auto}
-		.-ml-12{margin-left:-3rem}
-		.h-4{height:1rem}
-		.h-6{height:1.5rem}
-		.h-7{height:1.75rem}
-		.h-8{height:2rem}
-		.h-12{height:3rem}
-		.h-20{height:5rem}
-		.h-full{height:100%}
-		.h-screen{height:100vh}
-		.w-4{width:1rem}
-		.w-6{width:1.5rem}
-		.w-7{width:1.75rem}
-		.w-8{width:2rem}
-		.w-12{width:3rem}
-		.w-full{width:100%}
-		.max-w-6xl{max-width:72rem}
-		.max-w-lg{max-width:32rem}
-		.max-w-md{max-width:28rem}
-		.flex-shrink-0{flex-shrink:0}
-		.-translate-y-1\/2{transform:translateY(-50%)}
-		.-rotate-12{transform:rotate(-12deg)}
-		.rotate-12{transform:rotate(12deg)}
-		.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
-		.grid{display:grid}
-		.inline-block{display:inline-block}
-		.hidden{display:none}
-		.h-auto{height:auto}
-		.flex-col{flex-direction:column}
-		.items-start{align-items:flex-start}
-		.items-center{align-items:center}
-		.justify-center{justify-content:center}
-		.justify-between{justify-content:space-between}
-		.gap-6{gap:1.5rem}
-		.gap-8{gap:2rem}
-		.gap-10{gap:2.5rem}
-		.gap-12{gap:3rem}
-		.gap-16{gap:4rem}
-		.gap-x-3{column-gap:.75rem}
-		.gap-x-4{column-gap:1rem}
-		.gap-x-8{column-gap:2rem}
-		.gap-y-2{row-gap:.5rem}
-		.gap-y-4{row-gap:1rem}
-		.gap-y-8{row-gap:2rem}
-		.space-y-1>*{margin-top:calc(.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem * var(--tw-space-y-reverse))}
-		.space-y-2\.5>*{margin-top:calc(.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.625rem * var(--tw-space-y-reverse))}
-		.space-y-3>*{margin-top:calc(.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem * var(--tw-space-y-reverse))}
-		.space-y-4>*{margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}
-		.overflow-hidden{overflow:hidden}
-		.rounded-2xl{border-radius:1rem}
-		.rounded-3xl{border-radius:1.5rem}
-		.rounded-full{border-radius:9999px}
-		.rounded-lg{border-radius:.5rem}
-		.border-2{border-width:2px}
-		.border-t{border-top-width:1px}
-		.border-white{border-color:#fff}
-		.border-white\/20{border-color:rgba(255,255,255,.2)}
-		.bg-\[\#017D4D\]{background-color:#017d4d}
-		.bg-\[\#E20B18\]{background-color:#e20b18}
-		.bg-white{background-color:#fff}
-		.bg-white\/20{background-color:rgba(255,255,255,.2)}
-		.bg-green-100{background-color:#dcfce7}
-		.bg-red-100{background-color:#fee2e2}
-		.bg-gray-200{background-color:#e5e7eb}
-		.object-cover{object-fit:cover}
-		.p-3{padding:.75rem}
-		.p-8{padding:2rem}
-		.px-4{padding-left:1rem;padding-right:1rem}
-		.px-6{padding-left:1.5rem;padding-right:1.5rem}
-		.px-8{padding-left:2rem;padding-right:2rem}
-		.px-10{padding-left:2.5rem;padding-right:2.5rem}
-		/* OPRAVA: Zvětšení mezer mezi sekcemi */
-		.py-16{padding-top:4rem;padding-bottom:4rem}
-		.py-24{padding-top:6rem;padding-bottom:6rem}
-		.pt-1{padding-top:.25rem}
-		.pt-4{padding-top:1rem}
-		.pt-8{padding-top:2rem}
-		.pt-20{padding-top:5rem}
-		.pt-32{padding-top:8rem}
-		.pb-16{padding-bottom:4rem}
-		.pb-24{padding-bottom:6rem}
-		.text-center{text-align:center}
-		.text-left{text-align:left}
-		.text-right{text-align:right}
-		.font-cursive{font-family:Pacifico,cursive}
-		.text-base{font-size:1rem;line-height:1.5rem}
-		.text-lg{font-size:1.125rem;line-height:1.75rem}
-		.text-sm{font-size:.875rem;line-height:1.25rem}
-		.text-xl{font-size:1.25rem;line-height:1.75rem}
-		.text-2xl{font-size:1.5rem;line-height:2rem}
-		.text-3xl{font-size:1.875rem;line-height:2.25rem}
-		.text-4xl{font-size:2.25rem;line-height:2.5rem}
-		.text-\[8rem\]{font-size:8rem}
-		.font-black{font-weight:900}
-		.font-bold{font-weight:700}
-		.font-medium{font-weight:500}
-		.font-semibold{font-weight:600}
-		.uppercase{text-transform:uppercase}
-		.leading-relaxed{line-height:1.625}
-		.leading-tight{line-height:1.25}
-		.tracking-wide{letter-spacing:.025em}
-		.tracking-wider{letter-spacing:.05em}
-		.text-\[\#E20B18\]{color:#e20b18}
-		.text-white{color:#fff}
-		.text-white\/80{color:rgba(255,255,255,.8)}
-		.text-white\/90{color:rgba(255,255,255,.9)}
-		.text-gray-500{color:#6b7280}
-		.text-gray-800{color:#1f2937}
-		.text-gray-900{color:#111827}
-		.text-green-700{color:#15803d}
-		.text-red-600{color:#dc2626}
-		.underline{text-decoration-line:underline}
-		.opacity-10{opacity:.1}
-		.opacity-20{opacity:.2}
-		.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}
-		.shadow-xl{box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1)}
-		.shadow-2xl{box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
-		.drop-shadow-lg{filter:drop-shadow(0 10px 8px rgba(0,0,0,.04)) drop-shadow(0 4px 3px rgba(0,0,0,.1))}
-		.drop-shadow-md{filter:drop-shadow(0 4px 3px rgba(0,0,0,.07)) drop-shadow(0 2px 2px rgba(0,0,0,.06))}
-		.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
-		.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
-		.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
-		.duration-300{transition-duration:.3s}
-		.duration-500{transition-duration:.5s}
-		.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}
-		.pointer-events-none{pointer-events:none}
-		.flex{display:flex}
-		.aspect-square{aspect-ratio:1/1}
-		.cursor-pointer{cursor:pointer}
-		.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
-		.flex-wrap{flex-wrap:wrap}
-		.hover\:scale-105:hover{transform:scale(1.05)}
-		.hover\:scale-110:hover{transform:scale(1.1)}
-		.hover\:shadow-2xl:hover{box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
-		.hover\:bg-\[\#c00a15\]:hover{background-color:#c00a15}
-		.hover\:bg-white\/20:hover{background-color:rgba(255,255,255,.2)}
-		.hover\:bg-green-100:hover{background-color:#dcfce7}
-		.hover\:bg-red-100:hover{background-color:#fee2e2}
-		.hover\:bg-gray-200:hover{background-color:#e5e7eb}
-		.hover\:underline:hover{text-decoration-line:underline}
-		
-		@media (min-width:640px){
-		.sm\:w-auto{width:auto}
-		.sm\:flex-row{flex-direction:row}
-		.sm\:items-center{align-items:center}
-		.sm\:text-\[10rem\]{font-size:10rem}
-		.sm\:text-5xl{font-size:3rem;line-height:1}
-		.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-		}
-		
-		@media (min-width:768px){
-		.md\:col-span-2{grid-column:span 2/span 2}
-		.md\:mb-0{margin-bottom:0}
-		.md\:inline{display:inline}
-		.md\:h-4{height:1rem}
-		.md\:w-4{width:1rem}
-		.md\:flex-row{flex-direction:row}
-		.md\:items-center{align-items:center}
-		.md\:-right-10{right:-2.5rem}
-		.md\:-left-10{left:-2.5rem}
-		.md\:px-0{padding-left:0;padding-right:0}
-		.md\:px-10{padding-left:2.5rem;padding-right:2.5rem}
-		.md\:px-12{padding-left:3rem;padding-right:3rem}
-		.md\:py-5{padding-top:1.25rem;padding-bottom:1.25rem}
-		.md\:text-left{text-align:left}
-		.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}
-		.md\:text-5xl{font-size:3rem;line-height:1}
-		.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-		.md\:gap-y-4{row-gap:1rem}
-		}
-		
-		@media (min-width:1024px){
-		.lg\:col-span-1{grid-column:span 1/span 1}
-		.lg\:order-first{order:-9999}
-		.lg\:text-\[16rem\]{font-size:16rem}
-		.lg\:text-6xl{font-size:3.75rem;line-height:1}
-		.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-		.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-		.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-		.lg\:gap-8{gap:2rem}
-		.lg\:gap-16{gap:4rem}
-		.lg\:gap-x-16{column-gap:4rem}
-		.lg\:px-20{padding-left:5rem;padding-right:5rem}
-		.lg\:px-24{padding-left:6rem;padding-right:6rem}
-		.lg\:py-24{padding-top:6rem;padding-bottom:6rem}
+		.buttons {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			margin-top: 3rem;
 		}
 
-		/* Další responzivní úpravy pro dokonalost */
+		.tlacitko-zaklad {
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 700;
+			font-size: 1rem;
+			border-radius: 9999px;
+			padding: 0.75rem 1.5rem;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.75rem;
+			text-decoration: none;
+			transition: all 0.3s ease;
+		}
+		.tlacitko-zaklad svg {
+			width: 1.5rem;
+			height: 1.5rem;
+		}
+		
+		@keyframes lure-pulse {
+			0% {
+				transform: scale(1);
+				box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+			}
+			70% {
+				transform: scale(1.08);
+				box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0);
+			}
+			100% {
+				transform: scale(1);
+				box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+			}
+		}
+
+		.animate-lure-pulse {
+			animation: lure-pulse 1.8s infinite;
+		}
+
+		@keyframes pulse-scale {
+			0% { transform: scale(1); }
+			70% { transform: scale(1.08); }
+			100% { transform: scale(1); }
+		}
+
+		@keyframes pulse-glow {
+			0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+			70% { box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
+			100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+		}
+		
+		.animate-lure-pulse {
+			animation: pulse-scale 1.8s infinite;
+		}
+
+		.animate-glow {
+			animation: pulse-glow 1.8s infinite;
+		}
+
+		/* ----- RESPONZIVITA ----- */
 		@media (min-width: 640px) {
-			.buttons { flex-direction: row; justify-content: center; gap: 2.5rem; }
+			.buttons {
+				flex-direction: row;
+				justify-content: center;
+				gap: 2.5rem;
+			}
+		}
+		@media (min-width: 1024px) { /* lg breakpoint */
+			.tlacitko-zaklad {
+				font-size: 1.125rem;
+				padding: 1rem 2rem;
+			}
+		}
+		@media (max-width: 768px) {
+			.content h1 { font-size: 45px; white-space: normal; }
 			.cta-text { font-size: 20px; }
-			.content h1 { font-size: 55px; white-space: nowrap;}
-			.logo img { height: 70px; }
-			.logo { left: 2.5rem; }
 		}
-		@media (min-width: 1024px) {
-			.logo img { height: 80px; }
-			.tlacitko-zaklad { font-size: 1.125rem; padding: 1rem 2rem; }
-			.content h1 { font-size: 65px; }
+
+		/* ----- OSTATNÍ STYLY ----- */
+		.font-cursive {
+			font-family: 'Pacifico', cursive;
 		}
-		@media (max-width: 380px) {
-			.content h1 { font-size: 36px; }
-			.cta-text { font-size: 16px; }
+		.bg-parchment {
+			background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+		}
+		.bg-burgers-section {
+			background-image: url('images/pozadi2.jpg');
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+		}
+
+		/* --- STYLY PRO RECENZE (SWIPER) --- */
+		.swiper-container-reviews .swiper-slide {
+			aspect-ratio: 4 / 3;
+			background-color: #FFFFFF;
+			border: 2px solid #D1D5DB;
+			border-radius: 0.75rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			box-sizing: border-box;
+		}
+		.swiper-container-reviews .swiper-slide img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+		.review-swiper-button-prev,
+		.review-swiper-button-next {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 20;
+			cursor: pointer;
+			background-color: #E20B18;
+			border-radius: 9999px;
+			padding: 0.75rem;
+			transition: background-color 0.2s;
+		}
+		.review-swiper-button-prev:hover,
+		.review-swiper-button-next:hover {
+			background-color: #c00a15;
+		}
+		.review-swiper-button-prev {
+			left: -10px;
+		}
+		.review-swiper-button-next {
+			right: -10px;
+		}
+		.review-swiper-button-prev svg,
+		.review-swiper-button-next svg {
+			color: white;
+			width: 1.5rem;
+			height: 1.5rem;
 		}
 	</style>
 </head>
@@ -431,7 +374,7 @@
 			Dopřej si pořádnou dávku chuti a nech si ji přivést až ke dveřím! 🚀
 		</p>
 
-		<div class="buttons animate-pulse">
+		<div class="buttons animate-lure-pulse">
 			<a href="tel:+420604633373" class="tlacitko-zaklad bg-[#E20B18] text-white hover:bg-[#c00a15] animate-glow">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -463,7 +406,7 @@
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 12l3.5 0" /><path d="M12 7v5" /></svg>
 					<div class="flex flex-col text-left">
 						<span class="font-bold text-gray-800 text-lg">Otevírací doba</span>
-						<span class="text-gray-500 text-base">Jsme tu pro tebe 11:00 - 21:15</span>
+						<span class="text-gray-500 text-base">Jsme tu pro tebe 10:45 - 21:15</span>
 					</div>
 				</div>
 				<div class="flex items-center gap-x-4">
@@ -476,7 +419,7 @@
 			</div>
 		</section>
 
-		<section class="pt-32 pb-24 bg-white">
+		<section class="py-24 bg-white">
 			<div class="container mx-auto px-6 md:px-12 lg:px-20">
 				<div class="text-center md:text-left mb-16">
 					<p class="font-cursive text-[#E20B18] text-4xl mb-2" style="font-family: 'Pacifico', cursive; position:relative; top: -15px;">Top výběr</p>
@@ -484,29 +427,29 @@
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					
-					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105" style="background-color: #017D4D;">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105" style="background-color: #017D4D; --shadow-color: #017D4D;">
 						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Detailní pohled na pizzu se šunkou a zeleninou." class="absolute inset-0 w-full h-full object-cover opacity-20">
 						<div class="relative z-10 flex flex-col h-full">
 							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Pizzy</h3>
 							<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 text-white">
 								Prohlédni si všechny pizzy &rarr;
 							</a>
-							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md text-white">Nejoblíbenější kousky 🍕</h4>
+							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md text-white">Nejoblíbenější kousky🍕</h4>
 							<ul class="space-y-3 text-base text-left text-white">
 								<li v-for="item in topPizzas" :key="item.id" class="flex justify-between text-white">
 									<span>{{ item.name }}</span>
 									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="mt-auto pt-8">
-								<a href="#" class="tlacitko-zaklad bg-white text-green-700 hover:bg-green-100">
+							<div class="mt-auto pt-8 animate-lure-pulse">
+								<a href="#" class="tlacitko-zaklad animate-glow bg-white text-green-700 hover:bg-green-100">
 									Objednej si pizzu
 								</a>
 							</div>
 						</div>
 					</div>
 
-					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105" style="background-color: #E20B18;">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105" style="background-color: #E20B18; --shadow-color: #E20B18;">
 						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Burger s batátovými hranolky a omáčkou od Pizzerie San Marino." class="absolute inset-0 w-full h-full object-cover opacity-20">
 						<div class="relative z-10 flex flex-col h-full">
 							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Burgery</h3>
@@ -520,20 +463,20 @@
 									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="mt-auto pt-8">
-								<a href="#" class="tlacitko-zaklad bg-white text-red-600 hover:bg-red-100">
+							<div class="mt-auto pt-8 animate-lure-pulse">
+								<a href="#" class="tlacitko-zaklad animate-glow bg-white text-red-600 hover:bg-red-100">
 									Objednej si burger
 								</a>
 							</div>
 						</div>
 					</div>
 					
-					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 md:col-span-2 lg:col-span-1" style="background-color: #262626;">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 md:col-span-2 lg:col-span-1" style="background-color: #262626; --shadow-color: #444444;">
 						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Kuřecí stripsy a křídla s omáčkami." class="absolute inset-0 w-full h-full object-cover opacity-20">
 						<div class="relative z-10 flex flex-col h-full">
 							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Kuřecí maso</h3>
 							<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 text-white">
-								Prohlédni si kuřecí speciality &rarr;
+								Prozkoumej naše speciality &rarr;
 							</a>
 							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md text-white">Pro milovníky kuřecího 🍗</h4>
 							<ul class="space-y-3 text-base text-left text-white">
@@ -542,8 +485,8 @@
 									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="mt-auto pt-8">
-								<a href="#" class="tlacitko-zaklad bg-white text-gray-800 hover:bg-gray-200">
+							<div class="mt-auto pt-8 animate-lure-pulse">
+								<a href="#" class="tlacitko-zaklad animate-glow bg-white text-gray-800 hover:bg-gray-200">
 									Objednej si kuřecí
 								</a>
 							</div>
@@ -602,12 +545,12 @@
 					<div class="flex flex-col items-center">
 						<div class="relative w-full max-w-md aspect-square">
 							<img :src="gallery.images[gallery.currentIndex]" alt="Ukázka originální pizzy z Pizzerie San Marino Kladno." class="w-full h-full object-cover rounded-2xl">
-							<button @click="prevImage" class="absolute left-2 top-1/2 -translate-y-1\/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
+							<button @click="prevImage" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
 								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
 								</svg>
 							</button>
-							<button @click="nextImage" class="absolute right-2 top-1/2 -translate-y-1\/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
+							<button @click="nextImage" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
 								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 								</svg>
@@ -916,6 +859,14 @@
 					]
 				}
 			},
+			computed: {
+				activeList() {
+					if (this.activeCategory === 'pizza') return this.topPizzas;
+					if (this.activeCategory === 'burger') return this.topBurgers;
+					if (this.activeCategory === 'chicken') return this.topChicken;
+					return [];
+				}
+			},
 			methods: {
 				nextImage() {
 					this.gallery.currentIndex = (this.gallery.currentIndex + 1) % this.gallery.images.length;
@@ -925,9 +876,6 @@
 				},
 				goToImage(index) {
 					this.gallery.currentIndex = index;
-				},
-				openAllergenModal() { 
-					alert('Seznam alergenů naleznete v našem online menu. Děkujeme za pochopení.');
 				}
 			},
 			mounted() {
@@ -944,17 +892,26 @@
 						prevEl: '.review-swiper-button-prev',
 					},
 					breakpoints: {
-						640: { slidesPerView: 2, spaceBetween: 20 },
-						1024: { slidesPerView: 3, spaceBetween: 30 },
+						640: {
+							slidesPerView: 2,
+							spaceBetween: 20,
+						},
+						1024: {
+							slidesPerView: 3,
+							spaceBetween: 30,
+						},
 					},
 				});
 				
-				const today = new Date().getDay(); // 0 = Neděle, 1 = Pondělí, ...
+				// Zvýraznění aktuálního dne v patičce
+				const today = new Date().getDay(); // 0 = Neděle, 1 = Pondělí, ..., 6 = Sobota
 				const currentDayRow = document.querySelector(`.day-row[data-day="${today}"]`);
 				if (currentDayRow) {
-					currentDayRow.classList.add('font-bold', 'text-white');
+					currentDayRow.classList.add('text-white', 'font-bold');
 					const p = currentDayRow.querySelector('p');
-					if (p) p.classList.add('!text-yellow-300');
+					if (p) {
+						p.classList.add('!text-yellow-300');
+					}
 				}
 			}
 		});
