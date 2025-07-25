@@ -406,15 +406,18 @@
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					
 					<div class="group relative rounded-3xl min-h-[470px] overflow-hidden" style="background-color: #017D4D;">
-						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Pizza se šunkou a zeleninou" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[350px] transition-opacity duration-500 ease-in-out group-hover:opacity-40" style="margin-left: -20px;">
+						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Pizza se šunkou a zeleninou" class="rounded-full absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[350px] transition-all duration-500 ease-in-out group-hover:opacity-20 group-hover:scale-90" style="margin-left: -20px;">
 
-						<div class="relative z-10 p-8 flex flex-col h-full">
+						<div class="relative z-10 p-8">
 							<div>
 								<h3 class="text-white text-4xl font-black uppercase">Pizzy</h3>
 							</div>
 							
-							<div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-700 ease-in-out mt-auto">
+							<div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-700 ease-in-out">
 								<div class="pt-4 text-white">
+									<a href="#" class="inline-block font-semibold hover:underline mb-4">
+										Zobrazit celou nabídku pizz &rarr;
+									</a>
 									<h4 class="text-2xl font-bold mb-4 border-t border-white/20 pt-4">Naše hvězdné pizzy ⭐</h4>
 									<ul class="space-y-2 text-base">
 										<li v-for="item in topPizzas" :key="item.id" class="flex justify-between border-b border-white/20 pb-1">
@@ -422,24 +425,24 @@
 											<span class="font-semibold">od {{ item.price }} Kč</span>
 										</li>
 									</ul>
-									<a href="#" class="mt-4 inline-block font-semibold hover:underline">
-										Zobrazit celou nabídku pizz &rarr;
-									</a>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="group relative rounded-3xl min-h-[470px] overflow-hidden" style="background-color: #E20B18;">
-						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Burger s batátovými hranolky" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[350px] transition-opacity duration-500 ease-in-out group-hover:opacity-40" style="margin-left: -20px;">
+						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Burger s batátovými hranolky" class="rounded-full absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[350px] transition-all duration-500 ease-in-out group-hover:opacity-20 group-hover:scale-90" style="margin-left: -20px;">
 						
-						<div class="relative z-10 p-8 flex flex-col h-full">
+						<div class="relative z-10 p-8">
 							<div>
 								<h3 class="text-white text-4xl font-black uppercase">Burgery</h3>
 							</div>
 							
-							<div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-700 ease-in-out mt-auto">
+							<div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-700 ease-in-out">
 								<div class="pt-4 text-white">
+									<a href="#" class="inline-block font-semibold hover:underline mb-4">
+										Zobrazit všechny burgery &rarr;
+									</a>
 									<h4 class="text-2xl font-bold mb-4 border-t border-white/20 pt-4">Legendární burgery 🔥</h4>
 									<ul class="space-y-2 text-base">
 										<li v-for="item in topBurgers" :key="item.id" class="flex justify-between border-b border-white/20 pb-1">
@@ -447,24 +450,24 @@
 											<span class="font-semibold">od {{ item.price }} Kč</span>
 										</li>
 									</ul>
-									<a href="#" class="mt-4 inline-block font-semibold hover:underline">
-										Zobrazit všechny burgery &rarr;
-									</a>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="group relative rounded-3xl min-h-[470px] overflow-hidden md:col-span-2 lg:col-span-1" style="background-color: #262626;">
-						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Kuřecí speciality Wing It" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[350px] transition-opacity duration-500 ease-in-out group-hover:opacity-40" style="margin-left: -20px;">
+						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Kuřecí speciality Wing It" class="rounded-full absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[350px] transition-all duration-500 ease-in-out group-hover:opacity-20 group-hover:scale-90" style="margin-left: -20px;">
 						
-						<div class="relative z-10 p-8 flex flex-col h-full">
+						<div class="relative z-10 p-8">
 							<div>
 								<h3 class="text-white text-4xl font-black uppercase">Kuřecí maso</h3>
 							</div>
 							
-							<div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-700 ease-in-out mt-auto">
+							<div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-700 ease-in-out">
 								<div class="pt-4 text-white">
+									<a href="#" class="inline-block font-semibold hover:underline mb-4">
+										Prozkoumat speciality &rarr;
+									</a>
 									<h4 class="text-2xl font-bold mb-4 border-t border-white/20 pt-4">Křupavé kuřecí nebe 🍗</h4>
 									<ul class="space-y-2 text-base">
 										<li v-for="item in topChicken" :key="item.id" class="flex justify-between border-b border-white/20 pb-1">
@@ -472,9 +475,6 @@
 											<span class="font-semibold">od {{ item.price }} Kč</span>
 										</li>
 									</ul>
-									<a href="#" class="mt-4 inline-block font-semibold hover:underline">
-										Prozkoumat speciality &rarr;
-									</a>
 								</div>
 							</div>
 						</div>
