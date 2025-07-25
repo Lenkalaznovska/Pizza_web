@@ -38,6 +38,8 @@
 	<meta name="twitter:image" content="https://www.pizzakladno.cz/images/pizzerie-san-marino-kladno-nabidka-jidla.webp" />
 	<script src="https://cdn.tailwindcss.com"></script>
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script>
 		!function(f,b,e,v,n,t,s)
 		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -289,6 +291,58 @@
 			background-size: 100% 100%;
 			background-repeat: no-repeat;
 		}
+
+		/* --- STYLY PRO RECENZE (SWIPER) --- */
+		.swiper-container-reviews .swiper-slide {
+			aspect-ratio: 4 / 3;
+			background-color: #FFFFFF;
+			border: 2px solid #D1D5DB;
+			border-radius: 0.75rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			box-sizing: border-box;
+		}
+
+		.swiper-container-reviews .swiper-slide img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+		.review-swiper-button-prev,
+		.review-swiper-button-next {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 20;
+			cursor: pointer;
+			background-color: #E20B18;
+			border-radius: 9999px;
+			padding: 0.75rem;
+			transition: background-color 0.2s;
+		}
+
+		.review-swiper-button-prev:hover,
+		.review-swiper-button-next:hover {
+			background-color: #c00a15;
+		}
+
+		.review-swiper-button-prev {
+			left: -10px;
+		}
+
+		.review-swiper-button-next {
+			right: -10px;
+		}
+
+		.review-swiper-button-prev svg,
+		.review-swiper-button-next svg {
+			color: white;
+			width: 1.5rem;
+			height: 1.5rem;
+		}
 	</style>
 </head>
 <body>
@@ -443,75 +497,109 @@
 			</div>
 		</section>
 		
-	<section class="bg-parchment pt-20 pb-16 relative z-10" style="font-family: 'Montserrat', sans-serif;">
-		<div class="container mx-auto px-6 md:px-12 lg:px-24">
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-				<div>
-					<p class="font-cursive text-4xl" style="position:relative; top: -15px; color: white;">Naše pizza, náš originál</p>
-					<h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide" style="color: white;">PROČ SI DÁT PIZZU U NÁS?</h2>
-					<p class="mt-4 text-xl font-semibold" style="color: white;">Jsme TOP 4. Pizzerie v Kladně!🏅</p>
-					<p class="mt-6 leading-relaxed" style="color: white;">
-						Tohle není žádná Itálie, to je naše tradice už od roku 1994! Chceš pizzu přesně podle svýho gusta? U nás si ji můžeš sestavit sám! Vyber si z našich čerstvých surovin a vytvoř si pizzu podle svých chutí – víc sýra, extra zelenina, pořádná dávka masa nebo prostě odeber to, co ti nevyhovuje! 🧀🥓🥬
-					</p>
-					<div class="mt-8 space-y-4">
-						<div class="flex items-start gap-x-3">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-							</svg>
-							<span class="font-medium" style="color: white;">Pečeme ve formách pro dokonalý tvar a strukturu.</span>
+		<section class="bg-parchment pt-20 pb-16 relative z-10" style="font-family: 'Montserrat', sans-serif;">
+			<div class="container mx-auto px-6 md:px-12 lg:px-24">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+					<div>
+						<p class="font-cursive text-4xl" style="position:relative; top: -15px; color: white;">Naše pizza, náš originál</p>
+						<h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide" style="color: white;">PROČ SI DÁT PIZZU U NÁS?</h2>
+						<p class="mt-4 text-xl font-semibold" style="color: white;">Jsme TOP 4. Pizzerie v Kladně!🏅</p>
+						<p class="mt-6 leading-relaxed" style="color: white;">
+							Tohle není žádná Itálie, to je naše tradice už od roku 1994! Chceš pizzu přesně podle svýho gusta? U nás si ji můžeš sestavit sám! Vyber si z našich čerstvých surovin a vytvoř si pizzu podle svých chutí – víc sýra, extra zelenina, pořádná dávka masa nebo prostě odeber to, co ti nevyhovuje! 🧀🥓🥬
+						</p>
+						<div class="mt-8 space-y-4">
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Pečeme ve formách pro dokonalý tvar a strukturu.</span>
+							</div>
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Těsto je nadýchané s křupavým okrajem.</span>
+							</div>
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Zasypané sýrem, který vytváří zlatavou rozpečenou vrstvu.</span>
+							</div>
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Bohatá porce kvalitních surovin.</span>
+							</div>
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Vyladěné recepty, které dělají naši pizzu jedinečnou.</span>
+							</div>
 						</div>
-						<div class="flex items-start gap-x-3">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-							</svg>
-							<span class="font-medium" style="color: white;">Těsto je nadýchané s křupavým okrajem.</span>
-						</div>
-						<div class="flex items-start gap-x-3">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-							</svg>
-							<span class="font-medium" style="color: white;">Zasypané sýrem, který vytváří zlatavou rozpečenou vrstvu.</span>
-						</div>
-						<div class="flex items-start gap-x-3">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-							</svg>
-							<span class="font-medium" style="color: white;">Bohatá porce kvalitních surovin.</span>
-						</div>
-						<div class="flex items-start gap-x-3">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-							</svg>
-							<span class="font-medium" style="color: white;">Vyladěné recepty, které dělají naši pizzu jedinečnou.</span>
-						</div>
+						<a href="#" class="tlacitko-zaklad bg-[#E20B18] text-white hover:bg-[#c00a15] inline-block mt-10">
+							Vytvoř si vlastní pizzu
+						</a>
 					</div>
-					<a href="#" class="tlacitko-zaklad bg-[#E20B18] text-white hover:bg-[#c00a15] inline-block mt-10">
-						Vytvoř si vlastní pizzu
-					</a>
-				</div>
-				<div class="flex flex-col items-center">
-					<div class="relative w-full max-w-md aspect-square">
-						<img :src="gallery.images[gallery.currentIndex]" alt="Pizza v galerii" class="w-full h-full object-cover rounded-2xl">
-						<button @click="prevImage" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-							</svg>
-						</button>
-						<button @click="nextImage" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-							</svg>
-						</button>
-					</div>
-					<div class="mt-6 flex items-center justify-center gap-x-3">
-						<template v-for="(image, index) in gallery.images" :key="index">
-							<button @click="goToImage(index)" :class="['h-4 w-4 rounded-full transition-colors', gallery.currentIndex === index ? 'bg-[#E20B18]' : 'border-2 border-white hover:bg-white/20']"></button>
-						</template>
+					<div class="flex flex-col items-center">
+						<div class="relative w-full max-w-md aspect-square">
+							<img :src="gallery.images[gallery.currentIndex]" alt="Pizza v galerii" class="w-full h-full object-cover rounded-2xl">
+							<button @click="prevImage" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+								</svg>
+							</button>
+							<button @click="nextImage" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+								</svg>
+							</button>
+						</div>
+						<div class="mt-6 flex items-center justify-center gap-x-3">
+							<template v-for="(image, index) in gallery.images" :key="index">
+								<button @click="goToImage(index)" :class="['h-4 w-4 rounded-full transition-colors', gallery.currentIndex === index ? 'bg-[#E20B18]' : 'border-2 border-white hover:bg-white/20']"></button>
+							</template>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>	
+		</section>
+
+		<section class="bg-white py-16 lg:py-24">
+			<div class="container mx-auto px-6 md:px-12 lg:px-20">
+
+				<div class="relative px-10 md:px-0">
+					<div class="max-w-6xl mx-auto">
+						<div class="text-center md:text-left mb-8">
+							<p class="font-cursive text-[#E20B18] text-4xl mb-2" style="position:relative; top: -15px;">Recenze</p>
+							<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Co na naši pizzu říkáš ty a ostatní?</h2>
+						</div>
+						<div class="overflow-hidden">
+							<div class="swiper-container swiper-container-reviews">
+								<div class="swiper-wrapper">
+									<div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
+										<img :src="imgSrc" alt="Recenze od zákazníka">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="review-swiper-button-prev -left-4 md:-left-10">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+						</svg>
+					</div>
+					<div class="review-swiper-button-next -right-4 md:-right-10">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+						</svg>
+					</div>
+				</div>
+			</div>
+		</section>
 		</div>
 
 	<footer>
@@ -536,8 +624,22 @@
 	<script>
 		const { createApp } = Vue;
 
-		createApp({
+		const app = createApp({
 			data() {
+				// Definice a náhodné seřazení obrázků pro recenze
+				const reviewImagePaths = [
+					'images/recenze.jpg', 'images/recenze1.jpg', 'images/recenze2.jpg',
+					'images/recenze3.jpg', 'images/recenze4.jpg', 'images/recenze5.jpg',
+					'images/recenze6.jpg', 'images/recenze7.jpg', 'images/recenze8.jpg',
+					'images/recenze9.jpg', 'images/recenze10.jpg', 'images/recenze11.jpg',
+					'images/recenze12.jpg', 'images/recenze13.jpg', 'images/recenze14.jpg',
+					'images/recenze15.jpg', 'images/recenze16.jpg', 'images/recenze17.jpg',
+				];
+				for (let i = reviewImagePaths.length - 1; i > 0; i--) {
+					const j = Math.floor(Math.random() * (i + 1));
+					[reviewImagePaths[i], reviewImagePaths[j]] = [reviewImagePaths[j], reviewImagePaths[i]];
+				}
+
 				return {
 					gallery: {
 						currentIndex: 0,
@@ -549,6 +651,7 @@
 							'images/dve-cerstve-upecene-pizzy-v-krabicich-pripravene-na-rozvoz-vlevo-pizza-se-slaninou-vpravo-syrova-pizza-s-nivou-hermelinem-a-olivami.webp'
 						]
 					},
+					reviewImages: reviewImagePaths,
 					activeCategory: 'pizza', // Výchozí aktivní kategorie
 					topPizzas: [
 						{ id: 2, name: 'Pizza se šunkou', description: 'Tomatový základ, sýr, šunka', price: '169' },
@@ -587,6 +690,35 @@
 				goToImage(index) {
 					this.gallery.currentIndex = index;
 				}
+			},
+			mounted() {
+				new Swiper('.swiper-container-reviews', {
+					loop: true,
+					slidesPerView: 1,
+					spaceBetween: 20,
+					autoplay: {
+						delay: 5000,
+						disableOnInteraction: false,
+					},
+					navigation: {
+						nextEl: '.review-swiper-button-next',
+						prevEl: '.review-swiper-button-prev',
+					},
+					breakpoints: {
+						640: {
+							slidesPerView: 2,
+							spaceBetween: 20,
+						},
+						1024: {
+							slidesPerView: 3,
+							spaceBetween: 30,
+						},
+					},
+				});
 			}
-		}).mount('#app');
-	</script></body></html>
+		});
+
+		app.mount('#app');
+	</script>
+</body>
+</html>
