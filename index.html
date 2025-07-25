@@ -121,7 +121,7 @@
 			position: absolute;
 			z-index: 101;
 			left: 2.5rem;
-			top: 1.5rem; /* Posunuto nahoru */
+			top: calc(1.5rem + 15px); /* Posunuto níže o 15px */
 		}
 		.logo img {
 			height: 80px;
@@ -130,7 +130,9 @@
 
 		/* ----- SLIDER A OBSAH NA NĚM ----- */
 		.slider {
-			position: relative;
+			position: absolute; /* Změněno pro přichycení k hornímu okraji */
+			top: 0;
+			left: 0;
 			width: 100%;
 			height: 100vh;
 			overflow: hidden;
@@ -294,7 +296,7 @@
 		}
 	</style>
 </head>
-<body style="background-color: #1a1a1a;">
+<body>
 
 	<div class="logo">
 		<a href="#">
@@ -344,8 +346,8 @@
 		</div>
 	</div>
 
-	<div id="app">
-		<section class="relative z-20 -mt-24 w-full flex justify-center px-4" style="font-family: 'Montserrat', sans-serif;">
+	<div id="app" class="relative"> 
+		<section class="relative z-20 w-full flex justify-center px-4" style="font-family: 'Montserrat', sans-serif; margin-top: 100vh;">
 			<div class="bg-white text-gray-800 rounded-2xl shadow-xl px-6 py-6 md:px-10 md:py-5 flex flex-col md:flex-row flex-wrap items-center justify-center gap-y-8 md:gap-y-4 gap-x-8 lg:gap-x-16 max-w-6xl transition-all duration-500 ease-in-out hover:shadow-2xl">
 				<div class="flex items-center gap-x-4">
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" /></svg>
@@ -379,17 +381,17 @@
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					
-					<div class="group relative rounded-3xl min-h-[520px] overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/40" style="background-color: #017D4D;">
+					<div class="group relative rounded-3xl min-h-[550px] overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/40" style="background-color: #017D4D;">
 						<div class="absolute inset-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100" style="background: radial-gradient(circle at 50% 120%, rgba(16, 185, 129, 0.5) 0%, rgba(1, 125, 77, 0) 70%);"></div>
 						
-						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Pizza se šunkou a zeleninou" class="rounded-full absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] transition-all duration-700 ease-in-out group-hover:opacity-10 group-hover:scale-110" style="top: calc(50% + 30px);">
+						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Pizza se šunkou a zeleninou" class="rounded-full absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] transition-all duration-700 ease-in-out group-hover:opacity-10 group-hover:scale-110">
 
 						<div class="relative z-10 p-8">
 							<div>
 								<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg">Pizzy</h3>
 							</div>
 							
-							<div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-700 ease-in-out">
+							<div class="overflow-hidden max-h-0 group-hover:max-h-[420px] transition-all duration-700 ease-in-out">
 								<div class="pt-4 text-white text-center">
 									<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 hover:scale-105">
 										Zobrazit celou nabídku pizz &rarr;
@@ -411,17 +413,17 @@
 						</div>
 					</div>
 
-					<div class="group relative rounded-3xl min-h-[520px] overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-red-500/40" style="background-color: #E20B18;">
+					<div class="group relative rounded-3xl min-h-[550px] overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-red-500/40" style="background-color: #E20B18;">
 						<div class="absolute inset-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100" style="background: radial-gradient(circle at 50% 120%, rgba(255,100,100,0.5) 0%, rgba(226,11,24,0) 70%);"></div>
 						
-						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Burger s batátovými hranolky" class="rounded-full absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] transition-all duration-700 ease-in-out group-hover:opacity-10 group-hover:scale-110" style="top: calc(50% + 30px);">
+						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Burger s batátovými hranolky" class="rounded-full absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] transition-all duration-700 ease-in-out group-hover:opacity-10 group-hover:scale-110">
 						
 						<div class="relative z-10 p-8">
 							<div>
 								<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg">Burgery</h3>
 							</div>
 							
-							<div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-700 ease-in-out">
+							<div class="overflow-hidden max-h-0 group-hover:max-h-[420px] transition-all duration-700 ease-in-out">
 								<div class="pt-4 text-white text-center">
 									<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 hover:scale-105">
 										Zobrazit všechny burgery &rarr;
@@ -434,7 +436,7 @@
 										</li>
 									</ul>
 									<div class="mt-6 text-center animate-lure-pulse">
-										<a href="#" class="cervene-tlacitko animate-glow opacity-0 group-hover:opacity-100 bg-white text-green-700 hover:bg-red-100" :style="{ transitionDelay: (topBurgers.length * 100 + 200) + 'ms' }">
+										<a href="#" class="cervene-tlacitko animate-glow opacity-0 group-hover:opacity-100 bg-white text-red-600 hover:bg-red-100" :style="{ transitionDelay: (topBurgers.length * 100 + 200) + 'ms' }">
 											Objednat Burger
 										</a>
 									</div>
@@ -443,17 +445,17 @@
 						</div>
 					</div>
 
-					<div class="group relative rounded-3xl min-h-[520px] overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-gray-500/40 md:col-span-2 lg:col-span-1" style="background-color: #262626;">
+					<div class="group relative rounded-3xl min-h-[550px] overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-gray-500/40 md:col-span-2 lg:col-span-1" style="background-color: #262626;">
 						<div class="absolute inset-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100" style="background: radial-gradient(circle at 50% 120%, rgba(150,150,150,0.4) 0%, rgba(38,38,38,0) 70%);"></div>
 
-						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Kuřecí speciality Wing It" class="rounded-full absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] transition-all duration-700 ease-in-out group-hover:opacity-10 group-hover:scale-110" style="top: calc(50% + 30px);">
+						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Kuřecí speciality Wing It" class="rounded-full absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] transition-all duration-700 ease-in-out group-hover:opacity-10 group-hover:scale-110">
 						
 						<div class="relative z-10 p-8">
 							<div>
 								<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg">Kuřecí maso</h3>
 							</div>
 							
-							<div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-700 ease-in-out">
+							<div class="overflow-hidden max-h-0 group-hover:max-h-[420px] transition-all duration-700 ease-in-out">
 								<div class="pt-4 text-white text-center">
 									<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 hover:scale-105">
 										Prozkoumat speciality &rarr;
