@@ -120,6 +120,7 @@
 			--color-parchment: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
 			--font-primary: 'Montserrat', sans-serif;
 			--font-cursive: 'Pacifico', cursive;
+			--section-padding-y: 6rem;
 		}
 
 		/* --- CSS Reset & Base Styles --- */
@@ -155,15 +156,18 @@
 			list-style: none;
 		}
 
-		/* --- Utility Classes --- */
+		/* --- Utility & Layout Classes --- */
 		.container {
 			width: 100%;
-			max-width: 72rem; /* max-w-6xl */
-			margin: 0 auto;
-			padding: 0 1.5rem;
+			max-width: 72rem; /* 1152px */
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: 1.5rem;  /* Default padding (px-6) */
+			padding-right: 1.5rem;
 		}
 		.section {
-			padding: 6rem 0;
+			padding-top: var(--section-padding-y);
+			padding-bottom: var(--section-padding-y);
 		}
 		.section--parchment {
 			background-image: var(--color-parchment);
@@ -211,6 +215,9 @@
 		.btn svg {
 			width: 1.5rem;
 			height: 1.5rem;
+		}
+		.hidden-md {
+			display: none;
 		}
 
 		/* --- Animations --- */
@@ -299,19 +306,18 @@
 			display: flex;
 			justify-content: center;
 			padding: 0 1rem;
-			margin-bottom: 3rem;
 		}
 		.info-bar__content {
 			background: var(--color-background-light);
 			color: var(--color-text-dark);
 			border-radius: 1rem;
 			box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
-			padding: 1.25rem 2.5rem;
+			padding: 1.25rem 1.5rem;
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;
 			justify-content: center;
-			gap: 2rem 4rem;
+			gap: 2rem 2rem;
 			max-width: 72rem;
 			transition: box-shadow 0.5s ease-in-out;
 		}
@@ -343,7 +349,11 @@
 		}
 
 		/* --- Menu Highlights Section --- */
-		.menu-highlights {
+		.section-menu {
+			padding-top: 8rem; /* pt-32 */
+			padding-bottom: 6rem; /* pb-24 */
+		}
+		.menu-highlights__header {
 			text-align: center;
 			margin-bottom: 4rem;
 		}
@@ -507,12 +517,18 @@
 		}
 		
 		/* --- Reviews Section --- */
-		.reviews {
+		.reviews__container {
 			position: relative;
-			padding-left: 2.5rem;
-			padding-right: 2.5rem;
 		}
-		.reviews__header { text-align: center; margin-bottom: 2rem; }
+		.reviews__header {
+			text-align: center;
+			margin-bottom: 2rem;
+		}
+		.reviews__slider-outer {
+			position: relative;
+			padding-left: 2.5rem; /* px-10 */
+			padding-right: 2.5rem; /* px-10 */
+		}
 		.reviews__slider-container {
 			max-width: 72rem;
 			margin: auto;
@@ -649,10 +665,8 @@
 		}
 		
 		/* --- Social Section --- */
-		.social {
-			text-align: center;
-		}
 		.social__header {
+			text-align: center;
 			margin-bottom: 2rem;
 		}
 		.social__links {
@@ -678,12 +692,13 @@
 			background-color: var(--color-secondary);
 			color: var(--color-text-light);
 			font-size: 0.875rem;
+			padding-top: 4rem;
+			padding-bottom: 4rem;
 		}
 		.footer__grid {
 			display: grid;
 			grid-template-columns: 1fr;
 			gap: 3rem;
-			padding-bottom: 4rem;
 		}
 		.footer__logo {
 			height: 5rem;
@@ -734,6 +749,7 @@
 		}
 		.footer__divider {
 			border-top: 1px solid rgba(255,255,255,0.2);
+			margin-top: 4rem;
 			margin-bottom: 2rem;
 		}
 		.footer__bottom {
@@ -762,31 +778,49 @@
 			.hero__buttons { flex-direction: row; justify-content: center; gap: 2.5rem; }
 			.header-logo { left: 2.5rem; }
 			.header-logo img { height: 70px; }
+			.info-bar__content { padding: 1.25rem 2.5rem; gap: 2rem 4rem; }
 			.delivery__actions { flex-direction: row; align-items: center; }
 			.delivery__btn { width: auto; }
 			.gallery-teaser__bg-text { font-size: 10rem; }
 			.gallery-teaser__grid { grid-template-columns: repeat(2, 1fr); }
 			.reviews__slide { flex: 0 0 50%; }
 		}
+
 		@media (min-width: 768px) {
-			.section { padding: 4rem 0; }
+			:root { --section-padding-y: 4rem; }
+			.container {
+				padding-left: 3rem;  /* md:px-12 */
+				padding-right: 3rem;
+			}
+			.info-bar { padding: 0 1.5rem; }
 			.menu-highlights__grid { grid-template-columns: repeat(2, 1fr); }
 			.menu-card--chicken { grid-column: span 2; }
+			.reviews__slider-outer { padding-left: 0; padding-right: 0; }
+			.reviews__btn--prev { left: -2.5rem; }
+			.reviews__btn--next { right: -2.5rem; }
 			.footer__grid { grid-template-columns: repeat(2, 1fr); }
 			.footer__bottom { flex-direction: row; text-align: left; }
 			.footer__bottom-left { margin-bottom: 0; }
 			.footer__bottom-right { flex-direction: row; gap: 1rem; }
-			.footer__bottom-right span { display: inline; }
-			.reviews__btn--prev { left: -2.5rem; }
-			.reviews__btn--next { right: -2.5rem; }
+			.hidden-md { display: inline; }
 		}
+
 		@media (min-width: 1024px) {
-			.section { padding: 6rem 0; }
-			.container { padding: 0 5rem; }
+			:root { --section-padding-y: 6rem; }
+			.container {
+				padding-left: 5rem;  /* lg:px-20 */
+				padding-right: 5rem;
+			}
+			/* Special padding for why-us section */
+			.container.container--lg-p-24 {
+				padding-left: 6rem;
+				padding-right: 6rem;
+			}
 			.main-title { font-size: 3.75rem; }
 			.hero__title { font-size: 65px; }
 			.header-logo img { height: 80px; }
 			.btn { font-size: 1.125rem; padding: 1rem 2rem; }
+			.delivery__box { padding: 4rem; }
 			.menu-highlights__grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 			.menu-card--chicken { grid-column: auto; }
 			.why-us__grid { grid-template-columns: repeat(2, 1fr); }
@@ -798,13 +832,13 @@
 			.footer__section--full-span { grid-column: span 2 / span 2; }
 			.reviews__slide { flex: 0 0 33.333%; }
 		}
+
 		@media (max-width: 380px) {
 			.hero__title { font-size: 36px; }
 			.hero__cta-text { font-size: 16px; }
 		}
 	</style>
 </head>
-
 <body>
 	
 	<header class="hero">
@@ -878,14 +912,13 @@
 			</div>
 		</section>
 
-		<section class="section">
+		<section class="section-menu">
 			<div class="container">
-				<div class="menu-highlights">
+				<div class="menu-highlights__header">
 					<p class="cursive-title">Top výběr</p>
 					<h2 class="main-title">Na co máš chuť?</h2>
 				</div>
 				<div class="menu-highlights__grid">
-					
 					<article class="menu-card menu-card--pizza">
 						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Pozadí s pizzou" class="menu-card__bg">
 						<div class="menu-card__content">
@@ -903,7 +936,6 @@
 							</div>
 						</div>
 					</article>
-
 					<article class="menu-card menu-card--burger">
 						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Pozadí s burgerem" class="menu-card__bg">
 						<div class="menu-card__content">
@@ -921,7 +953,6 @@
 							</div>
 						</div>
 					</article>
-					
 					<article class="menu-card menu-card--chicken">
 						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Pozadí s kuřecím masem" class="menu-card__bg">
 						<div class="menu-card__content">
@@ -943,12 +974,12 @@
 		</section>
 		
 		<section class="section section--parchment why-us">
-			<div class="container">
+			<div class="container container--lg-p-24">
 				<div class="why-us__grid">
 					<div class="why-us__text">
 						<p class="cursive-title cursive-title--light">Naše pizza, náš originál</p>
 						<h2 class="main-title">PROČ SI DÁT PIZZU U NÁS?</h2>
-						<p class="text-xl font-semibold">Jsme TOP 4. Pizzerie v Kladně!🏅</p>
+						<p>Jsme TOP 4. Pizzerie v Kladně!🏅</p>
 						<p>Tohle není žádná Itálie, to je naše tradice už od roku 1994! Chceš pizzu přesně podle svýho gusta? U nás si ji můžeš sestavit sám! Vyber si z našich čerstvých surovin a vytvoř si pizzu podle svých chutí – víc sýra, extra zelenina, pořádná dávka masa nebo prostě odeber to, co ti nevyhovuje! 🧀🥓🥬</p>
 						<ul class="why-us__list">
 							<li class="why-us__list-item">
@@ -994,15 +1025,17 @@
 
 		<section class="section">
 			<div class="container">
-				<div class="reviews">
+				<div class="reviews__container">
 					<div class="reviews__header">
 						<p class="cursive-title">Recenze</p>
 						<h2 class="main-title">Co na naši pizzu říkáš ty a ostatní?</h2>
 					</div>
-					<div class="reviews__slider-container" id="reviews-slider">
-						<div class="reviews__slider-viewport">
-							<div class="reviews__slider-wrapper">
-								</div>
+					<div class="reviews__slider-outer" id="reviews-slider">
+						<div class="reviews__slider-container">
+							<div class="reviews__slider-viewport">
+								<div class="reviews__slider-wrapper">
+									</div>
+							</div>
 						</div>
 						<button class="reviews__btn reviews__btn--prev" aria-label="Předchozí recenze">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
@@ -1024,7 +1057,7 @@
 						</div>
 						<div class="delivery__text-content">
 							<p class="cursive-title cursive-title--light">Rozvoz jídla</p>
-							<h2 class="main-title" style="font-size: 2.25rem;">Rozvoz jídla Kladno. Bez poplatků, bez starostí</h2>
+							<h2 class="main-title" style="font-size: 2rem;">Rozvoz jídla Kladno. Bez poplatků, bez starostí</h2>
 							<p>Hlad? Nestíháš? Nebo si chceš prostě užít jídlo v pohodlí domova? Rozvážíme po celém Kladně i okolí. <strong>Rychle, spolehlivě a bez zbytečných příplatků.</strong></p>
 							<p>Ať už máš chuť na poctivou pizzu s křupavým těstem, nebo pořádný burger jako kráva – všechno ti dovezeme až ke dveřím.</p>
 							<p>U nás platíš jen za jídlo a samotný rozvoz. Bez skrytých poplatků, bez přirážek, bez překvapení.</p>
@@ -1085,7 +1118,7 @@
 		</section>
 	</main>
 	
-	<footer class="footer section">
+	<footer class="footer">
 		<div class="container">
 			<div class="footer__grid">
 				<div class="footer__section">
@@ -1138,9 +1171,7 @@
 					</ul>
 				</div>
 			</div>
-
 			<hr class="footer__divider">
-			
 			<div class="footer__bottom">
 				<div class="footer__bottom-left">
 					<p>© 2025 Pizzerie San Marino. Všechna práva vyhrazena.</p>
@@ -1148,9 +1179,9 @@
 				</div>
 				<div class="footer__bottom-right">
 					<a href="obchodni-podminky-pizzerie-san-marino-kladno.pdf" target="_blank">Obchodní podmínky</a>
-					<span class="hidden md:inline">|</span>
+					<span class="hidden-md">|</span>
 					<a href="ochrana-osobnich-udaju-gdpr-pizzerie-san-marino-kladno.pdf" target="_blank">Zpracování osobních údajů</a>
-					<span class="hidden md:inline">|</span>
+					<span class="hidden-md">|</span>
 					<a href="#" id="allergen-link">Alergeny</a>
 				</div>
 			</div>
@@ -1166,7 +1197,6 @@
 			const slides = heroSlider.querySelectorAll('.hero__slide');
 			const slideCount = slides.length;
 			let currentIndex = 0;
-
 			const nextSlide = () => {
 				currentIndex = (currentIndex + 1) % slideCount;
 				heroSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
@@ -1212,12 +1242,10 @@
 				currentIndex = (currentIndex - 1 + images.length) % images.length;
 				updateGallery();
 			});
-
 			nextBtn.addEventListener('click', () => {
 				currentIndex = (currentIndex + 1) % images.length;
 				updateGallery();
 			});
-
 			updateGallery();
 		}
 		
@@ -1231,7 +1259,7 @@
 				'images/recenze9.jpg', 'images/recenze10.jpg', 'images/recenze11.jpg', 
 				'images/recenze12.jpg', 'images/recenze13.jpg', 'images/recenze14.jpg', 
 				'images/recenze15.jpg', 'images/recenze16.jpg', 'images/recenze17.jpg',
-			].sort(() => 0.5 - Math.random()); // Náhodné seřazení
+			].sort(() => 0.5 - Math.random());
 
 			const wrapper = reviewsSliderContainer.querySelector('.reviews__slider-wrapper');
 			const prevBtn = reviewsSliderContainer.querySelector('.reviews__btn--prev');
@@ -1249,15 +1277,15 @@
 			let currentIndex = 0;
 			let slidesPerView = 1;
 			
-			const updateSlidesPerView = () => {
+			const updateSlider = () => {
 				if (window.innerWidth >= 1024) slidesPerView = 3;
 				else if (window.innerWidth >= 640) slidesPerView = 2;
 				else slidesPerView = 1;
-				goToSlide(currentIndex); // Re-align after resize
+				goToSlide(currentIndex);
 			};
 
 			const goToSlide = (index) => {
-				const slideWidth = wrapper.children[0].offsetWidth;
+				const slideWidth = wrapper.children[0].getBoundingClientRect().width;
 				const maxIndex = images.length - slidesPerView;
 				currentIndex = Math.max(0, Math.min(index, maxIndex));
 				wrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
@@ -1266,14 +1294,14 @@
 			prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
 			nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
 			
-			window.addEventListener('resize', updateSlidesPerView);
-			updateSlidesPerView();
+			window.addEventListener('resize', updateSlider);
+			updateSlider();
 		}
 
 		// --- Opening Hours Highlight ---
 		const openingHoursFooter = document.getElementById('opening-hours-footer');
 		if (openingHoursFooter) {
-			const today = new Date().getDay(); // 0 = Neděle, 1 = Pondělí, ...
+			const today = new Date().getDay();
 			const currentDayRow = openingHoursFooter.querySelector(`.day-row[data-day="${today}"]`);
 			if (currentDayRow) {
 				currentDayRow.classList.add('day-row--today');
@@ -1288,7 +1316,6 @@
 				alert('Seznam alergenů naleznete v našem online menu. Děkujeme za pochopení.');
 			});
 		}
-
 	});
 	</script>
 </body>
