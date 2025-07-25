@@ -40,7 +40,6 @@
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
 	<script>
 		!function(f,b,e,v,n,t,s)
 		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -56,7 +55,6 @@
 	<noscript>
 		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=934397255534553&ev=PageView&noscript=1"/>
 	</noscript>
-
 	<script type="application/ld+json">
 	{
 	  "@context": "https://schema.org",
@@ -106,280 +104,299 @@
 	}
 	</script>
 
-    <style>
-		/* ----- ZÁKLADNÍ NASTAVENÍ A PROMENNÉ ----- */
-		:root {
-			--color-primary: #E20B18;
-			--color-primary-dark: #c00a15;
-			--color-secondary: #017D4D;
-			--color-text: #333;
-			--font-main: 'Montserrat', sans-serif;
-			--font-cursive: 'Pacifico', cursive;
-		}
-
-		*, *::before, *::after {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
-
-		html, body {
-			font-family: var(--font-main);
-			background-color: #f0f0f0;
-			color: var(--color-text);
-			overflow-x: hidden;
-		}
+	<style>
+		/*
+		! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
+		*/
+		*,:after,:before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
+		:after,:before{--tw-content:""}
+		html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}
+		body{margin:0;line-height:inherit}
+		h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}
+		a{color:inherit;text-decoration:inherit}
+		b,strong{font-weight:bolder}
+		img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}
+		img,video{max-width:100%;height:auto}
+		hr{height:0;color:inherit;border-top-width:1px}
+		button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}
+		button,select{text-transform:none}
+		[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}
 		
-		.container {
-			width: 100%;
-			margin-left: auto;
-			margin-right: auto;
-			padding-left: 1.5rem;
-			padding-right: 1.5rem;
-		}
-		@media (min-width: 768px) {
-			.container {
-				padding-left: 3rem;
-				padding-right: 3rem;
-			}
-		}
-		@media (min-width: 1024px) {
-			.container {
-				max-width: 1280px;
-				padding-left: 5rem;
-				padding-right: 5rem;
-			}
-		}
+		/* ----- ZÁKLADNÍ STYLY ----- */
+		* { margin: 0; padding: 0; box-sizing: border-box; }
+		html, body { font-family: 'Montserrat', sans-serif; background: #f0f0f0; color: #333; overflow-x: hidden; }
 
-		/* ----- HERO SEKCE: LOGO A SLIDER ----- */
-		.logo {
-			position: absolute;
-			z-index: 101;
-			top: 1.5rem;
-			left: 1.5rem;
-		}
-		.logo img {
-			height: 60px;
-			width: auto;
-			transition: height 0.3s ease;
-		}
+		/* ----- LOGO ----- */
+		.logo { position: absolute; z-index: 101; left: 1.5rem; top: 1.5rem; }
+		.logo img { height: 60px; width: auto; }
+
+		/* ----- SLIDER A OBSAH NA NĚM ----- */
+		.slider { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; overflow: hidden; background-color: #1a1a1a; }
+		.slides { display: flex; transition: transform 1s ease; height: 100%; }
+		.slide { min-width: 100%; height: 100%; }
+		.slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+		.content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #fff; width: 90%; z-index: 50; }
+		.content h1 { font-family: 'Montserrat', sans-serif; font-size: 45px; margin-bottom: 20px; font-weight: 900; text-transform: uppercase; text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9); white-space: normal; }
+		.cta-text { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: bold; background: rgba(0, 0, 0, 0.6); padding: 15px 25px; border-radius: 10px; display: inline-block; }
 		
-		.slider {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100vh;
-			overflow: hidden;
-			background-color: #1a1a1a;
-		}
-		.slides {
-			display: flex;
-			transition: transform 1s ease;
-			height: 100%;
-		}
-		.slide {
-			min-width: 100%;
-			height: 100%;
-		}
-		.slide img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			display: block;
-		}
-
-		/* ----- HERO SEKCE: OBSAH ----- */
-		.content {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			text-align: center;
-			color: #fff;
-			width: 90%;
-			max-width: 1200px;
-			z-index: 50;
-		}
-		.content h1 {
-			font-family: var(--font-main);
-			font-size: 38px;
-			margin-bottom: 20px;
-			font-weight: 900;
-			text-transform: uppercase;
-			text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
-			white-space: normal;
-		}
-		.cta-text {
-			font-family: var(--font-main);
-			font-size: 18px;
-			font-weight: 700;
-			background: rgba(0, 0, 0, 0.6);
-			padding: 1rem 1.5rem;
-			border-radius: 10px;
-			display: inline-block;
-			max-width: 600px;
-			line-height: 1.6;
-		}
-		.buttons {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 1rem;
-			margin-top: 2rem;
-		}
-
-		/* ----- TLAČÍTKA A ANIMACE ----- */
-		.tlacitko-zaklad {
-			font-family: var(--font-main);
-			font-weight: 700;
-			font-size: 1rem;
-			border-radius: 9999px;
-			padding: 0.75rem 1.5rem;
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			gap: 0.75rem;
-			text-decoration: none;
-			transition: all 0.3s ease;
-			border: 2px solid transparent;
-		}
-		.tlacitko-zaklad svg {
-			width: 1.5rem;
-			height: 1.5rem;
-		}
-		.tlacitko-primarni {
-			background-color: var(--color-primary);
-			color: white;
-		}
-		.tlacitko-primarni:hover {
-			background-color: var(--color-primary-dark);
-			transform: scale(1.05);
-		}
-
-		@keyframes lure-pulse {
-			0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-			70% { transform: scale(1.05); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
-			100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-		}
-		.animate-lure-pulse {
-			animation: lure-pulse 2s infinite;
-		}
-
-		/* ----- RESPONZIVNÍ STYLY PRO HERO SEKCI A TLAČÍTKA ----- */
-		@media (min-width: 640px) {
-			.buttons {
-				flex-direction: row;
-				justify-content: center;
-				gap: 1.5rem;
-			}
-			.content h1 {
-				font-size: 50px;
-			}
-			.cta-text {
-				font-size: 20px;
-			}
-		}
-		@media (min-width: 1024px) {
-			.logo {
-				left: 2.5rem;
-				top: 1.5rem;
-			}
-			.logo img {
-				height: 80px;
-			}
-			.content h1 {
-				font-size: 65px;
-				white-space: nowrap;
-			}
-			.cta-text {
-				font-size: 24px;
-			}
-			.buttons {
-				gap: 2.5rem;
-				margin-top: 3rem;
-			}
-			.tlacitko-zaklad {
-				font-size: 1.125rem;
-				padding: 1rem 2rem;
-			}
-		}
-
-		/* ----- POMOCNÉ TŘÍDY A POZADÍ ----- */
-		.font-cursive {
-			font-family: var(--font-cursive);
-		}
-		.bg-parchment {
-			background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
-			background-size: cover;
-			background-position: center;
-			background-repeat: no-repeat;
-		}
-
-		/* ----- STYLY PRO RECENZE (SWIPER) ----- */
-		.swiper-container-reviews .swiper-slide {
-			aspect-ratio: 4 / 3;
-			background-color: #FFFFFF;
-			border: 2px solid #D1D5DB;
-			border-radius: 0.75rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			overflow: hidden;
-		}
-		.swiper-container-reviews .swiper-slide img {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
-		}
-		.review-swiper-button-prev,
-		.review-swiper-button-next {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			z-index: 20;
-			cursor: pointer;
-			background-color: var(--color-primary);
-			border-radius: 9999px;
-			padding: 0.75rem;
-			transition: background-color 0.2s;
-			display: none; /* Skryto na mobilu */
-		}
-		.review-swiper-button-prev:hover,
-		.review-swiper-button-next:hover {
-			background-color: var(--color-primary-dark);
-		}
+		/* ----- STYLY PRO TLAČÍTKA A EFEKT ----- */
+		.buttons { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 3rem; }
+		.tlacitko-zaklad { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; border-radius: 9999px; padding: 0.75rem 1.5rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; text-decoration: none; transition: all 0.3s ease; }
+		.tlacitko-zaklad svg { width: 1.5rem; height: 1.5rem; }
+		
+		@keyframes lure-pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); } 70% { transform: scale(1.08); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } }
+		.animate-lure-pulse { animation: lure-pulse 1.8s infinite; }
+		
+		@keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); } 70% { box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } }
+		.animate-glow { animation: pulse-glow 1.8s infinite; }
+		
+		.font-cursive { font-family: 'Pacifico', cursive; }
+		.bg-parchment { background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp'); background-size: 100% 100%; background-repeat: no-repeat; }
+		
+		/* --- STYLY PRO RECENZE (SWIPER) --- */
+		.swiper-container-reviews .swiper-slide { aspect-ratio: 4 / 3; background-color: #FFFFFF; border: 2px solid #D1D5DB; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; overflow: hidden; box-sizing: border-box; }
+		.swiper-container-reviews .swiper-slide img { width: 100%; height: 100%; object-fit: contain; }
+		.review-swiper-button-prev, .review-swiper-button-next { position: absolute; top: 50%; transform: translateY(-50%); z-index: 20; cursor: pointer; background-color: #E20B18; border-radius: 9999px; padding: 0.75rem; transition: background-color 0.2s; }
+		.review-swiper-button-prev:hover, .review-swiper-button-next:hover { background-color: #c00a15; }
 		.review-swiper-button-prev { left: -10px; }
 		.review-swiper-button-next { right: -10px; }
+		.review-swiper-button-prev svg, .review-swiper-button-next svg { color: white; width: 1.5rem; height: 1.5rem; }
 
-		@media (min-width: 768px) {
-			.review-swiper-button-prev,
-			.review-swiper-button-next {
-				display: block; /* Zobrazeno od tabletu */
-			}
-			.review-swiper-button-prev { left: -2.5rem; }
-			.review-swiper-button-next { right: -2.5rem; }
-		}
+		.day-row.font-bold { font-weight: 700; }
+		.\!text-yellow-300 { color: #facc15 !important; }
 
-		.review-swiper-button-prev svg,
-		.review-swiper-button-next svg {
-			color: white;
-			width: 1.5rem;
-			height: 1.5rem;
+		/* Tailwind Utility Classes Definitions */
+		.container{width:100%;margin-left:auto;margin-right:auto;padding-left:1.5rem;padding-right:1.5rem}
+		.absolute{position:absolute}
+		.relative{position:relative}
+		.inset-0{inset:0}
+		.top-1\/2{top:50%}
+		.left-2{left:.5rem}
+		.right-2{right:.5rem}
+		.z-0{z-index:0}
+		.z-10{z-index:10}
+		.z-20{z-index:20}
+		.mx-auto{margin-left:auto;margin-right:auto}
+		.-mt-8{margin-top:-2rem}
+		.-mt-\[135px\]{margin-top:-135px}
+		.-mb-8{margin-bottom:-2rem}
+		.mb-2{margin-bottom:.5rem}
+		.mb-4{margin-bottom:1rem}
+		.mb-8{margin-bottom:2rem}
+		.mb-12{margin-bottom:3rem}
+		.mr-12{margin-right:3rem}
+		.mt-2{margin-top:.5rem}
+		.mt-4{margin-top:1rem}
+		.mt-6{margin-top:1.5rem}
+		.mt-8{margin-top:2rem}
+		.mt-10{margin-top:2.5rem}
+		.mt-12{margin-top:3rem}
+		.mt-16{margin-top:4rem}
+		.mt-auto{margin-top:auto}
+		.-ml-12{margin-left:-3rem}
+		.h-4{height:1rem}
+		.h-6{height:1.5rem}
+		.h-7{height:1.75rem}
+		.h-8{height:2rem}
+		.h-12{height:3rem}
+		.h-20{height:5rem}
+		.h-full{height:100%}
+		.h-screen{height:100vh}
+		.w-4{width:1rem}
+		.w-6{width:1.5rem}
+		.w-7{width:1.75rem}
+		.w-8{width:2rem}
+		.w-12{width:3rem}
+		.w-full{width:100%}
+		.max-w-6xl{max-width:72rem}
+		.max-w-lg{max-width:32rem}
+		.max-w-md{max-width:28rem}
+		.flex-shrink-0{flex-shrink:0}
+		.-translate-y-1\/2{transform:translateY(-50%)}
+		.-rotate-12{transform:rotate(-12deg)}
+		.rotate-12{transform:rotate(12deg)}
+		.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+		.grid{display:grid}
+		.inline-block{display:inline-block}
+		.hidden{display:none}
+		.h-auto{height:auto}
+		.flex-col{flex-direction:column}
+		.items-start{align-items:flex-start}
+		.items-center{align-items:center}
+		.justify-center{justify-content:center}
+		.justify-between{justify-content:space-between}
+		.gap-6{gap:1.5rem}
+		.gap-8{gap:2rem}
+		.gap-10{gap:2.5rem}
+		.gap-12{gap:3rem}
+		.gap-16{gap:4rem}
+		.gap-x-3{column-gap:.75rem}
+		.gap-x-4{column-gap:1rem}
+		.gap-x-8{column-gap:2rem}
+		.gap-y-2{row-gap:.5rem}
+		.gap-y-4{row-gap:1rem}
+		.gap-y-8{row-gap:2rem}
+		.space-y-1>*{margin-top:calc(.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem * var(--tw-space-y-reverse))}
+		.space-y-2\.5>*{margin-top:calc(.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.625rem * var(--tw-space-y-reverse))}
+		.space-y-3>*{margin-top:calc(.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem * var(--tw-space-y-reverse))}
+		.space-y-4>*{margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}
+		.overflow-hidden{overflow:hidden}
+		.rounded-2xl{border-radius:1rem}
+		.rounded-3xl{border-radius:1.5rem}
+		.rounded-full{border-radius:9999px}
+		.rounded-lg{border-radius:.5rem}
+		.border-2{border-width:2px}
+		.border-t{border-top-width:1px}
+		.border-white{border-color:#fff}
+		.border-white\/20{border-color:rgba(255,255,255,.2)}
+		.bg-\[\#017D4D\]{background-color:#017d4d}
+		.bg-\[\#E20B18\]{background-color:#e20b18}
+		.bg-white{background-color:#fff}
+		.bg-white\/20{background-color:rgba(255,255,255,.2)}
+		.bg-green-100{background-color:#dcfce7}
+		.bg-red-100{background-color:#fee2e2}
+		.bg-gray-200{background-color:#e5e7eb}
+		.object-cover{object-fit:cover}
+		.p-3{padding:.75rem}
+		.p-8{padding:2rem}
+		.px-4{padding-left:1rem;padding-right:1rem}
+		.px-6{padding-left:1.5rem;padding-right:1.5rem}
+		.px-8{padding-left:2rem;padding-right:2rem}
+		.px-10{padding-left:2.5rem;padding-right:2.5rem}
+		.py-4{padding-top:1rem;padding-bottom:1rem}
+		.py-5{padding-top:1.25rem;padding-bottom:1.25rem}
+		.py-6{padding-top:1.5rem;padding-bottom:1.5rem}
+		.py-16{padding-top:4rem;padding-bottom:4rem}
+		.pt-1{padding-top:.25rem}
+		.pt-4{padding-top:1rem}
+		.pt-8{padding-top:2rem}
+		.text-center{text-align:center}
+		.text-left{text-align:left}
+		.text-right{text-align:right}
+		.font-cursive{font-family:Pacifico,cursive}
+		.text-base{font-size:1rem;line-height:1.5rem}
+		.text-lg{font-size:1.125rem;line-height:1.75rem}
+		.text-sm{font-size:.875rem;line-height:1.25rem}
+		.text-xl{font-size:1.25rem;line-height:1.75rem}
+		.text-2xl{font-size:1.5rem;line-height:2rem}
+		.text-3xl{font-size:1.875rem;line-height:2.25rem}
+		.text-4xl{font-size:2.25rem;line-height:2.5rem}
+		.text-\[8rem\]{font-size:8rem}
+		.font-black{font-weight:900}
+		.font-bold{font-weight:700}
+		.font-medium{font-weight:500}
+		.font-semibold{font-weight:600}
+		.uppercase{text-transform:uppercase}
+		.leading-relaxed{line-height:1.625}
+		.leading-tight{line-height:1.25}
+		.tracking-wide{letter-spacing:.025em}
+		.tracking-wider{letter-spacing:.05em}
+		.text-\[\#E20B18\]{color:#e20b18}
+		.text-white{color:#fff}
+		.text-white\/80{color:rgba(255,255,255,.8)}
+		.text-white\/90{color:rgba(255,255,255,.9)}
+		.text-gray-500{color:#6b7280}
+		.text-gray-800{color:#1f2937}
+		.text-gray-900{color:#111827}
+		.text-green-700{color:#15803d}
+		.text-red-600{color:#dc2626}
+		.underline{text-decoration-line:underline}
+		.opacity-10{opacity:.1}
+		.opacity-20{opacity:.2}
+		.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}
+		.shadow-xl{box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1)}
+		.shadow-2xl{box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
+		.drop-shadow-lg{filter:drop-shadow(0 10px 8px rgba(0,0,0,.04)) drop-shadow(0 4px 3px rgba(0,0,0,.1))}
+		.drop-shadow-md{filter:drop-shadow(0 4px 3px rgba(0,0,0,.07)) drop-shadow(0 2px 2px rgba(0,0,0,.06))}
+		.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+		.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+		.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+		.duration-300{transition-duration:.3s}
+		.duration-500{transition-duration:.5s}
+		.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}
+		.pointer-events-none{pointer-events:none}
+		.flex{display:flex}
+		.aspect-square{aspect-ratio:1/1}
+		.cursor-pointer{cursor:pointer}
+		.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+		.flex-wrap{flex-wrap:wrap}
+		.hover\:scale-105:hover{transform:scale(1.05)}
+		.hover\:scale-110:hover{transform:scale(1.1)}
+		.hover\:shadow-2xl:hover{box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
+		.hover\:bg-\[\#c00a15\]:hover{background-color:#c00a15}
+		.hover\:bg-white\/20:hover{background-color:rgba(255,255,255,.2)}
+		.hover\:bg-green-100:hover{background-color:#dcfce7}
+		.hover\:bg-red-100:hover{background-color:#fee2e2}
+		.hover\:bg-gray-200:hover{background-color:#e5e7eb}
+		.hover\:underline:hover{text-decoration-line:underline}
+		
+		@media (min-width:640px){
+		.sm\:w-auto{width:auto}
+		.sm\:flex-row{flex-direction:row}
+		.sm\:items-center{align-items:center}
+		.sm\:text-\[10rem\]{font-size:10rem}
+		.sm\:text-5xl{font-size:3rem;line-height:1}
+		.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 		}
 		
-		/* ZVÝRAZNĚNÍ AKTUÁLNÍHO DNE V PATIČCE */
-		#opening-hours-footer .day-row.active {
-			color: #FFFFFF;
-			font-weight: 700;
+		@media (min-width:768px){
+		.md\:col-span-2{grid-column:span 2/span 2}
+		.md\:mb-0{margin-bottom:0}
+		.md\:inline{display:inline}
+		.md\:h-4{height:1rem}
+		.md\:w-4{width:1rem}
+		.md\:flex-row{flex-direction:row}
+		.md\:items-center{align-items:center}
+		.md\:-right-10{right:-2.5rem}
+		.md\:-left-10{left:-2.5rem}
+		.md\:px-0{padding-left:0;padding-right:0}
+		.md\:px-10{padding-left:2.5rem;padding-right:2.5rem}
+		.md\:px-12{padding-left:3rem;padding-right:3rem}
+		.md\:py-5{padding-top:1.25rem;padding-bottom:1.25rem}
+		.md\:text-left{text-align:left}
+		.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}
+		.md\:text-5xl{font-size:3rem;line-height:1}
+		.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+		.md\:gap-y-4{row-gap:1rem}
 		}
-		#opening-hours-footer .day-row.active .special-note {
-			color: #fef08a; /* Světle žlutá pro poznámku */
+		
+		@media (min-width:1024px){
+		.lg\:col-span-1{grid-column:span 1/span 1}
+		.lg\:order-first{order:-9999}
+		.lg\:text-\[16rem\]{font-size:16rem}
+		.lg\:text-6xl{font-size:3.75rem;line-height:1}
+		.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+		.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+		.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+		.lg\:gap-8{gap:2rem}
+		.lg\:gap-16{gap:4rem}
+		.lg\:gap-x-16{column-gap:4rem}
+		.lg\:px-20{padding-left:5rem;padding-right:5rem}
+		.lg\:px-24{padding-left:6rem;padding-right:6rem}
+		.lg\:py-24{padding-top:6rem;padding-bottom:6rem}
+		}
+
+		/* Další responzivní úpravy pro dokonalost */
+		@media (min-width: 640px) {
+			.buttons { flex-direction: row; justify-content: center; gap: 2.5rem; }
+			.cta-text { font-size: 20px; }
+			.content h1 { font-size: 55px; white-space: nowrap;}
+			.logo img { height: 70px; }
+			.logo { left: 2.5rem; }
+		}
+		@media (min-width: 1024px) {
+			.logo img { height: 80px; }
+			.tlacitko-zaklad { font-size: 1.125rem; padding: 1rem 2rem; }
+			.content h1 { font-size: 65px; }
+		}
+		@media (max-width: 380px) {
+			.content h1 { font-size: 36px; }
+			.cta-text { font-size: 16px; }
 		}
 	</style>
 </head>
-
 <body>
+
 	<div class="logo">
 		<a href="#">
 			<img src="images/logo.webp" alt="Logo Pizzerie San Marino Kladno">
@@ -400,31 +417,31 @@
 		</div>
 	</div>
 	
-	<main id="app">
-		<div class="content">
-			<h1>Pizzerie San Marino Kladno</h1>
-			
-			<p class="cta-text">
-				🤤 Tvůj hlad nepočká – a my to víme!<br>
-				Dopřej si pořádnou dávku chuti a nech si ji přivést až ke dveřím! 🚀
-			</p>
-	
-			<div class="buttons animate-lure-pulse">
-				<a href="tel:+420604633373" class="tlacitko-zaklad tlacitko-primarni">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-						<path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
-						<path d="M15 7a2 2 0 0 1 2 2"></path>
-						<path d="M15 3a6 6 0 0 1 6 6"></path>
-					</svg>
-					<span>Zavolej a objednej</span>
-				</a>
-				<a href="https://www.pizzakladno.cz/" class="tlacitko-zaklad tlacitko-primarni">
-					<span>Objednej online</span>
-				</a>
-			</div>
-		</div>
+	<div class="content">
+		<h1>Pizzerie San Marino Kladno</h1>
+		
+		<p class="cta-text">
+			🤤 Tvůj hlad nepočká – a my to víme!<br>
+			Dopřej si pořádnou dávku chuti a nech si ji přivést až ke dveřím! 🚀
+		</p>
 
+		<div class="buttons animate-lure-pulse">
+			<a href="tel:+420604633373" class="tlacitko-zaklad bg-[#E20B18] text-white hover:bg-[#c00a15] animate-glow">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+					<path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
+					<path d="M15 7a2 2 0 0 1 2 2"></path>
+					<path d="M15 3a6 6 0 0 1 6 6"></path>
+				</svg>
+				<span>Zavolej a objednej</span>
+			</a>
+			<a href="https://www.pizzakladno.cz/" class="tlacitko-zaklad bg-[#E20B18] text-white hover:bg-[#c00a15] animate-glow">
+				<span>Objednej online</span>
+			</a>
+		</div>
+	</div>
+
+	<div id="app">
 		<div class="h-screen"></div>
 
 		<section class="relative z-20 -mt-[135px] w-full flex justify-center px-4">
@@ -453,89 +470,147 @@
 			</div>
 		</section>
 
-		<section class="py-16 md:py-24 bg-white">
-			<div class="container">
-				<div class="text-center md:text-left mb-12 md:mb-16">
-					<p class="font-cursive text-[#E20B18] text-4xl mb-2 -mt-4">Top výběr</p>
+		<section class="py-24 bg-white">
+			<div class="container mx-auto px-6 md:px-12 lg:px-20">
+				<div class="text-center md:text-left mb-16">
+					<p class="font-cursive text-[#E20B18] text-4xl mb-2" style="font-family: 'Pacifico', cursive; position:relative; top: -15px;">Top výběr</p>
 					<h2 class="text-gray-900 text-4xl md:text-5xl font-black uppercase tracking-wider">Na co máš chuť?</h2>
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					
-					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 bg-[#017D4D]">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105" style="background-color: #017D4D; --shadow-color: #017D4D;">
 						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Detailní pohled na pizzu se šunkou a zeleninou." class="absolute inset-0 w-full h-full object-cover opacity-20">
-						<div class="relative z-10 flex flex-col h-full text-white">
-							<h3 class="text-4xl font-black uppercase drop-shadow-lg mb-4">Pizzy</h3>
-							<a href="#" class="font-semibold hover:underline mb-4 transition-transform duration-300">Prohlédni si všechny pizzy &rarr;</a>
-							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md">Nejoblíbenější kousky 🍕</h4>
-							<ul class="space-y-3 text-base text-left">
-								<li v-for="item in topPizzas" :key="item.id" class="flex justify-between">
+						<div class="relative z-10 flex flex-col h-full">
+							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Pizzy</h3>
+							<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 text-white">
+								Prohlédni si všechny pizzy &rarr;
+							</a>
+							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md text-white">Nejoblíbenější kousky 🍕</h4>
+							<ul class="space-y-3 text-base text-left text-white">
+								<li v-for="item in topPizzas" :key="item.id" class="flex justify-between text-white">
 									<span>{{ item.name }}</span>
 									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="mt-auto pt-8"><a href="#" class="tlacitko-zaklad bg-white text-green-700 hover:bg-green-100">Objednej si pizzu</a></div>
+							<div class="mt-auto pt-8 animate-lure-pulse">
+								<a href="#" class="tlacitko-zaklad animate-glow bg-white text-green-700 hover:bg-green-100">
+									Objednej si pizzu
+								</a>
+							</div>
 						</div>
 					</div>
 
-					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 bg-[#E20B18]">
-						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Burger s batátovými hranolky." class="absolute inset-0 w-full h-full object-cover opacity-20">
-						<div class="relative z-10 flex flex-col h-full text-white">
-							<h3 class="text-4xl font-black uppercase drop-shadow-lg mb-4">Burgery</h3>
-							<a href="#" class="font-semibold hover:underline mb-4 transition-transform duration-300">Prohlédni si všechny burgery &rarr;</a>
-							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md">Legendární burgery 🔥</h4>
-							<ul class="space-y-3 text-base text-left">
-								<li v-for="item in topBurgers" :key="item.id" class="flex justify-between">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105" style="background-color: #E20B18; --shadow-color: #E20B18;">
+						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Burger s batátovými hranolky a omáčkou od Pizzerie San Marino." class="absolute inset-0 w-full h-full object-cover opacity-20">
+						<div class="relative z-10 flex flex-col h-full">
+							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Burgery</h3>
+							<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 text-white">
+								Prohlédni si všechny burgery &rarr;
+							</a>
+							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md text-white">Legendární burgery 🔥</h4>
+							<ul class="space-y-3 text-base text-left text-white">
+								<li v-for="item in topBurgers" :key="item.id" class="flex justify-between text-white">
 									<span>{{ item.name }}</span>
 									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="mt-auto pt-8"><a href="#" class="tlacitko-zaklad bg-white text-red-600 hover:bg-red-100">Objednej si burger</a></div>
+							<div class="mt-auto pt-8 animate-lure-pulse">
+								<a href="#" class="tlacitko-zaklad animate-glow bg-white text-red-600 hover:bg-red-100">
+									Objednej si burger
+								</a>
+							</div>
 						</div>
 					</div>
 					
-					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 md:col-span-2 lg:col-span-1 bg-[#262626]">
-						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Kuřecí stripsy a křídla." class="absolute inset-0 w-full h-full object-cover opacity-20">
-						<div class="relative z-10 flex flex-col h-full text-white">
-							<h3 class="text-4xl font-black uppercase drop-shadow-lg mb-4">Kuřecí maso</h3>
-							<a href="#" class="font-semibold hover:underline mb-4 transition-transform duration-300">Prohlédni si kuřecí speciality &rarr;</a>
-							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md">Pro milovníky kuřecího 🍗</h4>
-							<ul class="space-y-3 text-base text-left">
-								<li v-for="item in topChicken" :key="item.id" class="flex justify-between">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 md:col-span-2 lg:col-span-1" style="background-color: #262626; --shadow-color: #444444;">
+						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Kuřecí stripsy a křídla s omáčkami." class="absolute inset-0 w-full h-full object-cover opacity-20">
+						<div class="relative z-10 flex flex-col h-full">
+							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Kuřecí maso</h3>
+							<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 text-white">
+								Prohlédni si kuřecí speciality &rarr;
+							</a>
+							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md text-white">Pro milovníky kuřecího 🍗</h4>
+							<ul class="space-y-3 text-base text-left text-white">
+								<li v-for="item in topChicken" :key="item.id" class="flex justify-between text-white">
 									<span>{{ item.name }}</span>
 									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="mt-auto pt-8"><a href="#" class="tlacitko-zaklad bg-white text-gray-800 hover:bg-gray-200">Objednej si kuřecí</a></div>
+							<div class="mt-auto pt-8 animate-lure-pulse">
+								<a href="#" class="tlacitko-zaklad animate-glow bg-white text-gray-800 hover:bg-gray-200">
+									Objednej si kuřecí
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 		
-		<section class="bg-parchment py-16 md:py-20 relative text-white">
-			<div class="container">
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+		<section class="bg-parchment pt-20 pb-16 relative z-10">
+			<div class="container mx-auto px-6 md:px-12 lg:px-24">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 					<div>
-						<p class="font-cursive text-4xl -mb-2">Naše pizza, náš originál</p>
-						<h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide">PROČ SI DÁT PIZZU U NÁS?</h2>
-						<p class="mt-4 text-xl font-semibold">Jsme TOP 4. Pizzerie v Kladně!🏅</p>
-						<p class="mt-6 leading-relaxed max-w-prose">Tohle není žádná Itálie, to je naše tradice už od roku 1994! Chceš pizzu přesně podle svýho gusta? U nás si ji můžeš sestavit sám! Vyber si z našich čerstvých surovin a vytvoř si pizzu podle svých chutí – víc sýra, extra zelenina, pořádná dávka masa nebo prostě odeber to, co ti nevyhovuje! 🧀🥓🥬</p>
+						<p class="font-cursive text-4xl" style="position:relative; top: -15px; color: white;">Naše pizza, náš originál</p>
+						<h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide" style="color: white;">PROČ SI DÁT PIZZU U NÁS?</h2>
+						<p class="mt-4 text-xl font-semibold" style="color: white;">Jsme TOP 4. Pizzerie v Kladně!🏅</p>
+						<p class="mt-6 leading-relaxed" style="color: white;">
+							Tohle není žádná Itálie, to je naše tradice už od roku 1994! Chceš pizzu přesně podle svýho gusta? U nás si ji můžeš sestavit sám! Vyber si z našich čerstvých surovin a vytvoř si pizzu podle svých chutí – víc sýra, extra zelenina, pořádná dávka masa nebo prostě odeber to, co ti nevyhovuje! 🧀🥓🥬
+						</p>
 						<div class="mt-8 space-y-4">
-							<div class="flex items-start gap-x-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span class="font-medium">Pečeme ve formách pro dokonalý tvar a strukturu.</span></div>
-							<div class="flex items-start gap-x-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span class="font-medium">Těsto je nadýchané s křupavým okrajem.</span></div>
-							<div class="flex items-start gap-x-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span class="font-medium">Zasypané sýrem, který vytváří zlatavou vrstvu.</span></div>
-							<div class="flex items-start gap-x-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span class="font-medium">Bohatá porce kvalitních surovin.</span></div>
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Pečeme ve formách pro dokonalý tvar a strukturu.</span>
+							</div>
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Těsto je nadýchané s křupavým okrajem.</span>
+							</div>
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Zasypané sýrem, který vytváří zlatavou rozpečenou vrstvu.</span>
+							</div>
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Bohatá porce kvalitních surovin.</span>
+							</div>
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Vyladěné recepty, které dělají naši pizzu jedinečnou.</span>
+							</div>
 						</div>
-						<a href="#" class="tlacitko-zaklad tlacitko-primarni inline-block mt-10">Vytvoř si vlastní pizzu</a>
+						<a href="#" class="tlacitko-zaklad bg-[#E20B18] text-white hover:bg-[#c00a15] inline-block mt-10">
+							Vytvoř si vlastní pizzu
+						</a>
 					</div>
-					<div class="flex flex-col items-center justify-center">
+					<div class="flex flex-col items-center">
 						<div class="relative w-full max-w-md aspect-square">
-							<img :src="gallery.images[gallery.currentIndex]" :key="gallery.currentIndex" alt="Ukázka originální pizzy z Pizzerie San Marino Kladno." class="w-full h-full object-cover rounded-2xl shadow-lg">
-							<button @click="prevImage" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E20B18]/80 hover:bg-[#E20B18] rounded-full p-3 transition-colors z-10"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
-							<button @click="nextImage" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E20B18]/80 hover:bg-[#E20B18] rounded-full p-3 transition-colors z-10"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>
+							<img :src="gallery.images[gallery.currentIndex]" alt="Ukázka originální pizzy z Pizzerie San Marino Kladno." class="w-full h-full object-cover rounded-2xl">
+							<button @click="prevImage" class="absolute left-2 top-1/2 -translate-y-1\/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+								</svg>
+							</button>
+							<button @click="nextImage" class="absolute right-2 top-1/2 -translate-y-1\/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+								</svg>
+							</button>
 						</div>
 						<div class="mt-6 flex items-center justify-center gap-x-3">
-							<template v-for="(image, index) in gallery.images" :key="index"><button @click="goToImage(index)" :class="['h-3 w-3 md:h-4 md:w-4 rounded-full transition-colors', gallery.currentIndex === index ? 'bg-[#E20B18]' : 'border-2 border-white hover:bg-white/20']"></button></template>
+							<template v-for="(image, index) in gallery.images" :key="index">
+								<button @click="goToImage(index)" :class="['h-4 w-4 rounded-full transition-colors', gallery.currentIndex === index ? 'bg-[#E20B18]' : 'border-2 border-white hover:bg-white/20']"></button>
+							</template>
 						</div>
 					</div>
 				</div>
@@ -543,38 +618,77 @@
 		</section>
 
 		<section class="bg-white py-16 lg:py-24">
-			<div class="container">
-				<div class="relative">
+			<div class="container mx-auto px-6 md:px-12 lg:px-20">
+
+				<div class="relative px-10 md:px-0">
 					<div class="max-w-6xl mx-auto">
 						<div class="text-center md:text-left mb-8">
-							<p class="font-cursive text-[#E20B18] text-4xl -mb-2">Recenze</p>
-							<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Co na nás říkají ostatní?</h2>
+							<p class="font-cursive text-[#E20B18] text-4xl mb-2" style="position:relative; top: -15px;">Recenze</p>
+							<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Co na naši pizzu říkáš ty a ostatní?</h2>
 						</div>
-						<div class="swiper-container swiper-container-reviews">
-							<div class="swiper-wrapper"><div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide"><img :src="imgSrc" alt="Fotografie recenze od zákazníka." loading="lazy"></div></div>
+						<div class="overflow-hidden">
+							<div class="swiper-container swiper-container-reviews">
+								<div class="swiper-wrapper">
+									<div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
+										<img :src="imgSrc" alt="Fotografie recenze od zákazníka Pizzerie San Marino.">
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="review-swiper-button-prev"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></div>
-					<div class="review-swiper-button-next"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></div>
+
+					<div class="review-swiper-button-prev -left-4 md:-left-10">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+						</svg>
+					</div>
+					<div class="review-swiper-button-next -right-4 md:-right-10">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+						</svg>
+					</div>
 				</div>
 			</div>
 		</section>
 
 		<section class="bg-white py-16 lg:py-24">
-			<div class="container">
+			<div class="container mx-auto px-6 md:px-12 lg:px-20">
 				<div class="bg-[#017D4D] rounded-3xl p-8 md:p-12 lg:p-16 text-white">
 					<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-						<div class="w-full"><img src="images/pizzerie-san-marino-rozvoz-jidel-kladno-a-okoli.webp" alt="Rozvozové auto Pizzerie San Marino." class="w-full max-w-lg mx-auto h-auto object-cover rounded-2xl shadow-lg"></div>
+
+						<div class="w-full">
+							<img src="images/pizzerie-san-marino-rozvoz-jidel-kladno-a-okoli.webp" alt="Rozvozové auto Pizzerie San Marino pro rychlý dovoz pizzy a burgerů po Kladně." class="w-full max-w-lg mx-auto h-auto object-cover rounded-2xl shadow-lg">
+						</div>
+
 						<div class="lg:order-first">
-							<p class="font-cursive text-4xl -mb-2">Rozvoz jídla</p>
-							<h2 class="text-3xl md:text-4xl font-black uppercase tracking-wide mt-2">Rozvoz jídla po Kladně</h2>
-							<div class="space-y-4 mt-6 max-w-prose">
-								<p class="leading-relaxed">Hlad? Nestíháš? Nebo si chceš prostě užít jídlo v pohodlí domova? Rozvážíme po celém Kladně i okolí. <strong class="font-semibold">Rychle, spolehlivě a bez zbytečných příplatků.</strong></p>
-								<p class="leading-relaxed">Ať už máš chuť na poctivou pizzu s křupavým těstem, nebo pořádný burger jako kráva – všechno ti dovezeme až ke dveřím.</p>
+							<p class="font-cursive text-4xl" style="position:relative; top: -10px;">Rozvoz jídla</p>
+							<h2 class="text-3xl md:text-4xl font-black uppercase tracking-wide mt-2">Rozvoz jídla Kladno. Bez poplatků, bez starostí</h2>
+
+							<div class="space-y-4 mt-6">
+								<p class="leading-relaxed">
+									Hlad? Nestíháš? Nebo si chceš prostě užít jídlo v pohodlí domova? Rozvážíme po celém Kladně i okolí. <strong class="font-semibold">Rychle, spolehlivě a bez zbytečných příplatků.</strong>
+								</p>
+								<p class="leading-relaxed">
+									Ať už máš chuť na poctivou pizzu s křupavým těstem, nebo pořádný burger jako kráva – všechno ti dovezeme až ke dveřím.
+								</p>
+								<p class="leading-relaxed">
+									U nás platíš jen za jídlo a samotný rozvoz. Bez skrytých poplatků, bez přirážek, bez překvapení.
+								</p>
 							</div>
+
 							<div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-10">
-								<a href="tel:+420604633373" class="tlacitko-zaklad tlacitko-primarni w-full sm:w-auto justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path></svg><span>Zavolat</span></a>
-								<a href="#" class="tlacitko-zaklad border-2 border-white hover:bg-white/20 w-full sm:w-auto justify-center"><span>Objednat online</span></a>
+								<a href="tel:+420604633373" class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors duration-300 text-white font-bold text-lg rounded-full px-8 py-4 flex items-center gap-x-3 w-full sm:w-auto justify-center">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+										<path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
+										<path d="M15 7a2 2 0 0 1 2 2"></path>
+										<path d="M15 3a6 6 0 0 1 6 6"></path>
+									</svg>
+									<span>+420 604 633 373</span>
+								</a>
+								<a href="#" class="border-2 border-white hover:bg-white/20 transition-colors duration-300 text-white font-bold text-lg rounded-full px-8 py-4 w-full sm:w-auto text-center">
+									<span>Objednat online</span>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -587,83 +701,136 @@
 				<span class="text-[8rem] sm:text-[10rem] lg:text-[16rem] -mt-8 -ml-12 -rotate-12">PIZZA SAN</span>
 				<span class="text-[8rem] sm:text-[10rem] lg:text-[16rem] -mb-8 mr-12 rotate-12">MARINO</span>
 			</div>
-			<div class="container relative z-10">
+			<div class="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
 				<div class="text-center">
-					<p class="font-cursive text-4xl -mb-2">Mimo pizzy</p>
-					<h2 class="mt-2 text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-wider">Burgery a kuřecí maso</h2>
+					<p class="font-cursive text-4xl text-white" style="position:relative; top: -15px;">Co nabízíme mimo pizzy</p>
+					<h2 class="mt-2 text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-wider">Burgery a kuřecí maso,<br>které si zamiluješ</h2>
 				</div>
-				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mt-12">
-					<img src="images/burger.jpg" alt="Burger na talíři s čedarem." class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-					<img src="images/burger1.jpg" alt="Detailní pohled na burger." class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-					<img src="images/wingit1.webp" alt="Smažené kuřecí stripsy." class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-					<img src="images/wingit2.jpg" alt="Kuřecí burger s hranolky." class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-12">
+					<img src="images/burger.jpg" alt="Burger na talíři s čedarem, slaninou a zeleninou." class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+					<img src="images/burger1.jpg" alt="Detailní pohled na šťavnatý burger se sýrem." class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+					<img src="images/wingit1.webp" alt="Smažené kuřecí stripsy s BBQ omáčkou." class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+					<img src="images/wingit2.jpg" alt="Kuřecí burger s batátovými hranolky a dipem." class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
 				</div>
 			</div>
 		</section>
 
 		<section class="bg-white py-16 lg:py-24">
-			<div class="container">
+			<div class="container mx-auto px-6 md:px-12 lg:px-20">
 				<div class="text-center mb-12">
-					<p class="font-cursive text-[#E20B18] text-4xl -mb-2">Zůstaň v obraze</p>
-					<h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Sleduj nás online</h2>
+					<p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Zůstaň v obraze</p>
+					<h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">SLEDUJ NÁS ONLINE</h2>
 					<div class="flex justify-center items-center gap-10 mt-8 mb-12">
-						<a href="https://www.facebook.com/profile.php?id=100095016576324" target="_blank" class="transition-transform hover:scale-110" aria-label="Facebook Pizzerie San Marino"><svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><rect width="24" height="24" rx="6" fill="#1877F2" /><path d="M15.81 7.42h-1.928c-.493 0-.696.347-.696.816v1.23h2.59l-.427 2.735H13.18V20H9.44v-7.799H6.81v-2.735h2.63V7.126c0-2.31 1.29-3.626 3.49-3.626h2.37v2.92z" fill="white" /></svg></a>
-						<a href="https://www.instagram.com/pizzakladno/" target="_blank" class="transition-transform hover:scale-110" aria-label="Instagram Pizzerie San Marino"><svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><defs><radialGradient id="ig-grad" r="150%" cx="30%" cy="107%"><stop stop-color="#fdf497" offset="0" /><stop stop-color="#fdf497" offset="0.05" /><stop stop-color="#fd5949" offset="0.45" /><stop stop-color="#d6249f" offset="0.6" /><stop stop-color="#285AEB" offset="0.9" /></radialGradient></defs><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.314.935 20.644.522 19.86.217 19.094-.083 18.223-.285 16.947-.344 15.667-.405 15.26-.42 12-.42zM12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.057.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.17.249 1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 6.875A5.125 5.125 0 1012 17.125 5.125 5.125 0 0012 6.875zM12 15a3 3 0 110-6 3 3 0 010 6zM20.965 5.253a1.44 1.44 0 10-2.88 0 1.44 1.44 0 002.88 0z" fill="url(#ig-grad)" /></svg></a>
-						<a href="https://www.tiktok.com/@pizzakladno" target="_blank" class="transition-transform hover:scale-110" aria-label="TikTok Pizzerie San Marino"><svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>TikTok</title><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000000" /></svg></a>
+						<a href="https://www.facebook.com/profile.php?id=100095016576324" target="_blank" class="transition-transform hover:scale-110" aria-label="Přejít na Facebook Pizzerie San Marino">
+							<svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<title>Facebook</title>
+								<rect width="24" height="24" rx="6" fill="#1877F2" />
+								<path d="M15.81 7.42h-1.928c-.493 0-.696.347-.696.816v1.23h2.59l-.427 2.735H13.18V20H9.44v-7.799H6.81v-2.735h2.63V7.126c0-2.31 1.29-3.626 3.49-3.626h2.37v2.92z" fill="white" />
+							</svg>
+						</a>
+						<a href="https://www.instagram.com/pizzakladno/" target="_blank" class="transition-transform hover:scale-110" aria-label="Přejít na Instagram Pizzerie San Marino">
+							<svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<title>Instagram</title>
+								<defs>
+									<radialGradient id="ig-grad" r="150%" cx="30%" cy="107%">
+										<stop stop-color="#fdf497" offset="0" />
+										<stop stop-color="#fdf497" offset="0.05" />
+										<stop stop-color="#fd5949" offset="0.45" />
+										<stop stop-color="#d6249f" offset="0.6" />
+										<stop stop-color="#285AEB" offset="0.9" />
+									</radialGradient>
+								</defs>
+								<path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.314.935 20.644.522 19.86.217 19.094-.083 18.223-.285 16.947-.344 15.667-.405 15.26-.42 12-.42zM12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.057.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.17.249 1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 6.875A5.125 5.125 0 1012 17.125 5.125 5.125 0 0012 6.875zM12 15a3 3 0 110-6 3 3 0 010 6zM20.965 5.253a1.44 1.44 0 10-2.88 0 1.44 1.44 0 002.88 0z" fill="url(#ig-grad)" />
+							</svg>
+						</a>
+						<a href="https://www.tiktok.com/@pizzakladno?_t=ZN-8tbxv0q0T6k&_r=1" target="_blank" class="transition-transform hover:scale-110" aria-label="Přejít na TikTok Pizzerie San Marino">
+							<svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<title>TikTok</title>
+								<path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000000" />
+							</svg>
+						</a>
 					</div>
 				</div>
-				<script src="https://static.elfsight.com/platform/platform.js" async defer></script>
+				<script src="https://static.elfsight.com/platform/platform.js" async></script>
 				<div class="elfsight-app-fda31c74-30c8-40aa-be79-2c7ae5fced3d" data-elfsight-app-lazy></div>
 			</div>
 		</section>
-	</main>
+
+	</div>
 
 	<footer class="bg-[#017D4D] text-white w-full">
-		<div class="container py-12 md:py-16">
+		<div class="container mx-auto py-16 px-6 md:px-12 lg:px-20">
+
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 text-base items-start">
+
 				<div class="space-y-4">
 					<a href="#" class="inline-block mb-4"><img src="images/logo.webp" alt="Logo Pizzerie San Marino Kladno" class="h-20"></a>
 					<h4 class="text-xl font-black uppercase tracking-wider text-white">Provozovatel</h4>
 					<div class="text-white/90 font-medium space-y-1">
-						<p>ALFA plus s.r.o.</p><p>Železničářů 2350, 27201 Kladno</p><p>IČ: 46349154 | DIČ: CZ46349154</p>
+						<p>ALFA plus s.r.o.</p>
+						<p>Železničářů 2350, 27201 Kladno</p>
+						<p>IČ: 46349154</p>
+						<p>DIČ: CZ46349154</p>
 					</div>
 				</div>
 
-				<div class="space-y-4">
+				<div class="space-y-4 pt-1">
 					<h4 class="text-xl font-black uppercase tracking-wider text-white">Otevírací doba</h4>
 					<div id="opening-hours-footer" class="text-white/90 space-y-2.5 font-medium">
 						<div data-day="1" class="day-row flex justify-between items-start gap-4">
 							<span>Pondělí</span>
 							<div class="text-right">
 								<span>11:00 - 21:15</span>
-								<p class="text-xs uppercase leading-tight font-semibold special-note">Online/Tel. objednávky</p>
+								<p class="text-white font-bold text-sm uppercase leading-tight">Online/Tel. objednávky</p>
 							</div>
 						</div>
-						<div data-day="2" class="day-row flex justify-between"><span>Úterý</span><span>11:00 - 21:15</span></div>
-						<div data-day="3" class="day-row flex justify-between"><span>Středa</span><span>11:00 - 21:15</span></div>
-						<div data-day="4" class="day-row flex justify-between"><span>Čtvrtek</span><span>11:00 - 21:15</span></div>
-						<div data-day="5" class="day-row flex justify-between"><span>Pátek</span><span>11:00 - 21:15</span></div>
-						<div data-day="6" class="day-row flex justify-between"><span>Sobota</span><span>11:00 - 21:15</span></div>
-						<div data-day="0" class="day-row flex justify-between"><span>Neděle</span><span>11:00 - 21:15</span></div>
+						<div data-day="2" class="day-row flex justify-between"><span>Úterý</span> <span>11:00 - 21:15</span></div>
+						<div data-day="3" class="day-row flex justify-between"><span>Středa</span> <span>11:00 - 21:15</span></div>
+						<div data-day="4" class="day-row flex justify-between"><span>Čtvrtek</span> <span>11:00 - 21:15</span></div>
+						<div data-day="5" class="day-row flex justify-between"><span>Pátek</span> <span>11:00 - 21:15</span></div>
+						<div data-day="6" class="day-row flex justify-between"><span>Sobota</span> <span>11:00 - 21:15</span></div>
+						<div data-day="0" class="day-row flex justify-between"><span>Neděle</span> <span>11:00 - 21:15</span></div>
 					</div>
 				</div>
 
-				<div class="space-y-4 md:col-span-2 lg:col-span-1">
+				<div class="space-y-4 pt-1 md:col-span-2 lg:col-span-1">
 					<h4 class="text-xl font-black uppercase tracking-wider text-white">Kontakty</h4>
 					<ul class="space-y-3 text-white/90 font-medium">
-						<li class="flex items-start gap-x-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 mt-0.5 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg><span>Obránců míru 2721, Kladno</span></li>
-						<li class="flex items-center gap-x-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg><a href="tel:+420604633373" class="hover:underline">+420 604 633 373</a></li>
-						<li class="flex items-center gap-x-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg><a href="mailto:sanmarino@pizzakladno.cz" class="hover:underline">sanmarino@pizzakladno.cz</a></li>
-						<li class="flex items-start gap-x-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 mt-0.5 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg><span>Platba: hotovost, kartou, stravenky</span></li>
+						<li class="flex items-start gap-x-4">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 mt-0.5 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+								<path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+							</svg>
+							<span>Obránců míru 2721, Kladno</span>
+						</li>
+						<li class="flex items-center gap-x-4">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+							</svg>
+							<a href="tel:+420604633373" class="hover:underline">+420 604 633 373</a>
+						</li>
+						<li class="flex items-center gap-x-4">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+							</svg>
+							<a href="mailto:sanmarino@pizzakladno.cz" class="hover:underline">sanmarino@pizzakladno.cz</a>
+						</li>
+						<li class="flex items-start gap-x-4">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 mt-0.5 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+							</svg>
+							<span>Platba: hotovost, kartou, stravenky</span>
+						</li>
 					</ul>
 				</div>
+
 			</div>
 
-			<hr class="border-t border-white/20 my-8">
+			<hr class="border-t border-white/20 mt-16 mb-8">
 			<div class="flex flex-col md:flex-row justify-between items-center text-sm text-white/80 font-medium">
 				<div class="text-center md:text-left mb-4 md:mb-0">
 					<p>© 2025 Pizzerie San Marino. Všechna práva vyhrazena.</p>
-					<p>Tento web s láskou upekla <a href="#" class="hover:underline text-white">Lenka Lážnovská</a></p>
+					<p>Tento web upekla <a href="#" class="hover:underline text-white">Lenka Lážnovská</a></p>
 				</div>
 				<div class="flex flex-col md:flex-row items-center gap-y-2 gap-x-4 text-center">
 					<a href="obchodni-podminky-pizzerie-san-marino-kladno.pdf" target="_blank" class="hover:underline text-white">Obchodní podmínky</a>
@@ -677,64 +844,115 @@
 	</footer>
 
 	<script>
-		// Jednoduchý skript pro slider v úvodu
+		// Jednoduchý skript pro slider
 		document.addEventListener('DOMContentLoaded', () => {
 			const slides = document.querySelector('.slides');
-			if (slides) {
-				const slideCount = document.querySelectorAll('.slide').length;
-				let currentIndex = 0;
-				setInterval(() => {
-					currentIndex = (currentIndex + 1) % slideCount;
-					slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-				}, 5000);
-			}
-		});
+			const slideCount = document.querySelectorAll('.slide').length;
+			let currentIndex = 0;
 
-		// Vue.js aplikace
+			function nextSlide() {
+				currentIndex = (currentIndex + 1) % slideCount;
+				slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+			}
+
+			setInterval(nextSlide, 5000); // Mění slide každých 5 sekund
+		});
+	</script>
+
+	<script>
 		const { createApp } = Vue;
+
 		const app = createApp({
 			data() {
-				const reviewImagePaths = ['images/recenze.jpg', 'images/recenze1.jpg', 'images/recenze2.jpg', 'images/recenze3.jpg', 'images/recenze4.jpg', 'images/recenze5.jpg', 'images/recenze6.jpg', 'images/recenze7.jpg', 'images/recenze8.jpg', 'images/recenze9.jpg', 'images/recenze10.jpg', 'images/recenze11.jpg', 'images/recenze12.jpg', 'images/recenze13.jpg', 'images/recenze14.jpg', 'images/recenze15.jpg', 'images/recenze16.jpg', 'images/recenze17.jpg'];
+				// Definice a náhodné seřazení obrázků pro recenze
+				const reviewImagePaths = [
+					'images/recenze.jpg', 'images/recenze1.jpg', 'images/recenze2.jpg',
+					'images/recenze3.jpg', 'images/recenze4.jpg', 'images/recenze5.jpg',
+					'images/recenze6.jpg', 'images/recenze7.jpg', 'images/recenze8.jpg',
+					'images/recenze9.jpg', 'images/recenze10.jpg', 'images/recenze11.jpg',
+					'images/recenze12.jpg', 'images/recenze13.jpg', 'images/recenze14.jpg',
+					'images/recenze15.jpg', 'images/recenze16.jpg', 'images/recenze17.jpg',
+				];
 				for (let i = reviewImagePaths.length - 1; i > 0; i--) {
 					const j = Math.floor(Math.random() * (i + 1));
 					[reviewImagePaths[i], reviewImagePaths[j]] = [reviewImagePaths[j], reviewImagePaths[i]];
 				}
+
 				return {
 					gallery: {
 						currentIndex: 0,
-						images: ['images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp', 'images/pizza-sunka-zelenina-san-marino-kladno.webp', 'images/oblibena-pizza-havaj-s-ananasem-a-sunkou-servirovana-na-taliri-v-prijemnem-prostredi-pizzerie-san-marino-kladno.webp', 'images/detske-menu-v-pizzerii-san-marino-kladno-mala-pizza-pro-deti-se-syrem-a-zeleninou-a-zampiony-podavana-s-oblibenym-kinder-vajickem-jako-prekvapenim.webp', 'images/dve-cerstve-upecene-pizzy-v-krabicich-pripravene-na-rozvoz-vlevo-pizza-se-slaninou-vpravo-syrova-pizza-s-nivou-hermelinem-a-olivami.webp']
+						images: [
+							'images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp',
+							'images/pizza-sunka-zelenina-san-marino-kladno.webp',
+							'images/oblibena-pizza-havaj-s-ananasem-a-sunkou-servirovana-na-taliri-v-prijemnem-prostredi-pizzerie-san-marino-kladno.webp',
+							'images/detske-menu-v-pizzerii-san-marino-kladno-mala-pizza-pro-deti-se-syrem-a-zeleninou-a-zampiony-podavana-s-oblibenym-kinder-vajickem-jako-prekvapenim.webp',
+							'images/dve-cerstve-upecene-pizzy-v-krabicich-pripravene-na-rozvoz-vlevo-pizza-se-slaninou-vpravo-syrova-pizza-s-nivou-hermelinem-a-olivami.webp'
+						]
 					},
 					reviewImages: reviewImagePaths,
-					topPizzas: [{ id: 2, name: 'Pizza se šunkou', price: '169' }, { id: 7, name: 'Pizza se šunkou a salámem', price: '184' }, { id: 18, name: 'Pizza Havaj', price: '184' }, { id: 11, name: 'Pizza Sýrová', price: '174' }],
-					topBurgers: [{ id: 4, name: 'BACON Burger', price: '159' }, { id: 1, name: 'CHEESE Burger', price: '149' }, { id: 6, name: 'JALAPEÑO Burger', price: '159' }, { id: 2, name: 'BARBECUE Burger', price: '159' }],
-					topChicken: [{ id: 1, name: 'Marinovaná křídla (6ks)', price: '169' }, { id: 2, name: 'Obalovaná křídla (6ks)', price: '169' }, { id: 3, name: 'Kuřecí stripsy (3ks)', price: '129' }]
+					activeCategory: 'pizza',
+					topPizzas: [
+						{ id: 2, name: 'Pizza se šunkou', description: 'Tomatový základ, sýr, šunka', price: '169' },
+						{ id: 7, name: 'Pizza se šunkou a salámem', description: 'Tomatový základ, sýr, šunka, salám', price: '184' },
+						{ id: 18, name: 'Pizza Havaj', description: 'Smetanový základ, sýr, šunka, ananas', price: '184' },
+						{ id: 11, name: 'Pizza Sýrová', description: 'Tomatový základ, sýr', price: '174' },
+					],
+					topBurgers: [
+						{ id: 4, name: 'BACON Burger', description: '100g hovězí maso, slanina, čedar, BBQ omáčka, salát, rajče, cibulka', price: '159' },
+						{ id: 1, name: 'CHEESE Burger', description: '100g hovězí maso, čedar, salát, rajče, cibulka, dresink', price: '149' },
+						{ id: 6, name: 'JALAPEÑO Burger', description: '100g hovězí maso, čedar, jalapeños, salát, rajče, pikantní dresink', price: '159' },
+						{ id: 2, name: 'BARBECUE Burger', description: '100g hovězí maso, čedar, slanina, BBQ omáčka, smažená cibulka', price: '159' },
+					],
+					topChicken: [
+						{ id: 1, name: 'Marinovaná křídla', description: '6 ks', price: '169' },
+						{ id: 2, name: 'Obalovaná křídla', description: '6 ks', price: '169' },
+						{ id: 3, name: 'Kuřecí stripsy', description: '3 ks', price: '129' },
+					]
 				}
 			},
 			methods: {
-				nextImage() { this.gallery.currentIndex = (this.gallery.currentIndex + 1) % this.gallery.images.length; },
-				prevImage() { this.gallery.currentIndex = (this.gallery.currentIndex - 1 + this.gallery.images.length) % this.gallery.images.length; },
-				goToImage(index) { this.gallery.currentIndex = index; },
-				openAllergenModal() { alert('Seznam alergenů bude brzy doplněn. Prozatím se informujte telefonicky. Děkujeme za pochopení.'); }
+				nextImage() {
+					this.gallery.currentIndex = (this.gallery.currentIndex + 1) % this.gallery.images.length;
+				},
+				prevImage() {
+					this.gallery.currentIndex = (this.gallery.currentIndex - 1 + this.gallery.images.length) % this.gallery.images.length;
+				},
+				goToImage(index) {
+					this.gallery.currentIndex = index;
+				},
+				openAllergenModal() { 
+					alert('Seznam alergenů naleznete v našem online menu. Děkujeme za pochopení.');
+				}
 			},
 			mounted() {
-				// Swiper pro recenze
 				new Swiper('.swiper-container-reviews', {
 					loop: true,
 					slidesPerView: 1,
 					spaceBetween: 20,
-					autoplay: { delay: 4000, disableOnInteraction: false },
-					navigation: { nextEl: '.review-swiper-button-next', prevEl: '.review-swiper-button-prev' },
-					breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3, spaceBetween: 30 } }
+					autoplay: {
+						delay: 5000,
+						disableOnInteraction: false,
+					},
+					navigation: {
+						nextEl: '.review-swiper-button-next',
+						prevEl: '.review-swiper-button-prev',
+					},
+					breakpoints: {
+						640: { slidesPerView: 2, spaceBetween: 20 },
+						1024: { slidesPerView: 3, spaceBetween: 30 },
+					},
 				});
 				
-				// Zvýraznění aktuálního dne v patičce
-				const today = new Date().getDay();
+				const today = new Date().getDay(); // 0 = Neděle, 1 = Pondělí, ...
 				const currentDayRow = document.querySelector(`.day-row[data-day="${today}"]`);
 				if (currentDayRow) {
-					currentDayRow.classList.add('active');
+					currentDayRow.classList.add('font-bold', 'text-white');
+					const p = currentDayRow.querySelector('p');
+					if (p) p.classList.add('!text-yellow-300');
 				}
 			}
 		});
+
 		app.mount('#app');
 	</script>
 </body>
