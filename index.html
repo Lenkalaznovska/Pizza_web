@@ -403,14 +403,17 @@
 					<p class="font-cursive text-[#E20B18] text-4xl mb-2" style="font-family: 'Pacifico', cursive; position:relative; top: -15px;">Top výběr</p>
 					<h2 class="text-gray-900 text-4xl md:text-5xl font-black uppercase tracking-wider">Na čem si u nás pochutnáš?</h2>
 				</div>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style="perspective: 1000px;">
 					
-					<div class="group relative rounded-3xl min-h-[470px] overflow-hidden" style="background-color: #017D4D;">
-						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Pizza se šunkou a zeleninou" class="rounded-full absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[350px] transition-all duration-500 ease-in-out group-hover:opacity-20 group-hover:scale-90" style="margin-left: -20px;">
+					<div class="group relative rounded-3xl min-h-[470px] overflow-hidden transition-all duration-500" style="background-color: #017D4D; transform-style: preserve-3d;">
+						<div class="absolute inset-0 bg-green-900/30 transition-all duration-500 group-hover:opacity-0 z-20"></div>
+						<div class="absolute inset-0 ring-8 ring-green-400/50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-95 group-hover:scale-100" style="box-shadow: 0 0 25px 5px rgba(16, 185, 129, 0.5);"></div>
+						
+						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Pizza se šunkou a zeleninou" class="rounded-full absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[350px] transition-all duration-500 ease-in-out group-hover:opacity-20 group-hover:scale-90 group-hover:blur-sm" style="margin-left: -20px;">
 
-						<div class="relative z-10 p-8">
+						<div class="relative z-30 p-8">
 							<div>
-								<h3 class="text-white text-4xl font-black uppercase">Pizzy</h3>
+								<h3 class="text-white text-4xl font-black uppercase transition-transform duration-500 group-hover:scale-105">Pizzy</h3>
 							</div>
 							
 							<div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-700 ease-in-out">
@@ -430,12 +433,15 @@
 						</div>
 					</div>
 
-					<div class="group relative rounded-3xl min-h-[470px] overflow-hidden" style="background-color: #E20B18;">
-						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Burger s batátovými hranolky" class="rounded-full absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[350px] transition-all duration-500 ease-in-out group-hover:opacity-20 group-hover:scale-90" style="margin-left: -20px;">
+					<div class="group relative rounded-3xl min-h-[470px] overflow-hidden transition-all duration-500" style="background-color: #E20B18; transform-style: preserve-3d;">
+						<div class="absolute inset-0 bg-red-900/30 transition-all duration-500 group-hover:opacity-0 z-20"></div>
+						<div class="absolute inset-0 ring-8 ring-red-400/50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-95 group-hover:scale-100" style="box-shadow: 0 0 25px 5px rgba(248, 113, 113, 0.5);"></div>
+
+						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Burger s batátovými hranolky" class="rounded-full absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[350px] transition-all duration-500 ease-in-out group-hover:opacity-20 group-hover:scale-90 group-hover:blur-sm" style="margin-left: -20px;">
 						
-						<div class="relative z-10 p-8">
+						<div class="relative z-30 p-8">
 							<div>
-								<h3 class="text-white text-4xl font-black uppercase">Burgery</h3>
+								<h3 class="text-white text-4xl font-black uppercase transition-transform duration-500 group-hover:scale-105">Burgery</h3>
 							</div>
 							
 							<div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-700 ease-in-out">
@@ -455,12 +461,15 @@
 						</div>
 					</div>
 
-					<div class="group relative rounded-3xl min-h-[470px] overflow-hidden md:col-span-2 lg:col-span-1" style="background-color: #262626;">
-						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Kuřecí speciality Wing It" class="rounded-full absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[350px] transition-all duration-500 ease-in-out group-hover:opacity-20 group-hover:scale-90" style="margin-left: -20px;">
+					<div class="group relative rounded-3xl min-h-[470px] overflow-hidden transition-all duration-500 md:col-span-2 lg:col-span-1" style="background-color: #262626; transform-style: preserve-3d;">
+						<div class="absolute inset-0 bg-gray-900/30 transition-all duration-500 group-hover:opacity-0 z-20"></div>
+						<div class="absolute inset-0 ring-8 ring-gray-400/50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-95 group-hover:scale-100" style="box-shadow: 0 0 25px 5px rgba(156, 163, 175, 0.5);"></div>
 						
-						<div class="relative z-10 p-8">
+						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Kuřecí speciality Wing It" class="rounded-full absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] h-[350px] transition-all duration-500 ease-in-out group-hover:opacity-20 group-hover:scale-90 group-hover:blur-sm" style="margin-left: -20px;">
+						
+						<div class="relative z-30 p-8">
 							<div>
-								<h3 class="text-white text-4xl font-black uppercase">Kuřecí maso</h3>
+								<h3 class="text-white text-4xl font-black uppercase transition-transform duration-500 group-hover:scale-105">Kuřecí maso</h3>
 							</div>
 							
 							<div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-700 ease-in-out">
@@ -617,6 +626,28 @@
 				}
 			}
 		}).mount('#app');
+	</script>
+
+	<script>
+		// Skript pro 3D tilt efekt na kartách
+		document.addEventListener('DOMContentLoaded', () => {
+			const cards = document.querySelectorAll('.group');
+			cards.forEach(card => {
+				card.addEventListener('mousemove', (e) => {
+					const rect = card.getBoundingClientRect();
+					const x = e.clientX - rect.left;
+					const y = e.clientY - rect.top;
+					const { width, height } = rect;
+					const rotateX = (y / height - 0.5) * -15; // Max 7.5 stupňů
+					const rotateY = (x / width - 0.5) * 15; // Max 7.5 stupňů
+					
+					card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+				});
+				card.addEventListener('mouseleave', () => {
+					card.style.transform = 'rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+				});
+			});
+		});
 	</script>
 </body>
 </html>
