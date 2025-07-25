@@ -344,7 +344,7 @@
 	<div id="app">
 		<div class="h-screen"></div>
 
-		<section class="relative z-20 -mt-[120px] w-full flex justify-center px-4" style="font-family: 'Montserrat', sans-serif;">
+		<section class="relative z-20 -mt-[125px] w-full flex justify-center px-4" style="font-family: 'Montserrat', sans-serif;">
 			<div class="bg-white text-gray-800 rounded-2xl shadow-xl px-6 py-6 md:px-10 md:py-5 flex flex-col md:flex-row flex-wrap items-center justify-center gap-y-8 md:gap-y-4 gap-x-8 lg:gap-x-16 max-w-6xl transition-all duration-500 ease-in-out hover:shadow-2xl">
 				<div class="flex items-center gap-x-4">
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" /></svg>
@@ -378,21 +378,21 @@
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					
-					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center transition-all duration-300 hover:shadow-2xl" style="background-color: #017D4D;">
-						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Pozadí pizza" class="absolute inset-0 w-full h-full object-cover opacity-20">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl" style="background-color: #017D4D;">
+						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Pozadí pizza" class="absolute inset-0 w-full h-full object-cover opacity-10">
 						<div class="relative z-10 flex flex-col flex-grow justify-center">
 							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Pizzy</h3>
-							<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 text-white/80 hover:text-white">
+							<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 text-white hover:text-white">
 								Zobrazit celou nabídku pizz &rarr;
 							</a>
 							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md text-white">Naše hvězdné pizzy ⭐</h4>
-							<ul class="space-y-2 text-base text-left text-white mb-8">
-								<li v-for="item in topPizzas" :key="item.id" class="flex justify-between pb-1">
+							<ul class="space-y-3 text-base text-left text-white mb-8">
+								<li v-for="item in topPizzas" :key="item.id" class="flex justify-between">
 									<span>{{ item.name }}</span>
 									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="mt-auto">
+							<div class="mt-8">
 								<a href="#" class="tlacitko-zaklad animate-lure-pulse animate-glow bg-white text-green-700 hover:bg-green-100">
 									Objednat Pizzu
 								</a>
@@ -400,21 +400,21 @@
 						</div>
 					</div>
 
-					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center transition-all duration-300 hover:shadow-2xl" style="background-color: #E20B18;">
-						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Pozadí burger" class="absolute inset-0 w-full h-full object-cover opacity-20">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl" style="background-color: #E20B18;">
+						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Pozadí burger" class="absolute inset-0 w-full h-full object-cover opacity-10">
 						<div class="relative z-10 flex flex-col flex-grow justify-center">
 							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Burgery</h3>
-							<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 text-white/80 hover:text-white">
+							<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 text-white hover:text-white">
 								Zobrazit všechny burgery &rarr;
 							</a>
 							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md text-white">Legendární burgery 🔥</h4>
-							<ul class="space-y-2 text-base text-left text-white mb-8">
-								<li v-for="item in topBurgers" :key="item.id" class="flex justify-between pb-1">
+							<ul class="space-y-3 text-base text-left text-white mb-8">
+								<li v-for="item in topBurgers" :key="item.id" class="flex justify-between">
 									<span>{{ item.name }}</span>
 									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="mt-auto">
+							<div class="mt-8">
 								<a href="#" class="tlacitko-zaklad animate-lure-pulse animate-glow bg-white text-red-600 hover:bg-red-100">
 									Objednat Burger
 								</a>
@@ -422,21 +422,21 @@
 						</div>
 					</div>
 					
-					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center transition-all duration-300 hover:shadow-2xl md:col-span-2 lg:col-span-1" style="background-color: #262626;">
-						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Pozadí kuřecí" class="absolute inset-0 w-full h-full object-cover opacity-20">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl md:col-span-2 lg:col-span-1" style="background-color: #262626;">
+						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Pozadí kuřecí" class="absolute inset-0 w-full h-full object-cover opacity-10">
 						<div class="relative z-10 flex flex-col flex-grow justify-center">
 							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Kuřecí maso</h3>
-							<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 text-white/80 hover:text-white">
+							<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 text-white hover:text-white">
 								Prozkoumat speciality &rarr;
 							</a>
 							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md text-white">Křupavé kuřecí nebe 🍗</h4>
-							<ul class="space-y-2 text-base text-left text-white mb-8">
-								<li v-for="item in topChicken" :key="item.id" class="flex justify-between pb-1">
+							<ul class="space-y-3 text-base text-left text-white mb-8">
+								<li v-for="item in topChicken" :key="item.id" class="flex justify-between">
 									<span>{{ item.name }}</span>
 									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="mt-auto">
+							<div class="mt-8">
 								<a href="#" class="tlacitko-zaklad animate-lure-pulse animate-glow bg-white text-gray-800 hover:bg-gray-200">
 									Objednat kuřecí
 								</a>
