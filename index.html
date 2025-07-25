@@ -36,7 +36,7 @@
 	<meta name="twitter:title" content="Pizzerie San Marino – Pizza jinak již od roku 1994" />
 	<meta name="twitter:description" content="V Pizzerii San Marino najdeš originální pizzy, legendární burgery a další dobroty. Objednej si pohodlně online a my ti to dovezeme až ke dveřím." />
 	<meta name="twitter:image" content="https://www.pizzakladno.cz/images/pizzerie-san-marino-kladno-nabidka-jidla.webp" />
-	
+	<script src="https://cdn.tailwindcss.com"></script>
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -104,8 +104,8 @@
 	}
 	</script>
 
-	<style>
-		/* ----- ZÁKLADNÍ A PŮVODNÍ STYLY ----- */
+  <style>
+		/* ----- ZÁKLADNÍ STYLY ----- */
 		* {
 			margin: 0;
 			padding: 0;
@@ -117,20 +117,20 @@
 			color: #333;
 			overflow-x: hidden;
 		}
-		a {
-			color: inherit;
-			text-decoration: none;
-		}
+
+		/* ----- LOGO ----- */
 		.logo {
 			position: absolute;
 			z-index: 101;
 			left: 2.5rem;
-			top: 1.5rem;
+			top: 1.5rem; 
 		}
 		.logo img {
 			height: 80px;
 			width: auto;
 		}
+
+		/* ----- SLIDER A OBSAH NA NĚM ----- */
 		.slider {
 			position: absolute;
 			top: 0;
@@ -196,6 +196,8 @@
 			border-radius: 10px;
 			display: inline-block;
 		}
+		
+		/* ----- STYLY PRO TLAČÍTKA A EFEKT ----- */
 		.buttons {
 			display: flex;
 			flex-direction: column;
@@ -203,6 +205,7 @@
 			gap: 1rem;
 			margin-top: 3rem;
 		}
+
 		.tlacitko-zaklad {
 			font-family: 'Montserrat', sans-serif;
 			font-weight: 700;
@@ -216,331 +219,85 @@
 			text-decoration: none;
 			transition: all 0.3s ease;
 		}
-		.tlacitko-zaklad.primary {
-			background-color: #E20B18;
-			color: white;
-		}
-		.tlacitko-zaklad.primary:hover {
-			background-color: #c00a15;
-		}
 		.tlacitko-zaklad svg {
 			width: 1.5rem;
 			height: 1.5rem;
 		}
+		
 		@keyframes lure-pulse {
-			0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-			70% { transform: scale(1.08); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
-			100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+			0% {
+				transform: scale(1);
+				box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+			}
+			70% {
+				transform: scale(1.08);
+				box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0);
+			}
+			100% {
+				transform: scale(1);
+				box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+			}
 		}
-		.animate-lure-pulse { animation: lure-pulse 1.8s infinite; }
+
+		.animate-lure-pulse {
+			animation: lure-pulse 1.8s infinite;
+		}
+
 		@keyframes pulse-scale {
 			0% { transform: scale(1); }
 			70% { transform: scale(1.08); }
 			100% { transform: scale(1); }
 		}
+
 		@keyframes pulse-glow {
 			0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
 			70% { box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
 			100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 		}
-		.animate-lure-pulse { animation: pulse-scale 1.8s infinite; }
-		.animate-glow { animation: pulse-glow 1.8s infinite; }
-		.font-cursive { font-family: 'Pacifico', cursive; }
+		
+		.animate-lure-pulse {
+			animation: pulse-scale 1.8s infinite;
+		}
+
+		.animate-glow {
+			animation: pulse-glow 1.8s infinite;
+		}
+
+		/* ----- RESPONZIVITA ----- */
+		@media (min-width: 640px) {
+			.buttons {
+				flex-direction: row;
+				justify-content: center;
+				gap: 2.5rem;
+			}
+		}
+		@media (min-width: 1024px) { /* lg breakpoint */
+			.tlacitko-zaklad {
+				font-size: 1.125rem;
+				padding: 1rem 2rem;
+			}
+		}
+		@media (max-width: 768px) {
+			.content h1 { font-size: 45px; white-space: normal; }
+			.cta-text { font-size: 20px; }
+		}
+
+		/* ----- OSTATNÍ STYLY ----- */
+		.font-cursive {
+			font-family: 'Pacifico', cursive;
+		}
 		.bg-parchment {
 			background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
 			background-size: 100% 100%;
 			background-repeat: no-repeat;
 		}
-		
-		/* ----- NOVÉ CSS STYLY (NÁHRADA ZA TAILWIND) ----- */
-		
-		/* --- Univerzální třídy --- */
-		.container {
-			width: 100%;
-			margin-left: auto;
-			margin-right: auto;
-			padding-left: 1.5rem; /* px-6 */
-			padding-right: 1.5rem;
-		}
-		.section-padding {
-			padding-top: 4rem;
-			padding-bottom: 4rem;
-		}
-		.section-padding-lg {
-			padding-top: 6rem;
-			padding-bottom: 6rem;
-		}
-		.section-title {
-			color: #111827; /* text-gray-900 */
-			font-size: 2.25rem; /* text-4xl */
-			font-weight: 900; /* font-black */
-			text-transform: uppercase;
-			letter-spacing: 0.05em; /* tracking-wider */
-		}
-		.section-subtitle {
-			font-family: 'Pacifico', cursive;
-			color: #E20B18;
-			font-size: 2.25rem; /* text-4xl */
-			margin-bottom: 0.5rem;
-			position: relative;
-			top: -15px;
+		.bg-burgers-section {
+			background-image: url('images/pozadi2.jpg');
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
 		}
 
-		/* --- Hero sekce (posunovač) --- */
-		.hero-spacer { height: 100vh; }
-		
-		/* --- Info proužek --- */
-		.info-bar-section {
-			position: relative;
-			z-index: 20;
-			margin-top: -135px;
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			padding-left: 1rem;
-			padding-right: 1rem;
-		}
-		.info-bar-container {
-			background-color: #fff;
-			color: #1f2937;
-			border-radius: 1rem;
-			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
-			padding: 1.5rem;
-			display: flex;
-			flex-direction: column;
-			flex-wrap: wrap;
-			align-items: center;
-			justify-content: center;
-			gap: 2rem 2rem;
-			max-width: 72rem;
-			transition: all 0.5s ease-in-out;
-		}
-		.info-bar-container:hover {
-			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-		}
-		.info-bar-item {
-			display: flex;
-			align-items: center;
-			gap: 1rem;
-		}
-		.info-bar-item svg {
-			height: 3rem;
-			width: 3rem;
-			color: #E20B18;
-			stroke-width: 1.5;
-		}
-		.info-bar-item-text {
-			display: flex;
-			flex-direction: column;
-			text-align: left;
-		}
-		.info-bar-item-text .title {
-			font-weight: 700;
-			color: #1f2937;
-			font-size: 1.125rem;
-		}
-		.info-bar-item-text .subtitle {
-			color: #6b7280;
-			font-size: 1rem;
-		}
-		.info-bar-item-text .subtitle a,
-		.info-bar-item-text a.link {
-			color: #E20B18;
-			text-decoration: underline;
-			font-weight: 600;
-		}
-
-		/* --- Sekce "Na co máš chuť?" --- */
-		.menu-highlight-section { background-color: #fff; }
-		.menu-highlight-header { text-align: center; margin-bottom: 4rem; }
-		.menu-grid {
-			display: grid;
-			grid-template-columns: repeat(1, minmax(0, 1fr));
-			gap: 2rem;
-		}
-		.menu-card {
-			position: relative;
-			border-radius: 1.5rem;
-			overflow: hidden;
-			padding: 2rem;
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-			transition: all 0.3s;
-		}
-		.menu-card:hover {
-			transform: scale(1.05);
-			box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-		}
-		.menu-card-bg-img {
-			position: absolute;
-			inset: 0;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			opacity: 0.2;
-		}
-		.menu-card-content {
-			position: relative;
-			z-index: 10;
-			display: flex;
-			flex-direction: column;
-			height: 100%;
-		}
-		.menu-card h3 {
-			color: #fff;
-			font-size: 2.25rem;
-			font-weight: 900;
-			text-transform: uppercase;
-			text-shadow: 0 4px 6px rgba(0,0,0,0.1);
-			margin-bottom: 1rem;
-		}
-		.menu-card > .menu-card-content > a {
-			display: inline-block;
-			font-weight: 600;
-			margin-bottom: 1rem;
-			transition: transform 0.3s;
-			color: #fff;
-		}
-		.menu-card > .menu-card-content > a:hover { text-decoration: underline; }
-		.menu-card h4 {
-			font-size: 1.5rem;
-			font-weight: 700;
-			margin-bottom: 1rem;
-			padding-top: 1rem;
-			text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-			color: #fff;
-		}
-		.menu-card-list {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-			text-align: left;
-			color: #fff;
-		}
-		.menu-card-list li {
-			display: flex;
-			justify-content: space-between;
-			margin-bottom: 0.75rem;
-		}
-		.menu-card-list span:last-child { font-weight: 600; }
-		.menu-card .button-wrapper {
-			margin-top: auto;
-			padding-top: 2rem;
-		}
-		.menu-card .tlacitko-zaklad {
-			background-color: #fff;
-		}
-		.menu-card.pizza .tlacitko-zaklad { color: #059669; }
-		.menu-card.pizza .tlacitko-zaklad:hover { background-color: #d1fae5; }
-		.menu-card.burger .tlacitko-zaklad { color: #dc2626; }
-		.menu-card.burger .tlacitko-zaklad:hover { background-color: #fee2e2; }
-		.menu-card.chicken .tlacitko-zaklad { color: #1f2937; }
-		.menu-card.chicken .tlacitko-zaklad:hover { background-color: #e5e7eb; }
-		
-		/* --- Sekce "Proč si dát pizzu u nás?" --- */
-		.why-us-section { color: white; position: relative; z-index: 10; }
-		.why-us-grid {
-			display: grid;
-			grid-template-columns: repeat(1, minmax(0, 1fr));
-			gap: 4rem;
-			align-items: center;
-		}
-		.why-us-text h2 {
-			margin-top: 0.5rem;
-			font-size: 2.25rem;
-			font-weight: 900;
-			text-transform: uppercase;
-			letter-spacing: 0.025em;
-		}
-		.why-us-text .subtitle {
-			margin-top: 1rem;
-			font-size: 1.25rem;
-			font-weight: 600;
-		}
-		.why-us-text p {
-			margin-top: 1.5rem;
-			line-height: 1.625;
-		}
-		.why-us-features {
-			margin-top: 2rem;
-			list-style: none;
-		}
-		.why-us-features li {
-			display: flex;
-			align-items: flex-start;
-			gap: 0.75rem;
-			margin-bottom: 1rem;
-		}
-		.why-us-features svg {
-			height: 1.75rem;
-			width: 1.75rem;
-			color: #E20B18;
-			flex-shrink: 0;
-		}
-		.why-us-features span { font-weight: 500; }
-		.why-us-cta { margin-top: 2.5rem; display: inline-block; }
-		.why-us-gallery {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-		}
-		.why-us-gallery-image-wrapper {
-			position: relative;
-			width: 100%;
-			max-width: 28rem;
-			aspect-ratio: 1 / 1;
-		}
-		.why-us-gallery-image-wrapper img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			border-radius: 1rem;
-		}
-		.why-us-gallery-btn {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			background-color: #E20B18;
-			border-radius: 9999px;
-			padding: 0.75rem;
-			transition: background-color 0.2s;
-			z-index: 10;
-			border: none;
-			cursor: pointer;
-		}
-		.why-us-gallery-btn:hover { background-color: #c00a15; }
-		.why-us-gallery-btn svg { height: 1.5rem; width: 1.5rem; color: white; }
-		.why-us-gallery-btn.prev { left: 0.5rem; }
-		.why-us-gallery-btn.next { right: 0.5rem; }
-		.why-us-gallery-dots {
-			margin-top: 1.5rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 0.75rem;
-		}
-		.gallery-dot {
-			height: 1rem;
-			width: 1rem;
-			border-radius: 9999px;
-			transition: background-color 0.2s;
-			border: 2px solid white;
-			background-color: transparent;
-			cursor: pointer;
-		}
-		.gallery-dot:hover { background-color: rgba(255, 255, 255, 0.2); }
-		.gallery-dot.active { background-color: #E20B18; border-color: #E20B18; }
-		
-		/* --- Sekce recenze --- */
-		.reviews-section { background-color: #fff; }
-		.reviews-container {
-			position: relative;
-			padding-left: 2.5rem;
-			padding-right: 2.5rem;
-		}
-		.reviews-header { text-align: center; margin-bottom: 2rem; }
+		/* --- STYLY PRO RECENZE (SWIPER) --- */
 		.swiper-container-reviews .swiper-slide {
 			aspect-ratio: 4 / 3;
 			background-color: #FFFFFF;
@@ -557,7 +314,8 @@
 			height: 100%;
 			object-fit: contain;
 		}
-		.review-swiper-button-prev, .review-swiper-button-next {
+		.review-swiper-button-prev,
+		.review-swiper-button-next {
 			position: absolute;
 			top: 50%;
 			transform: translateY(-50%);
@@ -568,310 +326,21 @@
 			padding: 0.75rem;
 			transition: background-color 0.2s;
 		}
-		.review-swiper-button-prev:hover, .review-swiper-button-next:hover { background-color: #c00a15; }
-		.review-swiper-button-prev { left: -10px; }
-		.review-swiper-button-next { right: -10px; }
-		.review-swiper-button-prev svg, .review-swiper-button-next svg { color: white; width: 1.5rem; height: 1.5rem; }
-
-		/* --- Sekce Rozvoz --- */
-		.delivery-section { background-color: #fff; }
-		.delivery-box {
-			background-color: #017D4D;
-			border-radius: 1.5rem;
-			padding: 2rem;
+		.review-swiper-button-prev:hover,
+		.review-swiper-button-next:hover {
+			background-color: #c00a15;
+		}
+		.review-swiper-button-prev {
+			left: -10px;
+		}
+		.review-swiper-button-next {
+			right: -10px;
+		}
+		.review-swiper-button-prev svg,
+		.review-swiper-button-next svg {
 			color: white;
-		}
-		.delivery-grid {
-			display: grid;
-			grid-template-columns: repeat(1, minmax(0, 1fr));
-			gap: 3rem;
-			align-items: center;
-		}
-		.delivery-image img {
-			width: 100%;
-			max-width: 32rem;
-			margin: 0 auto;
-			height: auto;
-			object-fit: cover;
-			border-radius: 1rem;
-			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
-		}
-		.delivery-text .section-subtitle { top: -10px; }
-		.delivery-text h2 {
-			font-size: 1.875rem;
-			font-weight: 900;
-			text-transform: uppercase;
-			letter-spacing: 0.025em;
-			margin-top: 0.5rem;
-		}
-		.delivery-text .text-content {
-			margin-top: 1.5rem;
-		}
-		.delivery-text .text-content p {
-			line-height: 1.625;
-			margin-bottom: 1rem;
-		}
-		.delivery-text .text-content strong { font-weight: 600; }
-		.delivery-buttons {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 1.5rem;
-			margin-top: 2.5rem;
-		}
-		.delivery-buttons .btn {
-			transition: background-color 0.3s, border-color 0.3s;
-			color: white;
-			font-weight: 700;
-			font-size: 1.125rem;
-			border-radius: 9999px;
-			padding: 1rem 2rem;
-			display: flex;
-			align-items: center;
-			gap: 0.75rem;
-			width: 100%;
-			justify-content: center;
-		}
-		.delivery-buttons .btn-call { background-color: #E20B18; }
-		.delivery-buttons .btn-call:hover { background-color: #c00a15; }
-		.delivery-buttons .btn-call svg { height: 1.5rem; width: 1.5rem; }
-		.delivery-buttons .btn-online {
-			border: 2px solid white;
-			text-align: center;
-		}
-		.delivery-buttons .btn-online:hover { background-color: rgba(255,255,255,0.2); }
-
-		/* --- Sekce "Burgery a kuřecí" --- */
-		.more-food-section { color: white; position: relative; overflow: hidden; }
-		.more-food-bg-text {
-			position: absolute;
-			inset: 0;
-			z-index: 0;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			align-items: center;
-			opacity: 0.1;
-			font-weight: 900;
-			color: white;
-			pointer-events: none;
-		}
-		.more-food-bg-text span {
-			font-size: 8rem;
-		}
-		.more-food-bg-text span:first-child { margin-top: -2rem; margin-left: -3rem; transform: rotate(-12deg); }
-		.more-food-bg-text span:last-child { margin-bottom: -2rem; margin-right: 3rem; transform: rotate(12deg); }
-		.more-food-content { text-align: center; position: relative; z-index: 10; }
-		.more-food-content h2 {
-			margin-top: 0.5rem;
-			font-size: 2.25rem;
-			font-weight: 900;
-			text-transform: uppercase;
-			letter-spacing: 0.05em;
-		}
-		.more-food-grid {
-			display: grid;
-			grid-template-columns: repeat(1, minmax(0, 1fr));
-			gap: 1.5rem;
-			margin-top: 3rem;
-		}
-		.more-food-grid img {
-			aspect-ratio: 1/1;
-			width: 100%;
-			object-fit: cover;
-			border-radius: 0.5rem;
-			transition: transform 0.3s;
-		}
-		.more-food-grid img:hover {
-			transform: scale(1.05);
-			box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-		}
-
-		/* --- Sekce "Sleduj nás" --- */
-		.social-section { background-color: #fff; }
-		.social-header { text-align: center; margin-bottom: 3rem; }
-		.social-header h2 { margin-top: 0.5rem; }
-		.social-icons {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			gap: 2.5rem;
-			margin-top: 2rem;
-			margin-bottom: 3rem;
-		}
-		.social-icons a {
-			transition: transform 0.2s;
-		}
-		.social-icons a:hover { transform: scale(1.1); }
-		.social-icons svg { width: 2rem; height: 2rem; }
-		.social-icons .fb-icon rect { fill: #1877F2; }
-		.social-icons .tiktok-icon path { fill: #000; }
-		
-		/* --- Patička --- */
-		.site-footer {
-			background-color: #017D4D;
-			color: white;
-			width: 100%;
-		}
-		.footer-grid {
-			display: grid;
-			grid-template-columns: repeat(1, minmax(0, 1fr));
-			gap: 3rem;
-			font-size: 1rem;
-			align-items: start;
-		}
-		.footer-column {
-			padding-top: 0.25rem;
-		}
-		.footer-column .logo-link {
-			display: inline-block;
-			margin-bottom: 1rem;
-		}
-		.footer-column .logo-link img { height: 5rem; }
-		.footer-column h4 {
-			font-size: 1.25rem;
-			font-weight: 900;
-			text-transform: uppercase;
-			letter-spacing: 0.05em;
-			color: white;
-			margin-bottom: 1rem;
-		}
-		.footer-column .provozovatel-info {
-			color: rgba(255,255,255,0.9);
-			font-weight: 500;
-		}
-		.footer-column .provozovatel-info p { margin-bottom: 0.25rem; }
-		.opening-hours-footer {
-			color: rgba(255,255,255,0.9);
-			font-weight: 500;
-		}
-		.opening-hours-footer .day-row {
-			display: flex;
-			justify-content: space-between;
-			align-items: flex-start;
-			gap: 1rem;
-			margin-bottom: 0.625rem;
-		}
-		.opening-hours-footer .day-row .note {
-			text-align: right;
-		}
-		.opening-hours-footer .day-row .note p {
-			color: white;
-			font-weight: 700;
-			font-size: 0.875rem;
-			text-transform: uppercase;
-			line-height: 1.25;
-		}
-		.opening-hours-footer .day-row.current-day {
-			color: white;
-			font-weight: 700;
-		}
-		.opening-hours-footer .day-row.current-day .note p {
-			color: #facc15 !important; /* yellow-300 */
-		}
-		.footer-contacts {
-			list-style: none;
-			padding: 0;
-			color: rgba(255,255,255,0.9);
-			font-weight: 500;
-		}
-		.footer-contacts li {
-			display: flex;
-			align-items: flex-start;
-			gap: 1rem;
-			margin-bottom: 0.75rem;
-		}
-		.footer-contacts svg {
-			height: 1.5rem;
 			width: 1.5rem;
-			flex-shrink: 0;
-			margin-top: 0.125rem;
-			color: #E20B18;
-		}
-		.footer-contacts a:hover { text-decoration: underline; }
-		.footer-divider {
-			border-top: 1px solid rgba(255,255,255,0.2);
-			margin-top: 4rem;
-			margin-bottom: 2rem;
-		}
-		.footer-bottom {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			align-items: center;
-			font-size: 0.875rem;
-			color: rgba(255,255,255,0.8);
-			font-weight: 500;
-		}
-		.footer-bottom .copyright {
-			text-align: center;
-			margin-bottom: 1rem;
-		}
-		.footer-bottom .copyright a {
-			text-decoration: underline;
-			color: white;
-		}
-		.footer-bottom .links {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 0.5rem 1rem;
-			text-align: center;
-		}
-		.footer-bottom .links a {
-			text-decoration: none;
-			color: white;
-		}
-		.footer-bottom .links a:hover { text-decoration: underline; }
-		.footer-bottom .links span { display: none; }
-		
-		/* ----- RESPONZIVITA (PŮVODNÍ A NOVÁ) ----- */
-		@media (min-width: 640px) { /* sm */
-			.buttons { flex-direction: row; justify-content: center; gap: 2.5rem; }
-			.delivery-buttons { flex-direction: row; align-items: center; }
-			.delivery-buttons .btn { width: auto; }
-			.more-food-section .more-food-bg-text span { font-size: 10rem; }
-			.more-food-section .more-food-content h2 { font-size: 3rem; }
-			.more-food-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-		}
-		@media (min-width: 768px) { /* md */
-			.container { padding-left: 3rem; padding-right: 3rem; }
-			.info-bar-container { flex-direction: row; gap: 1rem 2rem; padding: 1.25rem 2.5rem; }
-			.menu-highlight-header { text-align: left; }
-			.section-title { font-size: 3rem; }
-			.menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-			.menu-card.wide { grid-column: span 2 / span 2; }
-			.reviews-container { padding-left: 0; padding-right: 0; }
-			.review-swiper-button-prev { left: -2.5rem; }
-			.review-swiper-button-next { right: -2.5rem; }
-			.delivery-box { padding: 3rem; }
-			.delivery-text h2 { font-size: 2.25rem; }
-			.footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-			.footer-column.wide { grid-column: span 2 / span 2; }
-			.footer-bottom { flex-direction: row; }
-			.footer-bottom .copyright { text-align: left; margin-bottom: 0; }
-			.footer-bottom .links { flex-direction: row; }
-			.footer-bottom .links span { display: inline; }
-			.content h1 { font-size: 45px; white-space: normal; }
-			.cta-text { font-size: 20px; }
-		}
-		@media (min-width: 1024px) { /* lg */
-			.tlacitko-zaklad { font-size: 1.125rem; padding: 1rem 2rem; }
-			.container { padding-left: 5rem; padding-right: 5rem; }
-			.info-bar-container { gap: 1rem 4rem; }
-			.section-padding { padding-top: 6rem; padding-bottom: 6rem; }
-			.menu-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-			.menu-card.wide { grid-column: span 1 / span 1; }
-			.why-us-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-			.why-us-text h2 { font-size: 3rem; }
-			.delivery-box { padding: 4rem; gap: 4rem; }
-			.delivery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-			.delivery-text { order: -1; }
-			.more-food-section .more-food-bg-text span { font-size: 16rem; }
-			.more-food-section .more-food-content h2 { font-size: 3.75rem; }
-			.more-food-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; }
-			.footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4rem; }
-			.footer-column.wide { grid-column: span 1 / span 1; }
+			height: 1.5rem;
 		}
 	</style>
 </head>
@@ -906,7 +375,7 @@
 		</p>
 
 		<div class="buttons animate-lure-pulse">
-			<a href="tel:+420604633373" class="tlacitko-zaklad primary animate-glow">
+			<a href="tel:+420604633373" class="tlacitko-zaklad bg-[#E20B18] text-white hover:bg-[#c00a15] animate-glow">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 					<path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
@@ -915,103 +384,109 @@
 				</svg>
 				<span>Zavolej a objednej</span>
 			</a>
-			<a href="https://www.pizzakladno.cz/" class="tlacitko-zaklad primary animate-glow">
+			<a href="https://www.pizzakladno.cz/" class="tlacitko-zaklad bg-[#E20B18] text-white hover:bg-[#c00a15] animate-glow">
 				<span>Objednej online</span>
 			</a>
 		</div>
 	</div>
 
 	<div id="app">
-		<div class="hero-spacer"></div>
+		<div class="h-screen"></div>
 
-		<section class="info-bar-section">
-			<div class="info-bar-container">
-				<div class="info-bar-item">
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" /></svg>
-					<div class="info-bar-item-text">
-						<span class="title">Rozvoz jídla</span>
-						<span class="subtitle">Dovezeme ti to 11:00 - 21:15 | <a href="cenik-rozvozu-pizzerie-san-marino-kladno.pdf" target="_blank">Ceník rozvozu</a></span>
+		<section class="relative z-20 -mt-[135px] w-full flex justify-center px-4">
+			<div class="bg-white text-gray-800 rounded-2xl shadow-xl px-6 py-6 md:px-10 md:py-5 flex flex-col md:flex-row flex-wrap items-center justify-center gap-y-8 md:gap-y-4 gap-x-8 lg:gap-x-16 max-w-6xl transition-all duration-500 ease-in-out hover:shadow-2xl">
+				<div class="flex items-center gap-x-4">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" /></svg>
+					<div class="flex flex-col text-left">
+						<span class="font-bold text-gray-800 text-lg">Rozvoz jídla</span>
+						<span class="text-gray-500 text-base">Dovezeme ti to 11:00 - 21:15 | <a href="cenik-rozvozu-pizzerie-san-marino-kladno.pdf" target="_blank" class="text-[#E20B18] underline font-semibold">Ceník rozvozu</a></span>
 					</div>
 				</div>
-				<div class="info-bar-item">
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 12l3.5 0" /><path d="M12 7v5" /></svg>
-					<div class="info-bar-item-text">
-						<span class="title">Otevírací doba</span>
-						<span class="subtitle">Jsme tu pro tebe 10:45 - 21:15</span>
+				<div class="flex items-center gap-x-4">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 12l3.5 0" /><path d="M12 7v5" /></svg>
+					<div class="flex flex-col text-left">
+						<span class="font-bold text-gray-800 text-lg">Otevírací doba</span>
+						<span class="text-gray-500 text-base">Jsme tu pro tebe 10:45 - 21:15</span>
 					</div>
 				</div>
-				<div class="info-bar-item">
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M15 19l2 2l4 -4" /></svg>
-					<div class="info-bar-item-text">
-						<span class="title">Rezervace</span>
-						<a href="tel:+420604633373" class="link">Rezervuj si místo</a>
+				<div class="flex items-center gap-x-4">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M15 19l2 2l4 -4" /></svg>
+					<div class="flex flex-col text-left">
+						<span class="font-bold text-gray-800 text-lg">Rezervace</span>
+						<a href="tel:+420604633373" class="text-[#E20B18] underline font-semibold text-base">Rezervuj si místo</a>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="menu-highlight-section section-padding-lg">
-			<div class="container">
-				<div class="menu-highlight-header">
-					<p class="section-subtitle">Top výběr</p>
-					<h2 class="section-title">Na co máš chuť?</h2>
+		<section class="py-24 bg-white">
+			<div class="container mx-auto px-6 md:px-12 lg:px-20">
+				<div class="text-center md:text-left mb-16">
+					<p class="font-cursive text-[#E20B18] text-4xl mb-2" style="font-family: 'Pacifico', cursive; position:relative; top: -15px;">Top výběr</p>
+					<h2 class="text-gray-900 text-4xl md:text-5xl font-black uppercase tracking-wider">Na co máš chuť?</h2>
 				</div>
-				<div class="menu-grid">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					
-					<div class="menu-card pizza" style="background-color: #017D4D;">
-						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Detailní pohled na pizzu se šunkou a zeleninou." class="menu-card-bg-img">
-						<div class="menu-card-content">
-							<h3>Pizzy</h3>
-							<a href="#">Prohlédni si všechny pizzy &rarr;</a>
-							<h4>Nejoblíbenější kousky🍕</h4>
-							<ul class="menu-card-list">
-								<li v-for="item in topPizzas" :key="item.id">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105" style="background-color: #017D4D; --shadow-color: #017D4D;">
+						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Detailní pohled na pizzu se šunkou a zeleninou." class="absolute inset-0 w-full h-full object-cover opacity-20">
+						<div class="relative z-10 flex flex-col h-full">
+							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Pizzy</h3>
+							<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 text-white">
+								Prohlédni si všechny pizzy &rarr;
+							</a>
+							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md text-white">Nejoblíbenější kousky🍕</h4>
+							<ul class="space-y-3 text-base text-left text-white">
+								<li v-for="item in topPizzas" :key="item.id" class="flex justify-between text-white">
 									<span>{{ item.name }}</span>
-									<span>od {{ item.price }} Kč</span>
+									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="button-wrapper animate-lure-pulse">
-								<a href="#" class="tlacitko-zaklad animate-glow">
+							<div class="mt-auto pt-8 animate-lure-pulse">
+								<a href="#" class="tlacitko-zaklad animate-glow bg-white text-green-700 hover:bg-green-100">
 									Objednej si pizzu
 								</a>
 							</div>
 						</div>
 					</div>
 
-					<div class="menu-card burger" style="background-color: #E20B18;">
-						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Burger s batátovými hranolky a omáčkou od Pizzerie San Marino." class="menu-card-bg-img">
-						<div class="menu-card-content">
-							<h3>Burgery</h3>
-							<a href="#">Prohlédni si všechny burgery &rarr;</a>
-							<h4>Legendární burgery 🔥</h4>
-							<ul class="menu-card-list">
-								<li v-for="item in topBurgers" :key="item.id">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105" style="background-color: #E20B18; --shadow-color: #E20B18;">
+						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Burger s batátovými hranolky a omáčkou od Pizzerie San Marino." class="absolute inset-0 w-full h-full object-cover opacity-20">
+						<div class="relative z-10 flex flex-col h-full">
+							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Burgery</h3>
+							<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 text-white">
+								Prohlédni si všechny burgery &rarr;
+							</a>
+							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md text-white">Legendární burgery 🔥</h4>
+							<ul class="space-y-3 text-base text-left text-white">
+								<li v-for="item in topBurgers" :key="item.id" class="flex justify-between text-white">
 									<span>{{ item.name }}</span>
-									<span>od {{ item.price }} Kč</span>
+									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="button-wrapper animate-lure-pulse">
-								<a href="#" class="tlacitko-zaklad animate-glow">
+							<div class="mt-auto pt-8 animate-lure-pulse">
+								<a href="#" class="tlacitko-zaklad animate-glow bg-white text-red-600 hover:bg-red-100">
 									Objednej si burger
 								</a>
 							</div>
 						</div>
 					</div>
 					
-					<div class="menu-card chicken wide" style="background-color: #262626;">
-						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Kuřecí stripsy a křídla s omáčkami." class="menu-card-bg-img">
-						<div class="menu-card-content">
-							<h3>Kuřecí maso</h3>
-							<a href="#">Prozkoumej naše speciality &rarr;</a>
-							<h4>Pro milovníky kuřecího 🍗</h4>
-							<ul class="menu-card-list">
-								<li v-for="item in topChicken" :key="item.id">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 md:col-span-2 lg:col-span-1" style="background-color: #262626; --shadow-color: #444444;">
+						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Kuřecí stripsy a křídla s omáčkami." class="absolute inset-0 w-full h-full object-cover opacity-20">
+						<div class="relative z-10 flex flex-col h-full">
+							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Kuřecí maso</h3>
+							<a href="#" class="inline-block font-semibold hover:underline mb-4 transition-transform duration-300 text-white">
+								Prozkoumej naše speciality &rarr;
+							</a>
+							<h4 class="text-2xl font-bold mb-4 pt-4 drop-shadow-md text-white">Pro milovníky kuřecího 🍗</h4>
+							<ul class="space-y-3 text-base text-left text-white">
+								<li v-for="item in topChicken" :key="item.id" class="flex justify-between text-white">
 									<span>{{ item.name }}</span>
-									<span>od {{ item.price }} Kč</span>
+									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="button-wrapper animate-lure-pulse">
-								<a href="#" class="tlacitko-zaklad animate-glow">
+							<div class="mt-auto pt-8 animate-lure-pulse">
+								<a href="#" class="tlacitko-zaklad animate-glow bg-white text-gray-800 hover:bg-gray-200">
 									Objednej si kuřecí
 								</a>
 							</div>
@@ -1021,40 +496,69 @@
 			</div>
 		</section>
 		
-		<section class="why-us-section bg-parchment section-padding">
-			<div class="container">
-				<div class="why-us-grid">
-					<div class="why-us-text">
-						<p class="font-cursive" style="font-size: 2.25rem; position:relative; top: -15px;">Naše pizza, náš originál</p>
-						<h2>PROČ SI DÁT PIZZU U NÁS?</h2>
-						<p class="subtitle">Jsme TOP 4. Pizzerie v Kladně!🏅</p>
-						<p>
+		<section class="bg-parchment pt-20 pb-16 relative z-10">
+			<div class="container mx-auto px-6 md:px-12 lg:px-24">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+					<div>
+						<p class="font-cursive text-4xl" style="position:relative; top: -15px; color: white;">Naše pizza, náš originál</p>
+						<h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wide" style="color: white;">PROČ SI DÁT PIZZU U NÁS?</h2>
+						<p class="mt-4 text-xl font-semibold" style="color: white;">Jsme TOP 4. Pizzerie v Kladně!🏅</p>
+						<p class="mt-6 leading-relaxed" style="color: white;">
 							Tohle není žádná Itálie, to je naše tradice už od roku 1994! Chceš pizzu přesně podle svýho gusta? U nás si ji můžeš sestavit sám! Vyber si z našich čerstvých surovin a vytvoř si pizzu podle svých chutí – víc sýra, extra zelenina, pořádná dávka masa nebo prostě odeber to, co ti nevyhovuje! 🧀🥓🥬
 						</p>
-						<ul class="why-us-features">
-							<li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span>Pečeme ve formách pro dokonalý tvar a strukturu.</span></li>
-							<li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span>Těsto je nadýchané s křupavým okrajem.</span></li>
-							<li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span>Zasypané sýrem, který vytváří zlatavou rozpečenou vrstvu.</span></li>
-							<li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span>Bohatá porce kvalitních surovin.</span></li>
-							<li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span>Vyladěné recepty, které dělají naši pizzu jedinečnou.</span></li>
-						</ul>
-						<a href="#" class="tlacitko-zaklad primary why-us-cta">
+						<div class="mt-8 space-y-4">
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Pečeme ve formách pro dokonalý tvar a strukturu.</span>
+							</div>
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Těsto je nadýchané s křupavým okrajem.</span>
+							</div>
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Zasypané sýrem, který vytváří zlatavou rozpečenou vrstvu.</span>
+							</div>
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Bohatá porce kvalitních surovin.</span>
+							</div>
+							<div class="flex items-start gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#E20B18] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+								</svg>
+								<span class="font-medium" style="color: white;">Vyladěné recepty, které dělají naši pizzu jedinečnou.</span>
+							</div>
+						</div>
+						<a href="#" class="tlacitko-zaklad bg-[#E20B18] text-white hover:bg-[#c00a15] inline-block mt-10">
 							Vytvoř si vlastní pizzu
 						</a>
 					</div>
-					<div class="why-us-gallery">
-						<div class="why-us-gallery-image-wrapper">
-							<img :src="gallery.images[gallery.currentIndex]" alt="Ukázka originální pizzy z Pizzerie San Marino Kladno.">
-							<button @click="prevImage" class="why-us-gallery-btn prev">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+					<div class="flex flex-col items-center">
+						<div class="relative w-full max-w-md aspect-square">
+							<img :src="gallery.images[gallery.currentIndex]" alt="Ukázka originální pizzy z Pizzerie San Marino Kladno." class="w-full h-full object-cover rounded-2xl">
+							<button @click="prevImage" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+								</svg>
 							</button>
-							<button @click="nextImage" class="why-us-gallery-btn next">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+							<button @click="nextImage" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E20B18] hover:bg-[#c00a15] rounded-full p-3 transition-colors z-10">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+								</svg>
 							</button>
 						</div>
-						<div class="why-us-gallery-dots">
+						<div class="mt-6 flex items-center justify-center gap-x-3">
 							<template v-for="(image, index) in gallery.images" :key="index">
-								<button @click="goToImage(index)" :class="['gallery-dot', { 'active': gallery.currentIndex === index }]"></button>
+								<button @click="goToImage(index)" :class="['h-4 w-4 rounded-full transition-colors', gallery.currentIndex === index ? 'bg-[#E20B18]' : 'border-2 border-white hover:bg-white/20']"></button>
 							</template>
 						</div>
 					</div>
@@ -1062,14 +566,15 @@
 			</div>
 		</section>
 
-		<section class="reviews-section section-padding-lg">
-			<div class="container">
-				<div class="reviews-container">
-					<div class="reviews-header">
-						<p class="section-subtitle">Recenze</p>
-						<h2 class="section-title">Co na naši pizzu říkáš ty a ostatní?</h2>
-					</div>
+		<section class="bg-white py-16 lg:py-24">
+			<div class="container mx-auto px-6 md:px-12 lg:px-20">
+
+				<div class="relative px-10 md:px-0">
 					<div class="max-w-6xl mx-auto">
+						<div class="text-center md:text-left mb-8">
+							<p class="font-cursive text-[#E20B18] text-4xl mb-2" style="position:relative; top: -15px;">Recenze</p>
+							<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">Co na naši pizzu říkáš ty a ostatní?</h2>
+						</div>
 						<div class="overflow-hidden">
 							<div class="swiper-container swiper-container-reviews">
 								<div class="swiper-wrapper">
@@ -1081,37 +586,56 @@
 						</div>
 					</div>
 
-					<div class="review-swiper-button-prev">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+					<div class="review-swiper-button-prev -left-4 md:-left-10">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+						</svg>
 					</div>
-					<div class="review-swiper-button-next">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+					<div class="review-swiper-button-next -right-4 md:-right-10">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+						</svg>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="delivery-section section-padding-lg">
-			<div class="container">
-				<div class="delivery-box">
-					<div class="delivery-grid">
-						<div class="delivery-image">
-							<img src="images/pizzerie-san-marino-rozvoz-jidel-kladno-a-okoli.webp" alt="Rozvozové auto Pizzerie San Marino pro rychlý dovoz pizzy a burgerů po Kladně.">
+		<section class="bg-white py-16 lg:py-24">
+			<div class="container mx-auto px-6 md:px-12 lg:px-20">
+				<div class="bg-[#017D4D] rounded-3xl p-8 md:p-12 lg:p-16 text-white">
+					<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+						<div class="w-full">
+							<img src="images/pizzerie-san-marino-rozvoz-jidel-kladno-a-okoli.webp" alt="Rozvozové auto Pizzerie San Marino pro rychlý dovoz pizzy a burgerů po Kladně." class="w-full max-w-lg mx-auto h-auto object-cover rounded-2xl shadow-lg">
 						</div>
-						<div class="delivery-text">
-							<p class="section-subtitle font-cursive">Rozvoz jídla</p>
-							<h2>Rozvoz jídla Kladno. Bez poplatků, bez starostí</h2>
-							<div class="text-content">
-								<p>Hlad? Nestíháš? Nebo si chceš prostě užít jídlo v pohodlí domova? Rozvážíme po celém Kladně i okolí. <strong>Rychle, spolehlivě a bez zbytečných příplatků.</strong></p>
-								<p>Ať už máš chuť na poctivou pizzu s křupavým těstem, nebo pořádný burger jako kráva – všechno ti dovezeme až ke dveřím.</p>
-								<p>U nás platíš jen za jídlo a samotný rozvoz. Bez skrytých poplatků, bez přirážek, bez překvapení.</p>
+
+						<div class="lg:order-first">
+							<p class="font-cursive text-4xl" style="position:relative; top: -10px;">Rozvoz jídla</p>
+							<h2 class="text-3xl md:text-4xl font-black uppercase tracking-wide mt-2">Rozvoz jídla Kladno. Bez poplatků, bez starostí</h2>
+
+							<div class="space-y-4 mt-6">
+								<p class="leading-relaxed">
+									Hlad? Nestíháš? Nebo si chceš prostě užít jídlo v pohodlí domova? Rozvážíme po celém Kladně i okolí. <strong class="font-semibold">Rychle, spolehlivě a bez zbytečných příplatků.</strong>
+								</p>
+								<p class="leading-relaxed">
+									Ať už máš chuť na poctivou pizzu s křupavým těstem, nebo pořádný burger jako kráva – všechno ti dovezeme až ke dveřím.
+								</p>
+								<p class="leading-relaxed">
+									U nás platíš jen za jídlo a samotný rozvoz. Bez skrytých poplatků, bez přirážek, bez překvapení.
+								</p>
 							</div>
-							<div class="delivery-buttons">
-								<a href="tel:+420604633373" class="btn btn-call">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg>
+
+							<div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-10">
+								<a href="tel:+420604633373" class="bg-[#E20B18] hover:bg-[#c00a15] transition-colors duration-300 text-white font-bold text-lg rounded-full px-8 py-4 flex items-center gap-x-3 w-full sm:w-auto justify-center">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+										<path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
+										<path d="M15 7a2 2 0 0 1 2 2"></path>
+										<path d="M15 3a6 6 0 0 1 6 6"></path>
+									</svg>
 									<span>+420 604 633 373</span>
 								</a>
-								<a href="#" class="btn btn-online">
+								<a href="#" class="border-2 border-white hover:bg-white/20 transition-colors duration-300 text-white font-bold text-lg rounded-full px-8 py-4 w-full sm:w-auto text-center">
 									<span>Objednat online</span>
 								</a>
 							</div>
@@ -1121,39 +645,58 @@
 			</div>
 		</section>
 
-		<section class="more-food-section bg-parchment section-padding-lg">
-			<div class="more-food-bg-text">
-				<span>PIZZA SAN</span>
-				<span>MARINO</span>
+		<section class="bg-parchment py-16 lg:py-24 text-white relative overflow-hidden">
+			<div class="absolute inset-0 z-0 flex flex-col justify-between items-center opacity-10 font-black text-white pointer-events-none">
+				<span class="text-[8rem] sm:text-[10rem] lg:text-[16rem] -mt-8 -ml-12 -rotate-12">PIZZA SAN</span>
+				<span class="text-[8rem] sm:text-[10rem] lg:text-[16rem] -mb-8 mr-12 rotate-12">MARINO</span>
 			</div>
-			<div class="container more-food-content">
-				<div>
-					<p class="section-subtitle">Co nabízíme mimo pizzy</p>
-					<h2>Burgery a kuřecí maso,<br>které si zamiluješ</h2>
+			<div class="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+				<div class="text-center">
+					<p class="font-cursive text-4xl text-white" style="position:relative; top: -15px;">Co nabízíme mimo pizzy</p>
+					<h2 class="mt-2 text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-wider">Burgery a kuřecí maso,<br>které si zamiluješ</h2>
 				</div>
-				<div class="more-food-grid">
-					<img src="images/burger.jpg" alt="Burger na talíři s čedarem, slaninou a zeleninou.">
-					<img src="images/burger1.jpg" alt="Detailní pohled na šťavnatý burger se sýrem.">
-					<img src="images/wingit1.webp" alt="Smažené kuřecí stripsy s BBQ omáčkou.">
-					<img src="images/wingit2.jpg" alt="Kuřecí burger s batátovými hranolky a dipem.">
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-12">
+					<img src="images/burger.jpg" alt="Burger na talíři s čedarem, slaninou a zeleninou." class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+					<img src="images/burger1.jpg" alt="Detailní pohled na šťavnatý burger se sýrem." class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+					<img src="images/wingit1.webp" alt="Smažené kuřecí stripsy s BBQ omáčkou." class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+					<img src="images/wingit2.jpg" alt="Kuřecí burger s batátovými hranolky a dipem." class="aspect-square w-full object-cover rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
 				</div>
 			</div>
 		</section>
 
-		<section class="social-section section-padding-lg">
-			<div class="container">
-				<div class="social-header">
-					<p class="section-subtitle">Zůstaň v obraze</p>
-					<h2 class="section-title">SLEDUJ NÁS ONLINE</h2>
-					<div class="social-icons">
-						<a href="https://www.facebook.com/profile.php?id=100095016576324" target="_blank" aria-label="Přejít na Facebook Pizzerie San Marino">
-							<svg class="fb-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><rect width="24" height="24" rx="6" /><path d="M15.81 7.42h-1.928c-.493 0-.696.347-.696.816v1.23h2.59l-.427 2.735H13.18V20H9.44v-7.799H6.81v-2.735h2.63V7.126c0-2.31 1.29-3.626 3.49-3.626h2.37v2.92z" fill="white" /></svg>
+		<section class="bg-white py-16 lg:py-24">
+			<div class="container mx-auto px-6 md:px-12 lg:px-20">
+				<div class="text-center mb-12">
+					<p class="font-cursive text-[#E20B18] text-4xl" style="position:relative; top: -15px;">Zůstaň v obraze</p>
+					<h2 class="mt-2 text-4xl md:text-5xl font-black uppercase tracking-wider text-gray-900">SLEDUJ NÁS ONLINE</h2>
+					<div class="flex justify-center items-center gap-10 mt-8 mb-12">
+						<a href="https://www.facebook.com/profile.php?id=100095016576324" target="_blank" class="transition-transform hover:scale-110" aria-label="Přejít na Facebook Pizzerie San Marino">
+							<svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<title>Facebook</title>
+								<rect width="24" height="24" rx="6" fill="#1877F2" />
+								<path d="M15.81 7.42h-1.928c-.493 0-.696.347-.696.816v1.23h2.59l-.427 2.735H13.18V20H9.44v-7.799H6.81v-2.735h2.63V7.126c0-2.31 1.29-3.626 3.49-3.626h2.37v2.92z" fill="white" />
+							</svg>
 						</a>
-						<a href="https://www.instagram.com/pizzakladno/" target="_blank" aria-label="Přejít na Instagram Pizzerie San Marino">
-							<svg class="ig-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><defs><radialGradient id="ig-grad" r="150%" cx="30%" cy="107%"><stop stop-color="#fdf497" offset="0" /><stop stop-color="#fdf497" offset="0.05" /><stop stop-color="#fd5949" offset="0.45" /><stop stop-color="#d6249f" offset="0.6" /><stop stop-color="#285AEB" offset="0.9" /></radialGradient></defs><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.314.935 20.644.522 19.86.217 19.094-.083 18.223-.285 16.947-.344 15.667-.405 15.26-.42 12-.42zM12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.057.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.17.249 1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 6.875A5.125 5.125 0 1012 17.125 5.125 5.125 0 0012 6.875zM12 15a3 3 0 110-6 3 3 0 010 6zM20.965 5.253a1.44 1.44 0 10-2.88 0 1.44 1.44 0 002.88 0z" fill="url(#ig-grad)" /></svg>
+						<a href="https://www.instagram.com/pizzakladno/" target="_blank" class="transition-transform hover:scale-110" aria-label="Přejít na Instagram Pizzerie San Marino">
+							<svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<title>Instagram</title>
+								<defs>
+									<radialGradient id="ig-grad" r="150%" cx="30%" cy="107%">
+										<stop stop-color="#fdf497" offset="0" />
+										<stop stop-color="#fdf497" offset="0.05" />
+										<stop stop-color="#fd5949" offset="0.45" />
+										<stop stop-color="#d6249f" offset="0.6" />
+										<stop stop-color="#285AEB" offset="0.9" />
+									</radialGradient>
+								</defs>
+								<path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.314.935 20.644.522 19.86.217 19.094-.083 18.223-.285 16.947-.344 15.667-.405 15.26-.42 12-.42zM12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.057.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.17.249 1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 6.875A5.125 5.125 0 1012 17.125 5.125 5.125 0 0012 6.875zM12 15a3 3 0 110-6 3 3 0 010 6zM20.965 5.253a1.44 1.44 0 10-2.88 0 1.44 1.44 0 002.88 0z" fill="url(#ig-grad)" />
+							</svg>
 						</a>
-						<a href="https://www.tiktok.com/@pizzakladno?_t=ZN-8tbxv0q0T6k&_r=1" target="_blank" aria-label="Přejít na TikTok Pizzerie San Marino">
-							<svg class="tiktok-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>TikTok</title><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" /></svg>
+						<a href="https://www.tiktok.com/@pizzakladno?_t=ZN-8tbxv0q0T6k&_r=1" target="_blank" class="transition-transform hover:scale-110" aria-label="Přejít na TikTok Pizzerie San Marino">
+							<svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<title>TikTok</title>
+								<path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000000" />
+							</svg>
 						</a>
 					</div>
 				</div>
@@ -1164,13 +707,15 @@
 
 	</div>
 
-	<footer class="site-footer">
-		<div class="container section-padding">
-			<div class="footer-grid">
-				<div class="footer-column">
-					<a href="#" class="logo-link"><img src="images/logo.webp" alt="Logo Pizzerie San Marino Kladno"></a>
-					<h4>Provozovatel</h4>
-					<div class="provozovatel-info">
+	<footer class="bg-[#017D4D] text-white w-full">
+		<div class="container mx-auto py-16 px-6 md:px-12 lg:px-20">
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 text-base items-start">
+
+				<div class="space-y-4">
+					<a href="#" class="inline-block mb-4"><img src="images/logo.webp" alt="Logo Pizzerie San Marino Kladno" class="h-20"></a>
+					<h4 class="text-xl font-black uppercase tracking-wider text-white">Provozovatel</h4>
+					<div class="text-white/90 font-medium space-y-1">
 						<p>ALFA plus s.r.o.</p>
 						<p>Železničářů 2350, 27201 Kladno</p>
 						<p>IČ: 46349154</p>
@@ -1178,48 +723,70 @@
 					</div>
 				</div>
 
-				<div class="footer-column">
-					<h4>Otevírací doba</h4>
-					<div id="opening-hours-footer" class="opening-hours-footer">
-						<div data-day="1" class="day-row">
+				<div class="space-y-4 pt-1">
+					<h4 class="text-xl font-black uppercase tracking-wider text-white">Otevírací doba</h4>
+					<div id="opening-hours-footer" class="text-white/90 space-y-2.5 font-medium">
+						<div data-day="1" class="day-row flex justify-between items-start gap-4">
 							<span>Pondělí</span>
-							<div class="note">
+							<div class="text-right">
 								<span>11:00 - 21:15</span>
-								<p>Online/Tel. objednávky</p>
+								<p class="text-white font-bold text-sm uppercase leading-tight">Online/Tel. objednávky</p>
 							</div>
 						</div>
-						<div data-day="2" class="day-row"><span>Úterý</span> <span>11:00 - 21:15</span></div>
-						<div data-day="3" class="day-row"><span>Středa</span> <span>11:00 - 21:15</span></div>
-						<div data-day="4" class="day-row"><span>Čtvrtek</span> <span>11:00 - 21:15</span></div>
-						<div data-day="5" class="day-row"><span>Pátek</span> <span>11:00 - 21:15</span></div>
-						<div data-day="6" class="day-row"><span>Sobota</span> <span>11:00 - 21:15</span></div>
-						<div data-day="0" class="day-row"><span>Neděle</span> <span>11:00 - 21:15</span></div>
+						<div data-day="2" class="day-row flex justify-between"><span>Úterý</span> <span>11:00 - 21:15</span></div>
+						<div data-day="3" class="day-row flex justify-between"><span>Středa</span> <span>11:00 - 21:15</span></div>
+						<div data-day="4" class="day-row flex justify-between"><span>Čtvrtek</span> <span>11:00 - 21:15</span></div>
+						<div data-day="5" class="day-row flex justify-between"><span>Pátek</span> <span>11:00 - 21:15</span></div>
+						<div data-day="6" class="day-row flex justify-between"><span>Sobota</span> <span>11:00 - 21:15</span></div>
+						<div data-day="0" class="day-row flex justify-between"><span>Neděle</span> <span>11:00 - 21:15</span></div>
 					</div>
 				</div>
 
-				<div class="footer-column wide">
-					<h4>Kontakty</h4>
-					<ul class="footer-contacts">
-						<li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg><span>Obránců míru 2721, Kladno</span></li>
-						<li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg><a href="tel:+420604633373">+420 604 633 373</a></li>
-						<li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg><a href="mailto:sanmarino@pizzakladno.cz">sanmarino@pizzakladno.cz</a></li>
-						<li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg><span>Platba: hotovost, kartou, stravenky</span></li>
+				<div class="space-y-4 pt-1 md:col-span-2 lg:col-span-1">
+					<h4 class="text-xl font-black uppercase tracking-wider text-white">Kontakty</h4>
+					<ul class="space-y-3 text-white/90 font-medium">
+						<li class="flex items-start gap-x-4">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 mt-0.5 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+								<path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+							</svg>
+							<span>Obránců míru 2721, Kladno</span>
+						</li>
+						<li class="flex items-center gap-x-4">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+							</svg>
+							<a href="tel:+420604633373" class="hover:underline">+420 604 633 373</a>
+						</li>
+						<li class="flex items-center gap-x-4">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+							</svg>
+							<a href="mailto:sanmarino@pizzakladno.cz" class="hover:underline">sanmarino@pizzakladno.cz</a>
+						</li>
+						<li class="flex items-start gap-x-4">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 mt-0.5 text-[#E20B18]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+							</svg>
+							<span>Platba: hotovost, kartou, stravenky</span>
+						</li>
 					</ul>
 				</div>
+
 			</div>
 
-			<hr class="footer-divider">
-			<div class="footer-bottom">
-				<div class="copyright">
+			<hr class="border-t border-white/20 mt-16 mb-8">
+			<div class="flex flex-col md:flex-row justify-between items-center text-sm text-white/80 font-medium">
+				<div class="text-center md:text-left mb-4 md:mb-0">
 					<p>© 2025 Pizzerie San Marino. Všechna práva vyhrazena.</p>
-					<p>Tento web upekla <a href="#">Lenka Lážnovská</a></p>
+					<p>Tento web upekla <a href="#" class="hover:underline text-white">Lenka Lážnovská</a></p>
 				</div>
-				<div class="links">
-					<a href="obchodni-podminky-pizzerie-san-marino-kladno.pdf" target="_blank">Obchodní podmínky</a>
-					<span>|</span>
-					<a href="ochrana-osobnich-udaju-gdpr-pizzerie-san-marino-kladno.pdf" target="_blank">Zpracování osobních údajů</a>
-					<span>|</span>
-					<a href="#" @click.prevent="openAllergenModal" style="cursor: pointer;">Alergeny</a>
+				<div class="flex flex-col md:flex-row items-center gap-y-2 gap-x-4 text-center">
+					<a href="obchodni-podminky-pizzerie-san-marino-kladno.pdf" target="_blank" class="hover:underline text-white">Obchodní podmínky</a>
+					<span class="hidden md:inline">|</span>
+					<a href="ochrana-osobnich-udaju-gdpr-pizzerie-san-marino-kladno.pdf" target="_blank" class="hover:underline text-white">Zpracování osobních údajů</a>
+					<span class="hidden md:inline">|</span>
+					<a href="#" @click.prevent="openAllergenModal" class="hover:underline text-white cursor-pointer">Alergeny</a>
 				</div>
 			</div>
 		</div>
@@ -1292,6 +859,14 @@
 					]
 				}
 			},
+			computed: {
+				activeList() {
+					if (this.activeCategory === 'pizza') return this.topPizzas;
+					if (this.activeCategory === 'burger') return this.topBurgers;
+					if (this.activeCategory === 'chicken') return this.topChicken;
+					return [];
+				}
+			},
 			methods: {
 				nextImage() {
 					this.gallery.currentIndex = (this.gallery.currentIndex + 1) % this.gallery.images.length;
@@ -1332,7 +907,11 @@
 				const today = new Date().getDay(); // 0 = Neděle, 1 = Pondělí, ..., 6 = Sobota
 				const currentDayRow = document.querySelector(`.day-row[data-day="${today}"]`);
 				if (currentDayRow) {
-					currentDayRow.classList.add('current-day');
+					currentDayRow.classList.add('text-white', 'font-bold');
+					const p = currentDayRow.querySelector('p');
+					if (p) {
+						p.classList.add('!text-yellow-300');
+					}
 				}
 			}
 		});
