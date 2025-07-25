@@ -144,14 +144,17 @@
 		.tlacitko-zaklad { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; border-radius: 9999px; padding: 0.75rem 1.5rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; text-decoration: none; transition: all 0.3s ease; }
 		.tlacitko-zaklad svg { width: 1.5rem; height: 1.5rem; }
 		
-		@keyframes lure-pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); } 70% { transform: scale(1.08); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } }
-		.animate-lure-pulse { animation: lure-pulse 1.8s infinite; }
-		
+        /* OPRAVENÁ ANIMACE - DVA EFEKTY */
+		@keyframes pulse-scale { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 		@keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); } 70% { box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } }
-		.animate-glow { animation: pulse-glow 1.8s infinite; }
+		
+        /* Kontejner tlačítek se jemně zvětšuje */
+        .buttons.animate-pulse { animation: pulse-scale 2.2s infinite ease-in-out; }
+        /* Jednotlivá tlačítka mají kulatou záři */
+		.tlacitko-zaklad.animate-glow { animation: pulse-glow 2.2s infinite; }
 		
 		.font-cursive { font-family: 'Pacifico', cursive; }
-		.bg-parchment { background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp'); background-size: 100% 100%; background-repeat: no-repeat; }
+		.bg-parchment { background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp'); background-size: cover; background-position: center; }
 		
 		/* --- STYLY PRO RECENZE (SWIPER) --- */
 		.swiper-container-reviews .swiper-slide { aspect-ratio: 4 / 3; background-color: #FFFFFF; border: 2px solid #D1D5DB; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; overflow: hidden; box-sizing: border-box; }
@@ -263,13 +266,16 @@
 		.px-6{padding-left:1.5rem;padding-right:1.5rem}
 		.px-8{padding-left:2rem;padding-right:2rem}
 		.px-10{padding-left:2.5rem;padding-right:2.5rem}
-		.py-4{padding-top:1rem;padding-bottom:1rem}
-		.py-5{padding-top:1.25rem;padding-bottom:1.25rem}
-		.py-6{padding-top:1.5rem;padding-bottom:1.5rem}
+		/* OPRAVA: Zvětšení mezer mezi sekcemi */
 		.py-16{padding-top:4rem;padding-bottom:4rem}
+		.py-24{padding-top:6rem;padding-bottom:6rem}
 		.pt-1{padding-top:.25rem}
 		.pt-4{padding-top:1rem}
 		.pt-8{padding-top:2rem}
+		.pt-20{padding-top:5rem}
+		.pt-32{padding-top:8rem}
+		.pb-16{padding-bottom:4rem}
+		.pb-24{padding-bottom:6rem}
 		.text-center{text-align:center}
 		.text-left{text-align:left}
 		.text-right{text-align:right}
@@ -425,7 +431,7 @@
 			Dopřej si pořádnou dávku chuti a nech si ji přivést až ke dveřím! 🚀
 		</p>
 
-		<div class="buttons animate-lure-pulse">
+		<div class="buttons animate-pulse">
 			<a href="tel:+420604633373" class="tlacitko-zaklad bg-[#E20B18] text-white hover:bg-[#c00a15] animate-glow">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -470,7 +476,7 @@
 			</div>
 		</section>
 
-		<section class="py-24 bg-white">
+		<section class="pt-32 pb-24 bg-white">
 			<div class="container mx-auto px-6 md:px-12 lg:px-20">
 				<div class="text-center md:text-left mb-16">
 					<p class="font-cursive text-[#E20B18] text-4xl mb-2" style="font-family: 'Pacifico', cursive; position:relative; top: -15px;">Top výběr</p>
@@ -478,7 +484,7 @@
 				</div>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					
-					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105" style="background-color: #017D4D; --shadow-color: #017D4D;">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105" style="background-color: #017D4D;">
 						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" alt="Detailní pohled na pizzu se šunkou a zeleninou." class="absolute inset-0 w-full h-full object-cover opacity-20">
 						<div class="relative z-10 flex flex-col h-full">
 							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Pizzy</h3>
@@ -492,15 +498,15 @@
 									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="mt-auto pt-8 animate-lure-pulse">
-								<a href="#" class="tlacitko-zaklad animate-glow bg-white text-green-700 hover:bg-green-100">
+							<div class="mt-auto pt-8">
+								<a href="#" class="tlacitko-zaklad bg-white text-green-700 hover:bg-green-100">
 									Objednej si pizzu
 								</a>
 							</div>
 						</div>
 					</div>
 
-					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105" style="background-color: #E20B18; --shadow-color: #E20B18;">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105" style="background-color: #E20B18;">
 						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" alt="Burger s batátovými hranolky a omáčkou od Pizzerie San Marino." class="absolute inset-0 w-full h-full object-cover opacity-20">
 						<div class="relative z-10 flex flex-col h-full">
 							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Burgery</h3>
@@ -514,15 +520,15 @@
 									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="mt-auto pt-8 animate-lure-pulse">
-								<a href="#" class="tlacitko-zaklad animate-glow bg-white text-red-600 hover:bg-red-100">
+							<div class="mt-auto pt-8">
+								<a href="#" class="tlacitko-zaklad bg-white text-red-600 hover:bg-red-100">
 									Objednej si burger
 								</a>
 							</div>
 						</div>
 					</div>
 					
-					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 md:col-span-2 lg:col-span-1" style="background-color: #262626; --shadow-color: #444444;">
+					<div class="relative rounded-3xl overflow-hidden p-8 flex flex-col text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 md:col-span-2 lg:col-span-1" style="background-color: #262626;">
 						<img src="images/kureci-speciality-wing-it-kladno.webp" alt="Kuřecí stripsy a křídla s omáčkami." class="absolute inset-0 w-full h-full object-cover opacity-20">
 						<div class="relative z-10 flex flex-col h-full">
 							<h3 class="text-white text-4xl font-black uppercase drop-shadow-lg mb-4">Kuřecí maso</h3>
@@ -536,8 +542,8 @@
 									<span class="font-semibold">od {{ item.price }} Kč</span>
 								</li>
 							</ul>
-							<div class="mt-auto pt-8 animate-lure-pulse">
-								<a href="#" class="tlacitko-zaklad animate-glow bg-white text-gray-800 hover:bg-gray-200">
+							<div class="mt-auto pt-8">
+								<a href="#" class="tlacitko-zaklad bg-white text-gray-800 hover:bg-gray-200">
 									Objednej si kuřecí
 								</a>
 							</div>
