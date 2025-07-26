@@ -376,7 +376,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			opacity: 0.2;
+			opacity: 0.15; /* Snížená opacita pro lepší kontrast */
 		}
 		.menu-card-content {
 			position: relative;
@@ -385,19 +385,16 @@
 			flex-direction: column;
 			height: 100%;
 		}
-		.menu-card .card-title,
-		.menu-card .card-link,
-		.menu-card .card-subtitle,
-		.menu-card .card-list,
-		.menu-card .card-list span {
-			color: var(--white);
-		}
 		.menu-card .card-title {
 			font-size: 2.25rem;
 			font-weight: 900;
 			text-transform: uppercase;
 			text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 			margin-bottom: 1rem;
+		}
+		.menu-card .card-link,
+		.menu-card .card-list {
+			text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
 		}
 		.menu-card .card-link {
 			font-weight: 600;
@@ -448,10 +445,6 @@
 		.bg-parchment {
 			color: var(--white);
 		}
-		.section-green-bg *,
-		.bg-parchment * {
-			color: var(--white);
-		}
 		.section-green-bg {
 			background-color: var(--main-green);
 			padding: 2rem;
@@ -462,6 +455,11 @@
 			background-size: cover;
 			background-position: center center;
 			background-repeat: no-repeat;
+		}
+		/* Přidán stín pro lepší čitelnost textu na pozadí */
+		.bg-parchment p, .bg-parchment span, .bg-parchment .section-subtitle,
+		.section-green-bg p, .section-green-bg strong {
+			text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
 		}
 		.two-column-grid {
 			display: grid;
@@ -499,7 +497,7 @@
 		.feature-item svg {
 			height: 1.75rem;
 			width: 1.75rem;
-			color: var(--main-red) !important; /* Důležité pro přepsání rodičovského stylu */
+			color: var(--main-red); /* Opravená barva odrážek */
 			flex-shrink: 0;
 		}
 		.section-button {
@@ -732,12 +730,6 @@
 			padding-top: 4rem;
 			padding-bottom: 4rem;
 		}
-		.footer p, .footer span, .footer li, .footer h3 {
-			color: var(--white);
-		}
-		.footer a {
-			color: var(--white);
-		}
 		.footer a:hover {
 			text-decoration: underline;
 		}
@@ -789,7 +781,7 @@
 			font-weight: 700;
 		}
 		.opening-hours .day-row.active-day .details {
-			color: var(--white); /* Změněno z žluté na bílou */
+			color: var(--white);
 		}
 		.footer-contact-list {
 			list-style: none;
