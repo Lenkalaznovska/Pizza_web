@@ -1,6 +1,17 @@
 <!DOCTYPE html><html lang="cs"><head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<meta http-equiv="Content-Security-Policy" content="
+		default-src 'self'; 
+		script-src 'self' 'unsafe-inline' https://unpkg.com https://connect.facebook.net https://static.elfsight.com; 
+		style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; 
+		font-src 'self' https://fonts.gstatic.com; 
+		img-src 'self' data: https://www.facebook.com;
+		connect-src 'self' https://connect.facebook.net;
+		object-src 'none';
+		upgrade-insecure-requests;">
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Pacifico&display=swap" rel="stylesheet">
@@ -727,9 +738,6 @@
 			padding-top: 4rem;
 			padding-bottom: 4rem;
 		}
-		.footer p, .footer span, .footer li, .footer h3, .footer a {
-			color: var(--white);
-		}
 		.footer a:hover {
 			text-decoration: underline;
 		}
@@ -1108,12 +1116,12 @@
 						</div>
 					</div>
 
-					<div class="review-swiper-button review-swiper-button-prev">
+					<div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
 						</svg>
 					</div>
-					<div class="review-swiper-button review-swiper-button-next">
+					<div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
 						</svg>
