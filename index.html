@@ -913,13 +913,13 @@
 		<div class="hero-slider">
 			<div class="slides">
 				<div class="slide">
-					<img src="images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp" alt="Detail naší originální pizzy s uzeným masem a špenátem." width="1920" height="1080" />
+					<img src="images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp" alt="Detail naší originální pizzy s uzeným masem a špenátem." width="1920" height="1080">
 				</div>
 				<div class="slide">
-					<img src="images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp" alt="Legendární dvojitý burger 'Jako kráva' se slaninou a hranolky." width="1920" height="1080" />
+					<img src="images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp" alt="Legendární dvojitý burger 'Jako kráva' se slaninou a hranolky." width="1920" height="1080">
 				</div>
 				<div class="slide">
-					<img src="images/pizzerie-san-marino-kladno-nabidka-jidla.webp" alt="Ukázka jídel z naší nabídky s rozvozem po Kladně." width="1920" height="1080" />
+					<img src="images/pizzerie-san-marino-kladno-nabidka-jidla.webp" alt="Ukázka jídel z naší nabídky s rozvozem po Kladně." width="1920" height="1080">
 				</div>
 			</div>
 		</div>
@@ -1112,12 +1112,34 @@
 
 		<section class="section section-white">
 			<div class="container">
-				<div class="menu-section-header" style="text-align: center;">
-					<p class="font-cursive subtitle">Recenze</p>
-					<h2 class="title" style="font-size: 2rem;">Co o nás říkají zákazníci</h2>
+				<div class="reviews-container">
+					<div class="max-w-6xl mx-auto">
+						<div class="menu-section-header">
+							<p class="font-cursive subtitle">Recenze</p>
+							<h2 class="title" style="font-size: 2rem;">Recenze od našich spokojených zákazníků</h2>
+						</div>
+						<div class="overflow-hidden">
+							<div class="swiper-container swiper-container-reviews">
+								<div class="swiper-wrapper">
+									<div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
+										<img :src="imgSrc" loading="lazy" alt="Fotografie recenze od zákazníka Pizzerie San Marino.">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+						</svg>
+					</div>
+					<div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+						</svg>
+					</div>
 				</div>
-				<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-				<div class="elfsight-app-a685517a-4363-47cf-961f-d5b2e0413f98" data-elfsight-app-lazy></div>
 			</div>
 		</section>
 
@@ -1168,9 +1190,9 @@
 				</div>
 				<div class="other-offers-grid">
 					<img src="images/wing-it-kureci-popkorn-kladno.webp" loading="lazy" alt="Kuřecí popcorn a hranolky v boxu na rozvoz.">
-					<img src="images/smazena-kureci-kridla-a-stripsy-wing-it-kladno.webp" loading="lazy" alt="Smažená kuřecí křídla, stripsy a cibulové kroužky.">
+					<img src="images/smazena-kureci-kridla-a-stripsy-wing-it-kladno.webp" loading="lazy" alt="Smažená kuřecí křídla, stripsy a cibulové kroužky na talíři.">
 					<img src="images/wing-it-kureci-popkorn-kladno.webp" loading="lazy" alt="Kuřecí popcorn a hranolky v boxu na rozvoz.">
-					<img src="images/smazena-kureci-kridla-a-stripsy-wing-it-kladno.webp" loading="lazy" alt="Smažená kuřecí křídla, stripsy a cibulové kroužky.">
+					<img src="images/smazena-kureci-kridla-a-stripsy-wing-it-kladno.webp" loading="lazy" alt="Smažená kuřecí křídla, stripsy a cibulové kroužky na talíři.">
 				</div>
 			</div>
 		</section>
@@ -1207,9 +1229,7 @@
 						</a>
 					</div>
 				</div>
-				<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-				<div class="elfsight-app-fda31c74-30c8-40aa-be79-2c7ae5fced3d" data-elfsight-app-lazy></div>
-			</div>
+				</div>
 		</section>
 
 	</main>
@@ -1387,6 +1407,26 @@
 				}
 			},
 			mounted() {
+				if (typeof Swiper !== 'undefined') {
+					new Swiper('.swiper-container-reviews', {
+						loop: true,
+						slidesPerView: 1,
+						spaceBetween: 20,
+						autoplay: {
+							delay: 5000,
+							disableOnInteraction: false,
+						},
+						navigation: {
+							nextEl: '.review-swiper-button-next',
+							prevEl: '.review-swiper-button-prev',
+						},
+						breakpoints: {
+							640: { slidesPerView: 2, spaceBetween: 20 },
+							1024: { slidesPerView: 3, spaceBetween: 30 },
+						},
+					});
+				}
+				
 				// Zvýraznění aktuálního dne v patičce
 				const today = new Date().getDay(); // 0 = Neděle, 1 = Pondělí, ..., 6 = Sobota
 				const currentDayRow = document.querySelector(`.day-row[data-day="${today}"]`);
