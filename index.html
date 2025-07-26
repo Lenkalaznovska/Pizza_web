@@ -113,7 +113,7 @@
 			--text-gray: #333;
 			--text-light-gray: #6b7280;
 			--background-gray: #f0f0f0;
-			--white: #FFFFFF; /* Čistě bílá pro maximální kontrast */
+			--white: #FFFFFF;
 			--black: #000000;
 			--font-main: 'Montserrat', sans-serif;
 			--font-cursive: 'Pacifico', cursive;
@@ -362,7 +362,7 @@
 			display: flex;
 			flex-direction: column;
 			text-align: center;
-			color: var(--white); /* Explicitně bílý text pro všechny karty */
+			color: var(--white);
 			box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
 			transition: all 0.3s ease;
 		}
@@ -390,7 +390,7 @@
 		.menu-card .card-subtitle,
 		.menu-card .card-list,
 		.menu-card .card-list span {
-			color: var(--white); /* Pojistka pro všechny textové elementy uvnitř */
+			color: var(--white);
 		}
 		.menu-card .card-title {
 			font-size: 2.25rem;
@@ -443,34 +443,26 @@
 		.button-white-dark { background-color: var(--white); color: #374151; }
 		.button-white-dark:hover { background-color: #f3f4f6; }
 		
-		/* ----- SEKCE "PROČ U NÁS" & "ROZVOZ" (zelené pozadí) ----- */
+		/* ----- SEKCE S BÍLÝM TEXTEM ----- */
+		.section-green-bg,
+		.bg-parchment {
+			color: var(--white);
+		}
+		.section-green-bg *,
+		.bg-parchment * {
+			color: var(--white);
+		}
 		.section-green-bg {
 			background-color: var(--main-green);
-			color: var(--white);
 			padding: 2rem;
 			border-radius: 1.5rem;
-		}
-		.section-green-bg,
-		.section-green-bg h2,
-		.section-green-bg p,
-		.section-green-bg strong,
-		.section-green-bg a {
-			color: var(--white); /* Pojistka pro maximální kontrast */
 		}
 		.bg-parchment {
 			background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
 			background-size: cover;
 			background-position: center center;
 			background-repeat: no-repeat;
-			color: var(--white);
 		}
-		.bg-parchment,
-		.bg-parchment h2,
-		.bg-parchment p,
-		.bg-parchment span {
-			color: var(--white); /* Pojistka pro maximální kontrast */
-		}
-
 		.two-column-grid {
 			display: grid;
 			grid-template-columns: 1fr;
@@ -507,11 +499,8 @@
 		.feature-item svg {
 			height: 1.75rem;
 			width: 1.75rem;
-			color: var(--main-red);
+			color: var(--main-red) !important; /* Důležité pro přepsání rodičovského stylu */
 			flex-shrink: 0;
-		}
-		.feature-item span {
-			font-weight: 500;
 		}
 		.section-button {
 			margin-top: 2.5rem;
@@ -624,7 +613,7 @@
 			height: 1.5rem;
 		}
 
-		/* ----- SEKCE ROZVOZ (v zeleném boxu) ----- */
+		/* ----- SEKCE ROZVOZ (tlačítka) ----- */
 		.delivery-image-wrapper img {
 			width: 100%;
 			max-width: 32rem;
@@ -638,41 +627,9 @@
 		.delivery-buttons {
 			display: flex;
 			flex-direction: column;
-			align-items: flex-start;
-			gap: 1.5rem;
-			margin-top: 2.5rem;
-		}
-		.button-delivery-call {
-			background-color: var(--main-red);
-			color: var(--white);
-			font-weight: 700;
-			font-size: 1.125rem;
-			border-radius: 9999px;
-			padding: 1rem 2rem;
-			display: flex;
 			align-items: center;
-			gap: 0.75rem;
-			width: 100%;
-			justify-content: center;
-			transition: background-color 0.3s;
-		}
-		.button-delivery-call:hover {
-			background-color: var(--main-red-hover);
-		}
-		.button-delivery-online {
-			border: 2px solid var(--white);
-			background-color: transparent;
-			color: var(--white);
-			font-weight: 700;
-			font-size: 1.125rem;
-			border-radius: 9999px;
-			padding: 1rem 2rem;
-			width: 100%;
-			text-align: center;
-			transition: background-color 0.3s;
-		}
-		.button-delivery-online:hover {
-			background-color: rgba(255, 255, 255, 0.2);
+			gap: 1rem;
+			margin-top: 3rem;
 		}
 
 		/* ----- SEKCE BURGERY & KUŘECÍ ----- */
@@ -771,15 +728,18 @@
 			color: var(--white);
 			width: 100%;
 		}
-		.footer *, .footer h3, .footer p, .footer span, .footer li, .footer a {
-			color: var(--white); /* Definitivní pojistka pro všechen text v patičce */
-		}
-		.footer a:hover {
-			text-decoration: underline;
-		}
 		.footer .container {
 			padding-top: 4rem;
 			padding-bottom: 4rem;
+		}
+		.footer p, .footer span, .footer li, .footer h3 {
+			color: var(--white);
+		}
+		.footer a {
+			color: var(--white);
+		}
+		.footer a:hover {
+			text-decoration: underline;
 		}
 		.footer-grid {
 			display: grid;
@@ -829,7 +789,7 @@
 			font-weight: 700;
 		}
 		.opening-hours .day-row.active-day .details {
-			color: #fef08a; /* Zvýraznění žlutou barvou */
+			color: var(--white); /* Změněno z žluté na bílou */
 		}
 		.footer-contact-list {
 			list-style: none;
@@ -889,7 +849,7 @@
 		}
 
 		@media (min-width: 640px) { /* sm */
-			.hero-content .buttons {
+			.hero-content .buttons, .delivery-buttons {
 				flex-direction: row;
 				justify-content: center;
 				gap: 2.5rem;
@@ -897,11 +857,6 @@
 			.other-offers-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 			.other-offers-header .title { font-size: 3rem; }
 			.other-offers-bg-text span { font-size: 10rem; }
-			.delivery-buttons {
-				flex-direction: row;
-				align-items: center;
-			}
-			.button-delivery-call, .button-delivery-online { width: auto; }
 		}
 
 		@media (min-width: 768px) { /* md */
@@ -1195,16 +1150,18 @@
 								<p>Ať už máš chuť na poctivou pizzu s křupavým těstem, nebo pořádný burger jako kráva – všechno ti dovezeme až ke dveřím.</p>
 								<p>U nás platíš jen za jídlo a samotný rozvoz. Bez skrytých poplatků, bez přirážek, bez překvapení.</p>
 							</div>
-							<div class="delivery-buttons">
-								<a href="tel:+420604633373" class="button-delivery-call">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							<div class="delivery-buttons animate-lure-pulse">
+								<a href="tel:+420604633373" class="button button-red animate-glow">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 										<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 										<path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
+										<path d="M15 7a2 2 0 0 1 2 2"></path>
+										<path d="M15 3a6 6 0 0 1 6 6"></path>
 									</svg>
-									<span>+420 604 633 373</span>
+									<span>Zavolej a objednej</span>
 								</a>
-								<a href="#" class="button-delivery-online">
-									<span>Objednat online</span>
+								<a href="https://www.pizzakladno.cz/" class="button button-red animate-glow">
+									<span>Objednej online</span>
 								</a>
 							</div>
 						</div>
@@ -1341,7 +1298,7 @@
 			<div class="footer-bottom">
 				<div class="footer-bottom-copyright">
 					<p>© 2025 Pizzerie San Marino. Všechna práva vyhrazena.</p>
-					<p>Tento web upekla <a href="#">Lenka Lážnovská</a></p>
+					<p>Tento web upekla Lenka Lážnovská</p>
 				</div>
 				<div class="footer-bottom-links">
 					<a href="obchodni-podminky-pizzerie-san-marino-kladno.pdf" target="_blank">Obchodní podmínky</a>
