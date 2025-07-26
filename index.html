@@ -113,8 +113,8 @@
 			--text-gray: #333;
 			--text-light-gray: #6b7280;
 			--background-gray: #f0f0f0;
-			--white: #fff;
-			--black: #000;
+			--white: #FFFFFF; /* Čistě bílá pro maximální kontrast */
+			--black: #000000;
 			--font-main: 'Montserrat', sans-serif;
 			--font-cursive: 'Pacifico', cursive;
 		}
@@ -362,7 +362,7 @@
 			display: flex;
 			flex-direction: column;
 			text-align: center;
-			color: var(--white);
+			color: var(--white); /* Explicitně bílý text pro všechny karty */
 			box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
 			transition: all 0.3s ease;
 		}
@@ -384,6 +384,13 @@
 			display: flex;
 			flex-direction: column;
 			height: 100%;
+		}
+		.menu-card .card-title,
+		.menu-card .card-link,
+		.menu-card .card-subtitle,
+		.menu-card .card-list,
+		.menu-card .card-list span {
+			color: var(--white); /* Pojistka pro všechny textové elementy uvnitř */
 		}
 		.menu-card .card-title {
 			font-size: 2.25rem;
@@ -443,6 +450,13 @@
 			padding: 2rem;
 			border-radius: 1.5rem;
 		}
+		.section-green-bg,
+		.section-green-bg h2,
+		.section-green-bg p,
+		.section-green-bg strong,
+		.section-green-bg a {
+			color: var(--white); /* Pojistka pro maximální kontrast */
+		}
 		.bg-parchment {
 			background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
 			background-size: cover;
@@ -450,6 +464,13 @@
 			background-repeat: no-repeat;
 			color: var(--white);
 		}
+		.bg-parchment,
+		.bg-parchment h2,
+		.bg-parchment p,
+		.bg-parchment span {
+			color: var(--white); /* Pojistka pro maximální kontrast */
+		}
+
 		.two-column-grid {
 			display: grid;
 			grid-template-columns: 1fr;
@@ -747,8 +768,14 @@
 		/* ----- PATIČKA ----- */
 		.footer {
 			background-color: var(--main-green);
-			color: var(--white); /* Zajištění bílého textu pro vše v patičce */
+			color: var(--white);
 			width: 100%;
+		}
+		.footer *, .footer h3, .footer p, .footer span, .footer li, .footer a {
+			color: var(--white); /* Definitivní pojistka pro všechen text v patičce */
+		}
+		.footer a:hover {
+			text-decoration: underline;
 		}
 		.footer .container {
 			padding-top: 4rem;
@@ -775,7 +802,6 @@
 			font-weight: 900;
 			text-transform: uppercase;
 			letter-spacing: 0.05em;
-			color: var(--white);
 		}
 		.footer-info, .opening-hours, .footer-contact-list {
 			font-weight: 500;
@@ -803,7 +829,7 @@
 			font-weight: 700;
 		}
 		.opening-hours .day-row.active-day .details {
-			color: #fef08a; /* yellow-300 */
+			color: #fef08a; /* Zvýraznění žlutou barvou */
 		}
 		.footer-contact-list {
 			list-style: none;
@@ -814,9 +840,6 @@
 			display: flex;
 			align-items: flex-start;
 			gap: 1rem;
-		}
-		.footer-contact-list a:hover {
-			text-decoration: underline;
 		}
 		.footer-contact-list svg {
 			height: 1.5rem;
@@ -837,7 +860,6 @@
 			align-items: center;
 			font-size: 0.875rem;
 			font-weight: 500;
-			color: var(--white); /* Důležité pro kontrast */
 		}
 		.footer-bottom-copyright {
 			text-align: center;
@@ -846,18 +868,12 @@
 		.footer-bottom-copyright p {
 			margin: 0;
 		}
-		.footer-bottom-copyright a {
-			text-decoration: underline;
-		}
 		.footer-bottom-links {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			gap: 0.5rem;
 			text-align: center;
-		}
-		.footer-bottom-links a:hover {
-			text-decoration: underline;
 		}
 		.footer-bottom-links .separator {
 			display: none;
