@@ -3,10 +3,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
 	<meta http-equiv="Content-Security-Policy" content="
-		default-src 'self'; 
-		script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://connect.facebook.net https://static.elfsight.com; 
-		style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com https://*.elfsight.com; 
-		font-src 'self' https://fonts.gstatic.com https://*.elfsight.com; 
+		default-src 'self'; 
+		script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://connect.facebook.net https://static.elfsight.com; 
+		style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com https://*.elfsight.com; 
+		font-src 'self' https://fonts.gstatic.com https://*.elfsight.com; 
 		img-src 'self' data: https:;
 		connect-src 'self' https://connect.facebook.net https://*.elfsight.com;
 		frame-src https://*.elfsight.com;
@@ -1313,7 +1313,7 @@
 					<span class="separator">|</span>
 					<a href="ochrana-osobnich-udaju-gdpr-pizzerie-san-marino-kladno.pdf" target="_blank">Zpracování osobních údajů</a>
 					<span class="separator">|</span>
-					<a href="#" @click.prevent="openAllergenModal" style="cursor: pointer;">Alergeny</a>
+					<a href="images/seznam-alergenu-pizzerie-san-marino-kladno.webp" target="_blank">Alergeny</a>
 				</div>
 			</div>
 		</div>
@@ -1343,12 +1343,23 @@
 			data() {
 				// Definice a náhodné seřazení obrázků pro recenze
 				const reviewImagePaths = [
-					'images/recenze.jpg', 'images/recenze1.jpg', 'images/recenze2.jpg',
-					'images/recenze3.jpg', 'images/recenze4.jpg', 'images/recenze5.jpg',
-					'images/recenze6.jpg', 'images/recenze7.jpg', 'images/recenze8.jpg',
-					'images/recenze9.jpg', 'images/recenze10.jpg', 'images/recenze11.jpg',
-					'images/recenze12.jpg', 'images/recenze13.jpg', 'images/recenze14.jpg',
-					'images/recenze15.jpg', 'images/recenze16.jpg', 'images/recenze17.jpg',
+					'images/vyborna-pizza-skvela-obsluha-kladno-recenze.webp',
+					'images/rychly-rozvoz-nejlepsi-pizza-kladno-recenze.webp',
+					'images/recenze-pizzerie-san-marino-kladno-raketa.webp',
+					'images/recenze-super-pizza-prijemna-obsluha-san-marino-kladno.webp',
+					'images/recenze-osvedcena-chut-san-marino-kladno.webp',
+					'images/recenze-nejlepsi-pizza-v-okoli-kladna.webp',
+					'images/recenze-kureci-speciality-wing-it-kladno-lepsi-nez-kfc.webp',
+					'images/recenze-burger-salat-san-marino-kladno.webp',
+					'images/poctivy-burger-cerstve-suroviny-kladno-recenze.webp',
+					'images/nejlepsi-pizzerie-kladno-recenze.webp',
+					'images/nejlepsi-pizza-srdcovka-kladno-google-recenze.webp',
+					'images/nejlepsi-pizza-kladno-recenze.webp',
+					'images/nejlepsi-double-cheese-burger-kladno-recenze.webp',
+					'images/hodnoceni-pizzerie-san-marino-kladno-fakt-dobry.webp',
+					'images/hodnoceni-jidlo-11-z-10-pizzerie-kladno.webp',
+					'images/exkluzivni-jidlo-kladno-recenze-san-marino.webp',
+					'images/dokonala-pizza-od-detstvi-kladno-recenze.webp',
 				];
 				for (let i = reviewImagePaths.length - 1; i > 0; i--) {
 					const j = Math.floor(Math.random() * (i + 1));
