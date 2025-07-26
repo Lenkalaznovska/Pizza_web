@@ -594,6 +594,9 @@
 			padding-left: 2.5rem;
 			padding-right: 2.5rem;
 		}
+		.swiper-viewport {
+			overflow: hidden;
+		}
 		.swiper-container-reviews .swiper-slide {
 			aspect-ratio: 4 / 3;
 			background-color: var(--white);
@@ -1112,23 +1115,20 @@
 
 		<section class="section section-white">
 			<div class="container">
+				<div class="menu-section-header" style="text-align: center;">
+					<p class="font-cursive subtitle">Recenze</p>
+					<h2 class="title" style="font-size: 2rem;">Co o nás říkají zákazníci</h2>
+				</div>
 				<div class="reviews-container">
-					<div class="max-w-6xl mx-auto">
-						<div class="menu-section-header">
-							<p class="font-cursive subtitle">Recenze</p>
-							<h2 class="title" style="font-size: 2rem;">Recenze od našich spokojených zákazníků</h2>
-						</div>
-						<div class="overflow-hidden">
-							<div class="swiper-container swiper-container-reviews">
-								<div class="swiper-wrapper">
-									<div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
-										<img :src="imgSrc" loading="lazy" alt="Fotografie recenze od zákazníka Pizzerie San Marino.">
-									</div>
+					<div class="swiper-viewport">
+						<div class="swiper-container swiper-container-reviews">
+							<div class="swiper-wrapper">
+								<div v-for="(imgSrc, index) in reviewImages" :key="index" class="swiper-slide">
+									<img :src="imgSrc" loading="lazy" alt="Fotografie recenze od zákazníka Pizzerie San Marino.">
 								</div>
 							</div>
 						</div>
 					</div>
-
 					<div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -1229,7 +1229,9 @@
 						</a>
 					</div>
 				</div>
-				</div>
+				<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+				<div class="elfsight-app-fda31c74-30c8-40aa-be79-2c7ae5fced3d" data-elfsight-app-lazy></div>
+			</div>
 		</section>
 
 	</main>
