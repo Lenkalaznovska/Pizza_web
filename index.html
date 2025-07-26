@@ -765,7 +765,7 @@
 		.footer-column {
 			display: flex;
 			flex-direction: column;
-			gap: 1.5rem;
+			gap: 1rem;
 		}
 		.footer-heading {
 			font-size: 1.25rem;
@@ -773,6 +773,7 @@
 			text-transform: uppercase;
 			letter-spacing: 0.05em;
 			margin: 0;
+			padding-bottom: 0.5rem; /* Malá mezera pod nadpisem */
 		}
 		.footer-info, .opening-hours, .footer-contact-list {
 			font-weight: 500;
@@ -880,7 +881,7 @@
 			.review-swiper-button-next { right: -2.5rem; }
 			.section-title { font-size: 2.25rem; }
 			.footer-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
-			.footer-column { justify-content: space-between; }
+			.footer-column { justify-content: flex-start; gap: 1rem; }
 			.footer-bottom { flex-direction: row; }
 			.footer-bottom-copyright { text-align: left; margin-bottom: 0; }
 			.footer-bottom-links { flex-direction: row; gap: 1rem; }
@@ -1234,11 +1235,10 @@
 
 	<footer class="footer">
 		<div class="container">
-			<h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Kontakty a další důležité informace</h2>
 			<div class="footer-grid">
 
 				<div class="footer-column">
-					<h3 class="footer-heading">Provozovatel</h3>
+					<p class="footer-heading">Provozovatel</p>
 					<div class="footer-info">
 						<p>ALFA plus s.r.o.</p>
 						<p>Železničářů 2350, 27201 Kladno</p>
@@ -1248,7 +1248,7 @@
 				</div>
 
 				<div class="footer-column">
-					<h3 class="footer-heading">Otevírací doba</h3>
+					<p class="footer-heading">Otevírací doba</p>
 					<div class="opening-hours">
 						<div data-day="1" class="day-row">
 							<span>Pondělí</span>
@@ -1267,7 +1267,7 @@
 				</div>
 
 				<div class="footer-column">
-					<h3 class="footer-heading">Kontakty</h3>
+					<p class="footer-heading">Kontakty</p>
 					<ul class="footer-contact-list">
 						<li>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
