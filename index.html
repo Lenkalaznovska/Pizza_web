@@ -8,7 +8,8 @@
 		style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; 
 		font-src 'self' https://fonts.gstatic.com; 
 		img-src 'self' data: https://www.facebook.com;
-		connect-src 'self' https://connect.facebook.net;
+		connect-src 'self' https://connect.facebook.net https://apps.elfsight.com;
+		frame-src https://static.elfsight.com;
 		object-src 'none';
 		upgrade-insecure-requests;">
 
@@ -975,7 +976,7 @@
 						<div class="menu-card-content">
 							<h3 class="card-title">Pizzy</h3>
 							<a href="#" class="card-link">Prohlédni si všechny pizzy &rarr;</a>
-							<h4 class="card-subtitle">Nejoblíbenější kousky🍕</h4>
+							<p class="card-subtitle">Nejoblíbenější kousky🍕</p>
 							<ul class="card-list">
 								<li v-for="item in topPizzas" :key="item.id">
 									<span>{{ item.name }}</span>
@@ -993,7 +994,7 @@
 						<div class="menu-card-content">
 							<h3 class="card-title">Burgery</h3>
 							<a href="#" class="card-link">Prohlédni si všechny burgery &rarr;</a>
-							<h4 class="card-subtitle">Legendární burgery 🔥</h4>
+							<p class="card-subtitle">Legendární burgery 🔥</p>
 							<ul class="card-list">
 								<li v-for="item in topBurgers" :key="item.id">
 									<span>{{ item.name }}</span>
@@ -1011,7 +1012,7 @@
 						<div class="menu-card-content">
 							<h3 class="card-title">Kuřecí maso</h3>
 							<a href="#" class="card-link">Prozkoumej naše speciality &rarr;</a>
-							<h4 class="card-subtitle">Pro milovníky kuřecího 🍗</h4>
+							<p class="card-subtitle">Pro milovníky kuřecího 🍗</p>
 							<ul class="card-list">
 								<li v-for="item in topChicken" :key="item.id">
 									<span>{{ item.name }}</span>
@@ -1229,7 +1230,7 @@
 
 				<div class="footer-column">
 					<a href="#" class="logo-link"><img src="images/logo.webp" alt="Logo Pizzerie San Marino Kladno"></a>
-					<h3 class="footer-heading">Provozovatel</h3>
+					<p class="footer-heading">Provozovatel</p>
 					<div class="footer-info">
 						<p>ALFA plus s.r.o.</p>
 						<p>Železničářů 2350, 27201 Kladno</p>
@@ -1239,7 +1240,7 @@
 				</div>
 
 				<div class="footer-column">
-					<h3 class="footer-heading">Otevírací doba</h3>
+					<p class="footer-heading">Otevírací doba</p>
 					<div class="opening-hours">
 						<div data-day="1" class="day-row">
 							<span>Pondělí</span>
@@ -1258,7 +1259,7 @@
 				</div>
 
 				<div class="footer-column">
-					<h3 class="footer-heading">Kontakty</h3>
+					<p class="footer-heading">Kontakty</p>
 					<ul class="footer-contact-list">
 						<li>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
