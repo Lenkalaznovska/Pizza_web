@@ -350,29 +350,37 @@
 			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
 		}
 		.info-banner-item {
-			display: flex;
+			/* OPRAVA: Použití CSS Grid pro robustní zarovnání */
+			display: grid;
+			grid-template-columns: auto 1fr;
+			column-gap: 0.75rem;
 			align-items: center;
-			gap: 0.75rem;
 		}
 		.info-banner-item svg {
-			height: 2rem;
-			width: 2rem;
+			grid-row: 1 / 3; /* Ikona zabere oba řádky na výšku */
+			grid-column: 1;
+			height: 2.5rem;
+			width: 2.5rem;
 			color: var(--main-red);
             flex-shrink: 0;
 		}
 		.info-banner-item__text {
-			/* OPRAVA: Odebrán display: flex pro zjednodušení a zajištění správného obtékání */
-			text-align: left;
+			display: contents; /* OPRAVA: "Odstraní" tento div z layoutu, aby se jeho děti staly přímými členy gridu */
 		}
 		.info-banner-item__text .title {
+			grid-column: 2;
+			grid-row: 1;
 			font-weight: 700;
 			color: var(--black);
 			font-size: 1.125rem;
-			display: block; /* OPRAVA: Zajišťuje, že nadpis je vždy na samostatném řádku */
+			align-self: end;
 		}
 		.info-banner-item__text .subtitle {
+			grid-column: 2;
+			grid-row: 2;
 			color: var(--black);
 			font-size: 1rem;
+			align-self: start;
 		}
 		.info-banner-item__text .subtitle a {
 			color: var(--main-red);
@@ -434,7 +442,7 @@
 			text-transform: uppercase;
 			text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 			margin-bottom: 0.75rem;
-			min-height: 100px; /* OPRAVA: Zvětšeno pro zaručené sjednocení výšky */
+			min-height: 100px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -463,7 +471,7 @@
 			align-items: center;
 			justify-content: center;
 			gap: 0.5rem;
-			min-height: 60px; /* OPRAVA: Zvětšeno pro zaručené sjednocení výšky */
+			min-height: 60px;
 		}
 		.menu-card .card-list {
 			list-style: none;
@@ -474,7 +482,7 @@
 			display: flex;
 			flex-direction: column;
 			gap: 0.75rem;
-            /* OPRAVA: Odebrán flex-grow, spoléháme na margin-top: auto u tlačítka */
+            flex-grow: 1; /* Toto pravidlo zajistí roztažení seznamu */
 		}
 		.menu-card .card-list li {
 			display: flex;
@@ -484,7 +492,7 @@
 			font-weight: 600;
 		}
 		.menu-card .card-button-wrapper {
-			margin-top: auto; /* Toto pravidlo tlačí tlačítko na spodek karty */
+			/* OPRAVA: Odstraněno konfliktní pravidlo margin-top: auto */
 			padding-top: 2rem;
 		}
 		.button-white-green { background-color: var(--white); color: var(--main-green); }
