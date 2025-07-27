@@ -229,7 +229,7 @@
 			position: absolute;
 			z-index: 101;
 			left: 2.5rem;
-			top: 1.5rem;
+			top: calc(1.5rem + 15px); /* ZMĚNA: Posunuto o 15px dolů */
 		}
 		.header-logo img {
 			height: 80px;
@@ -336,13 +336,13 @@
 			color: var(--black);
 			border-radius: 1rem;
 			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-			padding: 1.5rem;
+			padding: 1rem 1.5rem; /* ZMĚNA: Zmenšen vertikální padding */
 			display: flex;
 			flex-direction: row;
             flex-wrap: wrap;
 			align-items: center;
-			justify-content: space-around;
-			gap: 1.5rem;
+			justify-content: center; /* ZMĚNA: Vycentrování položek */
+			gap: 2.5rem; /* ZMĚNA: Větší mezera mezi položkami */
 			max-width: 1152px;
 			transition: box-shadow 0.5s ease-in-out;
 		}
@@ -351,17 +351,15 @@
 		}
 		.info-banner-item {
 			display: flex;
-			align-items: flex-start; /* Zarovná ikonu nahoru k prvnímu řádku */
+			align-items: center; /* ZMĚNA: Lepší vertikální zarovnání */
 			gap: 0.75rem;
-            flex-grow: 1;
-            justify-content: center;
+            /* ZMĚNA: Odebrán flex-grow a justify-content, aby ikona a text držely u sebe */
 		}
 		.info-banner-item svg {
-			height: 2.5rem; /* Zmenšeno */
-			width: 2.5rem; /* Zmenšeno */
+			height: 2rem; /* ZMĚNA: Mírné zmenšení */
+			width: 2rem; /* ZMĚNA: Mírné zmenšení */
 			color: var(--main-red);
             flex-shrink: 0;
-            margin-top: 2px; /* Jemné doladění pozice */
 		}
 		.info-banner-item__text {
 			display: flex;
@@ -437,7 +435,7 @@
 			text-transform: uppercase;
 			text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 			margin-bottom: 0.75rem;
-			min-height: 70px;
+			min-height: 90px; /* ZMĚNA: Sjednocení výšky pro zarovnání obsahu pod ním */
 			display: flex;
 			align-items: center;
 			justify-content: center;
