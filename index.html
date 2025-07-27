@@ -17,7 +17,7 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Pacifico&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 	<meta name="theme-color" content="#000000" />
 	<title>Pizzerie San Marino – Pizza jinak již od roku 1994</title>
 	<meta name="description" content="V Pizzerii San Marino najdeš originální pizzy, legendární burgery a další dobroty. Objednej si pohodlně online a my ti to dovezeme až ke dveřím." />
@@ -162,12 +162,14 @@
 			display: block;
 			text-align: center;
 			color: var(--main-red);
-			font-size: 2.25rem; /* Zvětšeno */
+			font-size: 2.25rem;
 			margin-bottom: 1rem;
 			font-weight: bold;
 		}
-        .section-green-bg .section-header-subtitle {
-            color: var(--white); /* Bílá barva v zeleném bloku */
+        .section-green-bg .section-header-subtitle,
+        .bg-parchment .section-header-subtitle,
+        .other-offers-section .section-header-subtitle {
+            color: var(--white); /* Bílá barva v tmavých blocích */
         }
         .section-title, .title {
             font-size: 2.5rem;
@@ -336,11 +338,11 @@
 			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
 			padding: 1.5rem;
 			display: flex;
-			flex-direction: row; /* Změněno pro zobrazení vedle sebe */
-            flex-wrap: wrap; /* Umožní zalamování na menších obrazovkách */
+			flex-direction: row;
+            flex-wrap: wrap;
 			align-items: center;
-			justify-content: space-around; /* Rozmístění s mezerami */
-			gap: 1.5rem; /* Mezera mezi položkami */
+			justify-content: space-around;
+			gap: 1.5rem;
 			max-width: 1152px;
 			transition: box-shadow 0.5s ease-in-out;
 		}
@@ -350,13 +352,13 @@
 		.info-banner-item {
 			display: flex;
 			align-items: center;
-			gap: 1rem;
-            flex-grow: 1; /* Aby se položky roztáhly */
-            justify-content: center; /* Vycentrování obsahu v položce */
+			gap: 0.75rem;
+            flex-grow: 1;
+            justify-content: center;
 		}
 		.info-banner-item svg {
-			height: 3rem;
-			width: 3rem;
+			height: 2.5rem; /* Zmenšeno */
+			width: 2.5rem; /* Zmenšeno */
 			color: var(--main-red);
             flex-shrink: 0;
 		}
@@ -388,6 +390,7 @@
 			display: grid;
 			grid-template-columns: 1fr;
 			gap: 2rem;
+            align-items: stretch; /* Zarovná karty ve sloupci */
 		}
 		.menu-card {
 			position: relative;
@@ -400,7 +403,6 @@
 			color: var(--white);
 			box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
 			transition: all 0.3s ease;
-            height: 100%; 
 		}
 		.menu-card:hover {
 			transform: scale(1.05);
@@ -419,7 +421,7 @@
 			z-index: 10;
 			display: flex;
 			flex-direction: column;
-			height: 100%;
+			flex-grow: 1; /* Nechá obsah roztáhnout se */
 		}
 		.menu-card .card-category {
 			font-family: var(--font-main);
@@ -428,7 +430,7 @@
 			text-transform: uppercase;
 			text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 			margin-bottom: 0.75rem;
-			min-height: 70px; /* Zvětšeno pro zarovnání */
+			min-height: 70px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -468,6 +470,7 @@
 			display: flex;
 			flex-direction: column;
 			gap: 0.75rem;
+            flex-grow: 1; /* Roztáhne seznam, aby tlačítka byla zarovnaná */
 		}
 		.menu-card .card-list li {
 			display: flex;
@@ -886,7 +889,7 @@
 		@media (min-width: 768px) { /* md */
 			.container { padding-left: 3rem; padding-right: 3rem; }
 			.info-banner-container { padding-left: 0; padding-right: 0; }
-			.info-banner { flex-wrap: nowrap; } /* Zamezí zalamování na větších obrazovkách */
+			.info-banner { flex-wrap: nowrap; }
 			.menu-grid { grid-template-columns: repeat(2, 1fr); }
 			.menu-card.span-2 { grid-column: span 2 / span 2; }
 			.reviews-container { padding-left: 0; padding-right: 0; }
@@ -992,7 +995,6 @@
 				<div class="menu-grid">
 					
 					<div class="menu-card" style="background-color: #017D4D;">
-						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" loading="lazy" alt="Detailní pohled na pizzu se šunkou a zeleninou." class="menu-card-bg-image">
 						<div class="menu-card-content">
 							<h3 class="card-category">Originální pizzy</h3>
 							<a href="#" class="card-link">Prohlédni si všechny pizzy &rarr;</a>
@@ -1010,7 +1012,6 @@
 					</div>
 
 					<div class="menu-card" style="background-color: #E20B18;">
-						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" loading="lazy" alt="Burger s batátovými hranolky a omáčkou od Pizzerie San Marino." class="menu-card-bg-image">
 						<div class="menu-card-content">
 							<h3 class="card-category">Legendární šťavnaté burgery</h3>
 							<a href="#" class="card-link">Prohlédni si všechny burgery &rarr;</a>
@@ -1028,7 +1029,6 @@
 					</div>
 					
 					<div class="menu-card span-2" style="background-color: var(--black);">
-						<img src="images/kureci-speciality-wing-it-kladno.webp" loading="lazy" alt="Kuřecí stripsy a křídla s omáčkami." class="menu-card-bg-image">
 						<div class="menu-card-content">
 							<h3 class="card-category">Kuřecí speciality</h3>
 							<a href="#" class="card-link">Prozkoumej naše speciality &rarr;</a>
