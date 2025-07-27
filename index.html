@@ -146,7 +146,12 @@
 			font-family: var(--font-cursive);
 		}
 
-		/* ----- ANIMACE (vráceno) ----- */
+		/* ----- ANIMACE ----- */
+		@keyframes lure-pulse {
+			0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+			70% { transform: scale(1.08); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
+			100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+		}
 		@keyframes pulse-scale {
 			0% { transform: scale(1); }
 			70% { transform: scale(1.08); }
@@ -169,8 +174,7 @@
 			position: absolute;
 			z-index: 101;
 			left: 2.5rem;
-			/* Posunuto o 15px níže */
-			top: calc(1.5rem + 15px);
+			top: calc(1.5rem + 15px); /* Posunuto */
 		}
 		.header-logo img {
 			height: 80px;
@@ -216,7 +220,7 @@
 			margin-bottom: 20px;
 			font-weight: 900;
 			text-transform: uppercase;
-			text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
+			text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
 			white-space: nowrap;
 		}
 		.hero-content .cta-text {
@@ -261,11 +265,11 @@
 			background-color: var(--main-red-hover);
 		}
 
-		/* ----- INFO BANNER ----- */
+		/* ----- INFO BANNER (pod sliderem) ----- */
 		.info-banner-container {
 			position: relative;
 			z-index: 20;
-			margin-top: -135px;
+			margin-top: -110px; /* Posunuto níže o 25px */
 			width: 100%;
 			display: flex;
 			justify-content: center;
@@ -280,10 +284,15 @@
 			padding: 1.5rem 1.5rem;
 			display: flex;
 			flex-direction: column;
+			flex-wrap: wrap;
 			align-items: center;
 			justify-content: center;
 			gap: 2rem;
 			max-width: 1152px;
+			transition: box-shadow 0.5s ease-in-out;
+		}
+		.info-banner:hover {
+			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
 		}
 		.info-banner-item {
 			display: flex;
@@ -306,7 +315,7 @@
 			font-size: 1.125rem;
 		}
 		.info-banner-item__text .subtitle {
-			color: #4a4a4a;
+			color: var(--text-light-gray);
 			font-size: 1rem;
 		}
 		.info-banner-item__text .subtitle a {
@@ -315,8 +324,10 @@
 			font-weight: 600;
 		}
 
-		/* ----- SEKCE NABÍDKY ----- */
-		.menu-section-header { margin-bottom: 4rem; }
+		/* ----- SEKCE "NA CO MÁŠ CHUŤ?" ----- */
+		.menu-section-header {
+			margin-bottom: 4rem;
+		}
 		.menu-section-header .subtitle {
 			color: var(--main-red);
 			font-size: 2.25rem;
@@ -325,7 +336,7 @@
 			top: -15px;
 		}
 		.menu-section-header .title {
-			color: var(--black);
+			color: #111827;
 			font-size: 2.25rem;
 			font-weight: 900;
 			text-transform: uppercase;
@@ -358,8 +369,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			opacity: 0.2;
-			filter: grayscale(30%);
+			opacity: 0.15;
 		}
 		.menu-card-content {
 			position: relative;
@@ -368,33 +378,38 @@
 			flex-direction: column;
 			height: 100%;
 		}
-		.menu-card .card-category,
-		.menu-card .card-link,
-		.menu-card .card-list,
-		.menu-card .card-subtitle {
-			text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
-		}
 		.menu-card .card-category {
+			font-family: var(--font-main);
 			font-size: 1.75rem;
 			font-weight: 900;
 			text-transform: uppercase;
+			text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 			margin-bottom: 0.75rem;
 			min-height: 56px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 		}
+		.menu-card .card-link,
+		.menu-card .card-list {
+			text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
+		}
 		.menu-card .card-link {
 			font-weight: 600;
+			text-decoration: none;
 			margin-bottom: 1rem;
+			transition: transform 0.3s ease;
 			min-height: 24px;
 		}
-		.menu-card .card-link:hover { text-decoration: underline; }
+		.menu-card .card-link:hover {
+			text-decoration: underline;
+		}
 		.menu-card .card-subtitle {
 			font-size: 1.25rem;
 			font-weight: 700;
 			margin-bottom: 1rem;
 			padding-top: 1rem;
+			text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -402,12 +417,26 @@
 			min-height: 52px;
 		}
 		.menu-card .card-list {
-			list-style: none; padding: 0; margin: 0; text-align: left;
-			font-size: 1rem; display: flex; flex-direction: column; gap: 0.75rem;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			text-align: left;
+			font-size: 1rem;
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
 		}
-		.menu-card .card-list li { display: flex; justify-content: space-between; }
-		.menu-card .card-list .price { font-weight: 600; }
-		.menu-card .card-button-wrapper { margin-top: auto; padding-top: 2rem; }
+		.menu-card .card-list li {
+			display: flex;
+			justify-content: space-between;
+		}
+		.menu-card .card-list .price {
+			font-weight: 600;
+		}
+		.menu-card .card-button-wrapper {
+			margin-top: auto;
+			padding-top: 2rem;
+		}
 		.button-white-green { background-color: var(--white); color: var(--main-green); }
 		.button-white-green:hover { background-color: #e6f2ed; }
 		.button-white-red { background-color: var(--white); color: var(--main-red); }
@@ -415,153 +444,372 @@
 		.button-white-dark { background-color: var(--white); color: #374151; }
 		.button-white-dark:hover { background-color: #f3f4f6; }
 		
-		/* ----- SEKCE S POZADÍM (perkamen a zelená) ----- */
-		.bg-parchment, .section-green-bg { color: var(--white); }
+		/* ----- SEKCE S BÍLÝM TEXTEM ----- */
+		.section-green-bg,
+		.bg-parchment {
+			color: var(--white);
+		}
 		.section-green-bg {
-			background-color: var(--main-green); padding: 2rem; border-radius: 1.5rem;
+			background-color: var(--main-green);
+			padding: 2rem;
+			border-radius: 1.5rem;
 		}
 		.bg-parchment {
 			background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
-			background-size: cover; background-position: center; background-attachment: fixed;
+			background-size: cover;
+			background-position: center center;
+			background-repeat: no-repeat;
 		}
-		.bg-parchment p, .bg-parchment span, .bg-parchment .section-subtitle, .bg-parchment .section-title,
-		.section-green-bg p, .section-green-bg strong, .section-green-bg .section-title, .section-green-bg .font-cursive {
-			text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+		.bg-parchment p, .bg-parchment span, .bg-parchment .section-subtitle,
+		.section-green-bg p, .section-green-bg strong {
+			text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
 		}
 		.two-column-grid {
-			display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center;
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 4rem;
+			align-items: center;
 		}
-		.section-title { font-size: 2.25rem; font-weight: 900; text-transform: uppercase; }
-		.section-subtitle { margin-top: 1rem; font-size: 1.25rem; font-weight: 600; }
-		.section-text { margin-top: 1.5rem; line-height: 1.625; }
-		.feature-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
-		.feature-item { display: flex; align-items: flex-start; gap: 0.75rem; }
-		.feature-item svg { height: 1.75rem; width: 1.75rem; color: var(--main-red); flex-shrink: 0; }
-		
-		/* ----- GALERIE ----- */
+		.section-title {
+			margin-top: 0.5rem;
+			font-size: 2.25rem;
+			font-weight: 900;
+			text-transform: uppercase;
+			letter-spacing: 0.025em;
+		}
+		.section-subtitle {
+			margin-top: 1rem;
+			font-size: 1.25rem;
+			font-weight: 600;
+		}
+		.section-text {
+			margin-top: 1.5rem;
+			line-height: 1.625;
+		}
+		.feature-list {
+			margin-top: 2rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+		.feature-item {
+			display: flex;
+			align-items: flex-start;
+			gap: 0.75rem;
+		}
+		.feature-item svg {
+			height: 1.75rem;
+			width: 1.75rem;
+			color: var(--main-red);
+			flex-shrink: 0;
+		}
+		.section-button {
+			margin-top: 2.5rem;
+			display: inline-block;
+		}
+		.image-gallery {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 		.image-gallery-main {
-			position: relative; width: 100%; max-width: 28rem; aspect-ratio: 1 / 1;
+			position: relative;
+			width: 100%;
+			max-width: 28rem;
+			aspect-ratio: 1 / 1;
 		}
 		.image-gallery-main img {
-			width: 100%; height: 100%; object-fit: cover; border-radius: 1rem;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 1rem;
 		}
 		.gallery-button {
-			position: absolute; top: 50%; transform: translateY(-50%);
-			background-color: var(--main-red); border: none; border-radius: 9999px;
-			padding: 0.75rem; transition: background-color 0.2s; z-index: 10; cursor: pointer;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background-color: var(--main-red);
+			border: none;
+			border-radius: 9999px;
+			padding: 0.75rem;
+			transition: background-color 0.2s;
+			z-index: 10;
+			cursor: pointer;
 		}
-		.gallery-button:hover { background-color: var(--main-red-hover); }
-		.gallery-button svg { height: 1.5rem; width: 1.5rem; color: var(--white); }
+		.gallery-button:hover {
+			background-color: var(--main-red-hover);
+		}
+		.gallery-button svg {
+			height: 1.5rem;
+			width: 1.5rem;
+			color: var(--white);
+		}
 		.gallery-button-prev { left: 0.5rem; }
 		.gallery-button-next { right: 0.5rem; }
 		.image-gallery-dots {
-			margin-top: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+			margin-top: 1.5rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.75rem;
 		}
 		.gallery-dot {
-			height: 1rem; width: 1rem; border-radius: 9999px; transition: background-color 0.2s;
-			cursor: pointer; border: 2px solid var(--white); background-color: transparent;
+			height: 1rem;
+			width: 1rem;
+			border-radius: 9999px;
+			transition: background-color 0.2s;
+			cursor: pointer;
+			border: 2px solid var(--white);
+			background-color: transparent;
 		}
-		.gallery-dot:hover { background-color: rgba(255, 255, 255, 0.2); }
-		.gallery-dot.active { background-color: var(--main-red); border-color: var(--main-red); }
-		
-		/* ----- SEKCE RECENZE (původní styl) ----- */
-		.reviews-container { position: relative; padding-left: 2.5rem; padding-right: 2.5rem; }
+		.gallery-dot:hover {
+			background-color: rgba(255, 255, 255, 0.2);
+		}
+		.gallery-dot.active {
+			background-color: var(--main-red);
+			border-color: var(--main-red);
+		}
+
+		/* ----- SEKCE RECENZE (vrácen původní styl) ----- */
+		.reviews-container {
+			position: relative;
+			padding-left: 2.5rem;
+			padding-right: 2.5rem;
+		}
 		.swiper-container-reviews .swiper-slide {
 			aspect-ratio: 4 / 3;
 			background-color: var(--white);
 			border: 2px solid #D1D5DB;
 			border-radius: 0.75rem;
-			display: flex; align-items: center; justify-content: center;
-			overflow: hidden; box-sizing: border-box;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			box-sizing: border-box;
 		}
-		.swiper-container-reviews .swiper-slide img { width: 100%; height: 100%; object-fit: contain; }
+		.swiper-container-reviews .swiper-slide img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
 		.review-swiper-button {
-			position: absolute; top: 50%; transform: translateY(-50%); z-index: 20;
-			cursor: pointer; background-color: var(--main-red); border-radius: 9999px;
-			padding: 0.75rem; transition: background-color 0.2s;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 20;
+			cursor: pointer;
+			background-color: var(--main-red);
+			border-radius: 9999px;
+			padding: 0.75rem;
+			transition: background-color 0.2s;
 		}
-		.review-swiper-button:hover { background-color: var(--main-red-hover); }
+		.review-swiper-button:hover {
+			background-color: var(--main-red-hover);
+		}
 		.review-swiper-button-prev { left: 0; }
 		.review-swiper-button-next { right: 0; }
-		.review-swiper-button svg { color: var(--white); width: 1.5rem; height: 1.5rem; }
+		.review-swiper-button svg {
+			color: var(--white);
+			width: 1.5rem;
+			height: 1.5rem;
+		}
 
 		/* ----- SEKCE ROZVOZ ----- */
 		.delivery-image-wrapper img {
-			width: 100%; max-width: 32rem; margin: auto; height: auto;
-			object-fit: cover; border-radius: 1rem;
+			width: 100%;
+			max-width: 32rem;
+			margin-left: auto;
+			margin-right: auto;
+			height: auto;
+			object-fit: cover;
+			border-radius: 1rem;
 			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
 		}
 		.delivery-buttons {
-			display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 3rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			margin-top: 3rem;
 		}
 
-		/* ----- SEKCE DALŠÍ NABÍDKY ----- */
+		/* ----- SEKCE DALŠÍ SPECIALITY ----- */
 		.other-offers-section {
-			padding: 6rem 0;
+			padding-top: 4rem;
+			padding-bottom: 6rem;
 			color: var(--white);
-			background-color: var(--main-green); /* Změněno na zelené pozadí */
+			position: relative;
+			overflow: hidden;
+			background-color: var(--main-green); /* Změněno pozadí */
 		}
-		.other-offers-header { text-align: center; }
+		.other-offers-header {
+			text-align: center;
+			position: relative;
+			z-index: 10;
+		}
 		.other-offers-header .title {
-			margin-top: 0.5rem; font-size: 2.25rem; font-weight: 900;
-			text-transform: uppercase; letter-spacing: 0.05em;
+			margin-top: 0.5rem;
+			font-size: 2.25rem;
+			font-weight: 900;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
 		}
 		.other-offers-grid {
-			margin-top: 3rem; display: grid; grid-template-columns: 1fr;
+			margin-top: 3rem;
+			display: grid;
+			grid-template-columns: 1fr;
 			gap: 1.5rem;
+			position: relative;
+			z-index: 10;
 		}
 		.other-offers-grid img {
-			aspect-ratio: 1 / 1; width: 100%; object-fit: cover;
-			border-radius: 0.5rem; transition: transform 0.3s, box-shadow 0.3s;
+			aspect-ratio: 1 / 1;
+			width: 100%;
+			object-fit: cover;
+			border-radius: 0.5rem;
+			transition: transform 0.3s, box-shadow 0.3s;
 		}
-		.other-offers-grid img:hover { transform: scale(1.05); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+		.other-offers-grid img:hover {
+			transform: scale(1.05);
+			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+		}
 
 		/* ----- SEKCE SOCIÁLNÍ SÍTĚ ----- */
-		.social-section-header { text-align: center; margin-bottom: 3rem; }
-		.social-section-header .title { font-size: 2rem; }
-		.social-icons {
-			display: flex; justify-content: center; align-items: center;
-			gap: 2.5rem; margin-top: 2rem; margin-bottom: 3rem;
+		.social-section-header {
+			text-align: center;
+			margin-bottom: 3rem;
 		}
-		.social-icons a { transition: transform 0.2s; }
-		.social-icons a:hover { transform: scale(1.1); }
-		.social-icons svg { width: 2rem; height: 2rem; }
+		.social-section-header .title {
+			font-family: var(--font-main); /* Sjednocen font */
+			font-size: 2rem;
+		}
+		.social-icons {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 2.5rem;
+			margin-top: 2rem;
+			margin-bottom: 3rem;
+		}
+		.social-icons a {
+			transition: transform 0.2s;
+		}
+		.social-icons a:hover {
+			transform: scale(1.1);
+		}
+		.social-icons svg {
+			width: 2rem;
+			height: 2rem;
+		}
 
-		/* ----- PATIČKA ----- */
-		.footer { background-color: var(--main-green); color: var(--white); }
-		.footer .container { padding: 4rem 1.5rem; }
-		.footer a:hover { text-decoration: underline; }
-		.footer-grid { display: grid; grid-template-columns: 1fr; gap: 3.5rem; }
+		/* ----- PATIČKA (vrácen původní styl) ----- */
+		.footer {
+			background-color: var(--main-green);
+			color: var(--white);
+			width: 100%;
+		}
+		.footer .container {
+			padding-top: 4rem;
+			padding-bottom: 4rem;
+		}
+		.footer a:hover {
+			text-decoration: underline;
+		}
+		.footer-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 3.5rem;
+			font-size: 1rem;
+			align-items: start;
+		}
+		.footer-column {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+		}
 		.footer-heading {
-			font-size: 1.25rem; font-weight: 900; text-transform: uppercase;
-			letter-spacing: 0.05em; margin-bottom: 1rem;
+			font-family: var(--font-main);
+			font-size: 1.25rem;
+			font-weight: 900;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			margin: 0;
+			padding-bottom: 0.5rem;
 		}
 		.footer-info, .opening-hours, .footer-contact-list {
-			font-weight: 500; display: flex; flex-direction: column; gap: 0.75rem;
+			font-weight: 500;
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
 		}
-		.opening-hours .day-row.active-day { font-weight: 700; }
-		.footer-contact-list { list-style: none; padding: 0; }
-		.footer-contact-list li { display: flex; align-items: flex-start; gap: 1rem; }
+		.opening-hours { gap: 0.625rem; }
+		.opening-hours .day-row {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			gap: 1rem;
+		}
+		.opening-hours .day-row .note {
+			text-align: right;
+		}
+		.opening-hours .day-row .note .details {
+			font-weight: 700;
+			font-size: 0.875rem;
+			text-transform: uppercase;
+			line-height: 1.25;
+		}
+		.opening-hours .day-row.active-day {
+			font-weight: 700;
+		}
+		.footer-contact-list {
+			list-style: none;
+			padding: 0;
+		}
+		.footer-contact-list li {
+			display: flex;
+			align-items: flex-start;
+			gap: 1rem;
+		}
 		.footer-contact-list svg {
-			height: 1.5rem; width: 1.5rem; flex-shrink: 0;
-			margin-top: 0.125rem; color: var(--main-red);
+			height: 1.5rem;
+			width: 1.5rem;
+			flex-shrink: 0;
+			margin-top: 0.125rem;
+			color: var(--main-red);
 		}
 		.footer-divider {
-			border-top: 1px solid rgba(255, 255, 255, 0.2); margin: 4rem 0 2rem;
+			border-top: 1px solid rgba(255, 255, 255, 0.2);
+			margin-top: 4rem;
+			margin-bottom: 2rem;
 		}
 		.footer-bottom {
-			display: flex; flex-direction: column; justify-content: space-between;
-			align-items: center; font-size: 0.875rem; gap: 1rem; text-align: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 0.875rem;
+			font-weight: 500;
+		}
+		.footer-bottom-copyright {
+			text-align: center;
+			margin-bottom: 1rem;
+		}
+		.footer-bottom-copyright p {
+			margin: 0;
 		}
 		.footer-bottom-links {
-			display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.5rem;
+			text-align: center;
 		}
-		.footer-bottom-links .separator { display: none; }
+		.footer-bottom-links .separator {
+			display: none;
+		}
 
 		/* ----- RESPONZIVNÍ STYLY ----- */
 		@media (max-width: 767px) {
-			.header-logo { left: 1.5rem; top: calc(1rem + 15px); }
-			.header-logo img { height: 60px; }
 			.hero-content h1 { font-size: 45px; white-space: normal; }
 			.hero-content .cta-text { font-size: 20px; }
 			.reviews-container { padding-left: 0; padding-right: 0; }
@@ -569,23 +817,29 @@
 		}
 		@media (min-width: 640px) {
 			.hero-content .buttons, .delivery-buttons {
-				flex-direction: row; justify-content: center; gap: 2.5rem;
+				flex-direction: row;
+				justify-content: center;
+				gap: 2.5rem;
 			}
-			.other-offers-grid { grid-template-columns: repeat(2, 1fr); }
+			.other-offers-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 			.other-offers-header .title { font-size: 3rem; }
 		}
 		@media (min-width: 768px) {
 			.container { padding-left: 3rem; padding-right: 3rem; }
 			.info-banner-container { padding-left: 0; padding-right: 0; }
-			.info-banner { flex-direction: row; padding: 1.25rem 2.5rem; }
+			.info-banner { flex-direction: row; padding: 1.25rem 2.5rem; gap: 2rem; }
+			.info-banner-item { gap: 1rem; }
 			.menu-section-header { text-align: left; }
 			.menu-section-header .title { font-size: 3rem; }
 			.menu-grid { grid-template-columns: repeat(2, 1fr); }
+			.reviews-container { padding-left: 0; padding-right: 0; }
 			.review-swiper-button-prev { left: -2.5rem; }
 			.review-swiper-button-next { right: -2.5rem; }
-			.footer-grid { grid-template-columns: repeat(3, 1fr); }
+			.section-title { font-size: 2.25rem; }
+			.footer-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+			.footer-column { justify-content: flex-start; gap: 1rem; }
 			.footer-bottom { flex-direction: row; }
-			.footer-bottom-copyright { text-align: left; }
+			.footer-bottom-copyright { text-align: left; margin-bottom: 0; }
 			.footer-bottom-links { flex-direction: row; gap: 1rem; }
 			.footer-bottom-links .separator { display: inline; }
 		}
@@ -593,8 +847,10 @@
 			.button { font-size: 1.125rem; padding: 1rem 2rem; }
 			.menu-grid { grid-template-columns: repeat(3, 1fr); }
 			.two-column-grid { grid-template-columns: repeat(2, 1fr); }
-			.other-offers-grid { grid-template-columns: repeat(4, 1fr); }
+			.delivery-content { order: -1; } /* Prohození sloupců v sekci rozvoz */
+			.other-offers-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
 			.other-offers-header .title { font-size: 3.75rem; }
+			.social-section-header .title { font-size: 2.5rem; }
 		}
 	</style>
 </head>
@@ -756,6 +1012,14 @@
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
 								<span>Zasypané sýrem, který vytváří zlatavou rozpečenou vrstvu.</span>
 							</div>
+							<div class="feature-item">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+								<span>Bohatá porce kvalitních surovin.</span>
+							</div>
+							<div class="feature-item">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+								<span>Vyladěné recepty, které dělají naši pizzu jedinečnou.</span>
+							</div>
 						</div>
 						<a href="#" class="button button-red" style="margin-top: 1rem;">
 							Vytvoř si vlastní pizzu
@@ -812,7 +1076,7 @@
 						<div class="delivery-image-wrapper">
 							<img src="images/pizzerie-san-marino-rozvoz-jidel-kladno-a-okoli.webp" loading="lazy" alt="Rozvozové auto Pizzerie San Marino pro rychlý dovoz pizzy a burgerů po Kladně.">
 						</div>
-						<div>
+						<div class="delivery-content">
 							<p class="font-cursive" style="font-size: 2.25rem; position:relative; top: -10px;">Rozvoz jídla</p>
 							<h2 class="section-title">Rozvoz jídla Kladno a okolí</h2>
 							<div class="section-text" style="display: flex; flex-direction: column; gap: 1rem;">
@@ -836,8 +1100,8 @@
 		<section class="section other-offers-section">
 			<div class="container">
 				<div class="other-offers-header">
-					<p class="font-cursive" style="font-size: 2.25rem; position:relative; top: -15px;">Co nabízíme mimo pizzy</p>
-					<h2 class="title">Další speciality</h2>
+					<p class="font-cursive" style="font-size: 2.25rem; position:relative; top: -15px;">Nejen Pizza</p>
+					<h2 class="title">Další speciality, které si zamiluješ</h2>
 				</div>
 				<div class="other-offers-grid">
 					<img src="images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp" loading="lazy" alt="Dvojitý burger se slaninou a hranolky.">
@@ -890,7 +1154,13 @@
 				<div class="footer-column">
 					<h3 class="footer-heading">Otevírací doba</h3>
 					<div class="opening-hours">
-						<div data-day="1" class="day-row"><span>Pondělí</span> <span>11:00 - 21:15</span></div>
+						<div data-day="1" class="day-row">
+							<span>Pondělí</span>
+							<div class="note">
+								<span>11:00 - 21:15</span>
+								<p class="details">Online/Tel. objednávky</p>
+							</div>
+						</div>
 						<div data-day="2" class="day-row"><span>Úterý</span> <span>11:00 - 21:15</span></div>
 						<div data-day="3" class="day-row"><span>Středa</span> <span>11:00 - 21:15</span></div>
 						<div data-day="4" class="day-row"><span>Čtvrtek</span> <span>11:00 - 21:15</span></div>
