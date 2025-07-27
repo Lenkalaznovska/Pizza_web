@@ -48,50 +48,50 @@
 	</noscript>
 	<script type="application/ld+json">
 	{
-	  "@context": "https://schema.org",
-	  "@type": "Restaurant",
-	  "name": "Pizzerie San Marino Kladno",
-	  "image": "images/pizzerie-san-marino-kladno-nabidka-jidla.webp",
-	  "@id": "https://www.pizzakladno.cz/",
-	  "url": "https://www.pizzakladno.cz/",
-	  "telephone": "+420604633373",
-	  "address": {
+	  "@context": "https://schema.org",
+	  "@type": "Restaurant",
+	  "name": "Pizzerie San Marino Kladno",
+	  "image": "images/pizzerie-san-marino-kladno-nabidka-jidla.webp",
+	  "@id": "https://www.pizzakladno.cz/",
+	  "url": "https://www.pizzakladno.cz/",
+	  "telephone": "+420604633373",
+	  "address": {
 		"@type": "PostalAddress",
 		"streetAddress": "Obránců míru 2721",
 		"addressLocality": "Kladno",
 		"postalCode": "27201",
 		"addressCountry": "CZ"
-	  },
-	  "servesCuisine": ["Pizza", "Burger", "Kuřecí speciality", "Saláty", "Těstoviny"],
-	  "priceRange": "$$",
-	  "aggregateRating": {
+	  },
+	  "servesCuisine": ["Pizza", "Burger", "Kuřecí speciality", "Saláty", "Těstoviny"],
+	  "priceRange": "$$",
+	  "aggregateRating": {
 		"@type": "AggregateRating",
 		"ratingValue": "4.5",
 		"ratingCount": "2380"
-	  },
-	  "openingHoursSpecification": [
+	  },
+	  "openingHoursSpecification": [
 		{
-		  "@type": "OpeningHoursSpecification",
-		  "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-		  "opens": "11:00",
-		  "closes": "21:15"
+		  "@type": "OpeningHoursSpecification",
+		  "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+		  "opens": "11:00",
+		  "closes": "21:15"
 		},
 		{
-		  "@type": "OpeningHoursSpecification",
-		  "dayOfWeek": "Monday",
-		  "opens": "11:00",
-		  "closes": "21:15",
-		  "description": "V pondělí si u nás objednáš jen online nebo po telefonu. Jídlo si pak můžeš vyzvednout u výdejního okénka nebo ti ho dovezeme až ke dveřím."
+		  "@type": "OpeningHoursSpecification",
+		  "dayOfWeek": "Monday",
+		  "opens": "11:00",
+		  "closes": "21:15",
+		  "description": "V pondělí si u nás objednáš jen online nebo po telefonu. Jídlo si pak můžeš vyzvednout u výdejního okénka nebo ti ho dovezeme až ke dveřím."
 		}
-	  ],
-	  "menu": "https://www.pizzakladno.cz/",
-	  "sameAs": [
+	  ],
+	  "menu": "https://www.pizzakladno.cz/",
+	  "sameAs": [
 		"https://www.facebook.com/profile.php?id=100095016576324",
 		"https://www.instagram.com/pizzakladno/",
 		"https://www.tiktok.com/@pizzakladno",
 		"https://www.foodora.cz/restaurant/i8wo/pizzerie-san-marino",
 		"https://www.firmy.cz/detail/293070-pizzerie-san-marino-kladno-krocehlavy.html"
-	  ]
+	  ]
 	}
 	</script>
 
@@ -108,7 +108,6 @@
 			--white: #FFFFFF;
 			--black: #000000;
 			--font-main: 'Montserrat', sans-serif;
-			/* Vráceno kurzivní písmo */
 			--font-cursive: 'Pacifico', cursive;
 		}
 
@@ -143,19 +142,26 @@
 		.section-white {
 			background-color: var(--white);
 		}
-		/* Vrácen styl pro kurzívu */
 		.font-cursive {
 			font-family: var(--font-cursive);
 		}
 
-		/* ----- ANIMACE (beze změny) ----- */
-		@keyframes lure-pulse {
-			0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-			70% { transform: scale(1.08); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
-			100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+		/* ----- ANIMACE (vráceno) ----- */
+		@keyframes pulse-scale {
+			0% { transform: scale(1); }
+			70% { transform: scale(1.08); }
+			100% { transform: scale(1); }
+		}
+		@keyframes pulse-glow {
+			0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+			70% { box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
+			100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 		}
 		.animate-lure-pulse {
-			animation: lure-pulse 1.8s infinite;
+			animation: pulse-scale 1.8s infinite;
+		}
+		.animate-glow {
+			animation: pulse-glow 1.8s infinite;
 		}
 		
 		/* ----- HLAVIČKA A HERO SLIDER ----- */
@@ -210,7 +216,6 @@
 			margin-bottom: 20px;
 			font-weight: 900;
 			text-transform: uppercase;
-			/* Zvýrazněný stín pro lepší kontrast */
 			text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
 			white-space: nowrap;
 		}
@@ -256,7 +261,7 @@
 			background-color: var(--main-red-hover);
 		}
 
-		/* ----- INFO BANNER (vrácen původní styl umístění) ----- */
+		/* ----- INFO BANNER ----- */
 		.info-banner-container {
 			position: relative;
 			z-index: 20;
@@ -301,7 +306,6 @@
 			font-size: 1.125rem;
 		}
 		.info-banner-item__text .subtitle {
-			/* Ztmaveno pro lepší kontrast */
 			color: #4a4a4a;
 			font-size: 1rem;
 		}
@@ -354,7 +358,6 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			/* Mírně výraznější obrázek na pozadí */
 			opacity: 0.2;
 			filter: grayscale(30%);
 		}
@@ -365,7 +368,6 @@
 			flex-direction: column;
 			height: 100%;
 		}
-		/* Přidán silný stín na veškerý text v kartě pro 100% čitelnost */
 		.menu-card .card-category,
 		.menu-card .card-link,
 		.menu-card .card-list,
@@ -422,7 +424,6 @@
 			background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
 			background-size: cover; background-position: center; background-attachment: fixed;
 		}
-		/* Přidán silný stín pro čitelnost na pozadí */
 		.bg-parchment p, .bg-parchment span, .bg-parchment .section-subtitle, .bg-parchment .section-title,
 		.section-green-bg p, .section-green-bg strong, .section-green-bg .section-title, .section-green-bg .font-cursive {
 			text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
@@ -437,7 +438,7 @@
 		.feature-item { display: flex; align-items: flex-start; gap: 0.75rem; }
 		.feature-item svg { height: 1.75rem; width: 1.75rem; color: var(--main-red); flex-shrink: 0; }
 		
-		/* ----- GALERIE (vráceno původní funkční stylování) ----- */
+		/* ----- GALERIE ----- */
 		.image-gallery-main {
 			position: relative; width: 100%; max-width: 28rem; aspect-ratio: 1 / 1;
 		}
@@ -463,7 +464,7 @@
 		.gallery-dot:hover { background-color: rgba(255, 255, 255, 0.2); }
 		.gallery-dot.active { background-color: var(--main-red); border-color: var(--main-red); }
 		
-		/* ----- SEKCE RECENZE (vrácen původní styl) ----- */
+		/* ----- SEKCE RECENZE (původní styl) ----- */
 		.reviews-container { position: relative; padding-left: 2.5rem; padding-right: 2.5rem; }
 		.swiper-container-reviews .swiper-slide {
 			aspect-ratio: 4 / 3;
@@ -494,29 +495,20 @@
 			display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 3rem;
 		}
 
-		/* ----- SEKCE DALŠÍ NABÍDKY (původní styl) ----- */
+		/* ----- SEKCE DALŠÍ NABÍDKY ----- */
 		.other-offers-section {
-			padding-top: 4rem; padding-bottom: 6rem; color: var(--white);
-			position: relative; overflow: hidden;
-			background-color: var(--black); /* Přidáno pozadí pro jistotu */
+			padding: 6rem 0;
+			color: var(--white);
+			background-color: var(--main-green); /* Změněno na zelené pozadí */
 		}
-		.other-offers-bg-text {
-			position: absolute; inset: 0; z-index: 0; display: flex;
-			flex-direction: column; justify-content: space-between;
-			align-items: center; opacity: 0.1; font-weight: 900;
-			color: var(--white); pointer-events: none;
-		}
-		.other-offers-bg-text span { font-size: 8rem; }
-		.other-offers-bg-text .top-text { margin-top: -2rem; margin-left: -3rem; transform: rotate(-12deg); }
-		.other-offers-bg-text .bottom-text { margin-bottom: -2rem; margin-right: 3rem; transform: rotate(12deg); }
-		.other-offers-header { text-align: center; position: relative; z-index: 10; }
+		.other-offers-header { text-align: center; }
 		.other-offers-header .title {
 			margin-top: 0.5rem; font-size: 2.25rem; font-weight: 900;
 			text-transform: uppercase; letter-spacing: 0.05em;
 		}
 		.other-offers-grid {
 			margin-top: 3rem; display: grid; grid-template-columns: 1fr;
-			gap: 1.5rem; position: relative; z-index: 10;
+			gap: 1.5rem;
 		}
 		.other-offers-grid img {
 			aspect-ratio: 1 / 1; width: 100%; object-fit: cover;
@@ -566,13 +558,14 @@
 		}
 		.footer-bottom-links .separator { display: none; }
 
-		/* ----- RESPONZIVNÍ STYLY (původní) ----- */
+		/* ----- RESPONZIVNÍ STYLY ----- */
 		@media (max-width: 767px) {
+			.header-logo { left: 1.5rem; top: calc(1rem + 15px); }
+			.header-logo img { height: 60px; }
 			.hero-content h1 { font-size: 45px; white-space: normal; }
 			.hero-content .cta-text { font-size: 20px; }
 			.reviews-container { padding-left: 0; padding-right: 0; }
-			.review-swiper-button-prev { left: -10px; }
-			.review-swiper-button-next { right: -10px; }
+			.review-swiper-button { display: none; }
 		}
 		@media (min-width: 640px) {
 			.hero-content .buttons, .delivery-buttons {
@@ -633,14 +626,14 @@
 				Dopřej si pořádnou dávku chuti a nech si ji přivést až ke dveřím! 🚀
 			</p>
 			<div class="buttons animate-lure-pulse">
-				<a href="tel:+420604633373" class="button button-red">
+				<a href="tel:+420604633373" class="button button-red animate-glow">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 						<path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
 					</svg>
 					<span>Zavolej a objednej</span>
 				</a>
-				<a href="https://www.pizzakladno.cz/" class="button button-red">
+				<a href="https://www.pizzakladno.cz/" class="button button-red animate-glow">
 					<span>Objednej online</span>
 				</a>
 			</div>
@@ -697,7 +690,7 @@
 								<li><span>Pizza Sýrová</span><span class="price">od 174 Kč</span></li>
 							</ul>
 							<div class="card-button-wrapper animate-lure-pulse">
-								<a href="#" class="button button-white-green">Objednej si pizzu</a>
+								<a href="#" class="button button-white-green animate-glow">Objednej si pizzu</a>
 							</div>
 						</div>
 					</div>
@@ -715,7 +708,7 @@
 								<li><span>BARBECUE Burger</span><span class="price">od 159 Kč</span></li>
 							</ul>
 							<div class="card-button-wrapper animate-lure-pulse">
-								<a href="#" class="button button-white-red">Objednej si burger</a>
+								<a href="#" class="button button-white-red animate-glow">Objednej si burger</a>
 							</div>
 						</div>
 					</div>
@@ -732,7 +725,7 @@
 								<li><span>Kuřecí stripsy</span><span class="price">od 129 Kč</span></li>
 							</ul>
 							<div class="card-button-wrapper animate-lure-pulse">
-								<a href="#" class="button button-white-dark">Objednej si kuřecí</a>
+								<a href="#" class="button button-white-dark animate-glow">Objednej si kuřecí</a>
 							</div>
 						</div>
 					</div>
@@ -792,7 +785,7 @@
 			<div class="container">
 				<div class="menu-section-header" style="text-align: center;">
 					<p class="font-cursive subtitle">Recenze</p>
-					<h2 class="title" style="font-size: 2rem;">Co o nás říkají zákazníci</h2>
+					<h2 class="title" style="font-size: 2rem;">Jak nás hodnotí zákazníci?</h2>
 				</div>
 				<div class="reviews-container">
 					<div class="swiper-container swiper-container-reviews">
@@ -827,10 +820,10 @@
 								<p>Ať už máš chuť na poctivou pizzu s křupavým těstem, nebo pořádný burger jako kráva – všechno ti dovezeme až ke dveřím.</p>
 							</div>
 							<div class="delivery-buttons animate-lure-pulse">
-								<a href="tel:+420604633373" class="button button-red">
+								<a href="tel:+420604633373" class="button button-red animate-glow">
 									<span>Zavolej a objednej</span>
 								</a>
-								<a href="https://www.pizzakladno.cz/" class="button button-red">
+								<a href="https://www.pizzakladno.cz/" class="button button-red animate-glow">
 									<span>Objednej online</span>
 								</a>
 							</div>
@@ -841,10 +834,6 @@
 		</section>
 
 		<section class="section other-offers-section">
-			<div class="other-offers-bg-text">
-				<span class="top-text">PIZZA SAN</span>
-				<span class="bottom-text">MARINO</span>
-			</div>
 			<div class="container">
 				<div class="other-offers-header">
 					<p class="font-cursive" style="font-size: 2.25rem; position:relative; top: -15px;">Co nabízíme mimo pizzy</p>
@@ -963,7 +952,7 @@
 			}
 		}
 
-		// ----- OBRÁZKOVÁ GALERIE (vráceno) -----
+		// ----- OBRÁZKOVÁ GALERIE -----
 		const galleryData = {
 			currentIndex: 0,
 			images: [
