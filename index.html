@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Pacifico&display=swap" rel="stylesheet">
-	<meta name="theme-color" content="#1a1a1a" />
+	<meta name="theme-color" content="#000000" />
 	<title>Pizzerie San Marino – Pizza jinak již od roku 1994</title>
 	<meta name="description" content="V Pizzerii San Marino najdeš originální pizzy, legendární burgery a další dobroty. Objednej si pohodlně online a my ti to dovezeme až ke dveřím." />
 	<meta name="keywords" content="pizzerie san marino kladno, pizza kladno rozvoz, burgr jako kráva kladno, wing it kladno, restaurace kladno" />
@@ -115,20 +115,18 @@
 	</script>
 
 	<style>
-		/* ----- ZÁKLADNÍ NASTAVENÍ A PROMĚNNÉ (UPRAVENO) ----- */
+		/* ----- ZÁKLADNÍ NASTAVENÍ A PROMĚNNÉ ----- */
 		:root {
 			--main-red: #E20B18;
 			--main-red-hover: #c00a15;
 			--main-green: #017D4D;
-			/* --- Sjednocené barvy --- */
 			--white: #FFFFFF;
 			--black: #000000;
-			/* --- Sjednocený font --- */
 			--font-main: 'Montserrat', sans-serif;
-			--font-cursive: 'Montserrat', sans-serif; /* Sjednoceno na Montserrat */
+			--font-cursive: 'Montserrat', sans-serif; 
 		}
 
-		/* ----- GLOBÁLNÍ STYLY (UPRAVENO) ----- */
+		/* ----- GLOBÁLNÍ STYLY ----- */
 		* {
 			margin: 0;
 			padding: 0;
@@ -136,8 +134,8 @@
 		}
 		html, body {
 			font-family: var(--font-main);
-			background: var(--white); /* Změněno z šedé na bílou */
-			color: var(--black); /* Změněno z šedé na černou */
+			background: var(--white);
+			color: var(--black);
 			overflow-x: hidden;
 		}
 		a {
@@ -159,9 +157,45 @@
 		.section-white {
 			background-color: var(--white);
 		}
-		.font-cursive {
-			font-family: var(--font-cursive); /* Bude použito Montserrat */
+		
+        /* ----- SJEDNOCENÍ NADPISŮ A PODNADPISŮ ----- */
+		.section-header-subtitle {
+			display: block;
+			text-align: center;
+			color: var(--main-red);
+			font-size: 1.75rem;
+			margin-bottom: 1rem;
+			font-weight: bold;
 		}
+        .section-title, .title {
+            font-size: 2.5rem;
+			font-weight: 900;
+			text-transform: uppercase;
+			letter-spacing: 0.025em;
+            text-align: center;
+            margin-top: 0;
+			margin-bottom: 2rem;
+        }
+        .bg-parchment .section-title,
+        .section-green-bg .section-title,
+        .other-offers-section .title {
+            color: var(--white);
+        }
+        .section-white .title,
+        .menu-section-header .title {
+            color: var(--black);
+        }
+        @media (min-width: 768px) {
+            .menu-section-header, .text-content-column {
+                text-align: left;
+            }
+            .menu-section-header .title, .text-content-column .section-title {
+                text-align: left;
+            }
+            .menu-section-header .section-header-subtitle, .text-content-column .section-header-subtitle {
+                text-align: left;
+            }
+        }
 
 		/* ----- ANIMACE ----- */
 		@keyframes lure-pulse {
@@ -204,7 +238,7 @@
 			width: 100%;
 			height: 100vh;
 			overflow: hidden;
-			background-color: var(--black); /* Změněno z tmavě šedé */
+			background-color: var(--black);
 		}
 		.hero-slider .slides {
 			display: flex;
@@ -282,7 +316,7 @@
 			background-color: var(--main-red-hover);
 		}
 
-		/* ----- INFO BANNER (pod sliderem) (UPRAVENO) ----- */
+		/* ----- INFO BANNER (pod sliderem) ----- */
 		.info-banner-container {
 			position: relative;
 			z-index: 20;
@@ -295,7 +329,7 @@
 		}
 		.info-banner {
 			background-color: var(--white);
-			color: var(--black); /* Zvýšen kontrast */
+			color: var(--black);
 			border-radius: 1rem;
 			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
 			padding: 1.5rem 1.5rem;
@@ -328,11 +362,11 @@
 		}
 		.info-banner-item__text .title {
 			font-weight: 700;
-			color: var(--black); /* Zvýšen kontrast */
+			color: var(--black);
 			font-size: 1.125rem;
 		}
 		.info-banner-item__text .subtitle {
-			color: var(--black); /* Zvýšen kontrast */
+			color: var(--black);
 			font-size: 1rem;
 		}
 		.info-banner-item__text .subtitle a {
@@ -341,24 +375,9 @@
 			font-weight: 600;
 		}
 
-		/* ----- SEKCE "NA CO MÁŠ CHUŤ?" (UPRAVENO) ----- */
+		/* ----- SEKCE "NA CO MÁŠ CHUŤ?" ----- */
 		.menu-section-header {
 			margin-bottom: 4rem;
-		}
-		.menu-section-header .subtitle {
-			color: var(--main-red);
-			font-size: 2.25rem;
-			margin-bottom: 0.5rem;
-			position: relative;
-			top: -15px;
-			font-weight: bold; /* Zvýraznění pro sjednocený font */
-		}
-		.menu-section-header .title {
-			color: var(--black); /* Zvýšen kontrast */
-			font-size: 2.25rem;
-			font-weight: 900;
-			text-transform: uppercase;
-			letter-spacing: 0.05em;
 		}
 		.menu-grid {
 			display: grid;
@@ -376,6 +395,7 @@
 			color: var(--white);
 			box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
 			transition: all 0.3s ease;
+            height: 100%; /* Sjednocení výšky karet */
 		}
 		.menu-card:hover {
 			transform: scale(1.05);
@@ -459,7 +479,7 @@
 		.button-white-green:hover { background-color: #e6f2ed; }
 		.button-white-red { background-color: var(--white); color: var(--main-red); }
 		.button-white-red:hover { background-color: #fdebee; }
-		.button-white-dark { background-color: var(--white); color: var(--black); } /* Změněno na černou */
+		.button-white-dark { background-color: var(--white); color: var(--black); }
 		.button-white-dark:hover { background-color: #f3f4f6; }
 
 		/* ----- SEKCE S BÍLÝM TEXTEM ----- */
@@ -487,13 +507,6 @@
 			grid-template-columns: 1fr;
 			gap: 4rem;
 			align-items: center;
-		}
-		.section-title {
-			margin-top: 0.5rem;
-			font-size: 2.25rem;
-			font-weight: 900;
-			text-transform: uppercase;
-			letter-spacing: 0.025em;
 		}
 		.section-subtitle {
 			margin-top: 1rem;
@@ -588,7 +601,7 @@
 			border-color: var(--main-red);
 		}
 
-		/* ----- SEKCE RECENZE (UPRAVENO) ----- */
+		/* ----- SEKCE RECENZE ----- */
 		.reviews-container {
 			position: relative;
 			padding-left: 2.5rem;
@@ -600,7 +613,7 @@
 		.swiper-container-reviews .swiper-slide {
 			aspect-ratio: 4 / 3;
 			background-color: var(--white);
-			border: 2px solid var(--black); /* Změněno z šedé na černou */
+			border: 2px solid var(--black);
 			border-radius: 0.75rem;
 			display: flex;
 			align-items: center;
@@ -693,13 +706,6 @@
 			position: relative;
 			z-index: 10;
 		}
-		.other-offers-header .title {
-			margin-top: 0.5rem;
-			font-size: 2.25rem;
-			font-weight: 900;
-			text-transform: uppercase;
-			letter-spacing: 0.05em;
-		}
 		.other-offers-grid {
 			margin-top: 3rem;
 			display: grid;
@@ -720,18 +726,10 @@
 			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
 		}
 
-		/* ----- SEKCE SOCIÁLNÍ SÍTĚ (UPRAVENO) ----- */
+		/* ----- SEKCE SOCIÁLNÍ SÍTĚ ----- */
 		.social-section-header {
 			text-align: center;
 			margin-bottom: 3rem;
-		}
-		.social-section-header .title {
-			font-size: 2rem;
-			color: var(--black); /* Zvýšen kontrast */
-			text-transform: uppercase;
-		}
-		.social-section-header .subtitle {
-			font-weight: bold; /* Zvýraznění pro sjednocený font */
 		}
 		.social-icons {
 			display: flex;
@@ -751,7 +749,6 @@
 			width: 2rem;
 			height: 2rem;
 		}
-		/* Úprava barvy pro TikTok ikonu */
 		.social-icons .tiktok-icon path {
 			fill: var(--black);
 		}
@@ -879,8 +876,6 @@
 				gap: 2.5rem;
 			}
 			.other-offers-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-			.other-offers-header .title { font-size: 3rem; }
-			.other-offers-bg-text span { font-size: 10rem; }
 		}
 
 		@media (min-width: 768px) { /* md */
@@ -888,14 +883,11 @@
 			.info-banner-container { padding-left: 0; padding-right: 0; }
 			.info-banner { flex-direction: row; padding: 1.25rem 2.5rem; gap: 2rem; }
 			.info-banner-item { gap: 1rem; }
-			.menu-section-header { text-align: left; }
-			.menu-section-header .title { font-size: 3rem; }
 			.menu-grid { grid-template-columns: repeat(2, 1fr); }
 			.menu-card.span-2 { grid-column: span 2 / span 2; }
 			.reviews-container { padding-left: 0; padding-right: 0; }
 			.review-swiper-button-prev { left: -2.5rem; }
 			.review-swiper-button-next { right: -2.5rem; }
-			.section-title { font-size: 2.25rem; }
 			.footer-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
 			.footer-column { justify-content: flex-start; gap: 1rem; }
 			.footer-bottom { flex-direction: row; }
@@ -911,9 +903,6 @@
 			.two-column-grid { grid-template-columns: repeat(2, 1fr); }
 			.delivery-content { order: -1; }
 			.other-offers-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-			.other-offers-header .title { font-size: 3.75rem; }
-			.other-offers-bg-text span { font-size: 16rem; }
-			.social-section-header .title { font-size: 2.5rem; }
 		}
 	</style>
 </head>
@@ -993,7 +982,7 @@
 		<section class="section section-white">
 			<div class="container">
 				<div class="menu-section-header">
-					<p class="font-cursive subtitle">Top výběr</p>
+					<p class="section-header-subtitle">Top výběr</p>
 					<h2 class="title">Naše nabídka nejobjednávanějších dobrot</h2>
 				</div>
 				<div class="menu-grid">
@@ -1006,9 +995,9 @@
 							<p class="card-subtitle">Nejoblíbenější kousky🍕</p>
 							<ul class="card-list">
 								<li><span>Pizza se šunkou</span><span class="price">od 169 Kč</span></li>
-								<li><span>Pizza se šunkou a salámem</span><span class="price">od 184 Kč</span></li>
-								<li><span>Pizza Havaj</span><span class="price">od 184 Kč</span></li>
 								<li><span>Pizza Sýrová</span><span class="price">od 174 Kč</span></li>
+								<li><span>Pizza Havaj</span><span class="price">od 184 Kč</span></li>
+								<li><span>Pizza sýrová quatro</span><span class="price">od 213 Kč</span></li>
 							</ul>
 							<div class="card-button-wrapper animate-lure-pulse">
 								<a href="#" class="button button-white-green animate-glow">Objednej si pizzu</a>
@@ -1023,8 +1012,8 @@
 							<a href="#" class="card-link">Prohlédni si všechny burgery &rarr;</a>
 							<p class="card-subtitle">Legendární burgery 🔥</p>
 							<ul class="card-list">
-								<li><span>BACON Burger</span><span class="price">od 159 Kč</span></li>
 								<li><span>CHEESE Burger</span><span class="price">od 149 Kč</span></li>
+								<li><span>BACON Burger</span><span class="price">od 159 Kč</span></li>
 								<li><span>JALAPEÑO Burger</span><span class="price">od 159 Kč</span></li>
 								<li><span>BARBECUE Burger</span><span class="price">od 159 Kč</span></li>
 							</ul>
@@ -1041,9 +1030,10 @@
 							<a href="#" class="card-link">Prozkoumej naše speciality &rarr;</a>
 							<p class="card-subtitle">Pro milovníky kuřecího 🍗</p>
 							<ul class="card-list">
+                                <li><span>Popkorn 200g</span><span class="price">od 0 Kč</span></li>
+								<li><span>Kuřecí stripsy</span><span class="price">od 129 Kč</span></li>
 								<li><span>Marinovaná křídla</span><span class="price">od 169 Kč</span></li>
 								<li><span>Obalovaná křídla</span><span class="price">od 169 Kč</span></li>
-								<li><span>Kuřecí stripsy</span><span class="price">od 129 Kč</span></li>
 							</ul>
 							<div class="card-button-wrapper animate-lure-pulse">
 								<a href="#" class="button button-white-dark animate-glow">Objednej si kuřecí</a>
@@ -1057,11 +1047,11 @@
 		<section class="section bg-parchment">
 			<div class="container">
 				<div class="two-column-grid">
-					<div>
-						<p class="font-cursive" style="font-size: 2.25rem; position:relative; top: -15px; font-weight: bold;">Naše pizza, náš originál</p>
+					<div class="text-content-column">
+						<p class="section-header-subtitle">Naše pizza, náš originál</p>
 						<h2 class="section-title">Proč naše pizza s tradicí již od roku 1994?</h2>
-						<p class="section-subtitle">Jsme TOP 4. Pizzerie v Kladně!🏅</p>
-						<p class="section-text">
+						<p class="section-subtitle" style="text-align: left;">Jsme TOP 4. Pizzerie v Kladně!🏅</p>
+						<p class="section-text" style="text-align: left;">
 							Tohle není žádná Itálie, to je naše tradice už od roku 1994! Chceš pizzu přesně podle svýho gusta? U nás si ji můžeš sestavit sám! Vyber si z našich čerstvých surovin a vytvoř si pizzu podle svých chutí – víc sýra, extra zelenina, pořádná dávka masa nebo prostě odeber to, co ti nevyhovuje! 🧀🥓🥬
 						</p>
 						<div class="feature-list">
@@ -1123,9 +1113,9 @@
 
 		<section class="section section-white">
 			<div class="container">
-				<div class="menu-section-header" style="text-align: center;">
-					<p class="font-cursive subtitle">Recenze</p>
-					<h2 class="title" style="font-size: 2rem;">Co o nás říkají zákazníci</h2>
+				<div class="social-section-header">
+					<p class="section-header-subtitle">Recenze</p>
+					<h2 class="title">Co o nás říkají zákazníci?</h2>
 				</div>
 				<div class="reviews-container">
 					<div class="swiper-viewport">
@@ -1155,10 +1145,10 @@
 						<div class="delivery-image-wrapper">
 							<img src="images/pizzerie-san-marino-rozvoz-jidel-kladno-a-okoli.webp" loading="lazy" alt="Rozvozové auto Pizzerie San Marino pro rychlý dovoz pizzy a burgerů po Kladně.">
 						</div>
-						<div class="delivery-content">
-							<p class="font-cursive" style="font-size: 2.25rem; position:relative; top: -10px; font-weight: bold;">Rozvoz jídla</p>
+						<div class="delivery-content text-content-column">
+							<p class="section-header-subtitle">Rozvoz jídla</p>
 							<h2 class="section-title">Rozvoz jídla Kladno a okolí</h2>
-							<div class="section-text" style="display: flex; flex-direction: column; gap: 1rem;">
+							<div class="section-text" style="text-align: left; display: flex; flex-direction: column; gap: 1rem;">
 								<p>Hlad? Nestíháš? Nebo si chceš prostě užít jídlo v pohodlí domova? Rozvážíme po celém Kladně i okolí. <strong>Rychle, spolehlivě a bez zbytečných příplatků.</strong></p>
 								<p>Ať už máš chuť na poctivou pizzu s křupavým těstem, nebo pořádný burger jako kráva – všechno ti dovezeme až ke dveřím.</p>
 								<p>U nás platíš jen za jídlo a samotný rozvoz. Bez skrytých poplatků, bez přirážek, bez překvapení.</p>
@@ -1190,8 +1180,8 @@
 			</div>
 			<div class="container">
 				<div class="other-offers-header">
-					<p class="font-cursive" style="font-size: 2.25rem; position:relative; top: -15px; font-weight: bold;">Co nabízíme mimo pizzy</p>
-					<h2 class="title">Další speciality</h2>
+					<p class="section-header-subtitle">Co nabízíme mimo pizzy</p>
+					<h2 class="title">Další speciality které si zamiluješ</h2>
 				</div>
 				<div class="other-offers-grid">
 					<img src="images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp" loading="lazy" alt="Dvojitý burger se slaninou a hranolky.">
@@ -1205,7 +1195,7 @@
 		<section class="section section-white">
 			<div class="container">
 				<div class="social-section-header">
-					<p class="font-cursive subtitle" style="color: var(--main-red); font-size: 2.25rem; position:relative; top: -15px;">Zůstaň v obraze</p>
+					<p class="section-header-subtitle">Zůstaň v obraze</p>
 					<h2 class="title">Sledujte Pizzerii San Marino na sociálních sítích</h2>
 					<div class="social-icons">
 						<a href="https://www.facebook.com/profile.php?id=100095016576324" target="_blank" aria-label="Přejít na Facebook Pizzerie San Marino">
@@ -1243,7 +1233,7 @@
 
 	<footer class="footer">
 		<div class="container">
-			<h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Kontakty a další důležité informace</h2>
+			<h2 class="section-title">Kontakty a další důležité informace</h2>
 			<div class="footer-grid">
 
 				<div class="footer-column">
