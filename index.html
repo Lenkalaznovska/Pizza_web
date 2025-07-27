@@ -129,6 +129,11 @@
 		.section-white { background-color: var(--white); }
 		.font-cursive { font-family: var(--font-cursive); }
 
+		h1,h2,h3,h4,h5,h6 { font-family: var(--font-main); font-weight: 900; text-transform: uppercase; }
+		h1 { font-size: clamp(2.5rem, 8vw, 4rem); }
+		h2.title { font-size: clamp(2rem, 6vw, 2.75rem); letter-spacing: 0.05em; }
+		h3.card-category { font-size: 1.75rem; }
+
 		@keyframes pulse-scale {
 			0% { transform: scale(1); } 70% { transform: scale(1.08); } 100% { transform: scale(1); }
 		}
@@ -141,10 +146,8 @@
 		.animate-glow { animation: pulse-glow 1.8s infinite; }
 		
 		.header-logo {
-			position: absolute;
-			z-index: 101;
-			left: 2.5rem;
-			top: calc(1.5rem + 15px); /* Posunuto */
+			position: absolute; z-index: 101; left: 2.5rem;
+			top: calc(1.5rem + 15px);
 		}
 		.header-logo img { height: 80px; width: auto; }
 		.hero-slider {
@@ -160,13 +163,13 @@
 			text-align: center; color: var(--white); width: 90%; z-index: 50;
 		}
 		.hero-content h1 {
-			font-size: clamp(2.5rem, 8vw, 4rem);
-			margin-bottom: 20px; font-weight: 900; text-transform: uppercase;
+			margin-bottom: 20px;
 			text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
 		}
 		.hero-content .cta-text {
 			font-size: clamp(1.1rem, 4vw, 1.5rem); font-weight: bold;
 			background: rgba(0, 0, 0, 0.6); padding: 15px 25px; border-radius: 10px;
+			display: inline-block;
 		}
 		.hero-content .buttons {
 			display: flex; flex-direction: column; align-items: center;
@@ -184,7 +187,7 @@
 
 		.info-banner-container {
 			position: relative; z-index: 20;
-			margin-top: calc(-135px + 15px); /* Posunuto */
+			margin-top: calc(-135px + 20px); /* Posunuto */
 			width: 100%; display: flex; justify-content: center; padding: 0 1rem;
 		}
 		.info-banner {
@@ -199,21 +202,19 @@
 		.info-banner-item__text .subtitle { color: var(--text-light-gray); font-size: 1rem; }
 		.info-banner-item__text .subtitle a { color: var(--main-red); text-decoration: underline; font-weight: 600; }
 
-		.menu-section-header { text-align: center; margin-bottom: 4rem; }
-		.menu-section-header .subtitle {
-			color: var(--main-red); font-size: 2rem; margin-bottom: 0;
+		.section-header { text-align: center; margin-bottom: 4rem; }
+		.section-header .subtitle {
+			color: var(--main-red); font-size: 2.25rem;
 		}
-		.menu-section-header .title {
-			color: var(--black); font-size: 2.5rem; font-weight: 900;
-			text-transform: uppercase; letter-spacing: 0.05em;
-		}
+		.section-header .title { margin-top: -15px; }
+
 		.menu-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
 		.menu-card {
 			position: relative; border-radius: 1.5rem; overflow: hidden;
 			padding: 2rem; display: flex; flex-direction: column; text-align: center;
 			color: var(--white); transition: transform 0.3s ease;
 		}
-		.menu-card:hover { transform: scale(1.05); }
+		.menu-card:hover { transform: translateY(-10px); }
 		.menu-card-bg-image {
 			position: absolute; inset: 0; width: 100%; height: 100%;
 			object-fit: cover; opacity: 0.15;
@@ -223,12 +224,9 @@
 			flex-direction: column; height: 100%;
 		}
 		.menu-card .card-category, .menu-card .card-link, .menu-card .card-list, .menu-card .card-subtitle {
-			text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
+			text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 		}
-		.menu-card .card-category {
-			font-size: 1.75rem; font-weight: 900; text-transform: uppercase;
-			margin-bottom: 0.75rem; min-height: 56px; display: flex; align-items: center; justify-content: center;
-		}
+		.menu-card .card-category { margin-bottom: 0.75rem; min-height: 56px; }
 		.menu-card .card-link { font-weight: 600; margin-bottom: 1rem; min-height: 24px; }
 		.menu-card .card-link:hover { text-decoration: underline; }
 		.menu-card .card-subtitle {
@@ -256,7 +254,7 @@
 			text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 		}
 		.two-column-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
-		.section-title { font-size: 2.25rem; font-weight: 900; text-transform: uppercase; }
+		.section-title { font-weight: 900; text-transform: uppercase; }
 		.section-subtitle { margin-top: 1rem; font-size: 1.25rem; font-weight: 600; }
 		.section-text { margin-top: 1.5rem; line-height: 1.625; }
 		.feature-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
@@ -280,9 +278,12 @@
 		}
 		.gallery-dot.active { background-color: var(--main-red); border-color: var(--main-red); }
 		
-		.reviews-section .container { position: relative; }
-		.swiper-container-reviews { max-width: 100%; }
-		.reviews-container { max-width: 1152px; margin: 0 auto; overflow: hidden; position: relative; }
+		.reviews-section { position: relative; }
+		.reviews-container {
+			max-width: 1152px; margin-left: auto; margin-right: auto;
+			position: relative;
+		}
+		.swiper-container-reviews { overflow: hidden; }
 		.swiper-container-reviews .swiper-slide {
 			background-color: var(--white); border: 2px solid #D1D5DB; border-radius: 0.75rem;
 			display: flex; align-items: center; justify-content: center;
@@ -294,8 +295,8 @@
 			cursor: pointer; background-color: var(--main-red); border-radius: 9999px;
 			padding: 0.75rem;
 		}
-		.review-swiper-button-prev { left: -1rem; }
-		.review-swiper-button-next { right: -1rem; }
+		.review-swiper-button-prev { left: 0; }
+		.review-swiper-button-next { right: 0; }
 		.review-swiper-button svg { color: var(--white); width: 1.5rem; height: 1.5rem; }
 
 		.delivery-image-wrapper img {
@@ -308,9 +309,7 @@
 			background-color: var(--main-green);
 		}
 		.other-offers-header { text-align: center; }
-		.other-offers-header .title {
-			font-size: 2.25rem; font-weight: 900; text-transform: uppercase;
-		}
+		.other-offers-header .title { font-size: 2.25rem; }
 		.other-offers-grid { margin-top: 3rem; display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
 		.other-offers-grid img {
 			aspect-ratio: 1 / 1; width: 100%; object-fit: cover; border-radius: 0.5rem;
@@ -319,7 +318,7 @@
 		.other-offers-grid img:hover { transform: scale(1.05); }
 
 		.social-section-header { text-align: center; margin-bottom: 3rem; }
-		.social-section-header .title { font-family: var(--font-main); font-size: 2rem; }
+		.social-section-header .title { font-family: var(--font-main); font-size: 2.5rem; }
 		.social-icons {
 			display: flex; justify-content: center; gap: 2.5rem; margin: 2rem 0 3rem;
 		}
@@ -370,7 +369,6 @@
 		@media (min-width: 768px) {
 			.container { padding: 0 2rem; }
 			.info-banner { flex-direction: row; padding: 1.25rem 2.5rem; }
-			.menu-section-header { text-align: center; }
 			.menu-grid { grid-template-columns: repeat(2, 1fr); }
 			.footer-grid { grid-template-columns: repeat(3, 1fr); }
 			.footer-bottom { flex-direction: row; }
@@ -463,7 +461,7 @@
 
 		<section class="section section-white">
 			<div class="container">
-				<div class="menu-section-header">
+				<div class="section-header">
 					<p class="font-cursive subtitle">Top výběr</p>
 					<h2 class="title">Naše nabídka nejobjednávanějších dobrot</h2>
 				</div>
@@ -584,9 +582,9 @@
 
 		<section class="section section-white reviews-section">
 			<div class="container">
-				<div class="menu-section-header">
+				<div class="section-header">
 					<p class="font-cursive subtitle">Recenze</p>
-					<h2 class="title" style="font-size: 2rem;">Jak nás hodnotí zákazníci?</h2>
+					<h2 class="title" style="font-size: 2.5rem;">Jak nás hodnotíš ty?</h2>
 				</div>
 				<div class="reviews-container">
 					<div class="swiper-container swiper-container-reviews">
@@ -615,10 +613,10 @@
 						</div>
 						<div class="delivery-content">
 							<p class="font-cursive" style="font-size: 2.25rem; position:relative; top: -10px;">Rozvoz jídla</p>
-							<h2 class="section-title">Rozvoz jídla Kladno a okolí</h2>
+							<h2 class="section-title">Rozvoz jídla po Kladně a okolí</h2>
 							<div class="section-text" style="display: flex; flex-direction: column; gap: 1rem;">
-								<p>Hlad? Nestíháš? Nebo si chceš prostě užít jídlo v pohodlí domova? Rozvážíme po celém Kladně i okolí. <strong>Rychle, spolehlivě a bez zbytečných příplatků.</strong></p>
-								<p>Ať už máš chuť na poctivou pizzu s křupavým těstem, nebo pořádný burger jako kráva – všechno ti dovezeme až ke dveřím.</p>
+								<p>Máš hlad a nechce se ti z domu? Nech to na nás! Ať už máš chuť na naši legendární pizzu nebo šťavnatý burger, všechno ti dovezeme rychle a spolehlivě až ke dveřím.</p>
+								<p><strong>Rychle, spolehlivě a bez zbytečných příplatků.</strong></p>
 							</div>
 							<div class="delivery-buttons animate-lure-pulse">
 								<a href="tel:+420604633373" class="button button-red animate-glow">
@@ -651,9 +649,9 @@
 
 		<section class="section section-white">
 			<div class="container">
-				<div class="social-section-header">
+				<div class="section-header">
 					<p class="font-cursive" style="color: var(--main-red); font-size: 2.25rem; position:relative; top: -15px;">Zůstaň v obraze</p>
-					<h2 class="title" style="color: #111827; text-transform: uppercase; font-size: 2rem;">Sledujte nás na sociálních sítích</h2>
+					<h2 class="title" style="color: #111827; font-size: 2.5rem;">Sleduj nás na sociálních sítích</h2>
 					<div class="social-icons">
 						<a href="https://www.facebook.com/profile.php?id=100095016576324" target="_blank" aria-label="Přejít na Facebook Pizzerie San Marino">
 							<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M22.675 0h-21.35C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.732 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z" fill="#1877F2"/></svg>
@@ -675,7 +673,7 @@
 
 	<footer class="footer">
 		<div class="container">
-			<h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Kontakty a další důležité informace</h2>
+			<h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Máš dotaz? Zavolej nám!</h2>
 			<div class="footer-grid">
 
 				<div class="footer-column">
