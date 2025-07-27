@@ -67,50 +67,50 @@
 	</noscript>
 	<script type="application/ld+json">
 	{
-	  "@context": "https://schema.org",
-	  "@type": "Restaurant",
-	  "name": "Pizzerie San Marino Kladno",
-	  "image": "images/pizzerie-san-marino-kladno-nabidka-jidla.webp",
-	  "@id": "https://www.pizzakladno.cz/",
-	  "url": "https://www.pizzakladno.cz/",
-	  "telephone": "+420604633373",
-	  "address": {
+	  "@context": "https://schema.org",
+	  "@type": "Restaurant",
+	  "name": "Pizzerie San Marino Kladno",
+	  "image": "images/pizzerie-san-marino-kladno-nabidka-jidla.webp",
+	  "@id": "https://www.pizzakladno.cz/",
+	  "url": "https://www.pizzakladno.cz/",
+	  "telephone": "+420604633373",
+	  "address": {
 		"@type": "PostalAddress",
 		"streetAddress": "Obránců míru 2721",
 		"addressLocality": "Kladno",
 		"postalCode": "27201",
 		"addressCountry": "CZ"
-	  },
-	  "servesCuisine": ["Pizza", "Burger", "Kuřecí speciality", "Saláty", "Těstoviny"],
-	  "priceRange": "$$",
-	  "aggregateRating": {
+	  },
+	  "servesCuisine": ["Pizza", "Burger", "Kuřecí speciality", "Saláty", "Těstoviny"],
+	  "priceRange": "$$",
+	  "aggregateRating": {
 		"@type": "AggregateRating",
 		"ratingValue": "4.5",
 		"ratingCount": "2380"
-	  },
-	  "openingHoursSpecification": [
+	  },
+	  "openingHoursSpecification": [
 		{
-		  "@type": "OpeningHoursSpecification",
-		  "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-		  "opens": "11:00",
-		  "closes": "21:15"
+		  "@type": "OpeningHoursSpecification",
+		  "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+		  "opens": "11:00",
+		  "closes": "21:15"
 		},
 		{
-		  "@type": "OpeningHoursSpecification",
-		  "dayOfWeek": "Monday",
-		  "opens": "11:00",
-		  "closes": "21:15",
-		  "description": "V pondělí si u nás objednáš jen online nebo po telefonu. Jídlo si pak můžeš vyzvednout u výdejního okénka nebo ti ho dovezeme až ke dveřím."
+		  "@type": "OpeningHoursSpecification",
+		  "dayOfWeek": "Monday",
+		  "opens": "11:00",
+		  "closes": "21:15",
+		  "description": "V pondělí si u nás objednáš jen online nebo po telefonu. Jídlo si pak můžeš vyzvednout u výdejního okénka nebo ti ho dovezeme až ke dveřím."
 		}
-	  ],
-	  "menu": "https://www.pizzakladno.cz/",
-	  "sameAs": [
+	  ],
+	  "menu": "https://www.pizzakladno.cz/",
+	  "sameAs": [
 		"https://www.facebook.com/profile.php?id=100095016576324",
 		"https://www.instagram.com/pizzakladno/",
 		"https://www.tiktok.com/@pizzakladno",
 		"https://www.foodora.cz/restaurant/i8wo/pizzerie-san-marino",
 		"https://www.firmy.cz/detail/293070-pizzerie-san-marino-kladno-krocehlavy.html"
-	  ]
+	  ]
 	}
 	</script>
 
@@ -229,7 +229,7 @@
 			position: absolute;
 			z-index: 101;
 			left: 2.5rem;
-			top: calc(1.5rem + 15px); /* ZMĚNA: Posunuto o 15px dolů */
+			top: calc(1.5rem + 15px);
 		}
 		.header-logo img {
 			height: 80px;
@@ -336,13 +336,13 @@
 			color: var(--black);
 			border-radius: 1rem;
 			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-			padding: 1rem 1.5rem; /* ZMĚNA: Zmenšen vertikální padding */
+			padding: 1rem 1.5rem;
 			display: flex;
 			flex-direction: row;
             flex-wrap: wrap;
 			align-items: center;
-			justify-content: center; /* ZMĚNA: Vycentrování položek */
-			gap: 2.5rem; /* ZMĚNA: Větší mezera mezi položkami */
+			justify-content: center;
+			gap: 2.5rem;
 			max-width: 1152px;
 			transition: box-shadow 0.5s ease-in-out;
 		}
@@ -351,25 +351,24 @@
 		}
 		.info-banner-item {
 			display: flex;
-			align-items: center; /* ZMĚNA: Lepší vertikální zarovnání */
+			align-items: center;
 			gap: 0.75rem;
-            /* ZMĚNA: Odebrán flex-grow a justify-content, aby ikona a text držely u sebe */
 		}
 		.info-banner-item svg {
-			height: 2rem; /* ZMĚNA: Mírné zmenšení */
-			width: 2rem; /* ZMĚNA: Mírné zmenšení */
+			height: 2rem;
+			width: 2rem;
 			color: var(--main-red);
             flex-shrink: 0;
 		}
 		.info-banner-item__text {
-			display: flex;
-			flex-direction: column;
+			/* OPRAVA: Odebrán display: flex pro zjednodušení a zajištění správného obtékání */
 			text-align: left;
 		}
 		.info-banner-item__text .title {
 			font-weight: 700;
 			color: var(--black);
 			font-size: 1.125rem;
+			display: block; /* OPRAVA: Zajišťuje, že nadpis je vždy na samostatném řádku */
 		}
 		.info-banner-item__text .subtitle {
 			color: var(--black);
@@ -393,7 +392,7 @@
 		}
         @media (min-width: 768px) {
             .menu-grid {
-                grid-auto-rows: 1fr; /* Sjednotí výšku řádků v gridu */
+                grid-auto-rows: 1fr;
             }
         }
 		.menu-card {
@@ -435,7 +434,7 @@
 			text-transform: uppercase;
 			text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 			margin-bottom: 0.75rem;
-			min-height: 90px; /* ZMĚNA: Sjednocení výšky pro zarovnání obsahu pod ním */
+			min-height: 100px; /* OPRAVA: Zvětšeno pro zaručené sjednocení výšky */
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -464,7 +463,7 @@
 			align-items: center;
 			justify-content: center;
 			gap: 0.5rem;
-			min-height: 52px;
+			min-height: 60px; /* OPRAVA: Zvětšeno pro zaručené sjednocení výšky */
 		}
 		.menu-card .card-list {
 			list-style: none;
@@ -475,7 +474,7 @@
 			display: flex;
 			flex-direction: column;
 			gap: 0.75rem;
-            flex-grow: 1;
+            /* OPRAVA: Odebrán flex-grow, spoléháme na margin-top: auto u tlačítka */
 		}
 		.menu-card .card-list li {
 			display: flex;
@@ -485,7 +484,7 @@
 			font-weight: 600;
 		}
 		.menu-card .card-button-wrapper {
-			margin-top: auto;
+			margin-top: auto; /* Toto pravidlo tlačí tlačítko na spodek karty */
 			padding-top: 2rem;
 		}
 		.button-white-green { background-color: var(--white); color: var(--main-green); }
@@ -1042,7 +1041,7 @@
 							<a href="#" class="card-link">Prozkoumej naše speciality &rarr;</a>
 							<p class="card-subtitle">Pro milovníky kuřecího 🍗</p>
 							<ul class="card-list">
-                                <li><span>Popkorn 200g</span><span class="price">od 0 Kč</span></li>
+                                <li><span>Popkorn 200g</span><span class="price">od 0 Kč</span></li>
 								<li><span>Kuřecí stripsy</span><span class="price">od 129 Kč</span></li>
 								<li><span>Marinovaná křídla</span><span class="price">od 169 Kč</span></li>
 								<li><span>Obalovaná křídla</span><span class="price">od 169 Kč</span></li>
