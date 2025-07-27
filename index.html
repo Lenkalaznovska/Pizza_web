@@ -96,7 +96,6 @@
 	</script>
 
 	<style>
-		/* ----- ZÁKLADNÍ NASTAVENÍ A PROMĚNNÉ ----- */
 		:root {
 			--main-red: #E20B18;
 			--main-red-hover: #c00a15;
@@ -110,23 +109,14 @@
 			--font-main: 'Montserrat', sans-serif;
 			--font-cursive: 'Pacifico', cursive;
 		}
-
-		/* ----- GLOBÁLNÍ STYLY ----- */
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
+		* { margin: 0; padding: 0; box-sizing: border-box; }
 		html, body {
 			font-family: var(--font-main);
 			background: var(--background-gray);
 			color: var(--text-gray);
 			overflow-x: hidden;
 		}
-		a {
-			color: inherit;
-			text-decoration: none;
-		}
+		a { color: inherit; text-decoration: none; }
 		.container {
 			width: 100%;
 			max-width: 1280px;
@@ -135,709 +125,254 @@
 			padding-left: 1.5rem;
 			padding-right: 1.5rem;
 		}
-		.section {
-			padding-top: 6rem;
-			padding-bottom: 6rem;
-		}
-		.section-white {
-			background-color: var(--white);
-		}
-		.font-cursive {
-			font-family: var(--font-cursive);
-		}
+		.section { padding-top: 6rem; padding-bottom: 6rem; }
+		.section-white { background-color: var(--white); }
+		.font-cursive { font-family: var(--font-cursive); }
 
-		/* ----- ANIMACE ----- */
-		@keyframes lure-pulse {
-			0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-			70% { transform: scale(1.08); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
-			100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-		}
 		@keyframes pulse-scale {
-			0% { transform: scale(1); }
-			70% { transform: scale(1.08); }
-			100% { transform: scale(1); }
+			0% { transform: scale(1); } 70% { transform: scale(1.08); } 100% { transform: scale(1); }
 		}
 		@keyframes pulse-glow {
 			0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
 			70% { box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
 			100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 		}
-		.animate-lure-pulse {
-			animation: pulse-scale 1.8s infinite;
-		}
-		.animate-glow {
-			animation: pulse-glow 1.8s infinite;
-		}
+		.animate-lure-pulse { animation: pulse-scale 1.8s infinite; }
+		.animate-glow { animation: pulse-glow 1.8s infinite; }
 		
-		/* ----- HLAVIČKA A HERO SLIDER ----- */
 		.header-logo {
 			position: absolute;
 			z-index: 101;
 			left: 2.5rem;
 			top: calc(1.5rem + 15px); /* Posunuto */
 		}
-		.header-logo img {
-			height: 80px;
-			width: auto;
-		}
+		.header-logo img { height: 80px; width: auto; }
 		.hero-slider {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100vh;
-			overflow: hidden;
-			background-color: var(--dark-gray);
+			position: absolute; top: 0; left: 0; width: 100%; height: 100vh;
+			overflow: hidden; background-color: var(--dark-gray);
 		}
-		.hero-slider .slides {
-			display: flex;
-			transition: transform 1s ease;
-			height: 100%;
-		}
-		.hero-slider .slide {
-			min-width: 100%;
-			height: 100%;
-		}
-		.hero-slider .slide img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			display: block;
-		}
+		.hero-slider .slides { display: flex; transition: transform 1s ease; height: 100%; }
+		.hero-slider .slide { min-width: 100%; height: 100%; }
+		.hero-slider .slide img { width: 100%; height: 100%; object-fit: cover; }
 		.hero-content {
-			position: absolute;
-			top: 50%;
-			left: 50%;
+			position: absolute; top: 50%; left: 50%;
 			transform: translate(-50%, -50%);
-			text-align: center;
-			color: var(--white);
-			width: 90%;
-			z-index: 50;
+			text-align: center; color: var(--white); width: 90%; z-index: 50;
 		}
 		.hero-content h1 {
-			font-family: var(--font-main);
-			font-size: 65px;
-			margin-bottom: 20px;
-			font-weight: 900;
-			text-transform: uppercase;
-			text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
-			white-space: nowrap;
+			font-size: clamp(2.5rem, 8vw, 4rem);
+			margin-bottom: 20px; font-weight: 900; text-transform: uppercase;
+			text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
 		}
 		.hero-content .cta-text {
-			font-size: 24px;
-			font-weight: bold;
-			background: rgba(0, 0, 0, 0.6);
-			padding: 15px 25px;
-			border-radius: 10px;
-			display: inline-block;
+			font-size: clamp(1.1rem, 4vw, 1.5rem); font-weight: bold;
+			background: rgba(0, 0, 0, 0.6); padding: 15px 25px; border-radius: 10px;
 		}
 		.hero-content .buttons {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 1rem;
-			margin-top: 3rem;
+			display: flex; flex-direction: column; align-items: center;
+			gap: 1rem; margin-top: 3rem;
 		}
 		.button {
-			font-family: var(--font-main);
-			font-weight: 700;
-			font-size: 1rem;
-			border-radius: 9999px;
-			padding: 0.75rem 1.5rem;
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			gap: 0.75rem;
-			text-decoration: none;
-			transition: all 0.3s ease;
-			border: none;
-			cursor: pointer;
+			font-weight: 700; font-size: 1rem; border-radius: 9999px;
+			padding: 0.75rem 1.5rem; display: inline-flex; align-items: center;
+			justify-content: center; gap: 0.75rem; transition: all 0.3s ease;
+			border: none; cursor: pointer;
 		}
-		.button svg {
-			width: 1.5rem;
-			height: 1.5rem;
-		}
-		.button-red {
-			background-color: var(--main-red);
-			color: var(--white);
-		}
-		.button-red:hover {
-			background-color: var(--main-red-hover);
-		}
+		.button svg { width: 1.5rem; height: 1.5rem; }
+		.button-red { background-color: var(--main-red); color: var(--white); }
+		.button-red:hover { background-color: var(--main-red-hover); }
 
-		/* ----- INFO BANNER (pod sliderem) ----- */
 		.info-banner-container {
-			position: relative;
-			z-index: 20;
-			margin-top: -110px; /* Posunuto níže o 25px */
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			padding-left: 1rem;
-			padding-right: 1rem;
+			position: relative; z-index: 20;
+			margin-top: calc(-135px + 15px); /* Posunuto */
+			width: 100%; display: flex; justify-content: center; padding: 0 1rem;
 		}
 		.info-banner {
-			background-color: var(--white);
-			color: var(--text-gray);
-			border-radius: 1rem;
+			background-color: var(--white); border-radius: 1rem;
 			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-			padding: 1.5rem 1.5rem;
-			display: flex;
-			flex-direction: column;
-			flex-wrap: wrap;
-			align-items: center;
-			justify-content: center;
-			gap: 2rem;
-			max-width: 1152px;
-			transition: box-shadow 0.5s ease-in-out;
+			padding: 1.5rem; display: flex; flex-direction: column;
+			align-items: center; justify-content: center; gap: 2rem; max-width: 1152px;
 		}
-		.info-banner:hover {
-			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-		}
-		.info-banner-item {
-			display: flex;
-			align-items: center;
-			gap: 1rem;
-		}
-		.info-banner-item svg {
-			height: 3rem;
-			width: 3rem;
-			color: var(--main-red);
-		}
-		.info-banner-item__text {
-			display: flex;
-			flex-direction: column;
-			text-align: left;
-		}
-		.info-banner-item__text .title {
-			font-weight: 700;
-			color: var(--text-gray);
-			font-size: 1.125rem;
-		}
-		.info-banner-item__text .subtitle {
-			color: var(--text-light-gray);
-			font-size: 1rem;
-		}
-		.info-banner-item__text .subtitle a {
-			color: var(--main-red);
-			text-decoration: underline;
-			font-weight: 600;
-		}
+		.info-banner-item { display: flex; align-items: center; gap: 1rem; }
+		.info-banner-item svg { height: 3rem; width: 3rem; color: var(--main-red); }
+		.info-banner-item__text .title { font-weight: 700; font-size: 1.125rem; }
+		.info-banner-item__text .subtitle { color: var(--text-light-gray); font-size: 1rem; }
+		.info-banner-item__text .subtitle a { color: var(--main-red); text-decoration: underline; font-weight: 600; }
 
-		/* ----- SEKCE "NA CO MÁŠ CHUŤ?" ----- */
-		.menu-section-header {
-			margin-bottom: 4rem;
-		}
+		.menu-section-header { text-align: center; margin-bottom: 4rem; }
 		.menu-section-header .subtitle {
-			color: var(--main-red);
-			font-size: 2.25rem;
-			margin-bottom: 0.5rem;
-			position: relative;
-			top: -15px;
+			color: var(--main-red); font-size: 2rem; margin-bottom: 0;
 		}
 		.menu-section-header .title {
-			color: #111827;
-			font-size: 2.25rem;
-			font-weight: 900;
-			text-transform: uppercase;
-			letter-spacing: 0.05em;
+			color: var(--black); font-size: 2.5rem; font-weight: 900;
+			text-transform: uppercase; letter-spacing: 0.05em;
 		}
-		.menu-grid {
-			display: grid;
-			grid-template-columns: 1fr;
-			gap: 2rem;
-		}
+		.menu-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
 		.menu-card {
-			position: relative;
-			border-radius: 1.5rem;
-			overflow: hidden;
-			padding: 2rem;
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-			color: var(--white);
-			box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-			transition: all 0.3s ease;
+			position: relative; border-radius: 1.5rem; overflow: hidden;
+			padding: 2rem; display: flex; flex-direction: column; text-align: center;
+			color: var(--white); transition: transform 0.3s ease;
 		}
-		.menu-card:hover {
-			transform: scale(1.05);
-			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-		}
+		.menu-card:hover { transform: scale(1.05); }
 		.menu-card-bg-image {
-			position: absolute;
-			inset: 0;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			opacity: 0.15;
+			position: absolute; inset: 0; width: 100%; height: 100%;
+			object-fit: cover; opacity: 0.15;
 		}
 		.menu-card-content {
-			position: relative;
-			z-index: 10;
-			display: flex;
-			flex-direction: column;
-			height: 100%;
+			position: relative; z-index: 10; display: flex;
+			flex-direction: column; height: 100%;
+		}
+		.menu-card .card-category, .menu-card .card-link, .menu-card .card-list, .menu-card .card-subtitle {
+			text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
 		}
 		.menu-card .card-category {
-			font-family: var(--font-main);
-			font-size: 1.75rem;
-			font-weight: 900;
-			text-transform: uppercase;
-			text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-			margin-bottom: 0.75rem;
-			min-height: 56px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+			font-size: 1.75rem; font-weight: 900; text-transform: uppercase;
+			margin-bottom: 0.75rem; min-height: 56px; display: flex; align-items: center; justify-content: center;
 		}
-		.menu-card .card-link,
-		.menu-card .card-list {
-			text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
-		}
-		.menu-card .card-link {
-			font-weight: 600;
-			text-decoration: none;
-			margin-bottom: 1rem;
-			transition: transform 0.3s ease;
-			min-height: 24px;
-		}
-		.menu-card .card-link:hover {
-			text-decoration: underline;
-		}
+		.menu-card .card-link { font-weight: 600; margin-bottom: 1rem; min-height: 24px; }
+		.menu-card .card-link:hover { text-decoration: underline; }
 		.menu-card .card-subtitle {
-			font-size: 1.25rem;
-			font-weight: 700;
-			margin-bottom: 1rem;
-			padding-top: 1rem;
-			text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 0.5rem;
-			min-height: 52px;
+			font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; padding-top: 1rem;
+			display: flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 52px;
 		}
 		.menu-card .card-list {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-			text-align: left;
-			font-size: 1rem;
-			display: flex;
-			flex-direction: column;
-			gap: 0.75rem;
+			list-style: none; padding: 0; margin: 0; text-align: left;
+			font-size: 1rem; display: flex; flex-direction: column; gap: 0.75rem;
 		}
-		.menu-card .card-list li {
-			display: flex;
-			justify-content: space-between;
-		}
-		.menu-card .card-list .price {
-			font-weight: 600;
-		}
-		.menu-card .card-button-wrapper {
-			margin-top: auto;
-			padding-top: 2rem;
-		}
+		.menu-card .card-list li { display: flex; justify-content: space-between; }
+		.menu-card .card-list .price { font-weight: 600; }
+		.menu-card .card-button-wrapper { margin-top: auto; padding-top: 2rem; }
 		.button-white-green { background-color: var(--white); color: var(--main-green); }
-		.button-white-green:hover { background-color: #e6f2ed; }
 		.button-white-red { background-color: var(--white); color: var(--main-red); }
-		.button-white-red:hover { background-color: #fdebee; }
 		.button-white-dark { background-color: var(--white); color: #374151; }
-		.button-white-dark:hover { background-color: #f3f4f6; }
 		
-		/* ----- SEKCE S BÍLÝM TEXTEM ----- */
-		.section-green-bg,
+		.bg-parchment, .section-green-bg { color: var(--white); }
+		.section-green-bg { background-color: var(--main-green); padding: 2rem; border-radius: 1.5rem; }
 		.bg-parchment {
-			color: var(--white);
+			background: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp') center/cover no-repeat;
 		}
-		.section-green-bg {
-			background-color: var(--main-green);
-			padding: 2rem;
-			border-radius: 1.5rem;
+		.bg-parchment p, .bg-parchment span, .bg-parchment .section-subtitle, .bg-parchment h2,
+		.section-green-bg p, .section-green-bg strong, .section-green-bg h2 {
+			text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 		}
-		.bg-parchment {
-			background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
-			background-size: cover;
-			background-position: center center;
-			background-repeat: no-repeat;
-		}
-		.bg-parchment p, .bg-parchment span, .bg-parchment .section-subtitle,
-		.section-green-bg p, .section-green-bg strong {
-			text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
-		}
-		.two-column-grid {
-			display: grid;
-			grid-template-columns: 1fr;
-			gap: 4rem;
-			align-items: center;
-		}
-		.section-title {
-			margin-top: 0.5rem;
-			font-size: 2.25rem;
-			font-weight: 900;
-			text-transform: uppercase;
-			letter-spacing: 0.025em;
-		}
-		.section-subtitle {
-			margin-top: 1rem;
-			font-size: 1.25rem;
-			font-weight: 600;
-		}
-		.section-text {
-			margin-top: 1.5rem;
-			line-height: 1.625;
-		}
-		.feature-list {
-			margin-top: 2rem;
-			display: flex;
-			flex-direction: column;
-			gap: 1rem;
-		}
-		.feature-item {
-			display: flex;
-			align-items: flex-start;
-			gap: 0.75rem;
-		}
-		.feature-item svg {
-			height: 1.75rem;
-			width: 1.75rem;
-			color: var(--main-red);
-			flex-shrink: 0;
-		}
-		.section-button {
-			margin-top: 2.5rem;
-			display: inline-block;
-		}
-		.image-gallery {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-		}
+		.two-column-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
+		.section-title { font-size: 2.25rem; font-weight: 900; text-transform: uppercase; }
+		.section-subtitle { margin-top: 1rem; font-size: 1.25rem; font-weight: 600; }
+		.section-text { margin-top: 1.5rem; line-height: 1.625; }
+		.feature-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+		.feature-item { display: flex; align-items: flex-start; gap: 0.75rem; }
+		.feature-item svg { height: 1.75rem; width: 1.75rem; color: var(--main-red); flex-shrink: 0; }
+		
 		.image-gallery-main {
-			position: relative;
-			width: 100%;
-			max-width: 28rem;
-			aspect-ratio: 1 / 1;
+			position: relative; width: 100%; max-width: 28rem; aspect-ratio: 1 / 1;
 		}
-		.image-gallery-main img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			border-radius: 1rem;
-		}
+		.image-gallery-main img { width: 100%; height: 100%; object-fit: cover; border-radius: 1rem; }
 		.gallery-button {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			background-color: var(--main-red);
-			border: none;
-			border-radius: 9999px;
-			padding: 0.75rem;
-			transition: background-color 0.2s;
-			z-index: 10;
-			cursor: pointer;
+			position: absolute; top: 50%; transform: translateY(-50%);
+			background-color: var(--main-red); border: none; border-radius: 9999px;
+			padding: 0.75rem; z-index: 10; cursor: pointer;
 		}
-		.gallery-button:hover {
-			background-color: var(--main-red-hover);
-		}
-		.gallery-button svg {
-			height: 1.5rem;
-			width: 1.5rem;
-			color: var(--white);
-		}
-		.gallery-button-prev { left: 0.5rem; }
-		.gallery-button-next { right: 0.5rem; }
-		.image-gallery-dots {
-			margin-top: 1.5rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 0.75rem;
-		}
+		.gallery-button-prev { left: 0.5rem; } .gallery-button-next { right: 0.5rem; }
+		.image-gallery-dots { margin-top: 1.5rem; display: flex; justify-content: center; gap: 0.75rem; }
 		.gallery-dot {
-			height: 1rem;
-			width: 1rem;
-			border-radius: 9999px;
-			transition: background-color 0.2s;
-			cursor: pointer;
-			border: 2px solid var(--white);
-			background-color: transparent;
+			height: 1rem; width: 1rem; border-radius: 9999px;
+			cursor: pointer; border: 2px solid var(--white); background-color: transparent;
 		}
-		.gallery-dot:hover {
-			background-color: rgba(255, 255, 255, 0.2);
-		}
-		.gallery-dot.active {
-			background-color: var(--main-red);
-			border-color: var(--main-red);
-		}
-
-		/* ----- SEKCE RECENZE (vrácen původní styl) ----- */
-		.reviews-container {
-			position: relative;
-			padding-left: 2.5rem;
-			padding-right: 2.5rem;
-		}
+		.gallery-dot.active { background-color: var(--main-red); border-color: var(--main-red); }
+		
+		.reviews-section .container { position: relative; }
+		.swiper-container-reviews { max-width: 100%; }
+		.reviews-container { max-width: 1152px; margin: 0 auto; overflow: hidden; position: relative; }
 		.swiper-container-reviews .swiper-slide {
-			aspect-ratio: 4 / 3;
-			background-color: var(--white);
-			border: 2px solid #D1D5DB;
-			border-radius: 0.75rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			overflow: hidden;
-			box-sizing: border-box;
+			background-color: var(--white); border: 2px solid #D1D5DB; border-radius: 0.75rem;
+			display: flex; align-items: center; justify-content: center;
+			overflow: hidden; box-sizing: border-box; aspect-ratio: 4 / 3;
 		}
-		.swiper-container-reviews .swiper-slide img {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
-		}
+		.swiper-container-reviews .swiper-slide img { width: 100%; height: 100%; object-fit: contain; }
 		.review-swiper-button {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			z-index: 20;
-			cursor: pointer;
-			background-color: var(--main-red);
-			border-radius: 9999px;
+			position: absolute; top: 50%; transform: translateY(-50%); z-index: 20;
+			cursor: pointer; background-color: var(--main-red); border-radius: 9999px;
 			padding: 0.75rem;
-			transition: background-color 0.2s;
 		}
-		.review-swiper-button:hover {
-			background-color: var(--main-red-hover);
-		}
-		.review-swiper-button-prev { left: 0; }
-		.review-swiper-button-next { right: 0; }
-		.review-swiper-button svg {
-			color: var(--white);
-			width: 1.5rem;
-			height: 1.5rem;
-		}
+		.review-swiper-button-prev { left: -1rem; }
+		.review-swiper-button-next { right: -1rem; }
+		.review-swiper-button svg { color: var(--white); width: 1.5rem; height: 1.5rem; }
 
-		/* ----- SEKCE ROZVOZ ----- */
 		.delivery-image-wrapper img {
-			width: 100%;
-			max-width: 32rem;
-			margin-left: auto;
-			margin-right: auto;
-			height: auto;
-			object-fit: cover;
-			border-radius: 1rem;
-			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+			width: 100%; max-width: 32rem; margin: auto; border-radius: 1rem;
 		}
-		.delivery-buttons {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 1rem;
-			margin-top: 3rem;
-		}
+		.delivery-buttons { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 3rem; }
 
-		/* ----- SEKCE DALŠÍ SPECIALITY ----- */
 		.other-offers-section {
-			padding-top: 4rem;
-			padding-bottom: 6rem;
-			color: var(--white);
-			position: relative;
-			overflow: hidden;
-			background-color: var(--main-green); /* Změněno pozadí */
-		}
-		.other-offers-header {
-			text-align: center;
-			position: relative;
-			z-index: 10;
-		}
-		.other-offers-header .title {
-			margin-top: 0.5rem;
-			font-size: 2.25rem;
-			font-weight: 900;
-			text-transform: uppercase;
-			letter-spacing: 0.05em;
-		}
-		.other-offers-grid {
-			margin-top: 3rem;
-			display: grid;
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
-			position: relative;
-			z-index: 10;
-		}
-		.other-offers-grid img {
-			aspect-ratio: 1 / 1;
-			width: 100%;
-			object-fit: cover;
-			border-radius: 0.5rem;
-			transition: transform 0.3s, box-shadow 0.3s;
-		}
-		.other-offers-grid img:hover {
-			transform: scale(1.05);
-			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-		}
-
-		/* ----- SEKCE SOCIÁLNÍ SÍTĚ ----- */
-		.social-section-header {
-			text-align: center;
-			margin-bottom: 3rem;
-		}
-		.social-section-header .title {
-			font-family: var(--font-main); /* Sjednocen font */
-			font-size: 2rem;
-		}
-		.social-icons {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			gap: 2.5rem;
-			margin-top: 2rem;
-			margin-bottom: 3rem;
-		}
-		.social-icons a {
-			transition: transform 0.2s;
-		}
-		.social-icons a:hover {
-			transform: scale(1.1);
-		}
-		.social-icons svg {
-			width: 2rem;
-			height: 2rem;
-		}
-
-		/* ----- PATIČKA (vrácen původní styl) ----- */
-		.footer {
+			padding: 6rem 0; color: var(--white);
 			background-color: var(--main-green);
-			color: var(--white);
-			width: 100%;
 		}
-		.footer .container {
-			padding-top: 4rem;
-			padding-bottom: 4rem;
+		.other-offers-header { text-align: center; }
+		.other-offers-header .title {
+			font-size: 2.25rem; font-weight: 900; text-transform: uppercase;
 		}
-		.footer a:hover {
-			text-decoration: underline;
+		.other-offers-grid { margin-top: 3rem; display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+		.other-offers-grid img {
+			aspect-ratio: 1 / 1; width: 100%; object-fit: cover; border-radius: 0.5rem;
+			transition: transform 0.3s;
 		}
-		.footer-grid {
-			display: grid;
-			grid-template-columns: 1fr;
-			gap: 3.5rem;
-			font-size: 1rem;
-			align-items: start;
+		.other-offers-grid img:hover { transform: scale(1.05); }
+
+		.social-section-header { text-align: center; margin-bottom: 3rem; }
+		.social-section-header .title { font-family: var(--font-main); font-size: 2rem; }
+		.social-icons {
+			display: flex; justify-content: center; gap: 2.5rem; margin: 2rem 0 3rem;
 		}
-		.footer-column {
-			display: flex;
-			flex-direction: column;
-			gap: 1.5rem;
-		}
+		.social-icons a { transition: transform 0.2s; }
+		.social-icons a:hover { transform: scale(1.1); }
+		.social-icons svg { width: 2rem; height: 2rem; }
+
+		.footer { background-color: var(--main-green); color: var(--white); }
+		.footer .container { padding: 4rem 1.5rem; }
+		.footer a:hover { text-decoration: underline; }
+		.footer-grid { display: grid; grid-template-columns: 1fr; gap: 3.5rem; }
 		.footer-heading {
-			font-family: var(--font-main);
-			font-size: 1.25rem;
-			font-weight: 900;
-			text-transform: uppercase;
-			letter-spacing: 0.05em;
-			margin: 0;
-			padding-bottom: 0.5rem;
+			font-size: 1.25rem; font-weight: 900; text-transform: uppercase;
+			letter-spacing: 0.05em; margin: 0; padding-bottom: 0.5rem;
 		}
 		.footer-info, .opening-hours, .footer-contact-list {
-			font-weight: 500;
-			display: flex;
-			flex-direction: column;
-			gap: 0.75rem;
+			font-weight: 500; display: flex; flex-direction: column; gap: 0.75rem;
 		}
-		.opening-hours { gap: 0.625rem; }
-		.opening-hours .day-row {
-			display: flex;
-			justify-content: space-between;
-			align-items: flex-start;
-			gap: 1rem;
-		}
-		.opening-hours .day-row .note {
-			text-align: right;
-		}
+		.opening-hours .day-row { display: flex; justify-content: space-between; gap: 1rem; }
+		.opening-hours .day-row .note { text-align: right; }
 		.opening-hours .day-row .note .details {
-			font-weight: 700;
-			font-size: 0.875rem;
-			text-transform: uppercase;
-			line-height: 1.25;
+			font-weight: 700; font-size: 0.875rem; text-transform: uppercase;
 		}
-		.opening-hours .day-row.active-day {
-			font-weight: 700;
-		}
-		.footer-contact-list {
-			list-style: none;
-			padding: 0;
-		}
-		.footer-contact-list li {
-			display: flex;
-			align-items: flex-start;
-			gap: 1rem;
-		}
-		.footer-contact-list svg {
-			height: 1.5rem;
-			width: 1.5rem;
-			flex-shrink: 0;
-			margin-top: 0.125rem;
-			color: var(--main-red);
-		}
-		.footer-divider {
-			border-top: 1px solid rgba(255, 255, 255, 0.2);
-			margin-top: 4rem;
-			margin-bottom: 2rem;
-		}
+		.opening-hours .day-row.active-day { font-weight: 700; }
+		.footer-contact-list { list-style: none; padding: 0; }
+		.footer-contact-list li { display: flex; align-items: flex-start; gap: 1rem; }
+		.footer-contact-list svg { height: 1.5rem; width: 1.5rem; flex-shrink: 0; margin-top: 0.125rem; color: var(--main-red); }
+		.footer-divider { border-top: 1px solid rgba(255, 255, 255, 0.2); margin: 4rem 0 2rem; }
 		.footer-bottom {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			align-items: center;
-			font-size: 0.875rem;
-			font-weight: 500;
+			display: flex; flex-direction: column; justify-content: space-between;
+			align-items: center; font-size: 0.875rem;
 		}
-		.footer-bottom-copyright {
-			text-align: center;
-			margin-bottom: 1rem;
-		}
-		.footer-bottom-copyright p {
-			margin: 0;
-		}
-		.footer-bottom-links {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 0.5rem;
-			text-align: center;
-		}
-		.footer-bottom-links .separator {
-			display: none;
-		}
+		.footer-bottom-copyright { text-align: center; margin-bottom: 1rem; }
+		.footer-bottom-links { display: flex; flex-direction: column; gap: 0.5rem; text-align: center; }
+		.footer-bottom-links .separator { display: none; }
 
-		/* ----- RESPONZIVNÍ STYLY ----- */
 		@media (max-width: 767px) {
-			.hero-content h1 { font-size: 45px; white-space: normal; }
-			.hero-content .cta-text { font-size: 20px; }
-			.reviews-container { padding-left: 0; padding-right: 0; }
+			.header-logo { left: 1rem; top: calc(1rem + 15px); }
+			.header-logo img { height: 60px; }
+			.hero-content h1 { font-size: 2.5rem; white-space: normal; }
+			.hero-content .cta-text { font-size: 1.1rem; }
 			.review-swiper-button { display: none; }
 		}
 		@media (min-width: 640px) {
-			.hero-content .buttons, .delivery-buttons {
-				flex-direction: row;
-				justify-content: center;
-				gap: 2.5rem;
-			}
-			.other-offers-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-			.other-offers-header .title { font-size: 3rem; }
+			.hero-content .buttons, .delivery-buttons { flex-direction: row; justify-content: center; gap: 1.5rem; }
+			.other-offers-grid { grid-template-columns: repeat(2, 1fr); }
 		}
 		@media (min-width: 768px) {
-			.container { padding-left: 3rem; padding-right: 3rem; }
-			.info-banner-container { padding-left: 0; padding-right: 0; }
-			.info-banner { flex-direction: row; padding: 1.25rem 2.5rem; gap: 2rem; }
-			.info-banner-item { gap: 1rem; }
-			.menu-section-header { text-align: left; }
-			.menu-section-header .title { font-size: 3rem; }
+			.container { padding: 0 2rem; }
+			.info-banner { flex-direction: row; padding: 1.25rem 2.5rem; }
+			.menu-section-header { text-align: center; }
 			.menu-grid { grid-template-columns: repeat(2, 1fr); }
-			.reviews-container { padding-left: 0; padding-right: 0; }
-			.review-swiper-button-prev { left: -2.5rem; }
-			.review-swiper-button-next { right: -2.5rem; }
-			.section-title { font-size: 2.25rem; }
-			.footer-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
-			.footer-column { justify-content: flex-start; gap: 1rem; }
+			.footer-grid { grid-template-columns: repeat(3, 1fr); }
 			.footer-bottom { flex-direction: row; }
 			.footer-bottom-copyright { text-align: left; margin-bottom: 0; }
 			.footer-bottom-links { flex-direction: row; gap: 1rem; }
@@ -845,12 +380,13 @@
 		}
 		@media (min-width: 1024px) {
 			.button { font-size: 1.125rem; padding: 1rem 2rem; }
-			.menu-grid { grid-template-columns: repeat(3, 1fr); }
+			.menu-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+			.menu-card { display: flex; flex-direction: column; }
 			.two-column-grid { grid-template-columns: repeat(2, 1fr); }
-			.delivery-content { order: -1; } /* Prohození sloupců v sekci rozvoz */
-			.other-offers-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-			.other-offers-header .title { font-size: 3.75rem; }
-			.social-section-header .title { font-size: 2.5rem; }
+			.delivery-content { order: -1; }
+			.other-offers-grid { grid-template-columns: repeat(4, 1fr); }
+			.review-swiper-button-prev { left: 1rem; }
+			.review-swiper-button-next { right: 1rem; }
 		}
 	</style>
 </head>
@@ -859,7 +395,7 @@
 	<header>
 		<div class="header-logo">
 			<a href="#">
-				<img src="images/logo-pizzerie-san-marino-kladno.webp" alt="Logo Pizzerie San Marino Kladno" width="709" height="342">
+				<img src="images/logo.webp" alt="Logo Pizzerie San Marino Kladno" width="709" height="342">
 			</a>
 		</div>
 		<div class="hero-slider">
@@ -1046,9 +582,9 @@
 			</div>
 		</section>
 
-		<section class="section section-white">
+		<section class="section section-white reviews-section">
 			<div class="container">
-				<div class="menu-section-header" style="text-align: center;">
+				<div class="menu-section-header">
 					<p class="font-cursive subtitle">Recenze</p>
 					<h2 class="title" style="font-size: 2rem;">Jak nás hodnotí zákazníci?</h2>
 				</div>
@@ -1056,16 +592,16 @@
 					<div class="swiper-container swiper-container-reviews">
 						<div class="swiper-wrapper" id="reviews-wrapper"></div>
 					</div>
-					<div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-						</svg>
-					</div>
-					<div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-						</svg>
-					</div>
+				</div>
+				<div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+					</svg>
+				</div>
+				<div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+					</svg>
 				</div>
 			</div>
 		</section>
@@ -1101,7 +637,7 @@
 		<section class="section other-offers-section">
 			<div class="container">
 				<div class="other-offers-header">
-					<p class="font-cursive" style="font-size: 2.25rem; position:relative; top: -15px;">Nejen Pizza</p>
+					<p class="font-cursive" style="font-size: 2.25rem; position:relative; top: -15px;">Co nabízíme mimo pizzy</p>
 					<h2 class="title">Další speciality, které si zamiluješ</h2>
 				</div>
 				<div class="other-offers-grid">
@@ -1210,7 +746,6 @@
 	<script>
 	document.addEventListener('DOMContentLoaded', () => {
 		
-		// ----- HERO SLIDER -----
 		const slides = document.querySelector('.slides');
 		if (slides) {
 			const slideCount = document.querySelectorAll('.slide').length;
@@ -1223,7 +758,6 @@
 			}
 		}
 
-		// ----- OBRÁZKOVÁ GALERIE -----
 		const galleryData = {
 			currentIndex: 0,
 			images: [
@@ -1270,7 +804,6 @@
 			updateGallery();
 		}
 
-		// ----- SLIDER RECENZÍ -----
 		let reviewImagePaths = [
 			'images/dokonala-pizza-od-detstvi-kladno-recenze.webp', 'images/exkluzivni-jidlo-kladno-recenze-san-marino.webp',
 			'images/hodnoceni-jidlo-11-z-10-pizzerie-kladno.webp', 'images/hodnoceni-pizzerie-san-marino-kladno-fakt-dobry.webp',
@@ -1301,7 +834,6 @@
 			}
 		}
 
-		// ----- ZVÝRAZNĚNÍ AKTUÁLNÍHO DNE V PATIČCE -----
 		const today = new Date().getDay();
 		const currentDayRow = document.querySelector(`.day-row[data-day="${today}"]`);
 		if (currentDayRow) {
