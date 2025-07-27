@@ -169,7 +169,7 @@
         .section-green-bg .section-header-subtitle,
         .bg-parchment .section-header-subtitle,
         .other-offers-section .section-header-subtitle {
-            color: var(--white); /* Bílá barva v tmavých blocích */
+            color: var(--white);
         }
         .section-title, .title {
             font-size: 2.5rem;
@@ -329,7 +329,7 @@
 			display: flex;
 			justify-content: center;
 			padding-left: 1rem;
-			padding-right: 1rem;
+			padding-right: 1.5rem;
 		}
 		.info-banner {
 			background-color: var(--white);
@@ -351,16 +351,17 @@
 		}
 		.info-banner-item {
 			display: flex;
-			align-items: center;
+			align-items: flex-start; /* Zarovná ikonu nahoru k prvnímu řádku */
 			gap: 0.75rem;
             flex-grow: 1;
             justify-content: center;
 		}
 		.info-banner-item svg {
-			height: 2.5rem; /* Zmenšeno */
-			width: 2.5rem; /* Zmenšeno */
+			height: 2.5rem;
+			width: 2.5rem;
 			color: var(--main-red);
             flex-shrink: 0;
+            margin-top: 2px; /* Jemné doladění pozice */
 		}
 		.info-banner-item__text {
 			display: flex;
@@ -390,8 +391,13 @@
 			display: grid;
 			grid-template-columns: 1fr;
 			gap: 2rem;
-            align-items: stretch; /* Zarovná karty ve sloupci */
+            align-items: stretch;
 		}
+        @media (min-width: 768px) {
+            .menu-grid {
+                grid-auto-rows: 1fr; /* Sjednotí výšku řádků v gridu */
+            }
+        }
 		.menu-card {
 			position: relative;
 			border-radius: 1.5rem;
@@ -415,13 +421,14 @@
 			height: 100%;
 			object-fit: cover;
 			opacity: 0.15;
+            z-index: 1;
 		}
 		.menu-card-content {
 			position: relative;
 			z-index: 10;
 			display: flex;
 			flex-direction: column;
-			flex-grow: 1; /* Nechá obsah roztáhnout se */
+			flex-grow: 1;
 		}
 		.menu-card .card-category {
 			font-family: var(--font-main);
@@ -470,7 +477,7 @@
 			display: flex;
 			flex-direction: column;
 			gap: 0.75rem;
-            flex-grow: 1; /* Roztáhne seznam, aby tlačítka byla zarovnaná */
+            flex-grow: 1;
 		}
 		.menu-card .card-list li {
 			display: flex;
@@ -995,6 +1002,7 @@
 				<div class="menu-grid">
 					
 					<div class="menu-card" style="background-color: #017D4D;">
+						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" loading="lazy" alt="Detailní pohled na pizzu se šunkou a zeleninou." class="menu-card-bg-image">
 						<div class="menu-card-content">
 							<h3 class="card-category">Originální pizzy</h3>
 							<a href="#" class="card-link">Prohlédni si všechny pizzy &rarr;</a>
@@ -1012,6 +1020,7 @@
 					</div>
 
 					<div class="menu-card" style="background-color: #E20B18;">
+						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" loading="lazy" alt="Burger s batátovými hranolky a omáčkou od Pizzerie San Marino." class="menu-card-bg-image">
 						<div class="menu-card-content">
 							<h3 class="card-category">Legendární šťavnaté burgery</h3>
 							<a href="#" class="card-link">Prohlédni si všechny burgery &rarr;</a>
@@ -1029,6 +1038,7 @@
 					</div>
 					
 					<div class="menu-card span-2" style="background-color: var(--black);">
+						<img src="images/kureci-speciality-wing-it-kladno.webp" loading="lazy" alt="Kuřecí stripsy a křídla s omáčkami." class="menu-card-bg-image">
 						<div class="menu-card-content">
 							<h3 class="card-category">Kuřecí speciality</h3>
 							<a href="#" class="card-link">Prozkoumej naše speciality &rarr;</a>
@@ -1184,7 +1194,7 @@
 			</div>
 			<div class="container">
 				<div class="other-offers-header">
-					<p class="section-header-subtitle">Co nabízíme mimo pizzy</p>
+					<p class="section-header-subtitle">Co nabízíme mimo pizzy?</p>
 					<h2 class="title">Další speciality které si zamiluješ</h2>
 				</div>
 				<div class="other-offers-grid">
