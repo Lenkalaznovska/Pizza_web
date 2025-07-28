@@ -517,7 +517,7 @@
 		}
 		.menu-card .card-button-wrapper {
 			padding-top: 2rem;
-            margin-top: auto; /* KLÍČOVÁ ZMĚNA: Tlačí tlačítko na dno karty */
+            margin-top: auto; /* Tlačí tlačítko na dno karty */
 		}
 		.button-white-green { background-color: var(--white); color: var(--main-green); }
 		.button-white-green:hover { background-color: #e6f2ed; }
@@ -851,7 +851,9 @@
 		}
 		.opening-hours .day-row.active-day {
 			font-weight: 700;
-            color: var(--main-red);
+            /* OPRAVA KONTRASTU: Změna barvy pro lepší čitelnost */
+            color: var(--white);
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
 		}
 		.footer-contact-list {
 			list-style: none;
@@ -946,10 +948,9 @@
 			.hero-content .buttons {
 				margin-top: 2rem;
 			}
-            /* KLÍČOVÁ ZMĚNA: Zmenšení info banneru na mobilech */
             .info-banner {
-                gap: 1.5rem; /* Zmenšení mezer mezi položkami */
-                padding: 0.75rem 1rem; /* Zmenšení vnitřního odsazení */
+                gap: 1.5rem;
+                padding: 0.75rem 1rem;
             }
             .info-banner-item {
                 flex-direction: column;
