@@ -192,8 +192,7 @@
 			margin-bottom: 1rem;
 			font-weight: bold;
 		}
-        .section-green-bg .section-header-subtitle,
-        .bg-parchment .section-header-subtitle,
+        .bg-green-pattern .section-header-subtitle,
         .other-offers-section .section-header-subtitle {
             color: var(--white);
         }
@@ -208,8 +207,7 @@
 			hyphens: auto;
 			line-height: 1.1;
         }
-        .bg-parchment .section-title,
-        .section-green-bg .section-title,
+        .bg-green-pattern .section-title,
         .other-offers-section .title {
             color: var(--white);
         }
@@ -379,7 +377,7 @@
 		}
 		.info-banner-item {
 			display: flex;
-			align-items: center;
+			align-items: flex-start; /* Změna pro lepší zarovnání */
 			gap: 0.75rem;
 		}
 		.info-banner-item svg {
@@ -387,6 +385,7 @@
 			width: 2.5rem;
 			color: var(--main-red);
             flex-shrink: 0;
+            margin-top: 0.125rem; /* Posun ikony pro zarovnání s nadpisem */
 		}
 		.info-banner-item__text {
 			display: flex;
@@ -526,25 +525,25 @@
 		.button-white-dark { background-color: var(--white); color: var(--black); }
 		.button-white-dark:hover { background-color: #f3f4f6; }
 
-		/* ----- SEKCE S BÍLÝM TEXTEM ----- */
-		.section-green-bg,
-		.bg-parchment {
-			color: var(--white);
-		}
-		.section-green-bg {
-			background-color: var(--main-green);
-			padding: 2rem;
-			border-radius: 1.5rem;
-		}
-		.bg-parchment {
-			background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
+		/* ----- SEKCE S POZADÍM ----- */
+        /* ÚPRAVA: Nová třída pro sjednocení pozadí */
+        .bg-green-pattern {
+            background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
 			background-size: cover;
 			background-position: center center;
 			background-repeat: no-repeat;
-		}
-		.bg-parchment p, .bg-parchment span, .bg-parchment .section-subtitle,
-		.section-green-bg p, .section-green-bg strong {
+            color: var(--white);
+        }
+        .bg-green-pattern p, 
+        .bg-green-pattern span, 
+        .bg-green-pattern .section-subtitle,
+		.bg-green-pattern strong {
 			text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
+		}
+		.section-green-bg { /* Původní třída, nyní jen pro vnitřní box */
+			padding: 2rem;
+			border-radius: 1.5rem;
+            background-color: transparent; /* Barva je nyní na rodiči */
 		}
 		.two-column-grid {
 			display: grid;
@@ -672,7 +671,6 @@
 			height: 100%;
 			object-fit: contain;
 		}
-        /* KLÍČOVÁ ZMĚNA: Styly pro nový kontejner šipek */
         .review-swiper-nav {
             display: flex;
             justify-content: center;
@@ -680,15 +678,15 @@
             margin-top: 1.5rem;
         }
 		.review-swiper-button {
-			position: static; /* Změna z absolute */
-			transform: none; /* Odstranění transformace */
+			position: static;
+			transform: none;
 			z-index: 20;
 			cursor: pointer;
 			background-color: var(--main-red);
 			border-radius: 9999px;
 			padding: 0.75rem;
 			transition: background-color 0.2s;
-            display: flex; /* Pro jistotu, aby se ikona centovala */
+            display: flex;
             align-items: center;
             justify-content: center;
 		}
@@ -726,6 +724,7 @@
 			color: var(--white);
 			position: relative;
 			overflow: hidden;
+            background-color: #1a1a1a; /* Záložní barva, kdyby se obrázek nenačetl */
 		}
 		.other-offers-bg-text {
 			position: absolute;
@@ -802,9 +801,9 @@
 
 		/* ----- PATIČKA ----- */
 		.footer {
-			background-color: var(--main-green);
 			color: var(--white);
 			width: 100%;
+            background-color: var(--main-green); /* Záložní barva */
 		}
 		.footer .container {
 			padding-top: 4rem;
@@ -911,14 +910,14 @@
 		/* ----- RESPONZIVNÍ STYLY ----- */
 		
 		@media (max-width: 540px) {
-			.bg-parchment .section-subtitle {
+			.bg-green-pattern .section-subtitle {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				gap: 0.5rem;
 				white-space: nowrap;
 			}
-			.bg-parchment .section-button {
+			.bg-green-pattern .section-button {
 				margin-left: auto;
 				margin-right: auto;
 				display: table;
@@ -937,8 +936,7 @@
 				font-size: 2rem;
 				line-height: 1.2;
 			}
-			.bg-parchment .two-column-grid,
-			.other-offers-section .other-offers-grid {
+			.bg-green-pattern .two-column-grid {
 				margin-top: 40px;
 			}
 			.header-logo {
@@ -954,11 +952,9 @@
 			.hero-content .buttons {
 				margin-top: 2rem;
 			}
-            /* ÚPRAVA: Zmenšení info banneru na mobilech */
             .info-banner {
                 gap: 1rem;
-                padding-top: 0.5rem;
-                padding-bottom: 0.5rem;
+                padding: 0.5rem 1rem;
             }
             .info-banner-item {
                 flex-direction: column;
@@ -969,16 +965,26 @@
             .info-banner-item svg {
                 height: 2rem;
                 width: 2rem;
+                margin-top: 0;
             }
             .info-banner-item__text {
                 align-items: center;
             }
-            /* ÚPRAVA: Odebrání negativních pozic šipek */
+            .info-banner-item__text .subtitle .delivery-link {
+                display: block;
+                margin-top: 0.25rem;
+            }
 			.review-swiper-button-prev,
             .review-swiper-button-next { 
 				left: auto;
                 right: auto;
 			}
+            .other-offers-section .other-offers-grid {
+                margin-top: 40px; /* Posunutí obsahu dolů */
+            }
+            .other-offers-bg-text span {
+                font-size: 4rem; /* Zmenšení textu na pozadí */
+            }
 		}
 
 		@media (min-width: 640px) {
@@ -1111,7 +1117,10 @@
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" /></svg>
 					<div class="info-banner-item__text">
 						<span class="title">Rozvoz jídla</span>
-						<span class="subtitle">Dovezeme ti to 11:00 - 21:15 <a href="cenik-rozvozu-pizzerie-san-marino-kladno.pdf" target="_blank" rel="noopener noreferrer">Ceník rozvozu</a></span>
+						<span class="subtitle">
+                            <span>Dovezeme ti to 11:00 - 21:15</span>
+                            <a href="cenik-rozvozu-pizzerie-san-marino-kladno.pdf" target="_blank" rel="noopener noreferrer" class="delivery-link">Ceník rozvozu</a>
+                        </span>
 					</div>
 				</div>
 				<div class="info-banner-item">
@@ -1196,7 +1205,7 @@
 			</div>
 		</section>
 		
-		<section class="section bg-parchment">
+		<section class="section bg-green-pattern">
 			<div class="container">
 				<div class="two-column-grid">
 					<div class="text-content-column">
@@ -1294,7 +1303,7 @@
 
 		<section id="delivery" class="section section-white">
 			<div class="container">
-				<div class="section-green-bg">
+				<div class="bg-green-pattern section-green-bg">
 					<div class="two-column-grid">
 						<div class="delivery-content text-content-column">
 							<p class="section-header-subtitle">Rozvoz jídla</p>
@@ -1327,7 +1336,7 @@
 			</div>
 		</section>
 
-		<section class="section bg-parchment other-offers-section">
+		<section class="section other-offers-section">
 			<div class="other-offers-bg-text">
 				<span class="top-text">PIZZA SAN</span>
 				<span class="bottom-text">MARINO</span>
@@ -1388,7 +1397,7 @@
 
 	</main>
 
-	<footer id="contact" class="footer">
+	<footer id="contact" class="footer bg-green-pattern">
 		<div class="container">
 			<h2 class="section-title">Kontakty a další informace</h2>
 			<div class="footer-grid">
