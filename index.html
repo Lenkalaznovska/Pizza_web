@@ -871,7 +871,6 @@
 
 		/* ----- RESPONZIVNÍ STYLY ----- */
 		@media (max-width: 767px) {
-			/* FINÁLNÍ ÚPRAVA: Sjednocení rozestupů a typografie pro mobily */
 			.section {
 				padding-top: 5rem;
 				padding-bottom: 5rem;
@@ -883,7 +882,6 @@
 				font-size: 2rem;
 				line-height: 1.2;
 			}
-			/* FINÁLNÍ ÚPRAVA: Větší mezera v barevných sekcích */
 			.section-green-bg .two-column-grid,
 			.bg-parchment .two-column-grid,
 			.other-offers-section .container > .other-offers-grid {
@@ -907,21 +905,11 @@
 			.hero-content .buttons {
 				margin-top: 2rem;
 			}
-			.reviews-container { 
-				padding-left: 0; 
-				padding-right: 0; 
-			}
-			.review-swiper-button-prev { 
-				left: -10px; 
-			}
-			.review-swiper-button-next { 
-				right: -10px; 
-			}
-			.info-banner-item {
-				grid-template-columns: auto 1fr;
-				flex-direction: row;
-				text-align: left;
-			}
+            /* === VYLEPŠENÍ: Info banner se na mobilu skládá pod sebe === */
+            .info-banner {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
 			.info-banner-item__text {
 				display: flex;
 				flex-direction: column;
@@ -933,6 +921,16 @@
 			.info-banner-item__text .subtitle a {
 				display: block;
 				margin-top: 0.25rem;
+			}
+			.reviews-container { 
+				padding-left: 0; 
+				padding-right: 0; 
+			}
+			.review-swiper-button-prev { 
+				left: -10px; 
+			}
+			.review-swiper-button-next { 
+				right: -10px; 
 			}
 		}
 
@@ -969,6 +967,8 @@
 			.info-banner { flex-wrap: nowrap; }
 			.menu-grid { grid-template-columns: repeat(2, 1fr); }
 			.menu-card.span-2 { grid-column: span 2 / span 2; }
+            /* === VYLEPŠENÍ: Dvou-sloupcový layout pro tablety === */
+            .two-column-grid { grid-template-columns: repeat(2, 1fr); }
 			.reviews-container { padding-left: 0; padding-right: 0; }
 			.review-swiper-button-prev { left: -2.5rem; }
 			.review-swiper-button-next { right: -2.5rem; }
@@ -984,30 +984,29 @@
 			.button { font-size: 1.125rem; padding: 1rem 2rem; }
 			.menu-grid { grid-template-columns: repeat(3, 1fr); }
 			.menu-card.span-2 { grid-column: span 1 / span 1; }
-			.two-column-grid { grid-template-columns: repeat(2, 1fr); }
 			.other-offers-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
 		}
 		
 		/* OPRAVA: Cílené úpravy pro malé a krátké displeje (např. iPhone SE) */
 		@media (max-height: 740px) and (max-width: 480px) {
 			.section {
-				padding-top: 4rem; /* Menší odsazení sekcí */
+				padding-top: 4rem;
 				padding-bottom: 4rem;
 			}
 			.hero-content h1 {
-				font-size: 32px; /* Další zmenšení písma */
-				margin-bottom: 15px; /* Menší mezera pod nadpisem */
+				font-size: 32px;
+				margin-bottom: 15px;
 			}
 			.hero-content .cta-text {
-				font-size: 16px; /* Zmenšení textu */
+				font-size: 16px;
 			}
 			.hero-content .buttons {
-				margin-top: 1.5rem; /* Menší mezera nad tlačítky */
-				transform: scale(0.9); /* Mírně zmenšíme i tlačítka */
+				margin-top: 1.5rem;
+				transform: scale(0.9);
 				transform-origin: center;
 			}
 			.info-banner-container {
-				margin-top: -90px; /* Zmenšení přesahu, aby se nepřekrýval s tlačítky */
+				margin-top: -90px;
 			}
 		}
 	</style>
@@ -1322,7 +1321,7 @@
 										<stop stop-color="#fdf497" offset="0" /><stop stop-color="#fdf497" offset="0.05" /><stop stop-color="#fd5949" offset="0.45" /><stop stop-color="#d6249f" offset="0.6" /><stop stop-color="#285AEB" offset="0.9" />
 									</radialGradient>
 								</defs>
-								<path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.314.935 20.644.522 19.86.217 19.094-.083 18.223-.285 16.947-.344 15.667-.405 15.26-.42 12-.42zM12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.057.36-2.227-.413-1.266.057-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.17.249 1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 6.875A5.125 5.125 0 1012 17.125 5.125 5.125 0 0012 6.875zM12 15a3 3 0 110-6 3 3 0 010 6zM20.965 5.253a1.44 1.44 0 10-2.88 0 1.44 1.44 0 002.88 0z" fill="url(#ig-grad)" />
+								<path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.314.935 20.644.522 19.86.217 19.094-.083 18.223-.285 16.947-.344 15.667-.405 15.26-.42 12-.42zM12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381-.896-.422.164-1.057.36-2.227-.413-1.266.057-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.17.249 1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 6.875A5.125 5.125 0 1012 17.125 5.125 5.125 0 0012 6.875zM12 15a3 3 0 110-6 3 3 0 010 6zM20.965 5.253a1.44 1.44 0 10-2.88 0 1.44 1.44 0 002.88 0z" fill="url(#ig-grad)" />
 							</svg>
 						</a>
 						<a href="https://www.tiktok.com/@pizzakladno?_t=ZN-8tbxv0q0T6k&_r=1" target="_blank" aria-label="Přejít na TikTok Pizzerie San Marino">
