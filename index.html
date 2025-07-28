@@ -453,7 +453,7 @@
 			z-index: 10;
 			display: flex;
 			flex-direction: column;
-			flex-grow: 1; /* Zajišťuje, že obsah vyplní celou kartu */
+			flex-grow: 1; 
 		}
 		.menu-card .card-category {
 			font-family: var(--font-main);
@@ -516,7 +516,7 @@
 		}
 		.menu-card .card-button-wrapper {
 			padding-top: 2rem;
-            margin-top: auto; /* Tlačí tlačítko na dno karty */
+            margin-top: auto; 
 		}
 		.button-white-green { background-color: var(--white); color: var(--main-green); }
 		.button-white-green:hover { background-color: #e6f2ed; }
@@ -526,7 +526,6 @@
 		.button-white-dark:hover { background-color: #f3f4f6; }
 
 		/* ----- SEKCE S POZADÍM ----- */
-        /* ÚPRAVA: Nová třída pro sjednocení pozadí */
         .bg-green-pattern {
             background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
 			background-size: cover;
@@ -540,10 +539,10 @@
 		.bg-green-pattern strong {
 			text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
 		}
-		.section-green-bg { /* Původní třída, nyní jen pro vnitřní box */
+		.section-green-bg {
 			padding: 2rem;
 			border-radius: 1.5rem;
-            background-color: transparent; /* Barva je nyní na rodiči */
+            background-color: transparent;
 		}
 		.two-column-grid {
 			display: grid;
@@ -721,10 +720,9 @@
 		.other-offers-section {
 			padding-top: 6rem;
 			padding-bottom: 6rem;
-			color: var(--white);
 			position: relative;
 			overflow: hidden;
-            background-color: #1a1a1a; /* Záložní barva, kdyby se obrázek nenačetl */
+            background-color: #1a1a1a;
 		}
 		.other-offers-bg-text {
 			position: absolute;
@@ -803,7 +801,7 @@
 		.footer {
 			color: var(--white);
 			width: 100%;
-            background-color: var(--main-green); /* Záložní barva */
+            background-color: var(--main-green);
 		}
 		.footer .container {
 			padding-top: 4rem;
@@ -936,7 +934,8 @@
 				font-size: 2rem;
 				line-height: 1.2;
 			}
-			.bg-green-pattern .two-column-grid {
+			.bg-green-pattern .two-column-grid,
+			.other-offers-section .other-offers-grid {
 				margin-top: 40px;
 			}
 			.header-logo {
@@ -1118,9 +1117,9 @@
 					<div class="info-banner-item__text">
 						<span class="title">Rozvoz jídla</span>
 						<span class="subtitle">
-                            <span>Dovezeme ti to 11:00 - 21:15</span>
-                            <a href="cenik-rozvozu-pizzerie-san-marino-kladno.pdf" target="_blank" rel="noopener noreferrer" class="delivery-link">Ceník rozvozu</a>
-                        </span>
+                            <span>Dovezeme ti to 11:00 - 21:15</span>
+                            <a href="cenik-rozvozu-pizzerie-san-marino-kladno.pdf" target="_blank" rel="noopener noreferrer" class="delivery-link">Ceník rozvozu</a>
+                        </span>
 					</div>
 				</div>
 				<div class="info-banner-item">
@@ -1285,18 +1284,18 @@
 								</div>
 						</div>
 					</div>
-                    <div class="review-swiper-nav">
-                        <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                            </svg>
-                        </div>
-                        <div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                    </div>
+                    <div class="review-swiper-nav">
+                        <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </div>
+                        <div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</section>
@@ -1336,7 +1335,7 @@
 			</div>
 		</section>
 
-		<section class="section other-offers-section">
+		<section class="section bg-green-pattern other-offers-section">
 			<div class="other-offers-bg-text">
 				<span class="top-text">PIZZA SAN</span>
 				<span class="bottom-text">MARINO</span>
@@ -1548,12 +1547,12 @@
 			const dots = dotsContainer.querySelectorAll('.gallery-dot');
 
 			const updateGallery = () => {
-                if (galleryData.images.length > 0) {
-				    galleryImage.src = galleryData.images[galleryData.currentIndex];
-				    dots.forEach((dot, index) => {
-					    dot.classList.toggle('active', index === galleryData.currentIndex);
-				    });
-                }
+                if (galleryData.images.length > 0) {
+				    galleryImage.src = galleryData.images[galleryData.currentIndex];
+				    dots.forEach((dot, index) => {
+					    dot.classList.toggle('active', index === galleryData.currentIndex);
+				    });
+                }
 			};
 		
 			const nextImage = () => {
