@@ -181,6 +181,9 @@
             text-align: center;
             margin-top: 0;
 			margin-bottom: 2rem;
+			/* OPRAVA: Zajišťuje správné zalamování dlouhých slov na mobilech */
+			overflow-wrap: break-word;
+			hyphens: auto;
         }
         .bg-parchment .section-title,
         .section-green-bg .section-title,
@@ -230,8 +233,8 @@
 		.header-logo {
 			position: absolute;
 			z-index: 101;
-			left: 2.5rem;
-			top: calc(1.5rem + 15px);
+			left: 1.5rem;
+			top: 1.5rem;
 		}
 		.header-logo img {
 			height: 80px;
@@ -322,7 +325,7 @@
 			background-color: var(--main-red-hover);
 		}
 
-			/* ----- INFO BANNER (pod sliderem) ----- */
+		/* ----- INFO BANNER (pod sliderem) ----- */
 		.info-banner-container {
 			position: relative;
 			z-index: 20;
@@ -382,7 +385,6 @@
 			color: var(--black);
 			font-size: 1rem;
 			align-self: start;
-			/* FINÁLNÍ ÚPRAVA: Posun textu nahoru */
 			margin-top: -25px;
 		}
 		.info-banner-item__text .subtitle a {
@@ -401,7 +403,6 @@
 			gap: 2rem;
             align-items: stretch;
 		}
-		/* OPRAVA: Zajistí, že všechny karty v jednom řádku budou mít stejnou výšku. */
         @media (min-width: 768px) {
             .menu-grid {
                 grid-auto-rows: 1fr;
@@ -439,7 +440,6 @@
 			flex-direction: column;
 			flex-grow: 1;
 		}
-		/* VYLEPŠENÍ: Sjednocení výšky nadpisů, odkazů a podnadpisů napříč kartami pro dokonalé zarovnání. */
 		.menu-card .card-category {
 			font-family: var(--font-main);
 			font-size: 1.75rem;
@@ -447,7 +447,7 @@
 			text-transform: uppercase;
 			text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 			margin-bottom: 0.75rem;
-			min-height: 100px; /* Sjednocení výšky hlavního nadpisu */
+			min-height: 100px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -461,7 +461,7 @@
 			text-decoration: none;
 			margin-bottom: 1rem;
 			transition: transform 0.3s ease;
-			min-height: 24px; /* Sjednocení výšky odkazu */
+			min-height: 24px;
 		}
 		.menu-card .card-link:hover {
 			text-decoration: underline;
@@ -472,7 +472,7 @@
 			margin-bottom: 1rem;
 			padding-top: 1rem;
 			text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-			min-height: 60px; /* Sjednocení výšky podnadpisu */
+			min-height: 60px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -487,7 +487,7 @@
 			display: flex;
 			flex-direction: column;
 			gap: 0.75rem;
-            flex-grow: 1; /* Toto pravidlo zajistí roztažení seznamu a zarovnání tlačítek */
+            flex-grow: 1;
 		}
 		.menu-card .card-list li {
 			display: flex;
@@ -693,7 +693,8 @@
 
 		/* ----- SEKCE BURGERY & KUŘECÍ ----- */
 		.other-offers-section {
-			padding-top: 4rem;
+			/* OPRAVA: Sjednocení paddingu s ostatními sekcemi */
+			padding-top: 6rem;
 			padding-bottom: 6rem;
 			color: var(--white);
 			position: relative;
@@ -886,11 +887,35 @@
 
 		/* ----- RESPONZIVNÍ STYLY ----- */
 		@media (max-width: 767px) {
-			.hero-content h1 { font-size: 45px; white-space: normal; }
-			.hero-content .cta-text { font-size: 20px; }
-			.reviews-container { padding-left: 0; padding-right: 0; }
-			.review-swiper-button-prev { left: -10px; }
-			.review-swiper-button-next { right: -10px; }
+			/* OPRAVA: Zmenšení prvků v headeru pro lepší zobrazení na mobilech */
+			.header-logo {
+				left: 1rem;
+				top: 1rem;
+			}
+			.header-logo img {
+				height: 60px;
+			}
+			.hero-content h1 { 
+				font-size: 40px; 
+				white-space: normal; 
+			}
+			.hero-content .cta-text { 
+				font-size: 18px; 
+				padding: 10px 15px;
+			}
+			.hero-content .buttons {
+				margin-top: 2rem;
+			}
+			.reviews-container { 
+				padding-left: 0; 
+				padding-right: 0; 
+			}
+			.review-swiper-button-prev { 
+				left: -10px; 
+			}
+			.review-swiper-button-next { 
+				right: -10px; 
+			}
 		}
 
 		@media (min-width: 640px) { /* sm */
@@ -904,6 +929,13 @@
 
 		@media (min-width: 768px) { /* md */
 			.container { padding-left: 3rem; padding-right: 3rem; }
+			.header-logo {
+				left: 2.5rem;
+				top: 1.5rem;
+			}
+			.header-logo img {
+				height: 80px;
+			}
 			.info-banner-container { padding-left: 0; padding-right: 0; }
 			.info-banner { flex-wrap: nowrap; }
 			.menu-grid { grid-template-columns: repeat(2, 1fr); }
@@ -924,7 +956,6 @@
 			.menu-grid { grid-template-columns: repeat(3, 1fr); }
 			.menu-card.span-2 { grid-column: span 1 / span 1; }
 			.two-column-grid { grid-template-columns: repeat(2, 1fr); }
-			.delivery-content { order: -1; }
 			.other-offers-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
 		}	
 	</style>
@@ -1165,9 +1196,6 @@
 			<div class="container">
 				<div class="section-green-bg">
 					<div class="two-column-grid">
-						<div class="delivery-image-wrapper">
-							<img src="images/pizzerie-san-marino-rozvoz-jidel-kladno-a-okoli.webp" loading="lazy" alt="Rozvozové auto Pizzerie San Marino pro rychlý dovoz pizzy a burgerů po Kladně.">
-						</div>
 						<div class="delivery-content text-content-column">
 							<p class="section-header-subtitle">Rozvoz jídla</p>
 							<h2 class="section-title">Rozvoz jídla Kladno a okolí</h2>
@@ -1190,6 +1218,9 @@
 									<span>Objednej online</span>
 								</a>
 							</div>
+						</div>
+						<div class="delivery-image-wrapper">
+							<img src="images/pizzerie-san-marino-rozvoz-jidel-kladno-a-okoli.webp" loading="lazy" alt="Rozvozové auto Pizzerie San Marino pro rychlý dovoz pizzy a burgerů po Kladně.">
 						</div>
 					</div>
 				</div>
