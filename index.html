@@ -125,8 +125,7 @@
 	</script>
 
 <style> 
-
-	/* ----- ZÁKLADNÍ NASTAVENÍ A PROMĚNNÉ ----- */
+/* ----- ZÁKLADNÍ NASTAVENÍ A PROMĚNNÉ ----- */
 :root {
 --main-red: #E20B18;
 --main-red-hover: #c00a15;
@@ -155,14 +154,11 @@ text-decoration: none;
 .container {
 width: 100%;
 max-width: 1280px;
-margin-left: auto;
-margin-right: auto;
-padding-left: 1.5rem;
-padding-right: 1.5rem;
+margin: 0 auto;
+padding: 0 1.5rem;
 }
 .section {
-padding-top: 6rem;
-padding-bottom: 6rem;
+padding: 6rem 0;
 }
 .section-white {
 background-color: var(--white);
@@ -188,8 +184,7 @@ font-weight: 900;
 text-transform: uppercase;
 letter-spacing: 0.025em;
 text-align: center;
-margin-top: 0;
-margin-bottom: 2rem;
+margin: 0 0 2rem;
 }
 .bg-parchment .section-title,
 .section-green-bg .section-title,
@@ -339,8 +334,7 @@ margin-top: -135px;
 width: 100%;
 display: flex;
 justify-content: center;
-padding-left: 1rem;
-padding-right: 1rem;
+padding: 0 1rem;
 }
 .info-banner {
 background-color: var(--white);
@@ -634,8 +628,7 @@ border-color: var(--main-red);
 /* ----- SEKCE RECENZE ----- */
 .reviews-container {
 position: relative;
-padding-left: 2.5rem;
-padding-right: 2.5rem;
+padding: 0 2.5rem;
 }
 .swiper-viewport {
 overflow: hidden;
@@ -682,8 +675,7 @@ height: 1.5rem;
 .delivery-image-wrapper img {
 width: 100%;
 max-width: 32rem;
-margin-left: auto;
-margin-right: auto;
+margin: 0 auto;
 height: auto;
 object-fit: cover;
 border-radius: 1rem;
@@ -699,8 +691,7 @@ margin-top: 3rem;
 
 /* ----- SEKCE BURGERY & KUŘECÍ ----- */
 .other-offers-section {
-padding-top: 4rem;
-padding-bottom: 6rem;
+padding: 4rem 0 6rem;
 color: var(--white);
 position: relative;
 overflow: hidden;
@@ -766,8 +757,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 gap: 2.5rem;
-margin-top: 2rem;
-margin-bottom: 3rem;
+margin: 2rem 0 3rem;
 }
 .social-icons a {
 transition: transform 0.2s;
@@ -790,8 +780,7 @@ color: var(--white);
 width: 100%;
 }
 .footer .container {
-padding-top: 4rem;
-padding-bottom: 4rem;
+padding: 4rem 0;
 }
 .footer a:hover {
 text-decoration: underline;
@@ -860,8 +849,7 @@ color: var(--main-red);
 }
 .footer-divider {
 border-top: 1px solid rgba(255, 255, 255, 0.2);
-margin-top: 4rem;
-margin-bottom: 2rem;
+margin: 4rem 0 2rem;
 }
 .footer-bottom {
 display: flex;
@@ -893,7 +881,7 @@ display: none;
 @media (max-width: 767px) {
 .hero-content h1 { font-size: 45px; white-space: normal; }
 .hero-content .cta-text { font-size: 20px; }
-.reviews-container { padding-left: 0; padding-right: 0; }
+.reviews-container { padding: 0; }
 .review-swiper-button-prev { left: -10px; }
 .review-swiper-button-next { right: -10px; }
 }
@@ -908,12 +896,12 @@ gap: 2.5rem;
 }
 
 @media (min-width: 768px) { /* md */
-.container { padding-left: 3rem; padding-right: 3rem; }
-.info-banner-container { padding-left: 0; padding-right: 0; }
+.container { padding: 0 3rem; }
+.info-banner-container { padding: 0; }
 .info-banner { flex-wrap: nowrap; }
 .menu-grid { grid-template-columns: repeat(2, 1fr); }
-.menu-card.span-2 { grid-column: span 2 / span 2; }
-.reviews-container { padding-left: 0; padding-right: 0; }
+.menu-card.span-2 { grid-column: span 2; }
+.reviews-container { padding: 0; }
 .review-swiper-button-prev { left: -2.5rem; }
 .review-swiper-button-next { right: -2.5rem; }
 .footer-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
@@ -927,12 +915,11 @@ gap: 2.5rem;
 @media (min-width: 1024px) { /* lg */
 .button { font-size: 1.125rem; padding: 1rem 2rem; }
 .menu-grid { grid-template-columns: repeat(3, 1fr); }
-.menu-card.span-2 { grid-column: span 1 / span 1; }
+.menu-card.span-2 { grid-column: span 1; }
 .two-column-grid { grid-template-columns: repeat(2, 1fr); }
 .delivery-content { order: -1; }
 .other-offers-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
 }
-	
 	</style>
 </head>
 <body>
