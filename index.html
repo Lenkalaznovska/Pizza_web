@@ -415,7 +415,7 @@
 			transition: all 0.3s ease;
 		}
 		.menu-card:hover {
-			transform: scale(1.05);
+			/* ÚPRAVA: Odebrán transform pro zrušení zvětšování */
 			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
 		}
 		.menu-card-bg-image {
@@ -424,7 +424,8 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			opacity: 0.15;
+			/* ÚPRAVA: Zvýšená průhlednost pozadí */
+			opacity: 0.1;
             z-index: 1;
 		}
 		.menu-card-content {
@@ -456,6 +457,11 @@
 			margin-bottom: 1rem;
 			transition: transform 0.3s ease;
 			min-height: 24px;
+            /* ÚPRAVA: Přidáno pro vertikální zarovnání odkazu */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
 		}
 		.menu-card .card-link:hover {
 			text-decoration: underline;
@@ -572,6 +578,8 @@
 			height: 100%;
 			object-fit: cover;
 			border-radius: 1rem;
+            /* ÚPRAVA: Zajištění, aby nedocházelo k animaci při změně obrázku */
+            transition: none;
 		}
 		.gallery-button {
 			position: absolute;
@@ -585,6 +593,10 @@
 			z-index: 10;
 			cursor: pointer;
 		}
+        /* ÚPRAVA: Pojistka proti zvětšení tlačítka při kliknutí */
+        .gallery-button:active {
+            transform: translateY(-50%);
+        }
 		.gallery-button:hover {
 			background-color: var(--main-red-hover);
 		}
@@ -732,10 +744,10 @@
 			width: 100%;
 			object-fit: cover;
 			border-radius: 0.5rem;
-			transition: transform 0.3s, box-shadow 0.3s;
+			transition: box-shadow 0.3s;
 		}
 		.other-offers-grid img:hover {
-			transform: scale(1.05);
+			/* ÚPRAVA: Odebrán transform pro zrušení zvětšování */
 			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
 		}
 
@@ -882,11 +894,6 @@
 				font-size: 2rem;
 				line-height: 1.2;
 			}
-			.section-green-bg .two-column-grid,
-			.bg-parchment .two-column-grid,
-			.other-offers-section .container > .other-offers-grid {
-				margin-top: 40px;
-			}
 			.header-logo {
 				left: 1rem;
 				top: 1rem;
@@ -905,7 +912,6 @@
 			.hero-content .buttons {
 				margin-top: 2rem;
 			}
-            /* === VYLEPŠENÍ: Info banner se na mobilu skládá pod sebe === */
             .info-banner {
                 flex-direction: column;
                 gap: 1.5rem;
@@ -926,12 +932,17 @@
 				padding-left: 0; 
 				padding-right: 0; 
 			}
+			/* ÚPRAVA: Šipky recenzí posunuty více do stran */
 			.review-swiper-button-prev { 
-				left: -10px; 
+				left: -22px; 
 			}
 			.review-swiper-button-next { 
-				right: -10px; 
+				right: -22px; 
 			}
+            /* ÚPRAVA: Posunutí sekce "mimo pizzy" o 40px dolů */
+            .other-offers-section {
+                padding-top: calc(5rem + 40px);
+            }
 		}
 
 		@media (min-width: 640px) { /* sm */
@@ -967,7 +978,6 @@
 			.info-banner { flex-wrap: nowrap; }
 			.menu-grid { grid-template-columns: repeat(2, 1fr); }
 			.menu-card.span-2 { grid-column: span 2 / span 2; }
-            /* === VYLEPŠENÍ: Dvou-sloupcový layout pro tablety === */
             .two-column-grid { grid-template-columns: repeat(2, 1fr); }
 			.reviews-container { padding-left: 0; padding-right: 0; }
 			.review-swiper-button-prev { left: -2.5rem; }
@@ -1008,6 +1018,9 @@
 			.info-banner-container {
 				margin-top: -90px;
 			}
+            .other-offers-section {
+                padding-top: calc(4rem + 40px);
+            }
 		}
 	</style>
 </head>
