@@ -346,7 +346,8 @@
 			display: flex;
 			flex-direction: row;
             flex-wrap: wrap;
-			align-items: center;
+			/* ÚPRAVA: Zarovnání položek na stejnou výšku */
+			align-items: stretch;
 			justify-content: center;
 			gap: 2.5rem;
 			max-width: 1152px;
@@ -415,7 +416,6 @@
 			transition: all 0.3s ease;
 		}
 		.menu-card:hover {
-			/* ÚPRAVA: Odebrán transform pro zrušení zvětšování */
 			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
 		}
 		.menu-card-bg-image {
@@ -424,7 +424,6 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			/* ÚPRAVA: Zvýšená průhlednost pozadí */
 			opacity: 0.1;
             z-index: 1;
 		}
@@ -457,7 +456,6 @@
 			margin-bottom: 1rem;
 			transition: transform 0.3s ease;
 			min-height: 24px;
-            /* ÚPRAVA: Přidáno pro vertikální zarovnání odkazu */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -578,7 +576,6 @@
 			height: 100%;
 			object-fit: cover;
 			border-radius: 1rem;
-            /* ÚPRAVA: Zajištění, aby nedocházelo k animaci při změně obrázku */
             transition: none;
 		}
 		.gallery-button {
@@ -593,7 +590,6 @@
 			z-index: 10;
 			cursor: pointer;
 		}
-        /* ÚPRAVA: Pojistka proti zvětšení tlačítka při kliknutí */
         .gallery-button:active {
             transform: translateY(-50%);
         }
@@ -638,7 +634,7 @@
 			padding-right: 2.5rem;
 		}
 		.swiper-viewport {
-			overflow: hidden;
+			overflow: visible; /* Změna pro viditelnost šipek */
 		}
 		.swiper-container-reviews .swiper-slide {
 			aspect-ratio: 4 / 3;
@@ -747,7 +743,6 @@
 			transition: box-shadow 0.3s;
 		}
 		.other-offers-grid img:hover {
-			/* ÚPRAVA: Odebrán transform pro zrušení zvětšování */
 			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
 		}
 
@@ -882,6 +877,23 @@
 		}
 
 		/* ----- RESPONZIVNÍ STYLY ----- */
+		
+		/* === Speciální úpravy pro GALAXY FOLD (540px) === */
+		@media (max-width: 540px) {
+			.bg-parchment .section-subtitle {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 0.5rem;
+				white-space: nowrap;
+			}
+			.bg-parchment .section-button {
+				margin-left: auto;
+				margin-right: auto;
+				display: table;
+			}
+		}
+
 		@media (max-width: 767px) {
 			.section {
 				padding-top: 5rem;
@@ -912,37 +924,33 @@
 			.hero-content .buttons {
 				margin-top: 2rem;
 			}
-            .info-banner {
+            /* ÚPRAVA: Nový, kompaktní layout pro info banner na mobilu */
+            .info-banner-item {
                 flex-direction: column;
-                gap: 1.5rem;
+                text-align: center;
+                gap: 0.5rem;
+                padding: 0.5rem;
             }
-			.info-banner-item__text {
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
-			}
-			.info-banner-item__text .subtitle {
-				margin-top: 0;
-			}
-			.info-banner-item__text .subtitle a {
-				display: block;
-				margin-top: 0.25rem;
-			}
+            .info-banner-item svg {
+                height: 2rem;
+                width: 2rem;
+            }
+            .info-banner-item__text {
+                align-items: center;
+            }
 			.reviews-container { 
 				padding-left: 0; 
 				padding-right: 0; 
+				margin-left: 40px; /* Vytvoření prostoru pro šipky */
+				margin-right: 40px;
 			}
-			/* ÚPRAVA: Šipky recenzí posunuty více do stran */
+			/* ÚPRAVA: Šipky recenzí posunuty ZCELA mimo obsah */
 			.review-swiper-button-prev { 
-				left: -22px; 
+				left: -42px; 
 			}
 			.review-swiper-button-next { 
-				right: -22px; 
+				right: -42px; 
 			}
-            /* ÚPRAVA: Posunutí sekce "mimo pizzy" o 40px dolů */
-            .other-offers-section {
-                padding-top: calc(5rem + 40px);
-            }
 		}
 
 		@media (min-width: 640px) { /* sm */
@@ -954,6 +962,14 @@
 			.other-offers-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 		}
 
+		/* === Speciální úpravy pro TABLETY (iPad, Surface atd.) === */
+		@media (min-width: 768px) and (max-width: 1023px) {
+			.hero-content h1 {
+				font-size: 55px;
+				white-space: normal;
+			}
+		}
+		
 		@media (min-width: 768px) { /* md */
 			.section {
 				padding-top: 6rem;
@@ -1018,9 +1034,6 @@
 			.info-banner-container {
 				margin-top: -90px;
 			}
-            .other-offers-section {
-                padding-top: calc(4rem + 40px);
-            }
 		}
 	</style>
 </head>
