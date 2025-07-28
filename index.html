@@ -143,8 +143,7 @@
 			padding: 0;
 			box-sizing: border-box;
 		}
-        /* Přidáno pro plynulé scrollování a respektování preferencí uživatele */
-		html {
+        html {
 			scroll-behavior: smooth;
 		}
 		html, body {
@@ -153,7 +152,6 @@
 			color: var(--black);
 			overflow-x: hidden;
 		}
-        /* Vylepšení přístupnosti pro uživatele preferující omezený pohyb */
         @media (prefers-reduced-motion: reduce) {
             html {
                 scroll-behavior: auto;
@@ -301,7 +299,7 @@
 		}
 		.hero-content h1 {
 			font-family: var(--font-main);
-			font-size: clamp(2.5rem, 6.5vw, 4.0625rem); /* Fluidní typografie */
+			font-size: clamp(2.5rem, 6.5vw, 4.0625rem);
 			margin-bottom: 20px;
 			font-weight: 900;
 			text-transform: uppercase;
@@ -440,7 +438,7 @@
 		}
 		.menu-card:hover {
 			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-            transform: translateY(-5px); /* Přidáno pro jemný hover efekt */
+            transform: translateY(-5px);
 		}
 		.menu-card-bg-image {
 			position: absolute;
@@ -456,7 +454,7 @@
 			z-index: 10;
 			display: flex;
 			flex-direction: column;
-			flex-grow: 1;
+			flex-grow: 1; /* Zajišťuje, že obsah vyplní celou kartu */
 		}
 		.menu-card .card-category {
 			font-family: var(--font-main);
@@ -509,7 +507,6 @@
 			display: flex;
 			flex-direction: column;
 			gap: 0.75rem;
-            flex-grow: 1;
 		}
 		.menu-card .card-list li {
 			display: flex;
@@ -520,6 +517,7 @@
 		}
 		.menu-card .card-button-wrapper {
 			padding-top: 2rem;
+            margin-top: auto; /* KLÍČOVÁ ZMĚNA: Tlačí tlačítko na dno karty */
 		}
 		.button-white-green { background-color: var(--white); color: var(--main-green); }
 		.button-white-green:hover { background-color: #e6f2ed; }
@@ -761,11 +759,11 @@
 			width: 100%;
 			object-fit: cover;
 			border-radius: 0.5rem;
-			transition: all 0.3s ease; /* Změněno pro plynulejší přechod */
+			transition: all 0.3s ease;
 		}
 		.other-offers-grid img:hover {
 			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-            transform: scale(1.03); /* Přidáno pro jemný zoom efekt */
+            transform: scale(1.03);
 		}
 
 		/* ----- SEKCE SOCIÁLNÍ SÍTĚ ----- */
@@ -853,7 +851,7 @@
 		}
 		.opening-hours .day-row.active-day {
 			font-weight: 700;
-            color: var(--main-red); /* Zvýraznění aktivního dne */
+            color: var(--main-red);
 		}
 		.footer-contact-list {
 			list-style: none;
@@ -904,7 +902,6 @@
 
 		/* ----- RESPONZIVNÍ STYLY ----- */
 		
-		/* === Speciální úpravy pro GALAXY FOLD (šířka < 540px) === */
 		@media (max-width: 540px) {
 			.bg-parchment .section-subtitle {
 				display: flex;
@@ -920,7 +917,6 @@
 			}
 		}
         
-        /* === Běžné mobilní telefony (šířka < 767px) === */
 		@media (max-width: 767px) {
 			.section {
 				padding-top: 5rem;
@@ -950,6 +946,11 @@
 			.hero-content .buttons {
 				margin-top: 2rem;
 			}
+            /* KLÍČOVÁ ZMĚNA: Zmenšení info banneru na mobilech */
+            .info-banner {
+                gap: 1.5rem; /* Zmenšení mezer mezi položkami */
+                padding: 0.75rem 1rem; /* Zmenšení vnitřního odsazení */
+            }
             .info-banner-item {
                 flex-direction: column;
                 text-align: center;
@@ -974,8 +975,7 @@
 			}
 		}
 
-        /* === Velké mobilní telefony a malé tablety (šířka > 640px) === */
-		@media (min-width: 640px) { /* sm */
+		@media (min-width: 640px) {
 			.hero-content .buttons, .delivery-buttons {
 				flex-direction: row;
 				justify-content: center;
@@ -984,15 +984,13 @@
 			.other-offers-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 		}
 
-		/* === Tablety (šířka 768px - 1023px) === */
 		@media (min-width: 768px) and (max-width: 1023px) {
 			.hero-content h1 {
 				white-space: normal;
 			}
 		}
 		
-        /* === Tablety a malé desktopy (šířka > 768px) === */
-		@media (min-width: 768px) { /* md */
+		@media (min-width: 768px) {
 			.section {
 				padding-top: 6rem;
 				padding-bottom: 6rem;
@@ -1029,15 +1027,13 @@
 			.footer-bottom-links .separator { display: inline; }
 		}
 
-        /* === Běžné desktopy (šířka > 1024px) === */
-		@media (min-width: 1024px) { /* lg */
+		@media (min-width: 1024px) {
 			.button { font-size: 1.125rem; padding: 1rem 2rem; }
 			.menu-grid { grid-template-columns: repeat(3, 1fr); }
 			.menu-card.span-2 { grid-column: span 1 / span 1; }
 			.other-offers-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
 		}
 		
-		/* === Cílené úpravy pro malé a krátké displeje (např. iPhone SE) === */
 		@media (max-height: 740px) and (max-width: 480px) {
 			.section {
 				padding-top: 4rem;
@@ -1474,8 +1470,6 @@
 	<script>
 	document.addEventListener('DOMContentLoaded', () => {
 		
-		// ----- HERO SLIDER -----
-		// Funkce zajišťuje plynulé automatické přepínání obrázků v úvodní sekci.
 		const slides = document.querySelector('.slides');
 		if (slides) {
 			const slideCount = document.querySelectorAll('.slide').length;
@@ -1485,11 +1479,10 @@
 					currentIndex = (currentIndex + 1) % slideCount;
 					slides.style.transform = `translateX(-${currentIndex * 100}%)`;
 				};
-				setInterval(nextSlide, 5000); // Přepnutí každých 5 sekund
+				setInterval(nextSlide, 5000);
 			}
 		}
 
-		// ----- DATA PRO DYNAMICKÉ ČÁSTI -----
 		const galleryData = {
 			currentIndex: 0,
 			images: [
@@ -1520,21 +1513,18 @@
 			'images/rychly-rozvoz-nejlepsi-pizza-kladno-recenze.webp',
 			'images/vyborna-pizza-skvela-obsluha-kladno-recenze.webp'
 		];
-		// Náhodné seřazení obrázků recenzí (Fisher-Yates shuffle) pro dynamický dojem při každé návštěvě.
+		
 		for (let i = reviewImagePaths.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
 			[reviewImagePaths[i], reviewImagePaths[j]] = [reviewImagePaths[j], reviewImagePaths[i]];
 		}
 
-		// ----- OBRÁZKOVÁ GALERIE -----
-		// Inicializace a ovládání galerie s pizzami.
 		const galleryImage = document.getElementById('gallery-image');
 		const prevBtn = document.getElementById('gallery-prev');
 		const nextBtn = document.getElementById('gallery-next');
 		const dotsContainer = document.getElementById('gallery-dots-container');
 
 		if (galleryImage && prevBtn && nextBtn && dotsContainer) {
-			// Vytvoření navigačních teček
 			galleryData.images.forEach((_, index) => {
 				const dot = document.createElement('button');
 				dot.classList.add('gallery-dot');
@@ -1544,7 +1534,6 @@
 			});
 			const dots = dotsContainer.querySelectorAll('.gallery-dot');
 
-			// Funkce pro aktualizaci zobrazeného obrázku a aktivní tečky
 			const updateGallery = () => {
                 if (galleryData.images.length > 0) {
 				    galleryImage.src = galleryData.images[galleryData.currentIndex];
@@ -1572,24 +1561,19 @@
 			prevBtn.addEventListener('click', prevImage);
 			nextBtn.addEventListener('click', nextImage);
 		
-			// Prvotní inicializace galerie
 			updateGallery();
 		}
 
-		// ----- SLIDER RECENZÍ (Swiper.js) -----
 		const reviewsWrapper = document.getElementById('reviews-wrapper');
 		if (reviewsWrapper) {
-			// Dynamické generování slidů z pole obrázků
 			reviewImagePaths.forEach(imgSrc => {
 				const slide = document.createElement('div');
 				slide.className = 'swiper-slide';
-				// Vylepšený alt text pro lepší přístupnost
 				const altText = imgSrc.split('/').pop().replace(/-/g, ' ').replace('.webp', '');
 				slide.innerHTML = `<img src="${imgSrc}" loading="lazy" alt="Recenze zákazníka: ${altText}.">`;
 				reviewsWrapper.appendChild(slide);
 			});
 
-			// Inicializace Swiperu až po vygenerování obsahu
 			if (typeof Swiper !== 'undefined') {
 				new Swiper('.swiper-container-reviews', {
 					loop: true,
@@ -1611,9 +1595,7 @@
 			}
 		}
 
-		// ----- ZVÝRAZNĚNÍ AKTUÁLNÍHO DNE V PATIČCE -----
-		// Zlepšuje orientaci uživatele v otevírací době.
-		const today = new Date().getDay(); // 0 = Neděle, 1 = Pondělí, ..., 6 = Sobota
+		const today = new Date().getDay();
 		const currentDayRow = document.querySelector(`.day-row[data-day="${today}"]`);
 		if (currentDayRow) {
 			currentDayRow.classList.add('active-day');
