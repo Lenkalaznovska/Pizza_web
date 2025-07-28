@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://connect.facebook.net https://static.elfsight.com;
@@ -17,11 +17,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap&family=Pacifico&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap&family=Pacifico&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     </noscript>
-    
+
     <meta name="theme-color" content="#000000" />
     <title>Pizzerie San Marino – Pizza jinak již od roku 1994</title>
     <meta name="description" content="Pizzerie San Marino to jsou originální pizzy, legendární burgry, kuřecí speciality Wing It a další dobroty. Online objednání s doručením až k vašim dveřím." />
@@ -40,7 +40,7 @@
     <meta property="og:locale" content="cs_CZ" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Pizzerie San Marino – Pizza jinak již od roku 1994" />
-    <meta property="og:description" content="Pizzerie San Marino to jsou originální pizzy, legendární burgry, kuřecí speciality Wing It a další dobroty. Online objednání s doručením až k vašim dveřím." />
+    <meta name="description" content="Pizzerie San Marino to jsou originální pizzy, legendární burgry, kuřecí speciality Wing It a další dobroty. Online objednání s doručením až k vašim dveřím." />
     <meta property="og:url" content="https://www.pizzakladno.cz/" />
     <meta property="og:site_name" content="Pizzerie San Marino Kladno" />
     <meta property="og:image" content="images/pizzerie-san-marino-kladno-nabidka-jidla.webp" />
@@ -52,8 +52,10 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Pizzerie San Marino – Pizza jinak již od roku 1994" />
-    <meta name="twitter:description" content="Pizzerie San Marino to jsou originální pizzy, legendární burgry, kuřecí speciality Wing It a další dobroty. Online objednání s doručením až k vašim dveřím." />
+    <meta name="description" content="Pizzerie San Marino to jsou originální pizzy, legendární burgry, kuřecí speciality Wing It a další dobroty. Online objednání s doručením až k vašim dveřím." />
     <meta name="twitter:image" content="images/pizzerie-san-marino-kladno-nabidka-jidla.webp" />
+    <meta property="og:image" content="images/pizzerie-san-marino-kladno-nabidka-jidla.jpg" />
+    <meta property="og:image" content="https://www.pizzakladno.cz//images/pizzerie-san-marino-kladno-nabidka-jidla.webp" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.css" media="print" onload="this.media='all'">
     <script src="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.js" defer></script>
     <script>
@@ -76,10 +78,8 @@
         "@context": "https://schema.org",
         "@type": "Restaurant",
         "name": "Pizzerie San Marino Kladno",
-        "image": [
-            "images/pizzerie-san-marino-kladno-nabidka-jidla.webp",
-            "images/pizzerie-san-marino-kladno-nabidka-jidla.jpg"
-        ],
+        "image": "images/pizzerie-san-marino-kladno-nabidka-jidla.webp",
+        "image": "images/pizzerie-san-marino-kladno-nabidka-jidla.jpg",
         "@id": "https://www.pizzakladno.cz/",
         "url": "https://www.pizzakladno.cz/",
         "telephone": "+420604633373",
@@ -132,8 +132,6 @@
             --white: #FFFFFF;
             --black: #000000;
             --font-main: 'Montserrat', sans-serif;
-            --font-subtitle: 'Pacifico', cursive; /* Nový font pro podnadpisy */
-            --spacing-unit: 1.5rem; /* Základní jednotka pro paddingy a marginy */
         }
 
         /* ----- GLOBÁLNÍ STYLY ----- */
@@ -142,29 +140,30 @@
             padding: 0;
             box-sizing: border-box;
         }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
+        html, body {
             font-family: var(--font-main);
             background: var(--white);
             color: var(--black);
-            overflow-x: hidden; /* Zajištění, aby stránka nepřetékala horizontálně */
-            line-height: 1.6; /* Vylepšené řádkování */
-            font-size: 1rem; /* Základní velikost písma */
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
         a {
             color: inherit;
             text-decoration: none;
         }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
         .container {
             width: 100%;
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 var(--spacing-unit); /* Jednotné horizontální paddingy */
+            padding: 0 1.5rem;
         }
         .section {
-            padding: calc(var(--spacing-unit) * 4) 0; /* Jednotné vertikální paddingy */
+            padding: 4rem 0; /* Upraveno pro lepší spacing na menších obrazovkách */
         }
         .section-white {
             background-color: var(--white);
@@ -175,12 +174,9 @@
             display: block;
             text-align: center;
             color: var(--main-red);
-            font-family: var(--font-subtitle); /* Použití Pacifico fontu */
-            font-size: clamp(1.2rem, 4vw, 2.25rem); /* Responzivní velikost pro Pacifico */
-            margin-bottom: var(--spacing-unit); /* Jednotný margin */
-            font-weight: 400; /* Pacifico je obvykle tenčí */
-            text-transform: none; /* Pacifico by nemělo být uppercase */
-            letter-spacing: 0; /* Bez letter-spacing pro Pacifico */
+            font-size: 1.5rem; /* Upraveno pro menší obrazovky */
+            margin-bottom: 0.5rem; /* Upraveno */
+            font-weight: bold;
         }
         .section-green-bg .section-header-subtitle,
         .bg-parchment .section-header-subtitle,
@@ -188,13 +184,12 @@
             color: var(--white);
         }
         .section-title, .title {
-            font-size: clamp(2rem, 7vw, 4rem); /* Responzivní velikost pro hlavní nadpisy */
+            font-size: 2rem; /* Upraveno pro menší obrazovky */
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.025em;
             text-align: center;
-            margin: 0 0 calc(var(--spacing-unit) * 1.5); /* Jednotný margin */
-            line-height: 1.2;
+            margin: 0 0 1.5rem; /* Upraveno */
         }
         .bg-parchment .section-title,
         .section-green-bg .section-title,
@@ -205,20 +200,6 @@
         .menu-section-header .title {
             color: var(--black);
         }
-        .section-subtitle {
-            margin-top: var(--spacing-unit);
-            font-size: clamp(1rem, 3.5vw, 1.25rem); /* Responzivní velikost */
-            font-weight: 600;
-            line-height: 1.4;
-            text-align: center; /* Výchozí zarovnání na střed */
-        }
-        .section-text {
-            margin-top: var(--spacing-unit);
-            line-height: 1.75;
-            font-size: clamp(0.95rem, 3vw, 1.125rem); /* Responzivní velikost */
-            text-align: center; /* Výchozí zarovnání na střed */
-        }
-
         @media (min-width: 768px) {
             .menu-section-header, .text-content-column {
                 text-align: left;
@@ -229,8 +210,16 @@
             .menu-section-header .section-header-subtitle, .text-content-column .section-header-subtitle {
                 text-align: left;
             }
-            .section-subtitle, .section-text {
-                text-align: left; /* Zarovnání vlevo na desktopu */
+            .section {
+                padding: 6rem 0; /* Původní hodnota pro větší obrazovky */
+            }
+            .section-header-subtitle {
+                font-size: 2.25rem; /* Původní hodnota pro větší obrazovky */
+                margin-bottom: 1rem;
+            }
+            .section-title, .title {
+                font-size: 2.5rem; /* Původní hodnota pro větší obrazovky */
+                margin-bottom: 2rem;
             }
         }
 
@@ -261,11 +250,11 @@
         .header-logo {
             position: absolute;
             z-index: 101;
-            left: var(--spacing-unit);
-            top: calc(var(--spacing-unit) + 15px);
+            left: 1.5rem; /* Upraveno pro menší obrazovky */
+            top: 1.5rem; /* Upraveno */
         }
         .header-logo img {
-            height: 80px;
+            height: 60px; /* Upraveno pro menší obrazovky */
             width: auto;
         }
         .hero-slider {
@@ -300,53 +289,52 @@
             text-align: center;
             color: var(--white);
             width: 90%;
-            max-width: 900px; /* Omezení šířky pro lepší čitelnost */
             z-index: 50;
         }
         .hero-content h1 {
             font-family: var(--font-main);
-            font-size: clamp(2.5rem, 8vw, 4.5rem); /* Plynulá velikost */
-            margin-bottom: var(--spacing-unit);
+            font-size: 40px; /* Upraveno pro mobil */
+            margin-bottom: 15px;
             font-weight: 900;
             text-transform: uppercase;
             text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
-            white-space: normal; /* Povolit zalomení textu */
-            word-break: break-word; /* Zalamování dlouhých slov */
+            white-space: normal; /* Povolí zalomení textu */
+            line-height: 1.2;
         }
         .hero-content .cta-text {
-            font-size: clamp(1.1rem, 3.5vw, 1.5rem); /* Plynulá velikost */
-            font-weight: 600;
+            font-size: 18px; /* Upraveno pro mobil */
+            font-weight: bold;
             background: rgba(0, 0, 0, 0.6);
-            padding: 0.75rem 1.5rem;
+            padding: 10px 15px; /* Upraveno */
             border-radius: 10px;
             display: inline-block;
-            line-height: 1.4;
         }
         .hero-content .buttons {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: var(--spacing-unit);
-            margin-top: calc(var(--spacing-unit) * 2);
+            gap: 1rem;
+            margin-top: 2rem; /* Upraveno */
         }
         .button {
             font-family: var(--font-main);
             font-weight: 700;
-            font-size: clamp(0.9rem, 3vw, 1.1rem); /* Plynulá velikost */
+            font-size: 0.9rem; /* Upraveno pro mobil */
             border-radius: 9999px;
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1.2rem; /* Upraveno */
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.75rem;
+            gap: 0.5rem; /* Upraveno */
             text-decoration: none;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            text-align: center;
         }
         .button svg {
-            width: 1.5rem;
-            height: 1.5rem;
+            width: 1.2rem; /* Upraveno pro mobil */
+            height: 1.2rem; /* Upraveno pro mobil */
         }
         .button-red {
             background-color: var(--main-red);
@@ -356,30 +344,70 @@
             background-color: var(--main-red-hover);
         }
 
+        @media (min-width: 768px) {
+            .header-logo {
+                left: 2.5rem;
+                top: calc(1.5rem + 15px);
+            }
+            .header-logo img {
+                height: 80px;
+            }
+            .hero-content h1 {
+                font-size: 65px;
+                margin-bottom: 20px;
+                white-space: nowrap;
+            }
+            .hero-content .cta-text {
+                font-size: 24px;
+                padding: 15px 25px;
+            }
+            .hero-content .buttons {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2.5rem;
+                margin-top: 3rem;
+            }
+            .button {
+                font-size: 1rem;
+                padding: 0.75rem 1.5rem;
+                gap: 0.75rem;
+            }
+            .button svg {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+        @media (min-width: 1024px) { /* lg */
+            .button {
+                font-size: 1.125rem;
+                padding: 1rem 2rem;
+            }
+        }
+
+
         /* ----- INFO BANNER (pod sliderem) ----- */
         .info-banner-container {
             position: relative;
             z-index: 20;
-            margin-top: -135px;
+            margin-top: -80px; /* Upraveno pro menší obrazovky */
             width: 100%;
             display: flex;
             justify-content: center;
-            padding: 0 var(--spacing-unit);
+            padding: 0 1rem;
         }
         .info-banner {
             background-color: var(--white);
             color: var(--black);
             border-radius: 1rem;
             box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-            padding: var(--spacing-unit); /* Optimalizovaný padding pro mobil */
+            padding: 1rem; /* Upraveno */
             display: flex;
-            flex-direction: column; /* Vertikální na mobilu */
-            align-items: flex-start; /* Zarovnání položek vlevo */
+            flex-direction: column; /* Změněno na sloupec pro mobily */
+            align-items: center;
             justify-content: center;
-            gap: var(--spacing-unit); /* Optimalizované mezery pro mobil */
+            gap: 1.5rem; /* Upraveno */
             max-width: 1152px;
             transition: box-shadow 0.5s ease-in-out;
-            text-align: left; /* Celý banner zarovnán vlevo */
         }
         .info-banner:hover {
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
@@ -389,13 +417,14 @@
             grid-template-columns: auto 1fr;
             column-gap: 0.75rem;
             align-items: center;
-            width: 100%; /* Roztažení na celou šířku */
+            text-align: left; /* Zarovnání textu doleva */
+            width: 100%; /* Plná šířka pro každý item */
         }
         .info-banner-item svg {
             grid-row: 1 / 3;
             grid-column: 1;
-            height: 2rem; /* Zmenšeno pro mobil */
-            width: 2rem; /* Zmenšeno pro mobil */
+            height: 2rem; /* Upraveno pro menší obrazovky */
+            width: 2rem; /* Upraveno pro menší obrazovky */
             color: var(--main-red);
             flex-shrink: 0;
         }
@@ -407,52 +436,76 @@
             grid-row: 1;
             font-weight: 700;
             color: var(--black);
-            font-size: clamp(0.95rem, 3vw, 1.125rem); /* Responzivní velikost */
+            font-size: 1rem; /* Upraveno pro menší obrazovky */
             align-self: end;
-            margin-bottom: 0; /* Override */
-            text-align: left;
+            margin-bottom: 0; /* Zajištění, aby neměl margin */
         }
         .info-banner-item__text .subtitle {
             grid-column: 2;
             grid-row: 2;
             color: var(--black);
-            font-size: clamp(0.8rem, 2.5vw, 1rem); /* Responzivní velikost */
+            font-size: 0.9rem; /* Upraveno pro menší obrazovky */
             align-self: start;
-            margin-top: -5px; /* Upraveno pro lepší zarovnání */
-            text-align: left;
+            margin-top: -15px; /* Upraveno */
         }
         .info-banner-item__text .subtitle a {
             color: var(--main-red);
             text-decoration: underline;
             font-weight: 600;
         }
+        @media (min-width: 768px) { /* md */
+            .info-banner-container {
+                margin-top: -135px; /* Původní hodnota */
+                padding: 0;
+            }
+            .info-banner {
+                flex-direction: row; /* Zpět na řádek */
+                flex-wrap: nowrap;
+                padding: 1rem 1.5rem;
+                gap: 2.5rem;
+            }
+            .info-banner-item {
+                width: auto; /* Zpět na auto šířku */
+            }
+            .info-banner-item svg {
+                height: 2.5rem;
+                width: 2.5rem;
+            }
+            .info-banner-item__text .title {
+                font-size: 1.125rem;
+            }
+            .info-banner-item__text .subtitle {
+                font-size: 1rem;
+                margin-top: -25px;
+            }
+        }
+
 
         /* ----- SEKCE "NA CO MÁŠ CHUŤ?" ----- */
         .menu-section-header {
-            margin-bottom: calc(var(--spacing-unit) * 2); /* Optimalizovaný margin pro mobil */
+            margin-bottom: 2rem; /* Upraveno pro mobil */
         }
         .menu-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: var(--spacing-unit); /* Optimalizované mezery pro mobil */
+            gap: 1.5rem; /* Upraveno pro mobil */
             align-items: stretch;
         }
         .menu-card {
             position: relative;
             border-radius: 1.5rem;
             overflow: hidden;
-            padding: var(--spacing-unit); /* Optimalizovaný padding pro mobil */
+            padding: 1.5rem; /* Upraveno pro mobil */
             display: flex;
             flex-direction: column;
             text-align: center;
             color: var(--white);
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
             transition: all 0.3s ease;
-            isolation: isolate; /* Pro z-index a opacity pozadí */
         }
         .menu-card:hover {
-            transform: translateY(-5px); /* Jemný posun */
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            transform: scale(1.03); /* Mírnější scale pro mobil */
+            box-shadow: 0 15px 30px -7px rgba(0,0,0,0.2); /* Mírnější stín */
         }
         .menu-card-bg-image {
             position: absolute;
@@ -461,7 +514,7 @@
             height: 100%;
             object-fit: cover;
             opacity: 0.15;
-            z-index: -1; /* Posunuto pod obsah */
+            z-index: 1;
         }
         .menu-card-content {
             position: relative;
@@ -472,16 +525,15 @@
         }
         .menu-card .card-category {
             font-family: var(--font-main);
-            font-size: clamp(1.3rem, 4vw, 1.75rem); /* Responzivní velikost */
+            font-size: 1.5rem; /* Upraveno pro mobil */
             font-weight: 900;
             text-transform: uppercase;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-            margin-bottom: 0.75rem; /* Optimalizovaný margin pro mobil */
-            min-height: 60px; /* Optimalizovaný min-height pro mobil */
+            margin-bottom: 0.5rem; /* Upraveno */
+            min-height: 80px; /* Upraveno */
             display: flex;
             align-items: center;
             justify-content: center;
-            line-height: 1.2;
         }
         .menu-card .card-link,
         .menu-card .card-list {
@@ -490,36 +542,35 @@
         .menu-card .card-link {
             font-weight: 600;
             text-decoration: none;
-            margin-bottom: 0.75rem; /* Optimalizovaný margin pro mobil */
+            margin-bottom: 0.75rem; /* Upraveno */
             transition: transform 0.3s ease;
-            min-height: 24px;
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Responzivní velikost */
+            min-height: 20px; /* Upraveno */
+            font-size: 0.9rem; /* Upraveno */
         }
         .menu-card .card-link:hover {
             text-decoration: underline;
         }
         .menu-card .card-subtitle {
-            font-size: clamp(1rem, 3vw, 1.25rem); /* Responzivní velikost */
+            font-size: 1.1rem; /* Upraveno pro mobil */
             font-weight: 700;
-            margin-bottom: 0.75rem; /* Optimalizovaný margin pro mobil */
-            padding-top: var(--spacing-unit);
+            margin-bottom: 1rem;
+            padding-top: 0.5rem; /* Upraveno */
             text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-            min-height: 40px; /* Optimalizovaný min-height pro mobil */
+            min-height: 40px; /* Upraveno */
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            line-height: 1.3;
         }
         .menu-card .card-list {
             list-style: none;
             padding: 0;
             margin: 0;
             text-align: left;
-            font-size: clamp(0.85rem, 2.5vw, 1rem); /* Responzivní velikost */
+            font-size: 0.95rem; /* Upraveno pro mobil */
             display: flex;
             flex-direction: column;
-            gap: 0.5rem; /* Optimalizované mezery pro mobil */
+            gap: 0.5rem; /* Upraveno */
             flex-grow: 1;
         }
         .menu-card .card-list li {
@@ -530,8 +581,7 @@
             font-weight: 600;
         }
         .menu-card .card-button-wrapper {
-            padding-top: var(--spacing-unit); /* Optimalizovaný padding pro mobil */
-            text-align: center;
+            padding-top: 1.5rem; /* Upraveno */
         }
         .button-white-green { background-color: var(--white); color: var(--main-green); }
         .button-white-green:hover { background-color: #e6f2ed; }
@@ -540,6 +590,59 @@
         .button-white-dark { background-color: var(--white); color: var(--black); }
         .button-white-dark:hover { background-color: #f3f4f6; }
 
+        @media (min-width: 768px) { /* md */
+            .menu-section-header {
+                margin-bottom: 4rem;
+            }
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+                grid-auto-rows: 1fr;
+            }
+            .menu-card {
+                padding: 2rem;
+            }
+            .menu-card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            }
+            .menu-card.span-2 {
+                grid-column: span 2;
+            }
+            .menu-card .card-category {
+                font-size: 1.75rem;
+                margin-bottom: 0.75rem;
+                min-height: 100px;
+            }
+            .menu-card .card-link {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+                min-height: 24px;
+            }
+            .menu-card .card-subtitle {
+                font-size: 1.25rem;
+                margin-bottom: 1rem;
+                padding-top: 1rem;
+                min-height: 60px;
+            }
+            .menu-card .card-list {
+                font-size: 1rem;
+                gap: 0.75rem;
+            }
+            .menu-card .card-button-wrapper {
+                padding-top: 2rem;
+            }
+        }
+        @media (min-width: 1024px) { /* lg */
+            .menu-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .menu-card.span-2 { /* Zruší span 2 pro větší obrazovky, pokud nechceme */
+                grid-column: span 1;
+            }
+        }
+
+
         /* ----- SEKCE S BÍLÝM TEXTEM ----- */
         .section-green-bg,
         .bg-parchment {
@@ -547,7 +650,7 @@
         }
         .section-green-bg {
             background-color: var(--main-green);
-            padding: var(--spacing-unit); /* Optimalizovaný padding pro mobil */
+            padding: 1.5rem; /* Upraveno pro mobil */
             border-radius: 1.5rem;
         }
         .bg-parchment {
@@ -563,30 +666,39 @@
         .two-column-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: calc(var(--spacing-unit) * 2); /* Optimalizované mezery pro mobil */
+            gap: 2rem; /* Upraveno pro mobil */
             align-items: center;
         }
+        .section-subtitle {
+            margin-top: 0.75rem; /* Upraveno */
+            font-size: 1.1rem; /* Upraveno pro mobil */
+            font-weight: 600;
+        }
+        .section-text {
+            margin-top: 1rem; /* Upraveno */
+            line-height: 1.5; /* Upraveno */
+            font-size: 0.95rem; /* Upraveno pro mobil */
+        }
         .feature-list {
-            margin-top: var(--spacing-unit); /* Optimalizovaný margin pro mobil */
+            margin-top: 1.5rem; /* Upraveno */
             display: flex;
             flex-direction: column;
-            gap: 0.75rem; /* Optimalizované mezery pro mobil */
-            font-size: clamp(0.95rem, 3vw, 1.125rem); /* Responzivní velikost */
-            text-align: left; /* Zarovnání vlevo */
+            gap: 0.75rem; /* Upraveno */
         }
         .feature-item {
             display: flex;
             align-items: flex-start;
-            gap: 0.5rem; /* Optimalizované mezery pro mobil */
+            gap: 0.5rem; /* Upraveno */
+            font-size: 0.9rem; /* Upraveno pro mobil */
         }
         .feature-item svg {
-            height: 1.5rem; /* Zmenšeno pro mobil */
-            width: 1.5rem; /* Zmenšeno pro mobil */
+            height: 1.5rem; /* Upraveno pro mobil */
+            width: 1.5rem; /* Upraveno pro mobil */
             color: var(--main-red);
             flex-shrink: 0;
         }
         .section-button {
-            margin-top: calc(var(--spacing-unit) * 1.5); /* Optimalizovaný margin pro mobil */
+            margin-top: 2rem; /* Upraveno */
             display: inline-block;
         }
         .image-gallery {
@@ -597,7 +709,7 @@
         .image-gallery-main {
             position: relative;
             width: 100%;
-            max-width: 28rem;
+            max-width: 20rem; /* Upraveno pro mobil */
             aspect-ratio: 1 / 1;
         }
         .image-gallery-main img {
@@ -613,7 +725,7 @@
             background-color: var(--main-red);
             border: none;
             border-radius: 9999px;
-            padding: 0.5rem; /* Zmenšeno pro mobil */
+            padding: 0.5rem; /* Upraveno pro mobil */
             transition: background-color 0.2s;
             z-index: 10;
             cursor: pointer;
@@ -622,22 +734,22 @@
             background-color: var(--main-red-hover);
         }
         .gallery-button svg {
-            height: 1.25rem; /* Zmenšeno pro mobil */
-            width: 1.25rem; /* Zmenšeno pro mobil */
+            height: 1rem; /* Upraveno pro mobil */
+            width: 1rem; /* Upraveno pro mobil */
             color: var(--white);
         }
-        .gallery-button-prev { left: 0.25rem; } /* Zmenšeno pro mobil */
-        .gallery-button-next { right: 0.25rem; } /* Zmenšeno pro mobil */
+        .gallery-button-prev { left: 0.25rem; } /* Upraveno */
+        .gallery-button-next { right: 0.25rem; } /* Upraveno */
         .image-gallery-dots {
-            margin-top: 0.75rem; /* Optimalizovaný margin pro mobil */
+            margin-top: 1rem; /* Upraveno */
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem; /* Optimalizované mezery pro mobil */
+            gap: 0.5rem; /* Upraveno */
         }
         .gallery-dot {
-            height: 0.75rem; /* Zmenšeno pro mobil */
-            width: 0.75rem; /* Zmenšeno pro mobil */
+            height: 0.75rem; /* Upraveno pro mobil */
+            width: 0.75rem; /* Upraveno pro mobil */
             border-radius: 9999px;
             transition: background-color 0.2s;
             cursor: pointer;
@@ -652,10 +764,72 @@
             border-color: var(--main-red);
         }
 
+        @media (min-width: 768px) { /* md */
+            .section-green-bg {
+                padding: 2rem;
+            }
+            .two-column-grid {
+                gap: 4rem;
+            }
+            .section-subtitle {
+                margin-top: 1rem;
+                font-size: 1.25rem;
+            }
+            .section-text {
+                margin-top: 1.5rem;
+                line-height: 1.625;
+                font-size: 1rem;
+            }
+            .feature-list {
+                margin-top: 2rem;
+                gap: 1rem;
+            }
+            .feature-item {
+                gap: 0.75rem;
+                font-size: 1rem;
+            }
+            .feature-item svg {
+                height: 1.75rem;
+                width: 1.75rem;
+            }
+            .section-button {
+                margin-top: 2.5rem;
+            }
+            .image-gallery-main {
+                max-width: 28rem;
+            }
+            .gallery-button {
+                padding: 0.75rem;
+            }
+            .gallery-button svg {
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+            .gallery-button-prev { left: 0.5rem; }
+            .gallery-button-next { right: 0.5rem; }
+            .image-gallery-dots {
+                margin-top: 1.5rem;
+                gap: 0.75rem;
+            }
+            .gallery-dot {
+                height: 1rem;
+                width: 1rem;
+            }
+        }
+        @media (min-width: 1024px) { /* lg */
+            .two-column-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .delivery-content {
+                order: -1;
+            }
+        }
+
+
         /* ----- SEKCE RECENZE ----- */
         .reviews-container {
             position: relative;
-            padding: 0; /* Odstraněno padding na mobilu, aby se Swiper vešel */
+            padding: 0 1rem; /* Upraveno pro mobil */
         }
         .swiper-viewport {
             overflow: hidden;
@@ -674,7 +848,7 @@
         .swiper-container-reviews .swiper-slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Udržuje poměr stran obrázku, aby se vešel */
+            object-fit: contain;
         }
         .review-swiper-button {
             position: absolute;
@@ -684,24 +858,39 @@
             cursor: pointer;
             background-color: var(--main-red);
             border-radius: 9999px;
-            padding: 0.5rem; /* Zmenšeno pro mobil */
+            padding: 0.5rem; /* Upraveno pro mobil */
             transition: background-color 0.2s;
         }
         .review-swiper-button:hover {
             background-color: var(--main-red-hover);
         }
-        .review-swiper-button-prev { left: -10px; } /* Posunuto blíže k okraji */
-        .review-swiper-button-next { right: -10px; } /* Posunuto blíže k okraji */
+        .review-swiper-button-prev { left: -0.5rem; } /* Upraveno */
+        .review-swiper-button-next { right: -0.5rem; } /* Upraveno */
         .review-swiper-button svg {
             color: var(--white);
-            width: 1.25rem; /* Zmenšeno pro mobil */
-            height: 1.25rem; /* Zmenšeno pro mobil */
+            width: 1.2rem; /* Upraveno pro mobil */
+            height: 1.2rem; /* Upraveno pro mobil */
+        }
+
+        @media (min-width: 768px) { /* md */
+            .reviews-container {
+                padding: 0;
+            }
+            .review-swiper-button-prev { left: -2.5rem; }
+            .review-swiper-button-next { right: -2.5rem; }
+            .review-swiper-button {
+                padding: 0.75rem;
+            }
+            .review-swiper-button svg {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
         }
 
         /* ----- SEKCE ROZVOZ (tlačítka) ----- */
         .delivery-image-wrapper img {
             width: 100%;
-            max-width: 32rem;
+            max-width: 28rem; /* Upraveno pro mobil */
             margin: 0 auto;
             height: auto;
             object-fit: cover;
@@ -712,13 +901,30 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: var(--spacing-unit);
-            margin-top: calc(var(--spacing-unit) * 1.5); /* Optimalizovaný margin pro mobil */
+            gap: 1rem;
+            margin-top: 2rem; /* Upraveno */
         }
+
+        @media (min-width: 640px) { /* sm */
+            .delivery-buttons {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2.5rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .delivery-image-wrapper img {
+                max-width: 32rem;
+            }
+            .delivery-buttons {
+                margin-top: 3rem;
+            }
+        }
+
 
         /* ----- SEKCE BURGERY & KUŘECÍ ----- */
         .other-offers-section {
-            padding: calc(var(--spacing-unit) * 2) 0 calc(var(--spacing-unit) * 3); /* Optimalizovaný padding pro mobil */
+            padding: 3rem 0 4rem; /* Upraveno pro mobil */
             color: var(--white);
             position: relative;
             overflow: hidden;
@@ -735,21 +941,19 @@
             font-weight: 900;
             color: var(--white);
             pointer-events: none;
-            overflow: hidden; /* Zamezí přesahu textu */
         }
         .other-offers-bg-text span {
-            font-size: clamp(2.5rem, 10vw, 8rem); /* Responzivní velikost pro Pacifico */
-            white-space: nowrap;
+            font-size: 5rem; /* Upraveno pro mobil */
         }
         .other-offers-bg-text .top-text {
-            margin-top: -1rem; /* Optimalizovaný margin pro mobil */
-            margin-left: -1rem; /* Optimalizovaný margin pro mobil */
-            transform: rotate(-12deg);
+            margin-top: -1rem; /* Upraveno */
+            margin-left: -2rem; /* Upraveno */
+            transform: rotate(-10deg); /* Mírnější rotace */
         }
         .other-offers-bg-text .bottom-text {
-            margin-bottom: -1rem; /* Optimalizovaný margin pro mobil */
-            margin-right: 1rem; /* Optimalizovaný margin pro mobil */
-            transform: rotate(12deg);
+            margin-bottom: -1rem; /* Upraveno */
+            margin-right: 2rem; /* Upraveno */
+            transform: rotate(10deg); /* Mírnější rotace */
         }
         .other-offers-header {
             text-align: center;
@@ -757,10 +961,10 @@
             z-index: 10;
         }
         .other-offers-grid {
-            margin-top: calc(var(--spacing-unit) * 1.5); /* Optimalizovaný margin pro mobil */
+            margin-top: 2rem; /* Upraveno pro mobil */
             display: grid;
             grid-template-columns: 1fr;
-            gap: var(--spacing-unit);
+            gap: 1rem; /* Upraveno pro mobil */
             position: relative;
             z-index: 10;
         }
@@ -772,21 +976,60 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .other-offers-grid img:hover {
-            transform: translateY(-5px) scale(1.02); /* Jemný posun a zvětšení */
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            transform: scale(1.03); /* Mírnější scale pro mobil */
+            box-shadow: 0 15px 30px -7px rgba(0,0,0,0.2); /* Mírnější stín */
+        }
+
+        @media (min-width: 640px) { /* sm */
+            .other-offers-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) { /* md */
+            .other-offers-section {
+                padding: 4rem 0 6rem;
+            }
+            .other-offers-bg-text span {
+                font-size: 8rem;
+            }
+            .other-offers-bg-text .top-text {
+                margin-top: -2rem;
+                margin-left: -3rem;
+                transform: rotate(-12deg);
+            }
+            .other-offers-bg-text .bottom-text {
+                margin-bottom: -2rem;
+                margin-right: 3rem;
+                transform: rotate(12deg);
+            }
+            .other-offers-grid {
+                margin-top: 3rem;
+                gap: 1.5rem;
+            }
+            .other-offers-grid img:hover {
+                transform: scale(1.05);
+                box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            }
+        }
+        @media (min-width: 1024px) { /* lg */
+            .other-offers-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+            }
         }
 
         /* ----- SEKCE SOCIÁLNÍ SÍTĚ ----- */
         .social-section-header {
             text-align: center;
-            margin-bottom: calc(var(--spacing-unit) * 1.5); /* Optimalizovaný margin pro mobil */
+            margin-bottom: 2rem; /* Upraveno pro mobil */
         }
         .social-icons {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: var(--spacing-unit); /* Optimalizované mezery pro mobil */
-            margin: var(--spacing-unit) 0 calc(var(--spacing-unit) * 1.5); /* Optimalizovaný margin pro mobil */
+            gap: 1.5rem; /* Upraveno pro mobil */
+            margin: 1.5rem 0 2rem; /* Upraveno pro mobil */
         }
         .social-icons a {
             transition: transform 0.2s;
@@ -795,12 +1038,27 @@
             transform: scale(1.1);
         }
         .social-icons svg {
-            width: 2rem; /* Zmenšeno pro mobil */
-            height: 2rem; /* Zmenšeno pro mobil */
+            width: 1.8rem; /* Upraveno pro mobil */
+            height: 1.8rem; /* Upraveno pro mobil */
         }
         .social-icons .tiktok-icon path {
             fill: var(--black);
         }
+
+        @media (min-width: 768px) { /* md */
+            .social-section-header {
+                margin-bottom: 3rem;
+            }
+            .social-icons {
+                gap: 2.5rem;
+                margin: 2rem 0 3rem;
+            }
+            .social-icons svg {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+
 
         /* ----- PATIČKA ----- */
         .footer {
@@ -809,7 +1067,7 @@
             width: 100%;
         }
         .footer .container {
-            padding: calc(var(--spacing-unit) * 2) 0; /* Optimalizovaný padding pro mobil */
+            padding: 3rem 0; /* Upraveno pro mobil */
         }
         .footer a:hover {
             text-decoration: underline;
@@ -817,52 +1075,48 @@
         .footer-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: var(--spacing-unit); /* Optimalizované mezery pro mobil */
-            font-size: 1rem;
+            gap: 2.5rem; /* Upraveno pro mobil */
+            font-size: 0.95rem; /* Upraveno pro mobil */
             align-items: start;
         }
         .footer-column {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem; /* Optimalizované mezery pro mobil */
+            gap: 1rem; /* Upraveno pro mobil */
         }
         .footer-heading {
             font-family: var(--font-main);
-            font-size: clamp(1rem, 3.5vw, 1.5rem); /* Responzivní velikost pro nadpisy v patičce */
+            font-size: 1.1rem; /* Upraveno pro mobil */
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin: 0;
             padding-bottom: 0.5rem;
-            text-align: center; /* Zarovnáno na střed pro mobil */
         }
         .footer-info, .opening-hours, .footer-contact-list {
-            font-weight: 400; /* Lehčí font-weight pro text */
+            font-weight: 500;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem; /* Optimalizované mezery pro mobil */
-            font-size: clamp(0.85rem, 2.5vw, 0.95rem); /* Responzivní velikost */
+            gap: 0.5rem; /* Upraveno pro mobil */
         }
-        .opening-hours { gap: 0.5rem; } /* Optimalizované mezery pro mobil */
+        .opening-hours { gap: 0.4rem; } /* Upraveno pro mobil */
         .opening-hours .day-row {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 0.75rem; /* Optimalizované mezery pro mobil */
+            gap: 0.5rem; /* Upraveno */
         }
         .opening-hours .day-row .note {
             text-align: right;
         }
         .opening-hours .day-row .note .details {
-            font-weight: 600;
-            font-size: clamp(0.7rem, 2vw, 0.8rem); /* Responzivní velikost */
+            font-weight: 700;
+            font-size: 0.75rem; /* Upraveno pro mobil */
             text-transform: uppercase;
             line-height: 1.25;
-            display: block; /* Zajištění nového řádku */
         }
         .opening-hours .day-row.active-day {
             font-weight: 700;
-            color: var(--main-red); /* Zvýraznění aktivního dne */
         }
         .footer-contact-list {
             list-style: none;
@@ -871,30 +1125,30 @@
         .footer-contact-list li {
             display: flex;
             align-items: flex-start;
-            gap: 0.75rem; /* Optimalizované mezery pro mobil */
+            gap: 0.75rem; /* Upraveno */
         }
         .footer-contact-list svg {
-            height: 1.25rem; /* Zmenšeno pro mobil */
-            width: 1.25rem; /* Zmenšeno pro mobil */
+            height: 1.3rem; /* Upraveno pro mobil */
+            width: 1.3rem; /* Upraveno pro mobil */
             flex-shrink: 0;
             margin-top: 0.125rem;
             color: var(--main-red);
         }
         .footer-divider {
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-            margin: calc(var(--spacing-unit) * 2) 0 var(--spacing-unit); /* Optimalizovaný margin pro mobil */
+            margin: 3rem 0 1.5rem; /* Upraveno pro mobil */
         }
         .footer-bottom {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            font-size: clamp(0.75rem, 2vw, 0.875rem); /* Responzivní velikost */
-            font-weight: 400;
+            font-size: 0.8rem; /* Upraveno pro mobil */
+            font-weight: 500;
         }
         .footer-bottom-copyright {
             text-align: center;
-            margin-bottom: 0.75rem; /* Optimalizovaný margin pro mobil */
+            margin-bottom: 0.75rem; /* Upraveno */
         }
         .footer-bottom-copyright p {
             margin: 0;
@@ -910,88 +1164,56 @@
             display: none;
         }
 
-        /* ----- RESPONZIVNÍ STYLY pro breakpointy (již optimalizovány výše pomocí clamp) ----- */
-        @media (min-width: 640px) { /* sm */
-            .hero-content .buttons, .delivery-buttons {
-                flex-direction: row;
-                justify-content: center;
-                gap: calc(var(--spacing-unit) * 1.5);
-            }
-            .other-offers-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-unit); }
-            .info-banner { flex-direction: row; flex-wrap: wrap; justify-content: space-around; padding: calc(var(--spacing-unit) * 1.5); }
-            .info-banner-item svg { height: 2.25rem; width: 2.25rem; }
-            .button { font-size: clamp(1rem, 2.8vw, 1.05rem); } /* Doladění buttonu */
-            .menu-section-header { margin-bottom: calc(var(--spacing-unit) * 2.5); }
-            .menu-grid { gap: calc(var(--spacing-unit) * 1.2); }
-            .menu-card { padding: calc(var(--spacing-unit) * 1.2); }
-            .menu-card .card-category { min-height: 70px; }
-            .menu-card .card-subtitle { min-height: 50px; }
-            .menu-card .card-list { gap: 0.6rem; }
-            .feature-list { gap: 0.8rem; }
-            .feature-item svg { height: 1.6rem; width: 1.6rem; }
-            .gallery-button { padding: 0.6rem; }
-            .gallery-button svg { height: 1.4rem; width: 1.4rem; }
-            .image-gallery-dots { margin-top: 1rem; gap: 0.6rem; }
-            .gallery-dot { height: 0.85rem; width: 0.85rem; }
-            .review-swiper-button { padding: 0.6rem; }
-            .review-swiper-button svg { height: 1.4rem; width: 1.4rem; }
-            .other-offers-section { padding: calc(var(--spacing-unit) * 2.5) 0 calc(var(--spacing-unit) * 3.5); }
-            .social-icons { gap: calc(var(--spacing-unit) * 1.2); margin: calc(var(--spacing-unit) * 1.2) 0 calc(var(--spacing-unit) * 1.8); }
-            .social-icons svg { width: 2.25rem; height: 2.25rem; }
-            .footer .container { padding: calc(var(--spacing-unit) * 2.5) 0; }
-            .footer-grid { gap: calc(var(--spacing-unit) * 1.5); }
-            .footer-info, .opening-hours, .footer-contact-list { gap: 0.6rem; }
-            .footer-contact-list svg { height: 1.4rem; width: 1.4rem; }
-            .footer-divider { margin: calc(var(--spacing-unit) * 2.5) 0 calc(var(--spacing-unit) * 1.2); }
-        }
-
         @media (min-width: 768px) { /* md */
-            .container { padding: 0 calc(var(--spacing-unit) * 2); }
-            .header-logo { left: calc(var(--spacing-unit) * 2); } /* Posunutí loga */
-            .info-banner-container { padding: 0; }
-            .info-banner { flex-wrap: nowrap; justify-content: space-between; padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5); }
-            .info-banner-item svg { height: 2.5rem; width: 2.5rem; }
-            .menu-grid { grid-template-columns: repeat(2, 1fr); gap: calc(var(--spacing-unit) * 1.5); }
-            .menu-card.span-2 { grid-column: span 2; }
-            .reviews-container { padding: 0; }
-            .review-swiper-button-prev { left: -2.5rem; }
-            .review-swiper-button-next { right: -2.5rem; }
-            .footer-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
-            .footer-column { justify-content: flex-start; gap: var(--spacing-unit); }
-            .footer-heading { text-align: left; } /* Zarovnání vlevo na desktopu */
-            .footer-bottom { flex-direction: row; }
-            .footer-bottom-copyright { text-align: left; margin-bottom: 0; }
-            .footer-bottom-links { flex-direction: row; gap: 1rem; }
-            .footer-bottom-links .separator { display: inline; }
-
-            .menu-card .card-category { min-height: 80px; }
-            .menu-card .card-subtitle { min-height: 55px; }
-            .feature-list { gap: 1rem; }
-            .feature-item svg { height: 1.75rem; width: 1.75rem; }
-            .gallery-button { padding: 0.75rem; }
-            .gallery-button svg { height: 1.5rem; width: 1.5rem; }
-            .image-gallery-dots { margin-top: 1.5rem; gap: 0.75rem; }
-            .gallery-dot { height: 1rem; width: 1rem; }
-            .review-swiper-button { padding: 0.75rem; }
-            .review-swiper-button svg { height: 1.5rem; width: 1.5rem; }
-            .other-offers-section { padding: calc(var(--spacing-unit) * 3) 0 calc(var(--spacing-unit) * 4); }
-            .social-icons { gap: calc(var(--spacing-unit) * 1.5); margin: calc(var(--spacing-unit) * 1.5) 0 calc(var(--spacing-unit) * 2); }
-            .social-icons svg { width: 2.5rem; height: 2.5rem; }
-            .footer .container { padding: calc(var(--spacing-unit) * 3) 0; }
-            .footer-grid { gap: calc(var(--spacing-unit) * 2); }
-            .footer-contact-list svg { height: 1.5rem; width: 1.5rem; }
-            .footer-divider { margin: calc(var(--spacing-unit) * 3) 0 calc(var(--spacing-unit) * 1.5); }
+            .footer .container {
+                padding: 4rem 0;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 3.5rem;
+                font-size: 1rem;
+            }
+            .footer-column {
+                gap: 1.5rem;
+            }
+            .footer-heading {
+                font-size: 1.25rem;
+            }
+            .footer-info, .opening-hours, .footer-contact-list {
+                gap: 0.75rem;
+            }
+            .opening-hours { gap: 0.625rem; }
+            .opening-hours .day-row .note .details {
+                font-size: 0.875rem;
+            }
+            .footer-contact-list li {
+                gap: 1rem;
+            }
+            .footer-contact-list svg {
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+            .footer-divider {
+                margin: 4rem 0 2rem;
+            }
+            .footer-bottom {
+                flex-direction: row;
+                font-size: 0.875rem;
+            }
+            .footer-bottom-copyright {
+                text-align: left;
+                margin-bottom: 0;
+            }
+            .footer-bottom-links {
+                flex-direction: row;
+                gap: 1rem;
+            }
+            .footer-bottom-links .separator {
+                display: inline;
+            }
         }
-
         @media (min-width: 1024px) { /* lg */
-            .button { font-size: 1.125rem; padding: 1rem 2rem; }
-            .menu-grid { grid-template-columns: repeat(3, 1fr); }
-            .menu-card.span-2 { grid-column: span 1; }
-            .two-column-grid { grid-template-columns: repeat(2, 1fr); }
-            .delivery-content { order: -1; }
-            .other-offers-grid { grid-template-columns: repeat(4, 1fr); gap: calc(var(--spacing-unit) * 1.5); }
-            .menu-card .card-category { min-height: 100px; }
-            .menu-card .card-subtitle { min-height: 60px; }
+            .container { padding: 0 3rem; }
         }
     </style>
 </head>
@@ -1062,9 +1284,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M15 19l2 2l4 -4" /></svg>
                     <div class="info-banner-item__text">
                         <span class="title">Rezervace</span>
-                        <span class="subtitle">
-                            <a href="tel:+420604633373">Rezervuj si místo</a>
-                        </span>
+                        <span class="subtitle"><a href="tel:+420604633373">Rezervuj si místo</a></span>
                     </div>
                 </div>
             </div>
@@ -1077,7 +1297,7 @@
                     <h2 class="title">Naše nabídka nejobjednávanějších dobrot</h2>
                 </div>
                 <div class="menu-grid">
-                    
+
                     <div class="menu-card" style="background-color: #017D4D;">
                         <img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" loading="lazy" alt="Detailní pohled na pizzu se šunkou a zeleninou." class="menu-card-bg-image">
                         <div class="menu-card-content">
@@ -1113,7 +1333,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="menu-card span-2" style="background-color: var(--black);">
                         <img src="images/kureci-speciality-wing-it-kladno.webp" loading="lazy" alt="Kuřecí stripsy a křídla s omáčkami." class="menu-card-bg-image">
                         <div class="menu-card-content">
@@ -1134,15 +1354,15 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="section bg-parchment">
             <div class="container">
                 <div class="two-column-grid">
                     <div class="text-content-column">
                         <p class="section-header-subtitle">Naše pizza, náš originál</p>
                         <h2 class="section-title">Proč naše pizza s tradicí již od roku 1994?</h2>
-                        <p class="section-subtitle">Jsme TOP 4. Pizzerie v Kladně!🏅</p>
-                        <p class="section-text">
+                        <p class="section-subtitle" style="text-align: left;">Jsme TOP 4. Pizzerie v Kladně!🏅</p>
+                        <p class="section-text" style="text-align: left;">
                             Tohle není žádná Itálie, to je naše tradice už od roku 1994! Chceš pizzu přesně podle svýho gusta? U nás si ji můžeš sestavit sám! Vyber si z našich čerstvých surovin a vytvoř si pizzu podle svých chutí – víc sýra, extra zelenina, pořádná dávka masa nebo prostě odeber to, co ti nevyhovuje! 🧀🥓🥬
                         </p>
                         <div class="feature-list">
@@ -1196,7 +1416,7 @@
                             </button>
                         </div>
                         <div id="gallery-dots-container" class="image-gallery-dots">
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1212,7 +1432,7 @@
                     <div class="swiper-viewport">
                         <div class="swiper-container swiper-container-reviews">
                             <div class="swiper-wrapper" id="reviews-wrapper">
-                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
@@ -1239,7 +1459,7 @@
                         <div class="delivery-content text-content-column">
                             <p class="section-header-subtitle">Rozvoz jídla</p>
                             <h2 class="section-title">Rozvoz jídla Kladno a okolí</h2>
-                            <div class="section-text" style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div class="section-text" style="text-align: left; display: flex; flex-direction: column; gap: 1rem;">
                                 <p>Hlad? Nestíháš? Nebo si chceš prostě užít jídlo v pohodlí domova? Rozvážíme po celém Kladně i okolí. <strong>Rychle, spolehlivě a bez zbytečných příplatků.</strong></p>
                                 <p>Ať už máš chuť na poctivou pizzu s křupavým těstem, nebo pořádný burger jako kráva – všechno ti dovezeme až ke dveřím.</p>
                                 <p>U nás platíš jen za jídlo a samotný rozvoz. Bez skrytých poplatků, bez přirážek, bez překvapení.</p>
@@ -1288,25 +1508,35 @@
                 <div class="social-section-header">
                     <p class="section-header-subtitle">Zůstaň v obraze</p>
                     <h2 class="title">Sledujte Pizzerii San Marino na sociálních sítích</h2>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=100095016576324" target="_blank" aria-label="Přejít na Facebook Pizzerie San Marino">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <title>Facebook</title>
+                                <rect width="24" height="24" rx="6" fill="#1877F2" />
+                                <path d="M15.81 7.42h-1.928c-.493 0-.696.347-.696.816v1.23h2.59l-.427 2.735H13.18V20H9.44v-7.799H6.81v-2.735h2.63V7.126c0-2.31 1.29-3.626 3.49-3.626h2.37v2.92z" fill="white" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/pizzakladno/" target="_blank" aria-label="Přejít na Instagram Pizzerie San Marino">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <title>Instagram</title>
+                                <defs>
+                                    <radialGradient id="ig-grad" r="150%" cx="30%" cy="107%">
+                                        <stop stop-color="#fdf497" offset="0" /><stop stop-color="#fdf497" offset="0.05" /><stop stop-color="#fd5949" offset="0.45" /><stop stop-color="#d6249f" offset="0.6" /><stop stop-color="#285AEB" offset="0.9" />
+                                    </radialGradient>
+                                </defs>
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.314.935 20.644.522 19.86.217 19.094-.083 18.223-.285 16.947-.344 15.667-.405 15.26-.42 12-.42zM12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.057.36-2.227-.413-1.266.057-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.17.249 1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 6.875A5.125 5.125 0 1012 17.125 5.125 5.125 0 0012 6.875zM12 15a3 3 0 110-6 3 3 0 010 6zM20.965 5.253a1.44 1.44 0 10-2.88 0 1.44 1.44 0 002.88 0z" fill="url(#ig-grad)" />
+                            </svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@pizzakladno?_t=ZN-8tbxv0q0T6k&_r=1" target="_blank" aria-label="Přejít na TikTok Pizzerie San Marino">
+                            <svg class="tiktok-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <title>TikTok</title>
+                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="reviews-container">
-                    <div class="swiper-viewport">
-                        <div class="swiper-container swiper-container-reviews">
-                            <div class="swiper-wrapper" id="reviews-wrapper">
-                                </div>
-                        </div>
-                    </div>
-                    <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </div>
-                    <div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </div>
-                </div>
+                <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+                <div class="elfsight-app-fda31c74-30c8-40aa-be79-2c7ae5fced3d" data-elfsight-app-lazy></div>
             </div>
         </section>
 
@@ -1395,138 +1625,134 @@
         </div>
     </footer>
     <script>
-        // Hero Slider
-        document.addEventListener('DOMContentLoaded', () => {
-            const slides = document.querySelector('.hero-slider .slides');
-            const totalSlides = slides.children.length;
-            let currentSlide = 0;
+        // Hero Slider JavaScript
+        const slides = document.querySelector('.hero-slider .slides');
+        const slideCount = slides.children.length;
+        let currentSlide = 0;
 
-            function showSlide(index) {
-                slides.style.transform = `translateX(-${index * 100}%)`;
-            }
+        function showNextSlide() {
+            currentSlide = (currentSlide + 1) % slideCount;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        setInterval(showNextSlide, 5000); // Mění slide každých 5 sekund
 
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                showSlide(currentSlide);
-            }
+        // Image Gallery JavaScript
+        const galleryImages = [
+            'images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp',
+            'images/pizza-syr-sunka-paprika-kukurice-olivy.webp',
+            'images/pizza-sunkova-champi.webp'
+        ];
+        const galleryImageElement = document.getElementById('gallery-image');
+        const galleryPrevButton = document.getElementById('gallery-prev');
+        const galleryNextButton = document.getElementById('gallery-next');
+        const galleryDotsContainer = document.getElementById('gallery-dots-container');
+        let currentGalleryIndex = 0;
 
-            // Automatické posouvání slajdů každých 5 sekund
-            setInterval(nextSlide, 5000);
-        });
+        function updateGalleryImage() {
+            galleryImageElement.src = galleryImages[currentGalleryIndex];
+            updateGalleryDots();
+        }
 
-        // Image Gallery
-        document.addEventListener('DOMContentLoaded', () => {
-            const galleryImages = [
-                'images/pizzerie-san-marino-kladno-pizza-na-stole.webp',
-                'images/pizza-s-krevetami-a-rukolou-pizzerie-san-marino-kladno.webp',
-                'images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp'
-            ];
-            const galleryImage = document.getElementById('gallery-image');
-            const galleryPrev = document.getElementById('gallery-prev');
-            const galleryNext = document.getElementById('gallery-next');
-            const galleryDotsContainer = document.getElementById('gallery-dots-container');
-            let currentGalleryImage = 0;
-
-            function updateGallery() {
-                galleryImage.src = galleryImages[currentGalleryImage];
-                updateDots();
-            }
-
-            function updateDots() {
-                galleryDotsContainer.innerHTML = '';
-                galleryImages.forEach((_, index) => {
-                    const dot = document.createElement('div');
-                    dot.classList.add('gallery-dot');
-                    if (index === currentGalleryImage) {
-                        dot.classList.add('active');
-                    }
-                    dot.addEventListener('click', () => {
-                        currentGalleryImage = index;
-                        updateGallery();
-                    });
-                    galleryDotsContainer.appendChild(dot);
+        function createGalleryDots() {
+            galleryDotsContainer.innerHTML = '';
+            galleryImages.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('gallery-dot');
+                if (index === currentGalleryIndex) {
+                    dot.classList.add('active');
+                }
+                dot.addEventListener('click', () => {
+                    currentGalleryIndex = index;
+                    updateGalleryImage();
                 });
-            }
-
-            galleryPrev.addEventListener('click', () => {
-                currentGalleryImage = (currentGalleryImage - 1 + galleryImages.length) % galleryImages.length;
-                updateGallery();
+                galleryDotsContainer.appendChild(dot);
             });
+        }
 
-            galleryNext.addEventListener('click', () => {
-                currentGalleryImage = (currentGalleryImage + 1) % galleryImages.length;
-                updateGallery();
+        function updateGalleryDots() {
+            const dots = galleryDotsContainer.querySelectorAll('.gallery-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentGalleryIndex);
             });
+        }
 
-            // Call updateGallery once to set the initial image and dots
-            updateGallery();
+        galleryPrevButton.addEventListener('click', () => {
+            currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateGalleryImage();
         });
 
+        galleryNextButton.addEventListener('click', () => {
+            currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+            updateGalleryImage();
+        });
+
+        // Initialize gallery on load
+        if (galleryImages.length > 0) {
+            updateGalleryImage();
+            createGalleryDots();
+        }
 
         // Reviews Swiper
-        document.addEventListener('DOMContentLoaded', () => {
-            const reviews = [
-                'images/recenze-foodora-pizzerie-san-marino-kladno-1.webp',
-                'images/recenze-foodora-pizzerie-san-marino-kladno-2.webp',
-                'images/recenze-foodora-pizzerie-san-marino-kladno-3.webp',
-                'images/recenze-foodora-pizzerie-san-marino-kladno-4.webp',
-                'images/recenze-foodora-pizzerie-san-marino-kladno-5.webp',
-                'images/recenze-foodora-pizzerie-san-marino-kladno-6.webp',
-                'images/recenze-foodora-pizzerie-san-marino-kladno-7.webp',
-                'images/recenze-foodora-pizzerie-san-marino-kladno-8.webp',
-                'images/recenze-foodora-pizzerie-san-marino-kladno-9.webp'
-            ];
+        const reviewsData = [
+            {
+                image: 'images/google-recenze-pizzerie-san-marino-kladno-1.webp',
+                alt: 'Recenze zákazníka 1 pro Pizzerii San Marino Kladno.'
+            },
+            {
+                image: 'images/google-recenze-pizzerie-san-marino-kladno-2.webp',
+                alt: 'Recenze zákazníka 2 pro Pizzerii San Marino Kladno.'
+            },
+            {
+                image: 'images/google-recenze-pizzerie-san-marino-kladno-3.webp',
+                alt: 'Recenze zákazníka 3 pro Pizzerii San Marino Kladno.'
+            },
+            {
+                image: 'images/google-recenze-pizzerie-san-marino-kladno-4.webp',
+                alt: 'Recenze zákazníka 4 pro Pizzerii San Marino Kladno.'
+            }
+        ];
 
-            const reviewsWrapper = document.getElementById('reviews-wrapper');
-            reviews.forEach(src => {
-                const slide = document.createElement('div');
-                slide.classList.add('swiper-slide');
-                const img = document.createElement('img');
-                img.src = src;
-                img.alt = 'Recenze od zákazníka Pizzerie San Marino Kladno';
-                img.loading = 'lazy';
-                slide.appendChild(img);
-                reviewsWrapper.appendChild(slide);
-            });
-
-            const swiper = new Swiper('.swiper-container-reviews', {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                loop: true,
-                navigation: {
-                    nextEl: '.review-swiper-button-next',
-                    prevEl: '.review-swiper-button-prev',
-                },
-                breakpoints: {
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 30,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 40,
-                    },
-                },
-            });
+        const reviewsWrapper = document.getElementById('reviews-wrapper');
+        reviewsData.forEach(review => {
+            const slide = document.createElement('div');
+            slide.classList.add('swiper-slide');
+            const img = document.createElement('img');
+            img.src = review.image;
+            img.alt = review.alt;
+            img.loading = 'lazy';
+            slide.appendChild(img);
+            reviewsWrapper.appendChild(slide);
         });
 
-        // Highlight current day in opening hours
-        document.addEventListener('DOMContentLoaded', () => {
-            const today = new Date().getDay(); // 0 for Sunday, 1 for Monday, etc.
-            const dayRows = document.querySelectorAll('.opening-hours .day-row');
-
-            dayRows.forEach(row => {
-                const dataDay = parseInt(row.getAttribute('data-day'));
-                // Note: JavaScript getDay() returns 0 for Sunday, 1 for Monday.
-                // Your data-day seems to be 1 for Monday, 0 for Sunday.
-                // Adjusting logic to match your data structure if Monday is 1, Sunday is 0.
-                // If data-day="0" is Sunday, and getDay() returns 0 for Sunday, then it matches.
-                if (dataDay === today) {
-                    row.classList.add('active-day');
-                }
-            });
+        const reviewSwiper = new Swiper('.swiper-container-reviews', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            navigation: {
+                nextEl: '.review-swiper-button-next',
+                prevEl: '.review-swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                },
+            },
         });
 
+        // Current day highlight in opening hours
+        const today = new Date().getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+        const dayRows = document.querySelectorAll('.opening-hours .day-row');
+        dayRows.forEach(row => {
+            const dataDay = parseInt(row.getAttribute('data-day'));
+            if (dataDay === today) {
+                row.classList.add('active-day');
+            }
+        });
     </script>
 </body>
 </html>
