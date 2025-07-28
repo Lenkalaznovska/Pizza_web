@@ -6,7 +6,7 @@
 
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
-        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://connect.facebook.net https://static.elfsight.com;
+        script-src 'self' 'unsafe-inline' https://unpkg.com https://connect.facebook.net https://static.elfsight.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com https://*.elfsight.com;
         font-src 'self' https://fonts.gstatic.com https://*.elfsight.com;
         img-src 'self' data: https:;
@@ -116,7 +116,7 @@
     }
     </script>
 
-<style>
+ <style>
 		/* ----- ZÁKLADNÍ NASTAVENÍ A PROMĚNNÉ ----- */
 		:root {
 			--main-red: #E20B18;
@@ -127,16 +127,14 @@
 			--font-main: 'Montserrat', sans-serif;
 		}
 
-		/* === OPRAVY PRO PERFEKTNÍ RESPONZIVITU === */
-		/* Zajištění, že obrázky a média nepřetečou ze svého kontejneru */
+		/* === OPRAVY PRO PERFEKTNÍ RESPONZIVITU A PŘÍSTUPNOST === */
 		img, picture, video, canvas, svg {
-			display: block; /* Odstraní mezeru pod obrázkem */
-			max-width: 100%; /* Klíčové pro responzivitu */
-			height: auto; /* Zachová poměr stran */
+			display: block;
+			max-width: 100%;
+			height: auto;
 		}
-		/* Umožní zalamování dlouhých slov, aby se zabránilo přetékání textu */
 		h1, h2, h3, h4, h5, h6, p {
-			overflow-wrap: break-word; /* Novější náhrada za word-wrap */
+			overflow-wrap: break-word;
 		}
 		
 		/* ----- GLOBÁLNÍ STYLY ----- */
@@ -145,12 +143,28 @@
 			padding: 0;
 			box-sizing: border-box;
 		}
+        /* Přidáno pro plynulé scrollování a respektování preferencí uživatele */
+		html {
+			scroll-behavior: smooth;
+		}
 		html, body {
 			font-family: var(--font-main);
 			background: var(--white);
 			color: var(--black);
-			overflow-x: hidden; /* Ponecháno jako pojistka, ale opravené problémy by měly přetékání zabránit */
+			overflow-x: hidden;
 		}
+        /* Vylepšení přístupnosti pro uživatele preferující omezený pohyb */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
 		a {
 			color: inherit;
 			text-decoration: none;
@@ -171,7 +185,7 @@
 			background-color: var(--white);
 		}
 		
-        /* ----- SJEDNOCENÍ NADPISŮ A PODNADPISŮ ----- */
+		/* ----- SJEDNOCENÍ NADPISŮ A PODNADPISŮ ----- */
 		.section-header-subtitle {
 			display: block;
 			text-align: center;
@@ -292,7 +306,6 @@
 			font-weight: 900;
 			text-transform: uppercase;
 			text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
-			/* OPRAVA: Odstraněno 'white-space: nowrap;', aby se zabránilo přetékání na menších obrazovkách. */
 		}
 		.hero-content .cta-text {
 			font-size: clamp(1rem, 3vw, 1.5rem);
@@ -427,6 +440,7 @@
 		}
 		.menu-card:hover {
 			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            transform: translateY(-5px); /* Přidáno pro jemný hover efekt */
 		}
 		.menu-card-bg-image {
 			position: absolute;
@@ -434,7 +448,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			opacity: 0.08; /* Snížená průhlednost */
+			opacity: 0.08;
             z-index: 1;
 		}
 		.menu-card-content {
@@ -747,10 +761,11 @@
 			width: 100%;
 			object-fit: cover;
 			border-radius: 0.5rem;
-			transition: box-shadow 0.3s;
+			transition: all 0.3s ease; /* Změněno pro plynulejší přechod */
 		}
 		.other-offers-grid img:hover {
 			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            transform: scale(1.03); /* Přidáno pro jemný zoom efekt */
 		}
 
 		/* ----- SEKCE SOCIÁLNÍ SÍTĚ ----- */
@@ -775,12 +790,10 @@
 		.social-icons .tiktok-icon path {
 			fill: var(--black);
 		}
-        /* OPRAVA: Zajištění, že se externí widget nikdy neroztáhne a nezpůsobí přetékání stránky */
         .elfsight-app-fda31c74-30c8-40aa-be79-2c7ae5fced3d {
             max-width: 100%;
-            overflow-x: auto; /* 'auto' je lepší než 'hidden', obsah zůstane dostupný */
+            overflow-x: auto;
         }
-
 
 		/* ----- PATIČKA ----- */
 		.footer {
@@ -840,6 +853,7 @@
 		}
 		.opening-hours .day-row.active-day {
 			font-weight: 700;
+            color: var(--main-red); /* Zvýraznění aktivního dne */
 		}
 		.footer-contact-list {
 			list-style: none;
@@ -890,7 +904,7 @@
 
 		/* ----- RESPONZIVNÍ STYLY ----- */
 		
-		/* === Speciální úpravy pro GALAXY FOLD (540px) === */
+		/* === Speciální úpravy pro GALAXY FOLD (šířka < 540px) === */
 		@media (max-width: 540px) {
 			.bg-parchment .section-subtitle {
 				display: flex;
@@ -905,7 +919,8 @@
 				display: table;
 			}
 		}
-
+        
+        /* === Běžné mobilní telefony (šířka < 767px) === */
 		@media (max-width: 767px) {
 			.section {
 				padding-top: 5rem;
@@ -951,8 +966,6 @@
 			.reviews-container { 
 				padding: 0;
 			}
-            /* OPRAVA: Původní hodnota -50px způsobovala přetékání na mobilech.
-               Nová hodnota -20px zajistí, že tlačítko zůstane uvnitř postranního odsazení stránky (padding). */
 			.review-swiper-button-prev { 
 				left: -20px; 
 			}
@@ -961,6 +974,7 @@
 			}
 		}
 
+        /* === Velké mobilní telefony a malé tablety (šířka > 640px) === */
 		@media (min-width: 640px) { /* sm */
 			.hero-content .buttons, .delivery-buttons {
 				flex-direction: row;
@@ -970,13 +984,14 @@
 			.other-offers-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 		}
 
-		/* === Speciální úpravy pro TABLETY (iPad, Surface atd.) === */
+		/* === Tablety (šířka 768px - 1023px) === */
 		@media (min-width: 768px) and (max-width: 1023px) {
 			.hero-content h1 {
 				white-space: normal;
 			}
 		}
 		
+        /* === Tablety a malé desktopy (šířka > 768px) === */
 		@media (min-width: 768px) { /* md */
 			.section {
 				padding-top: 6rem;
@@ -1014,6 +1029,7 @@
 			.footer-bottom-links .separator { display: inline; }
 		}
 
+        /* === Běžné desktopy (šířka > 1024px) === */
 		@media (min-width: 1024px) { /* lg */
 			.button { font-size: 1.125rem; padding: 1rem 2rem; }
 			.menu-grid { grid-template-columns: repeat(3, 1fr); }
@@ -1021,7 +1037,7 @@
 			.other-offers-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
 		}
 		
-		/* OPRAVA: Cílené úpravy pro malé a krátké displeje (např. iPhone SE) */
+		/* === Cílené úpravy pro malé a krátké displeje (např. iPhone SE) === */
 		@media (max-height: 740px) and (max-width: 480px) {
 			.section {
 				padding-top: 4rem;
@@ -1048,7 +1064,7 @@
 
 	<header>
 		<div class="header-logo">
-			<a href="#">
+			<a href="#top" aria-label="Přejít na začátek stránky">
 				<img src="images/logo-pizzerie-san-marino-kladno.webp" alt="Logo Pizzerie San Marino Kladno" width="709" height="342">
 			</a>
 		</div>
@@ -1081,14 +1097,14 @@
 					</svg>
 					<span>Zavolej a objednej</span>
 				</a>
-				<a href="https://www.pizzakladno.cz/" class="button button-red animate-glow">
+				<a href="https://www.pizzakladno.cz/" class="button button-red animate-glow" target="_blank" rel="noopener noreferrer">
 					<span>Objednej online</span>
 				</a>
 			</div>
 		</div>
 	</header>
 
-	<main>
+	<main id="top">
 		<div style="height: 100vh;"></div>
 
 		<section class="info-banner-container">
@@ -1097,7 +1113,7 @@
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" /></svg>
 					<div class="info-banner-item__text">
 						<span class="title">Rozvoz jídla</span>
-						<span class="subtitle">Dovezeme ti to 11:00 - 21:15 <br><a href="cenik-rozvozu-pizzerie-san-marino-kladno.pdf" target="_blank">Ceník rozvozu</a></span>
+						<span class="subtitle">Dovezeme ti to 11:00 - 21:15 <br><a href="cenik-rozvozu-pizzerie-san-marino-kladno.pdf" target="_blank" rel="noopener noreferrer">Ceník rozvozu</a></span>
 					</div>
 				</div>
 				<div class="info-banner-item">
@@ -1117,7 +1133,7 @@
 			</div>
 		</section>
 
-		<section class="section section-white">
+		<section id="menu" class="section section-white">
 			<div class="container">
 				<div class="menu-section-header">
 					<p class="section-header-subtitle">TOP výběr</p>
@@ -1129,7 +1145,7 @@
 						<img src="images/pizza-sunka-zelenina-san-marino-kladno.webp" loading="lazy" alt="Detailní pohled na pizzu se šunkou a zeleninou." class="menu-card-bg-image">
 						<div class="menu-card-content">
 							<h3 class="card-category">Originální pizzy</h3>
-							<a href="#" class="card-link">Prohlédni si všechny pizzy &rarr;</a>
+							<a href="#menu-pizza" class="card-link">Prohlédni si všechny pizzy &rarr;</a>
 							<p class="card-subtitle">Nejoblíbenější kousky🍕</p>
 							<ul class="card-list">
 								<li><span>Pizza se ŠUNKOU</span><span class="price">od 169 Kč</span></li>
@@ -1138,7 +1154,7 @@
 								<li><span>Pizza SÝROVÁ QUATRO</span><span class="price">od 213 Kč</span></li>
 							</ul>
 							<div class="card-button-wrapper animate-lure-pulse">
-								<a href="#" class="button button-white-green animate-glow">Objednej si pizzu</a>
+								<a href="#menu-pizza" class="button button-white-green animate-glow">Objednej si pizzu</a>
 							</div>
 						</div>
 					</div>
@@ -1147,7 +1163,7 @@
 						<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" loading="lazy" alt="Burger s batátovými hranolky a omáčkou od Pizzerie San Marino." class="menu-card-bg-image">
 						<div class="menu-card-content">
 							<h3 class="card-category">Legendární šťavnaté burgery</h3>
-							<a href="#" class="card-link">Prohlédni si všechny burgery &rarr;</a>
+							<a href="#menu-burger" class="card-link">Prohlédni si všechny burgery &rarr;</a>
 							<p class="card-subtitle">Legendární burgery 🔥</p>
 							<ul class="card-list">
 								<li><span>CHEESE Burger</span><span class="price">od 149 Kč</span></li>
@@ -1156,7 +1172,7 @@
 								<li><span>BARBECUE Burger</span><span class="price">od 159 Kč</span></li>
 							</ul>
 							<div class="card-button-wrapper animate-lure-pulse">
-								<a href="#" class="button button-white-red animate-glow">Objednej si burger</a>
+								<a href="#menu-burger" class="button button-white-red animate-glow">Objednej si burger</a>
 							</div>
 						</div>
 					</div>
@@ -1165,7 +1181,7 @@
 						<img src="images/kureci-speciality-wing-it-kladno.webp" loading="lazy" alt="Kuřecí stripsy a křídla s omáčkami." class="menu-card-bg-image">
 						<div class="menu-card-content">
 							<h3 class="card-category">Kuřecí speciality</h3>
-							<a href="#" class="card-link">Prozkoumej naše speciality &rarr;</a>
+							<a href="#menu-chicken" class="card-link">Prozkoumej naše speciality &rarr;</a>
 							<p class="card-subtitle">Pro milovníky kuřecího 🍗</p>
 							<ul class="card-list">
 								<li><span>Popkorn 200g</span><span class="price">od 0 Kč</span></li>
@@ -1174,7 +1190,7 @@
 								<li><span>Obalovaná křídla</span><span class="price">od 169 Kč</span></li>
 							</ul>
 							<div class="card-button-wrapper animate-lure-pulse">
-								<a href="#" class="button button-white-dark animate-glow">Objednej si kuřecí</a>
+								<a href="#menu-chicken" class="button button-white-dark animate-glow">Objednej si kuřecí</a>
 							</div>
 						</div>
 					</div>
@@ -1224,7 +1240,7 @@
 								<span>Vyladěné recepty, které dělají naši pizzu jedinečnou.</span>
 							</div>
 						</div>
-						<a href="#" class="button button-red section-button">
+						<a href="#order-online" class="button button-red section-button">
 							Vytvoř si vlastní pizzu
 						</a>
 					</div>
@@ -1249,7 +1265,7 @@
 			</div>
 		</section>
 
-		<section class="section section-white">
+		<section id="reviews" class="section section-white">
 			<div class="container">
 				<div class="social-section-header">
 					<p class="section-header-subtitle">Recenze</p>
@@ -1276,7 +1292,7 @@
 			</div>
 		</section>
 
-		<section class="section section-white">
+		<section id="delivery" class="section section-white">
 			<div class="container">
 				<div class="section-green-bg">
 					<div class="two-column-grid">
@@ -1298,7 +1314,7 @@
 									</svg>
 									<span>Zavolej a objednej</span>
 								</a>
-								<a href="https://www.pizzakladno.cz/" class="button button-red animate-glow">
+								<a href="https://www.pizzakladno.cz/" class="button button-red animate-glow" target="_blank" rel="noopener noreferrer">
 									<span>Objednej online</span>
 								</a>
 							</div>
@@ -1330,7 +1346,7 @@
 			</div>
 		</section>
 		
-		<section class="section section-white">
+		<section id="social" class="section section-white">
 			<div class="container">
 				<div class="social-section-header">
 					<p class="section-header-subtitle">Zůstaň v obraze</p>
@@ -1339,14 +1355,14 @@
 						Ať Vám neuniknou slevy, soutěže, novinky, akce a další exkluzivní obsah!
 					</p>
 					<div class="social-icons">
-						<a href="https://www.facebook.com/profile.php?id=100095016576324" target="_blank" aria-label="Přejít na Facebook Pizzerie San Marino">
+						<a href="https://www.facebook.com/profile.php?id=100095016576324" target="_blank" rel="noopener noreferrer" aria-label="Přejít na Facebook Pizzerie San Marino">
 							<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<title>Facebook</title>
 								<rect width="24" height="24" rx="6" fill="#1877F2" />
 								<path d="M15.81 7.42h-1.928c-.493 0-.696.347-.696.816v1.23h2.59l-.427 2.735H13.18V20H9.44v-7.799H6.81v-2.735h2.63V7.126c0-2.31 1.29-3.626 3.49-3.626h2.37v2.92z" fill="white" />
 							</svg>
 						</a>
-						<a href="https://www.instagram.com/pizzakladno/" target="_blank" aria-label="Přejít na Instagram Pizzerie San Marino">
+						<a href="https://www.instagram.com/pizzakladno/" target="_blank" rel="noopener noreferrer" aria-label="Přejít na Instagram Pizzerie San Marino">
 							<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<title>Instagram</title>
 								<defs>
@@ -1357,7 +1373,7 @@
 								<path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.314.935 20.644.522 19.86.217 19.094-.083 18.223-.285 16.947-.344 15.667-.405 15.26-.42 12-.42zM12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381-.896-.422.164-1.057.36-2.227-.413-1.266.057-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.17.249 1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 6.875A5.125 5.125 0 1012 17.125 5.125 5.125 0 0012 6.875zM12 15a3 3 0 110-6 3 3 0 010 6zM20.965 5.253a1.44 1.44 0 10-2.88 0 1.44 1.44 0 002.88 0z" fill="url(#ig-grad)" />
 							</svg>
 						</a>
-						<a href="https://www.tiktok.com/@pizzakladno?_t=ZN-8tbxv0q0T6k&_r=1" target="_blank" aria-label="Přejít na TikTok Pizzerie San Marino">
+						<a href="https://www.tiktok.com/@pizzakladno?_t=ZN-8tbxv0q0T6k&_r=1" target="_blank" rel="noopener noreferrer" aria-label="Přejít na TikTok Pizzerie San Marino">
 							<svg class="tiktok-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<title>TikTok</title>
 								<path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
@@ -1372,7 +1388,7 @@
 
 	</main>
 
-	<footer class="footer">
+	<footer id="contact" class="footer">
 		<div class="container">
 			<h2 class="section-title">Kontakty a další informace</h2>
 			<div class="footer-grid">
@@ -1445,11 +1461,11 @@
 					<p>Tento web upekla Lenka Lážnovská</p>
 				</div>
 				<div class="footer-bottom-links">
-					<a href="obchodni-podminky-pizzerie-san-marino-kladno.pdf" target="_blank">Obchodní podmínky</a>
+					<a href="obchodni-podminky-pizzerie-san-marino-kladno.pdf" target="_blank" rel="noopener noreferrer">Obchodní podmínky</a>
 					<span class="separator">|</span>
-					<a href="ochrana-osobnich-udaju-gdpr-pizzerie-san-marino-kladno.pdf" target="_blank">Zpracování osobních údajů</a>
+					<a href="ochrana-osobnich-udaju-gdpr-pizzerie-san-marino-kladno.pdf" target="_blank" rel="noopener noreferrer">Zpracování osobních údajů</a>
 					<span class="separator">|</span>
-					<a href="images/seznam-alergenu-pizzerie-san-marino-kladno.webp" target="_blank">Alergeny</a>
+					<a href="images/seznam-alergenu-pizzerie-san-marino-kladno.webp" target="_blank" rel="noopener noreferrer">Alergeny</a>
 				</div>
 			</div>
 		</div>
@@ -1458,7 +1474,8 @@
 	<script>
 	document.addEventListener('DOMContentLoaded', () => {
 		
-		// ----- HERO SLIDER (původní jednoduchý skript) -----
+		// ----- HERO SLIDER -----
+		// Funkce zajišťuje plynulé automatické přepínání obrázků v úvodní sekci.
 		const slides = document.querySelector('.slides');
 		if (slides) {
 			const slideCount = document.querySelectorAll('.slide').length;
@@ -1468,11 +1485,11 @@
 					currentIndex = (currentIndex + 1) % slideCount;
 					slides.style.transform = `translateX(-${currentIndex * 100}%)`;
 				};
-				setInterval(nextSlide, 5000);
+				setInterval(nextSlide, 5000); // Přepnutí každých 5 sekund
 			}
 		}
 
-		// ----- DATA PRO DYNAMICKÉ ČÁSTI (nahrazuje Vue data) -----
+		// ----- DATA PRO DYNAMICKÉ ČÁSTI -----
 		const galleryData = {
 			currentIndex: 0,
 			images: [
@@ -1503,20 +1520,21 @@
 			'images/rychly-rozvoz-nejlepsi-pizza-kladno-recenze.webp',
 			'images/vyborna-pizza-skvela-obsluha-kladno-recenze.webp'
 		];
-		// Náhodné seřazení obrázků recenzí (Fisher-Yates shuffle)
+		// Náhodné seřazení obrázků recenzí (Fisher-Yates shuffle) pro dynamický dojem při každé návštěvě.
 		for (let i = reviewImagePaths.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
 			[reviewImagePaths[i], reviewImagePaths[j]] = [reviewImagePaths[j], reviewImagePaths[i]];
 		}
 
-		// ----- OBRÁZKOVÁ GALERIE (nahrazuje Vue metody) -----
+		// ----- OBRÁZKOVÁ GALERIE -----
+		// Inicializace a ovládání galerie s pizzami.
 		const galleryImage = document.getElementById('gallery-image');
 		const prevBtn = document.getElementById('gallery-prev');
 		const nextBtn = document.getElementById('gallery-next');
 		const dotsContainer = document.getElementById('gallery-dots-container');
 
 		if (galleryImage && prevBtn && nextBtn && dotsContainer) {
-			// Vytvoření teček (dots)
+			// Vytvoření navigačních teček
 			galleryData.images.forEach((_, index) => {
 				const dot = document.createElement('button');
 				dot.classList.add('gallery-dot');
@@ -1526,11 +1544,14 @@
 			});
 			const dots = dotsContainer.querySelectorAll('.gallery-dot');
 
+			// Funkce pro aktualizaci zobrazeného obrázku a aktivní tečky
 			const updateGallery = () => {
-				galleryImage.src = galleryData.images[galleryData.currentIndex];
-				dots.forEach((dot, index) => {
-					dot.classList.toggle('active', index === galleryData.currentIndex);
-				});
+                if (galleryData.images.length > 0) {
+				    galleryImage.src = galleryData.images[galleryData.currentIndex];
+				    dots.forEach((dot, index) => {
+					    dot.classList.toggle('active', index === galleryData.currentIndex);
+				    });
+                }
 			};
 		
 			const nextImage = () => {
@@ -1551,19 +1572,20 @@
 			prevBtn.addEventListener('click', prevImage);
 			nextBtn.addEventListener('click', nextImage);
 		
-			// Inicializace galerie
+			// Prvotní inicializace galerie
 			updateGallery();
 		}
 
-
-		// ----- SLIDER RECENZÍ (nahrazuje Vue v-for a Swiper init) -----
+		// ----- SLIDER RECENZÍ (Swiper.js) -----
 		const reviewsWrapper = document.getElementById('reviews-wrapper');
 		if (reviewsWrapper) {
-			// Vygenerování slidů z pole obrázků
+			// Dynamické generování slidů z pole obrázků
 			reviewImagePaths.forEach(imgSrc => {
 				const slide = document.createElement('div');
 				slide.className = 'swiper-slide';
-				slide.innerHTML = `<img src="${imgSrc}" loading="lazy" alt="Fotografie recenze od zákazníka Pizzerie San Marino.">`;
+				// Vylepšený alt text pro lepší přístupnost
+				const altText = imgSrc.split('/').pop().replace(/-/g, ' ').replace('.webp', '');
+				slide.innerHTML = `<img src="${imgSrc}" loading="lazy" alt="Recenze zákazníka: ${altText}.">`;
 				reviewsWrapper.appendChild(slide);
 			});
 
@@ -1589,7 +1611,8 @@
 			}
 		}
 
-		// ----- ZVÝRAZNĚNÍ AKTUÁLNÍHO DNE V PATIČCE (přesunuto z Vue mounted) -----
+		// ----- ZVÝRAZNĚNÍ AKTUÁLNÍHO DNE V PATIČCE -----
+		// Zlepšuje orientaci uživatele v otevírací době.
 		const today = new Date().getDay(); // 0 = Neděle, 1 = Pondělí, ..., 6 = Sobota
 		const currentDayRow = document.querySelector(`.day-row[data-day="${today}"]`);
 		if (currentDayRow) {
