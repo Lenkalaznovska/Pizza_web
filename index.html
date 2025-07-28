@@ -125,530 +125,814 @@
 	</script>
 
 	<style>
-/* ----- ZÁKLADNÍ NASTAVENÍ A PROMĚNNÉ ----- */
-:root {
-    --main-red: #E20B18;
-    --main-red-hover: #c00a15;
-    --main-green: #017D4D;
-    --white: #FFFFFF;
-    --black: #000000;
-    --font-main: 'Montserrat', sans-serif;
-    --spacing-base: 1rem; /* Pro sjednocení mezer */
-}
+		/* ----- ZÁKLADNÍ NASTAVENÍ A PROMĚNNÉ ----- */
+		:root {
+			--main-red: #E20B18;
+			--main-red-hover: #c00a15;
+			--main-green: #017D4D;
+			--white: #FFFFFF;
+			--black: #000000;
+			--font-main: 'Montserrat', sans-serif;
+		}
 
-/* ----- GLOBÁLNÍ STYLY ----- */
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-html {
-    scroll-behavior: smooth;
-}
-body {
-    font-family: var(--font-main);
-    background: var(--white);
-    color: var(--black);
-    overflow-x: hidden;
-}
-a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-.container {
-    width: 100%;
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: calc(var(--spacing-base) * 1.5);
-    padding-right: calc(var(--spacing-base) * 1.5);
-}
-.section {
-    padding-top: calc(var(--spacing-base) * 6);
-    padding-bottom: calc(var(--spacing-base) * 6);
-}
-.section-white {
-    background-color: var(--white);
-}
+		/* ----- GLOBÁLNÍ STYLY ----- */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		html, body {
+			font-family: var(--font-main);
+			background: var(--white);
+			color: var(--black);
+			overflow-x: hidden;
+		}
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+		.container {
+			width: 100%;
+			max-width: 1280px;
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: 1.5rem;
+			padding-right: 1.5rem;
+		}
+		.section {
+			padding-top: 6rem;
+			padding-bottom: 6rem;
+		}
+		.section-white {
+			background-color: var(--white);
+		}
+		
+        /* ----- SJEDNOCENÍ NADPISŮ A PODNADPISŮ ----- */
+		.section-header-subtitle {
+			display: block;
+			text-align: center;
+			color: var(--main-red);
+			font-size: 2.25rem;
+			margin-bottom: 1rem;
+			font-weight: bold;
+		}
+        .section-green-bg .section-header-subtitle,
+        .bg-parchment .section-header-subtitle,
+        .other-offers-section .section-header-subtitle {
+            color: var(--white);
+        }
+        .section-title, .title {
+            font-size: 2.5rem;
+			font-weight: 900;
+			text-transform: uppercase;
+			letter-spacing: 0.025em;
+            text-align: center;
+            margin-top: 0;
+			margin-bottom: 2rem;
+        }
+        .bg-parchment .section-title,
+        .section-green-bg .section-title,
+        .other-offers-section .title {
+            color: var(--white);
+        }
+        .section-white .title,
+        .menu-section-header .title {
+            color: var(--black);
+        }
+        @media (min-width: 768px) {
+            .menu-section-header, .text-content-column {
+                text-align: left;
+            }
+            .menu-section-header .title, .text-content-column .section-title {
+                text-align: left;
+            }
+            .menu-section-header .section-header-subtitle, .text-content-column .section-header-subtitle {
+                text-align: left;
+            }
+        }
 
-/* ----- SJEDNOCENÍ NADPISŮ A PODNADPISŮ ----- */
-.section-header-subtitle {
-    display: block;
-    text-align: center;
-    color: var(--main-red);
-    font-size: clamp(1.5rem, 4vw, 2.25rem); /* Responzivní velikost */
-    margin-bottom: var(--spacing-base);
-    font-weight: bold;
-}
-.section-green-bg .section-header-subtitle,
-.bg-parchment .section-header-subtitle,
-.other-offers-section .section-header-subtitle {
-    color: var(--white);
-}
-.section-title, .title {
-    font-size: clamp(2rem, 5vw, 2.5rem); /* Responzivní velikost */
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.025em;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: calc(var(--spacing-base) * 2);
-}
-.bg-parchment .section-title,
-.section-green-bg .section-title,
-.other-offers-section .title {
-    color: var(--white);
-}
-.section-white .title,
-.menu-section-header .title {
-    color: var(--black);
-}
+		/* ----- ANIMACE ----- */
+		@keyframes lure-pulse {
+			0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+			70% { transform: scale(1.08); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
+			100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+		}
+		@keyframes pulse-scale {
+			0% { transform: scale(1); }
+			70% { transform: scale(1.08); }
+			100% { transform: scale(1); }
+		}
+		@keyframes pulse-glow {
+			0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+			70% { box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
+			100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+		}
+		.animate-lure-pulse {
+			animation: pulse-scale 1.8s infinite;
+		}
+		.animate-glow {
+			animation: pulse-glow 1.8s infinite;
+		}
 
-/* ----- ANIMACE ----- */
-@keyframes pulse-scale {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-@keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-    50% { box-shadow: 0 0 10px 15px rgba(255, 255, 255, 0.3); }
-}
-.animate-lure-pulse {
-    animation: pulse-scale 2s infinite ease-in-out;
-}
-.animate-glow {
-    animation: pulse-glow 2s infinite ease-in-out;
-}
+		/* ----- HLAVIČKA A HERO SLIDER ----- */
+		.header-logo {
+			position: absolute;
+			z-index: 101;
+			left: 2.5rem;
+			top: calc(1.5rem + 15px);
+		}
+		.header-logo img {
+			height: 80px;
+			width: auto;
+		}
+		.hero-slider {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100vh;
+			overflow: hidden;
+			background-color: var(--black);
+		}
+		.hero-slider .slides {
+			display: flex;
+			transition: transform 1s ease;
+			height: 100%;
+		}
+		.hero-slider .slide {
+			min-width: 100%;
+			height: 100%;
+		}
+		.hero-slider .slide img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+		.hero-content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			color: var(--white);
+			width: 90%;
+			z-index: 50;
+		}
+		.hero-content h1 {
+			font-family: var(--font-main);
+			font-size: 65px;
+			margin-bottom: 20px;
+			font-weight: 900;
+			text-transform: uppercase;
+			text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
+			white-space: nowrap;
+		}
+		.hero-content .cta-text {
+			font-size: 24px;
+			font-weight: bold;
+			background: rgba(0, 0, 0, 0.6);
+			padding: 15px 25px;
+			border-radius: 10px;
+			display: inline-block;
+		}
+		.hero-content .buttons {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			margin-top: 3rem;
+		}
+		.button {
+			font-family: var(--font-main);
+			font-weight: 700;
+			font-size: 1rem;
+			border-radius: 9999px;
+			padding: 0.75rem 1.5rem;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.75rem;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			border: none;
+			cursor: pointer;
+		}
+		.button svg {
+			width: 1.5rem;
+			height: 1.5rem;
+		}
+		.button-red {
+			background-color: var(--main-red);
+			color: var(--white);
+		}
+		.button-red:hover {
+			background-color: var(--main-red-hover);
+		}
 
-/* ----- HLAVIČKA A HERO SLIDER ----- */
-.header-logo {
-    position: absolute;
-    z-index: 101;
-    left: 1.5rem;
-    top: 1.5rem;
-}
-.header-logo img {
-    height: 60px; /* Optimalizace pro různé obrazovky */
-    width: auto;
-}
-.hero-slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background-color: var(--black);
-}
-.hero-slider .slides {
-    display: flex;
-    transition: transform 1s ease;
-    height: 100%;
-}
-.hero-slider .slide {
-    min-width: 100%;
-    height: 100%;
-}
-.hero-slider .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-.hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: var(--white);
-    width: 90%;
-    z-index: 50;
-    padding: var(--spacing-base);
-}
-.hero-content h1 {
-    font-size: clamp(2.8rem, 10vw, 4rem);
-    margin-bottom: var(--spacing-base);
-    font-weight: 900;
-    text-transform: uppercase;
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
-    white-space: normal;
-}
-.hero-content .cta-text {
-    font-size: clamp(1rem, 4vw, 1.5rem);
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.6);
-    padding: calc(var(--spacing-base)*0.8) calc(var(--spacing-base)*1.5);
-    border-radius: 10px;
-    display: inline-block;
-    max-width: 600px;
-    line-height: 1.5;
-}
-.hero-content .buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-base);
-    margin-top: calc(var(--spacing-base) * 2.5);
-}
-.button {
-    font-family: var(--font-main);
-    font-weight: 700;
-    font-size: 1rem;
-    border-radius: 9999px;
-    padding: calc(var(--spacing-base)*0.8) calc(var(--spacing-base)*1.6);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: calc(var(--spacing-base)*0.75);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
-.button svg {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-.button-red {
-    background-color: var(--main-red);
-    color: var(--white);
-}
-.button-red:hover {
-    background-color: var(--main-red-hover);
-    transform: scale(1.05);
-}
+		/* ----- INFO BANNER (pod sliderem) ----- */
+		.info-banner-container {
+			position: relative;
+			z-index: 20;
+			margin-top: -135px;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			padding-left: 1rem;
+			padding-right: 1.5rem;
+		}
+		.info-banner {
+			background-color: var(--white);
+			color: var(--black);
+			border-radius: 1rem;
+			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+			padding: 1rem 1.5rem;
+			display: flex;
+			flex-direction: row;
+            flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			gap: 2.5rem;
+			max-width: 1152px;
+			transition: box-shadow 0.5s ease-in-out;
+		}
+		.info-banner:hover {
+			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+		}
+		.info-banner-item {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			column-gap: 0.75rem;
+			align-items: center;
+		}
+		.info-banner-item svg {
+			grid-row: 1 / 3; 
+			grid-column: 1;
+			height: 2.5rem;
+			width: 2.5rem;
+			color: var(--main-red);
+            flex-shrink: 0;
+		}
+		.info-banner-item__text {
+			display: contents; 
+		}
+		.info-banner-item__text .title {
+			grid-column: 2;
+			grid-row: 1;
+			font-weight: 700;
+			color: var(--black);
+			font-size: 1.125rem;
+			align-self: end;
+		}
+		.info-banner-item__text .subtitle {
+			grid-column: 2;
+			grid-row: 2;
+			color: var(--black);
+			font-size: 1rem;
+			align-self: start;
+			/* FINÁLNÍ ÚPRAVA: Posun textu nahoru */
+			margin-top: -25px;
+		}
+		.info-banner-item__text .subtitle a {
+			color: var(--main-red);
+			text-decoration: underline;
+			font-weight: 600;
+		}
 
-/* ----- INFO BANNER (pod sliderem) ----- */
-.info-banner-container {
-    position: relative;
-    z-index: 20;
-    margin-top: -100px; /* Upraveno pro lepší vzhled */
-    padding: 0 var(--spacing-base);
-}
-.info-banner {
-    background-color: var(--white);
-    color: var(--black);
-    border-radius: 1rem;
-    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
-    padding: var(--spacing-base) calc(var(--spacing-base)*1.5);
-    display: flex;
-    flex-wrap: wrap; /* Ponecháno pro flexibilitu */
-    align-items: center;
-    justify-content: center;
-    gap: calc(var(--spacing-base) * 2);
-    max-width: 1152px;
-    margin-left: auto;
-    margin-right: auto;
-    transition: box-shadow 0.3s ease;
-}
-.info-banner:hover {
-    box-shadow: 0 20px 30px -10px rgba(0,0,0,0.2);
-}
-.info-banner-item {
-    display: flex; /* Zjednodušeno pro lepší kontrolu */
-    align-items: center;
-    gap: var(--spacing-base);
-}
-.info-banner-item svg {
-    height: 2.5rem;
-    width: 2.5rem;
-    color: var(--main-red);
-    flex-shrink: 0;
-}
-.info-banner-item__text {
-    display: flex;
-    flex-direction: column;
-}
-.info-banner-item__text .title {
-    font-weight: 700;
-    font-size: 1.125rem;
-}
-.info-banner-item__text .subtitle {
-    font-size: 1rem;
-    line-height: 1.2;
-}
-.info-banner-item__text .subtitle a {
-    color: var(--main-red);
-    text-decoration: underline;
-    font-weight: 600;
-}
-.info-banner-item__text .subtitle a:hover {
-    color: var(--main-red-hover);
-}
+		/* ----- SEKCE "NA CO MÁŠ CHUŤ?" ----- */
+		.menu-section-header {
+			margin-bottom: 4rem;
+		}
+		.menu-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 2rem;
+            align-items: stretch;
+		}
+        @media (min-width: 768px) {
+            .menu-grid {
+                grid-auto-rows: 1fr;
+            }
+        }
+		.menu-card {
+			position: relative;
+			border-radius: 1.5rem;
+			overflow: hidden;
+			padding: 2rem;
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			color: var(--white);
+			box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+			transition: all 0.3s ease;
+		}
+		.menu-card:hover {
+			transform: scale(1.05);
+			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+		}
+		.menu-card-bg-image {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			opacity: 0.15;
+            z-index: 1;
+		}
+		.menu-card-content {
+			position: relative;
+			z-index: 10;
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+		}
+		.menu-card .card-category {
+			font-family: var(--font-main);
+			font-size: 1.75rem;
+			font-weight: 900;
+			text-transform: uppercase;
+			text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+			margin-bottom: 0.75rem;
+			min-height: 100px; 
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.menu-card .card-link,
+		.menu-card .card-list {
+			text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
+		}
+		.menu-card .card-link {
+			font-weight: 600;
+			text-decoration: none;
+			margin-bottom: 1rem;
+			transition: transform 0.3s ease;
+			min-height: 24px; 
+		}
+		.menu-card .card-link:hover {
+			text-decoration: underline;
+		}
+		.menu-card .card-subtitle {
+			font-size: 1.25rem;
+			font-weight: 700;
+			margin-bottom: 1rem;
+			padding-top: 1rem;
+			text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+			min-height: 60px; 
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.5rem;
+		}
+		.menu-card .card-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			text-align: left;
+			font-size: 1rem;
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+            flex-grow: 1; 
+		}
+		.menu-card .card-list li {
+			display: flex;
+			justify-content: space-between;
+		}
+		.menu-card .card-list .price {
+			font-weight: 600;
+		}
+		.menu-card .card-button-wrapper {
+			padding-top: 2rem;
+		}
+		.button-white-green { background-color: var(--white); color: var(--main-green); }
+		.button-white-green:hover { background-color: #e6f2ed; }
+		.button-white-red { background-color: var(--white); color: var(--main-red); }
+		.button-white-red:hover { background-color: #fdebee; }
+		.button-white-dark { background-color: var(--white); color: var(--black); }
+		.button-white-dark:hover { background-color: #f3f4f6; }
 
-/* ----- SEKCE "NA CO MÁŠ CHUŤ?" ----- */
-.menu-section-header {
-    margin-bottom: calc(var(--spacing-base) * 4);
-}
-.menu-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: calc(var(--spacing-base) * 2);
-}
-.menu-card {
-    position: relative;
-    border-radius: 1.5rem;
-    overflow: hidden;
-    padding: calc(var(--spacing-base) * 2);
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    color: var(--white);
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-    transition: all 0.3s ease;
-    isolation: isolate; /* Vytvoří stohovací kontext pro z-index */
-}
-.menu-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-}
-/* ===== VYLEPŠENÍ KONTRASTU ===== */
-/* Přidání tmavší vrstvy mezi obrázek a text pro lepší čitelnost. */
-.menu-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
-    z-index: 2;
-    border-radius: 1.5rem; /* Shodné s rodičem */
-    opacity: 0.8; /* Můžete upravit dle potřeby */
-}
-.menu-card-bg-image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.3; /* Mírně snížená, protože překryvná vrstva pomáhá */
-    z-index: 1;
-}
-.menu-card-content {
-    position: relative;
-    z-index: 3; /* Obsah je vždy nahoře */
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-.menu-card .card-category {
-    font-family: var(--font-main);
-    font-size: 1.75rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    margin-bottom: 0.75rem;
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.menu-card .card-link {
-    font-weight: 600;
-    margin-bottom: var(--spacing-base);
-    transition: transform 0.3s ease;
-    min-height: 24px;
-}
-.menu-card .card-link:hover {
-    text-decoration: underline;
-}
-.menu-card .card-subtitle {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: var(--spacing-base);
-    padding-top: var(--spacing-base);
-    min-height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-.menu-card .card-list {
-    list-style: none;
-    text-align: left;
-    font-size: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    flex-grow: 1; /* Klíčové pro zarovnání tlačítek dolů */
-}
-.menu-card .card-list li {
-    display: flex;
-    justify-content: space-between;
-}
-.menu-card .card-list .price {
-    font-weight: 600;
-    flex-shrink: 0;
-    padding-left: var(--spacing-base);
-}
-.menu-card .card-button-wrapper {
-    padding-top: calc(var(--spacing-base) * 2);
-}
-/* ===== VYLEPŠENÍ HOVER EFEKTU TLAČÍTEK ===== */
-.button-white-green, .button-white-red, .button-white-dark {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.button-white-green { background-color: var(--white); color: var(--main-green); }
-.button-white-red { background-color: var(--white); color: var(--main-red); }
-.button-white-dark { background-color: var(--white); color: var(--black); }
+		/* ----- SEKCE S BÍLÝM TEXTEM ----- */
+		.section-green-bg,
+		.bg-parchment {
+			color: var(--white);
+		}
+		.section-green-bg {
+			background-color: var(--main-green);
+			padding: 2rem;
+			border-radius: 1.5rem;
+		}
+		.bg-parchment {
+			background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
+			background-size: cover;
+			background-position: center center;
+			background-repeat: no-repeat;
+		}
+		.bg-parchment p, .bg-parchment span, .bg-parchment .section-subtitle,
+		.section-green-bg p, .section-green-bg strong {
+			text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
+		}
+		.two-column-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 4rem;
+			align-items: center;
+		}
+		.section-subtitle {
+			margin-top: 1rem;
+			font-size: 1.25rem;
+			font-weight: 600;
+		}
+		.section-text {
+			margin-top: 1.5rem;
+			line-height: 1.625;
+		}
+		.feature-list {
+			margin-top: 2rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+		.feature-item {
+			display: flex;
+			align-items: flex-start;
+			gap: 0.75rem;
+		}
+		.feature-item svg {
+			height: 1.75rem;
+			width: 1.75rem;
+			color: var(--main-red);
+			flex-shrink: 0;
+		}
+		.section-button {
+			margin-top: 2.5rem;
+			display: inline-block;
+		}
+		.image-gallery {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.image-gallery-main {
+			position: relative;
+			width: 100%;
+			max-width: 28rem;
+			aspect-ratio: 1 / 1;
+		}
+		.image-gallery-main img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 1rem;
+		}
+		.gallery-button {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background-color: var(--main-red);
+			border: none;
+			border-radius: 9999px;
+			padding: 0.75rem;
+			transition: background-color 0.2s;
+			z-index: 10;
+			cursor: pointer;
+		}
+		.gallery-button:hover {
+			background-color: var(--main-red-hover);
+		}
+		.gallery-button svg {
+			height: 1.5rem;
+			width: 1.5rem;
+			color: var(--white);
+		}
+		.gallery-button-prev { left: 0.5rem; }
+		.gallery-button-next { right: 0.5rem; }
+		.image-gallery-dots {
+			margin-top: 1.5rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.75rem;
+		}
+		.gallery-dot {
+			height: 1rem;
+			width: 1rem;
+			border-radius: 9999px;
+			transition: background-color 0.2s;
+			cursor: pointer;
+			border: 2px solid var(--white);
+			background-color: transparent;
+		}
+		.gallery-dot:hover {
+			background-color: rgba(255, 255, 255, 0.2);
+		}
+		.gallery-dot.active {
+			background-color: var(--main-red);
+			border-color: var(--main-red);
+		}
 
-.button-white-green:hover, .button-white-red:hover, .button-white-dark:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
+		/* ----- SEKCE RECENZE ----- */
+		.reviews-container {
+			position: relative;
+			padding-left: 2.5rem;
+			padding-right: 2.5rem;
+		}
+		.swiper-viewport {
+			overflow: hidden;
+		}
+		.swiper-container-reviews .swiper-slide {
+			aspect-ratio: 4 / 3;
+			background-color: var(--white);
+			border: 2px solid var(--black);
+			border-radius: 0.75rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			box-sizing: border-box;
+		}
+		.swiper-container-reviews .swiper-slide img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+		.review-swiper-button {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 20;
+			cursor: pointer;
+			background-color: var(--main-red);
+			border-radius: 9999px;
+			padding: 0.75rem;
+			transition: background-color 0.2s;
+		}
+		.review-swiper-button:hover {
+			background-color: var(--main-red-hover);
+		}
+		.review-swiper-button-prev { left: 0; }
+		.review-swiper-button-next { right: 0; }
+		.review-swiper-button svg {
+			color: var(--white);
+			width: 1.5rem;
+			height: 1.5rem;
+		}
 
-/* ----- OSTATNÍ SEKCE (PŘEVZATO A ZKONTROLOVÁNO) ----- */
-/* Většina stylů pro další sekce byla dobře strukturovaná, zde jsou jen drobné úpravy a kontroly */
-.section-green-bg,
-.bg-parchment {
-    color: var(--white);
-}
-.section-green-bg {
-    background-color: var(--main-green);
-    padding: calc(var(--spacing-base) * 2);
-    border-radius: 1.5rem;
-}
-.bg-parchment {
-    background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-.bg-parchment p, .bg-parchment span, .bg-parchment .section-subtitle,
-.section-green-bg p, .section-green-bg strong {
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-}
-.two-column-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: calc(var(--spacing-base) * 4);
-    align-items: center;
-}
-.section-subtitle {
-    margin-top: var(--spacing-base);
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-.section-text {
-    margin-top: calc(var(--spacing-base) * 1.5);
-    line-height: 1.625;
-}
-/* ... ostatní převzaté styly ... */
-.footer {
-    background-color: var(--main-green);
-    color: var(--white);
-    width: 100%;
-}
-.footer .container {
-    padding-top: calc(var(--spacing-base) * 4);
-    padding-bottom: calc(var(--spacing-base) * 4);
-}
-.footer a:hover {
-    text-decoration: underline;
-}
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: calc(var(--spacing-base) * 3);
-    font-size: 1rem;
-    align-items: start;
-}
-.footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--spacing-base) * 1.5);
-}
-.footer-heading {
-    font-family: var(--font-main);
-    font-size: 1.25rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 0;
-    padding-bottom: 0.5rem;
-}
-.footer-info, .opening-hours, .footer-contact-list {
-    font-weight: 500;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-/* ... zbytek patičky beze změny ... */
-.footer-divider {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    margin-top: calc(var(--spacing-base) * 4);
-    margin-bottom: calc(var(--spacing-base) * 2);
-}
-.footer-bottom {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.875rem;
-    font-weight: 500;
-    gap: var(--spacing-base);
-}
+		/* ----- SEKCE ROZVOZ (tlačítka) ----- */
+		.delivery-image-wrapper img {
+			width: 100%;
+			max-width: 32rem;
+			margin-left: auto;
+			margin-right: auto;
+			height: auto;
+			object-fit: cover;
+			border-radius: 1rem;
+			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+		}
+		.delivery-buttons {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			margin-top: 3rem;
+		}
 
-/* ----- RESPONZIVNÍ STYLY ----- */
-@media (max-width: 767px) {
-    /* ===== VYLEPŠENÍ PRO MOBILNÍ ZAŘÍZENÍ ===== */
-    .info-banner {
-        flex-direction: column; /* Položky pod sebou pro čistší vzhled */
-        align-items: flex-start; /* Zarovnání doleva */
-        gap: calc(var(--spacing-base) * 1.5);
-    }
-    .header-logo { left: 1rem; top: 1rem; }
-    .header-logo img { height: 50px; }
-    
-    .reviews-container { padding-left: 0; padding-right: 0; }
-    .review-swiper-button-prev { left: -10px; }
-    .review-swiper-button-next { right: -10px; }
-}
+		/* ----- SEKCE BURGERY & KUŘECÍ ----- */
+		.other-offers-section {
+			padding-top: 4rem;
+			padding-bottom: 6rem;
+			color: var(--white);
+			position: relative;
+			overflow: hidden;
+		}
+		.other-offers-bg-text {
+			position: absolute;
+			inset: 0;
+			z-index: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			opacity: 0.1;
+			font-weight: 900;
+			color: var(--white);
+			pointer-events: none;
+		}
+		.other-offers-bg-text span {
+			font-size: 8rem;
+		}
+		.other-offers-bg-text .top-text {
+			margin-top: -2rem;
+			margin-left: -3rem;
+			transform: rotate(-12deg);
+		}
+		.other-offers-bg-text .bottom-text {
+			margin-bottom: -2rem;
+			margin-right: 3rem;
+			transform: rotate(12deg);
+		}
+		.other-offers-header {
+			text-align: center;
+			position: relative;
+			z-index: 10;
+		}
+		.other-offers-grid {
+			margin-top: 3rem;
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+			position: relative;
+			z-index: 10;
+		}
+		.other-offers-grid img {
+			aspect-ratio: 1 / 1;
+			width: 100%;
+			object-fit: cover;
+			border-radius: 0.5rem;
+			transition: transform 0.3s, box-shadow 0.3s;
+		}
+		.other-offers-grid img:hover {
+			transform: scale(1.05);
+			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+		}
 
-@media (min-width: 640px) { /* sm */
-    .hero-content .buttons, .delivery-buttons {
-        flex-direction: row;
-        justify-content: center;
-        gap: calc(var(--spacing-base) * 2);
-    }
-    .other-offers-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-    .footer-bottom { flex-direction: row; }
-    .footer-bottom-links { flex-direction: row; gap: var(--spacing-base); }
-    .footer-bottom-links .separator { display: inline; }
-}
+		/* ----- SEKCE SOCIÁLNÍ SÍTĚ ----- */
+		.social-section-header {
+			text-align: center;
+			margin-bottom: 3rem;
+		}
+		.social-icons {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 2.5rem;
+			margin-top: 2rem;
+			margin-bottom: 3rem;
+		}
+		.social-icons a {
+			transition: transform 0.2s;
+		}
+		.social-icons a:hover {
+			transform: scale(1.1);
+		}
+		.social-icons svg {
+			width: 2rem;
+			height: 2rem;
+		}
+		.social-icons .tiktok-icon path {
+			fill: var(--black);
+		}
 
-@media (min-width: 768px) { /* md */
-    .container { 
-        padding-left: calc(var(--spacing-base) * 3);
-        padding-right: calc(var(--spacing-base) * 3);
-    }
-    .info-banner-container { padding-left: 0; padding-right: 0; }
-    .info-banner { flex-wrap: nowrap; } /* Na větších obrazovkách zpět vedle sebe */
-    .menu-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-        grid-auto-rows: 1fr; /* Všechny karty v řádku budou stejně vysoké */
-    }
-    .menu-card.span-2 { grid-column: span 2 / span 2; }
-    .reviews-container { padding-left: 0; padding-right: 0; }
-    .review-swiper-button-prev { left: -2.5rem; }
-    .review-swiper-button-next { right: -2.5rem; }
-    .footer-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
-    .footer-column { justify-content: flex-start; }
-}
 
-@media (min-width: 1024px) { /* lg */
-    .button { font-size: 1.125rem; padding: var(--spacing-base) calc(var(--spacing-base)*2); }
-    .menu-grid { grid-template-columns: repeat(3, 1fr); }
-    .menu-card.span-2 { grid-column: span 1 / span 1; }
-    .two-column-grid { grid-template-columns: repeat(2, 1fr); }
-    .delivery-content { order: -1; }
-    .other-offers-grid { grid-template-columns: repeat(4, 1fr); gap: calc(var(--spacing-base)*2); }
-}
+		/* ----- PATIČKA ----- */
+		.footer {
+			background-color: var(--main-green);
+			color: var(--white);
+			width: 100%;
+		}
+		.footer .container {
+			padding-top: 4rem;
+			padding-bottom: 4rem;
+		}
+		.footer a:hover {
+			text-decoration: underline;
+		}
+		.footer-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 3.5rem;
+			font-size: 1rem;
+			align-items: start;
+		}
+		.footer-column {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+		.footer-heading {
+			font-family: var(--font-main);
+			font-size: 1.25rem;
+			font-weight: 900;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			margin: 0;
+			padding-bottom: 0.5rem;
+		}
+		.footer-info, .opening-hours, .footer-contact-list {
+			font-weight: 500;
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+		}
+		.opening-hours { gap: 0.625rem; }
+		.opening-hours .day-row {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			gap: 1rem;
+		}
+		.opening-hours .day-row .note {
+			text-align: right;
+		}
+		.opening-hours .day-row .note .details {
+			font-weight: 700;
+			font-size: 0.875rem;
+			text-transform: uppercase;
+			line-height: 1.25;
+		}
+		.opening-hours .day-row.active-day {
+			font-weight: 700;
+		}
+		.footer-contact-list {
+			list-style: none;
+			padding: 0;
+		}
+		.footer-contact-list li {
+			display: flex;
+			align-items: flex-start;
+			gap: 1rem;
+		}
+		.footer-contact-list svg {
+			height: 1.5rem;
+			width: 1.5rem;
+			flex-shrink: 0;
+			margin-top: 0.125rem;
+			color: var(--main-red);
+		}
+		.footer-divider {
+			border-top: 1px solid rgba(255, 255, 255, 0.2);
+			margin-top: 4rem;
+			margin-bottom: 2rem;
+		}
+		.footer-bottom {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 0.875rem;
+			font-weight: 500;
+		}
+		.footer-bottom-copyright {
+			text-align: center;
+			margin-bottom: 1rem;
+		}
+		.footer-bottom-copyright p {
+			margin: 0;
+		}
+		.footer-bottom-links {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.5rem;
+			text-align: center;
+		}
+		.footer-bottom-links .separator {
+			display: none;
+		}
 
-@media (min-width: 1280px) { /* xl */
-    .header-logo { left: 2.5rem; top: 1.5rem; }
-    .header-logo img { height: 80px; }
-}
+		/* ----- RESPONZIVNÍ STYLY ----- */
+		@media (max-width: 767px) {
+			.hero-content h1 { font-size: 45px; white-space: normal; }
+			.hero-content .cta-text { font-size: 20px; }
+			.reviews-container { padding-left: 0; padding-right: 0; }
+			.review-swiper-button-prev { left: -10px; }
+			.review-swiper-button-next { right: -10px; }
+		}
+
+		@media (min-width: 640px) { /* sm */
+			.hero-content .buttons, .delivery-buttons {
+				flex-direction: row;
+				justify-content: center;
+				gap: 2.5rem;
+			}
+			.other-offers-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+		}
+
+		@media (min-width: 768px) { /* md */
+			.container { padding-left: 3rem; padding-right: 3rem; }
+			.info-banner-container { padding-left: 0; padding-right: 0; }
+			.info-banner { flex-wrap: nowrap; }
+			.menu-grid { grid-template-columns: repeat(2, 1fr); }
+			.menu-card.span-2 { grid-column: span 2 / span 2; }
+			.reviews-container { padding-left: 0; padding-right: 0; }
+			.review-swiper-button-prev { left: -2.5rem; }
+			.review-swiper-button-next { right: -2.5rem; }
+			.footer-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+			.footer-column { justify-content: flex-start; gap: 1rem; }
+			.footer-bottom { flex-direction: row; }
+			.footer-bottom-copyright { text-align: left; margin-bottom: 0; }
+			.footer-bottom-links { flex-direction: row; gap: 1rem; }
+			.footer-bottom-links .separator { display: inline; }
+		}
+
+		@media (min-width: 1024px) { /* lg */
+			.button { font-size: 1.125rem; padding: 1rem 2rem; }
+			.menu-grid { grid-template-columns: repeat(3, 1fr); }
+			.menu-card.span-2 { grid-column: span 1 / span 1; }
+			.two-column-grid { grid-template-columns: repeat(2, 1fr); }
+			.delivery-content { order: -1; }
+			.other-offers-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+		}
 	</style>
 </head>
 <body>
