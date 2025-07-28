@@ -276,7 +276,7 @@
 		}
 		.hero-content h1 {
 			font-family: var(--font-main);
-			font-size: 65px;
+			font-size: clamp(2.5rem, 6.5vw, 4.0625rem); /* Fluidní typografie */
 			margin-bottom: 20px;
 			font-weight: 900;
 			text-transform: uppercase;
@@ -284,7 +284,7 @@
 			white-space: nowrap;
 		}
 		.hero-content .cta-text {
-			font-size: 24px;
+			font-size: clamp(1rem, 3vw, 1.5rem);
 			font-weight: bold;
 			background: rgba(0, 0, 0, 0.6);
 			padding: 15px 25px;
@@ -346,7 +346,6 @@
 			display: flex;
 			flex-direction: row;
             flex-wrap: wrap;
-			/* ÚPRAVA: Zarovnání položek na stejnou výšku */
 			align-items: stretch;
 			justify-content: center;
 			gap: 2.5rem;
@@ -424,7 +423,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			opacity: 0.1;
+			opacity: 0.08; /* Snížená průhlednost */
             z-index: 1;
 		}
 		.menu-card-content {
@@ -630,11 +629,9 @@
 		/* ----- SEKCE RECENZE ----- */
 		.reviews-container {
 			position: relative;
-			padding-left: 2.5rem;
-			padding-right: 2.5rem;
 		}
 		.swiper-viewport {
-			overflow: visible; /* Změna pro viditelnost šipek */
+			overflow: hidden; 
 		}
 		.swiper-container-reviews .swiper-slide {
 			aspect-ratio: 4 / 3;
@@ -666,8 +663,8 @@
 		.review-swiper-button:hover {
 			background-color: var(--main-red-hover);
 		}
-		.review-swiper-button-prev { left: 0; }
-		.review-swiper-button-next { right: 0; }
+		.review-swiper-button-prev { left: -2.5rem; }
+		.review-swiper-button-next { right: -2.5rem; }
 		.review-swiper-button svg {
 			color: var(--white);
 			width: 1.5rem;
@@ -906,6 +903,10 @@
 				font-size: 2rem;
 				line-height: 1.2;
 			}
+			.bg-parchment .two-column-grid,
+			.other-offers-section .other-offers-grid {
+				margin-top: 40px;
+			}
 			.header-logo {
 				left: 1rem;
 				top: 1rem;
@@ -914,17 +915,11 @@
 				height: 60px;
 			}
 			.hero-content h1 { 
-				font-size: 40px; 
 				white-space: normal; 
-			}
-			.hero-content .cta-text { 
-				font-size: 18px; 
-				padding: 10px 15px;
 			}
 			.hero-content .buttons {
 				margin-top: 2rem;
 			}
-            /* ÚPRAVA: Nový, kompaktní layout pro info banner na mobilu */
             .info-banner-item {
                 flex-direction: column;
                 text-align: center;
@@ -939,17 +934,13 @@
                 align-items: center;
             }
 			.reviews-container { 
-				padding-left: 0; 
-				padding-right: 0; 
-				margin-left: 40px; /* Vytvoření prostoru pro šipky */
-				margin-right: 40px;
+				padding: 0;
 			}
-			/* ÚPRAVA: Šipky recenzí posunuty ZCELA mimo obsah */
 			.review-swiper-button-prev { 
-				left: -42px; 
+				left: -50px; 
 			}
 			.review-swiper-button-next { 
-				right: -42px; 
+				right: -50px; 
 			}
 		}
 
@@ -965,7 +956,6 @@
 		/* === Speciální úpravy pro TABLETY (iPad, Surface atd.) === */
 		@media (min-width: 768px) and (max-width: 1023px) {
 			.hero-content h1 {
-				font-size: 55px;
 				white-space: normal;
 			}
 		}
@@ -995,9 +985,10 @@
 			.menu-grid { grid-template-columns: repeat(2, 1fr); }
 			.menu-card.span-2 { grid-column: span 2 / span 2; }
             .two-column-grid { grid-template-columns: repeat(2, 1fr); }
-			.reviews-container { padding-left: 0; padding-right: 0; }
-			.review-swiper-button-prev { left: -2.5rem; }
-			.review-swiper-button-next { right: -2.5rem; }
+			.reviews-container { 
+				padding-left: 0;
+				padding-right: 0;
+			}
 			.footer-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
 			.footer-column { justify-content: flex-start; gap: 1rem; }
 			.footer-bottom { flex-direction: row; }
@@ -1019,10 +1010,6 @@
 				padding-top: 4rem;
 				padding-bottom: 4rem;
 			}
-			.hero-content h1 {
-				font-size: 32px;
-				margin-bottom: 15px;
-			}
 			.hero-content .cta-text {
 				font-size: 16px;
 			}
@@ -1033,6 +1020,9 @@
 			}
 			.info-banner-container {
 				margin-top: -90px;
+			}
+			.info-banner {
+				padding: 0.75rem 1rem;
 			}
 		}
 	</style>
@@ -1128,7 +1118,7 @@
 								<li><span>Pizza se ŠUNKOU</span><span class="price">od 169 Kč</span></li>
 								<li><span>Pizza SÝROVÁ</span><span class="price">od 174 Kč</span></li>
 								<li><span>Pizza HAVAJ</span><span class="price">od 184 Kč</span></li>
-								<li><span>Pizza sýrová QUATRO</span><span class="price">od 213 Kč</span></li>
+								<li><span>Pizza SÝROVÁ QUATRO</span><span class="price">od 213 Kč</span></li>
 							</ul>
 							<div class="card-button-wrapper animate-lure-pulse">
 								<a href="#" class="button button-white-green animate-glow">Objednej si pizzu</a>
