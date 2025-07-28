@@ -127,6 +127,18 @@
 			--font-main: 'Montserrat', sans-serif;
 		}
 
+		/* === OPRAVY PRO PERFEKTNÍ RESPONZIVITU === */
+		/* Zajištění, že obrázky a média nepřetečou ze svého kontejneru */
+		img, picture, video, canvas, svg {
+			display: block; /* Odstraní mezeru pod obrázkem */
+			max-width: 100%; /* Klíčové pro responzivitu */
+			height: auto; /* Zachová poměr stran */
+		}
+		/* Umožní zalamování dlouhých slov, aby se zabránilo přetékání textu */
+		h1, h2, h3, h4, h5, h6, p {
+			overflow-wrap: break-word; /* Novější náhrada za word-wrap */
+		}
+		
 		/* ----- GLOBÁLNÍ STYLY ----- */
 		* {
 			margin: 0;
@@ -137,7 +149,7 @@
 			font-family: var(--font-main);
 			background: var(--white);
 			color: var(--black);
-			overflow-x: hidden;
+			overflow-x: hidden; /* Ponecháno jako pojistka, ale opravené problémy by měly přetékání zabránit */
 		}
 		a {
 			color: inherit;
@@ -181,7 +193,6 @@
             text-align: center;
             margin-top: 0;
 			margin-bottom: 2rem;
-			overflow-wrap: break-word;
 			hyphens: auto;
 			line-height: 1.1;
         }
@@ -281,7 +292,7 @@
 			font-weight: 900;
 			text-transform: uppercase;
 			text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
-			white-space: nowrap;
+			/* OPRAVA: Odstraněno 'white-space: nowrap;', aby se zabránilo přetékání na menších obrazovkách. */
 		}
 		.hero-content .cta-text {
 			font-size: clamp(1rem, 3vw, 1.5rem);
@@ -677,7 +688,6 @@
 			max-width: 32rem;
 			margin-left: auto;
 			margin-right: auto;
-			height: auto;
 			object-fit: cover;
 			border-radius: 1rem;
 			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
@@ -765,6 +775,11 @@
 		.social-icons .tiktok-icon path {
 			fill: var(--black);
 		}
+        /* OPRAVA: Zajištění, že se externí widget nikdy neroztáhne a nezpůsobí přetékání stránky */
+        .elfsight-app-fda31c74-30c8-40aa-be79-2c7ae5fced3d {
+            max-width: 100%;
+            overflow-x: auto; /* 'auto' je lepší než 'hidden', obsah zůstane dostupný */
+        }
 
 
 		/* ----- PATIČKA ----- */
@@ -936,11 +951,13 @@
 			.reviews-container { 
 				padding: 0;
 			}
+            /* OPRAVA: Původní hodnota -50px způsobovala přetékání na mobilech.
+               Nová hodnota -20px zajistí, že tlačítko zůstane uvnitř postranního odsazení stránky (padding). */
 			.review-swiper-button-prev { 
-				left: -50px; 
+				left: -20px; 
 			}
 			.review-swiper-button-next { 
-				right: -50px; 
+				right: -20px; 
 			}
 		}
 
