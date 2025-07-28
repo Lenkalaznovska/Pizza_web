@@ -672,22 +672,29 @@
 			height: 100%;
 			object-fit: contain;
 		}
+        /* KLÍČOVÁ ZMĚNA: Styly pro nový kontejner šipek */
+        .review-swiper-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
 		.review-swiper-button {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
+			position: static; /* Změna z absolute */
+			transform: none; /* Odstranění transformace */
 			z-index: 20;
 			cursor: pointer;
 			background-color: var(--main-red);
 			border-radius: 9999px;
 			padding: 0.75rem;
 			transition: background-color 0.2s;
+            display: flex; /* Pro jistotu, aby se ikona centovala */
+            align-items: center;
+            justify-content: center;
 		}
 		.review-swiper-button:hover {
 			background-color: var(--main-red-hover);
 		}
-		.review-swiper-button-prev { left: -2.5rem; }
-		.review-swiper-button-next { right: -2.5rem; }
 		.review-swiper-button svg {
 			color: var(--white);
 			width: 1.5rem;
@@ -851,7 +858,6 @@
 		}
 		.opening-hours .day-row.active-day {
 			font-weight: 700;
-            /* OPRAVA KONTRASTU: Změna barvy pro lepší čitelnost */
             color: var(--white);
             text-shadow: 0 0 5px rgba(0,0,0,0.5);
 		}
@@ -948,15 +954,17 @@
 			.hero-content .buttons {
 				margin-top: 2rem;
 			}
+            /* ÚPRAVA: Zmenšení info banneru na mobilech */
             .info-banner {
-                gap: 1.5rem;
-                padding: 0.75rem 1rem;
+                gap: 1rem;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
             }
             .info-banner-item {
                 flex-direction: column;
                 text-align: center;
-                gap: 0.5rem;
-                padding: 0.5rem;
+                gap: 0.25rem;
+                padding: 0;
             }
             .info-banner-item svg {
                 height: 2rem;
@@ -965,14 +973,11 @@
             .info-banner-item__text {
                 align-items: center;
             }
-			.reviews-container { 
-				padding: 0;
-			}
-			.review-swiper-button-prev { 
-				left: -20px; 
-			}
-			.review-swiper-button-next { 
-				right: -20px; 
+            /* ÚPRAVA: Odebrání negativních pozic šipek */
+			.review-swiper-button-prev,
+            .review-swiper-button-next { 
+				left: auto;
+                right: auto;
 			}
 		}
 
@@ -1016,10 +1021,6 @@
 			.menu-grid { grid-template-columns: repeat(2, 1fr); }
 			.menu-card.span-2 { grid-column: span 2 / span 2; }
             .two-column-grid { grid-template-columns: repeat(2, 1fr); }
-			.reviews-container { 
-				padding-left: 0;
-				padding-right: 0;
-			}
 			.footer-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
 			.footer-column { justify-content: flex-start; gap: 1rem; }
 			.footer-bottom { flex-direction: row; }
@@ -1110,7 +1111,7 @@
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" /></svg>
 					<div class="info-banner-item__text">
 						<span class="title">Rozvoz jídla</span>
-						<span class="subtitle">Dovezeme ti to 11:00 - 21:15 <br><a href="cenik-rozvozu-pizzerie-san-marino-kladno.pdf" target="_blank" rel="noopener noreferrer">Ceník rozvozu</a></span>
+						<span class="subtitle">Dovezeme ti to 11:00 - 21:15 <a href="cenik-rozvozu-pizzerie-san-marino-kladno.pdf" target="_blank" rel="noopener noreferrer">Ceník rozvozu</a></span>
 					</div>
 				</div>
 				<div class="info-banner-item">
@@ -1275,16 +1276,18 @@
 								</div>
 						</div>
 					</div>
-					<div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-						</svg>
-					</div>
-					<div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-						</svg>
-					</div>
+                    <div class="review-swiper-nav">
+                        <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </div>
+                        <div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</section>
