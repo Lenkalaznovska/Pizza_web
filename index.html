@@ -174,7 +174,7 @@
             display: block;
             text-align: center;
             color: var(--main-red);
-            font-size: 1.5rem; /* Mírně menší, vzdušnější */
+            font-size: 1.25rem; /* Upravená velikost pro mobil */
             margin-bottom: var(--spacing-unit); /* Jednotný margin */
             font-weight: 700;
             text-transform: uppercase;
@@ -186,12 +186,12 @@
             color: var(--white);
         }
         .section-title, .title {
-            font-size: 2.75rem; /* Mírně větší, výraznější */
+            font-size: 2rem; /* Upravená velikost pro mobil */
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.025em;
             text-align: center;
-            margin: 0 0 calc(var(--spacing-unit) * 2); /* Jednotný margin */
+            margin: 0 0 calc(var(--spacing-unit) * 1.5); /* Jednotný margin */
             line-height: 1.2;
         }
         .bg-parchment .section-title,
@@ -205,14 +205,16 @@
         }
         .section-subtitle {
             margin-top: var(--spacing-unit);
-            font-size: 1.25rem;
+            font-size: 1.125rem; /* Upravená velikost pro mobil */
             font-weight: 600;
             line-height: 1.4;
+            text-align: center; /* Výchozí zarovnání na střed */
         }
         .section-text {
             margin-top: var(--spacing-unit);
             line-height: 1.75;
-            font-size: 1.125rem;
+            font-size: 1rem; /* Upravená velikost pro mobil */
+            text-align: center; /* Výchozí zarovnání na střed */
         }
 
         @media (min-width: 768px) {
@@ -224,6 +226,9 @@
             }
             .menu-section-header .section-header-subtitle, .text-content-column .section-header-subtitle {
                 text-align: left;
+            }
+            .section-subtitle, .section-text {
+                text-align: left; /* Zarovnání vlevo na desktopu */
             }
         }
 
@@ -298,15 +303,16 @@
         }
         .hero-content h1 {
             font-family: var(--font-main);
-            font-size: 3.5rem; /* Responzivní velikost */
+            font-size: 2.75rem; /* Zmenšeno pro mobil */
             margin-bottom: var(--spacing-unit);
             font-weight: 900;
             text-transform: uppercase;
             text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.9);
-            white-space: nowrap;
+            white-space: normal; /* Povolit zalomení textu */
+            word-break: break-word; /* Zalamování dlouhých slov */
         }
         .hero-content .cta-text {
-            font-size: 1.5rem;
+            font-size: 1.125rem; /* Zmenšeno pro mobil */
             font-weight: 600;
             background: rgba(0, 0, 0, 0.6);
             padding: 0.75rem 1.5rem;
@@ -324,7 +330,7 @@
         .button {
             font-family: var(--font-main);
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem; /* Zmenšeno pro mobil */
             border-radius: 9999px;
             padding: 0.75rem 1.5rem;
             display: inline-flex;
@@ -363,15 +369,15 @@
             color: var(--black);
             border-radius: 1rem;
             box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-            padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
+            padding: var(--spacing-unit); /* Zmenšeno pro mobil */
             display: flex;
             flex-direction: column; /* Vertikální na mobilu */
-            align-items: center;
+            align-items: flex-start; /* Zarovnání položek vlevo */
             justify-content: center;
-            gap: calc(var(--spacing-unit) * 1.5);
+            gap: var(--spacing-unit); /* Zmenšeno pro mobil */
             max-width: 1152px;
             transition: box-shadow 0.5s ease-in-out;
-            text-align: center;
+            text-align: left; /* Celý banner zarovnán vlevo */
         }
         .info-banner:hover {
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
@@ -381,13 +387,13 @@
             grid-template-columns: auto 1fr;
             column-gap: 0.75rem;
             align-items: center;
-            text-align: left;
+            width: 100%; /* Roztažení na celou šířku */
         }
         .info-banner-item svg {
             grid-row: 1 / 3;
             grid-column: 1;
-            height: 2.5rem;
-            width: 2.5rem;
+            height: 2rem; /* Zmenšeno pro mobil */
+            width: 2rem; /* Zmenšeno pro mobil */
             color: var(--main-red);
             flex-shrink: 0;
         }
@@ -399,7 +405,7 @@
             grid-row: 1;
             font-weight: 700;
             color: var(--black);
-            font-size: 1.125rem;
+            font-size: 1rem; /* Zmenšeno pro mobil */
             align-self: end;
             margin-bottom: 0; /* Override */
             text-align: left;
@@ -408,7 +414,7 @@
             grid-column: 2;
             grid-row: 2;
             color: var(--black);
-            font-size: 1rem;
+            font-size: 0.9rem; /* Zmenšeno pro mobil */
             align-self: start;
             margin-top: -5px; /* Upraveno pro lepší zarovnání */
             text-align: left;
@@ -421,19 +427,19 @@
 
         /* ----- SEKCE "NA CO MÁŠ CHUŤ?" ----- */
         .menu-section-header {
-            margin-bottom: calc(var(--spacing-unit) * 3);
+            margin-bottom: calc(var(--spacing-unit) * 2); /* Zmenšeno pro mobil */
         }
         .menu-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: calc(var(--spacing-unit) * 1.5);
+            gap: var(--spacing-unit); /* Zmenšeno pro mobil */
             align-items: stretch;
         }
         .menu-card {
             position: relative;
             border-radius: 1.5rem;
             overflow: hidden;
-            padding: calc(var(--spacing-unit) * 1.5);
+            padding: var(--spacing-unit); /* Zmenšeno pro mobil */
             display: flex;
             flex-direction: column;
             text-align: center;
@@ -464,12 +470,12 @@
         }
         .menu-card .card-category {
             font-family: var(--font-main);
-            font-size: 1.75rem;
+            font-size: 1.5rem; /* Zmenšeno pro mobil */
             font-weight: 900;
             text-transform: uppercase;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-            margin-bottom: var(--spacing-unit);
-            min-height: 80px; /* Zmenšeno pro mobil */
+            margin-bottom: 0.75rem; /* Zmenšeno pro mobil */
+            min-height: 60px; /* Zmenšeno pro mobil */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -482,21 +488,21 @@
         .menu-card .card-link {
             font-weight: 600;
             text-decoration: none;
-            margin-bottom: var(--spacing-unit);
+            margin-bottom: 0.75rem; /* Zmenšeno pro mobil */
             transition: transform 0.3s ease;
             min-height: 24px;
-            font-size: 1.1rem;
+            font-size: 1rem; /* Zmenšeno pro mobil */
         }
         .menu-card .card-link:hover {
             text-decoration: underline;
         }
         .menu-card .card-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.1rem; /* Zmenšeno pro mobil */
             font-weight: 700;
-            margin-bottom: var(--spacing-unit);
+            margin-bottom: 0.75rem; /* Zmenšeno pro mobil */
             padding-top: var(--spacing-unit);
             text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-            min-height: 50px; /* Zmenšeno pro mobil */
+            min-height: 40px; /* Zmenšeno pro mobil */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -508,10 +514,10 @@
             padding: 0;
             margin: 0;
             text-align: left;
-            font-size: 1rem;
+            font-size: 0.95rem; /* Zmenšeno pro mobil */
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 0.5rem; /* Zmenšeno pro mobil */
             flex-grow: 1;
         }
         .menu-card .card-list li {
@@ -522,7 +528,7 @@
             font-weight: 600;
         }
         .menu-card .card-button-wrapper {
-            padding-top: calc(var(--spacing-unit) * 1.5);
+            padding-top: calc(var(--spacing-unit) * 1); /* Zmenšeno pro mobil */
             text-align: center;
         }
         .button-white-green { background-color: var(--white); color: var(--main-green); }
@@ -539,7 +545,7 @@
         }
         .section-green-bg {
             background-color: var(--main-green);
-            padding: calc(var(--spacing-unit) * 2); /* Vzdušnější padding */
+            padding: var(--spacing-unit); /* Zmenšeno pro mobil */
             border-radius: 1.5rem;
         }
         .bg-parchment {
@@ -555,29 +561,30 @@
         .two-column-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: calc(var(--spacing-unit) * 3);
+            gap: calc(var(--spacing-unit) * 2); /* Zmenšeno pro mobil */
             align-items: center;
         }
         .feature-list {
-            margin-top: calc(var(--spacing-unit) * 1.5);
+            margin-top: var(--spacing-unit); /* Zmenšeno pro mobil */
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-unit);
-            font-size: 1.125rem;
+            gap: 0.75rem; /* Zmenšeno pro mobil */
+            font-size: 1rem; /* Zmenšeno pro mobil */
+            text-align: left; /* Zarovnání vlevo */
         }
         .feature-item {
             display: flex;
             align-items: flex-start;
-            gap: 0.75rem;
+            gap: 0.5rem; /* Zmenšeno pro mobil */
         }
         .feature-item svg {
-            height: 1.75rem;
-            width: 1.75rem;
+            height: 1.5rem; /* Zmenšeno pro mobil */
+            width: 1.5rem; /* Zmenšeno pro mobil */
             color: var(--main-red);
             flex-shrink: 0;
         }
         .section-button {
-            margin-top: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 1.5); /* Zmenšeno pro mobil */
             display: inline-block;
         }
         .image-gallery {
@@ -604,7 +611,7 @@
             background-color: var(--main-red);
             border: none;
             border-radius: 9999px;
-            padding: 0.75rem;
+            padding: 0.5rem; /* Zmenšeno pro mobil */
             transition: background-color 0.2s;
             z-index: 10;
             cursor: pointer;
@@ -613,22 +620,22 @@
             background-color: var(--main-red-hover);
         }
         .gallery-button svg {
-            height: 1.5rem;
-            width: 1.5rem;
+            height: 1.25rem; /* Zmenšeno pro mobil */
+            width: 1.25rem; /* Zmenšeno pro mobil */
             color: var(--white);
         }
-        .gallery-button-prev { left: 0.5rem; }
-        .gallery-button-next { right: 0.5rem; }
+        .gallery-button-prev { left: 0.25rem; } /* Zmenšeno pro mobil */
+        .gallery-button-next { right: 0.25rem; } /* Zmenšeno pro mobil */
         .image-gallery-dots {
-            margin-top: var(--spacing-unit);
+            margin-top: 0.75rem; /* Zmenšeno pro mobil */
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.75rem;
+            gap: 0.5rem; /* Zmenšeno pro mobil */
         }
         .gallery-dot {
-            height: 1rem;
-            width: 1rem;
+            height: 0.75rem; /* Zmenšeno pro mobil */
+            width: 0.75rem; /* Zmenšeno pro mobil */
             border-radius: 9999px;
             transition: background-color 0.2s;
             cursor: pointer;
@@ -646,7 +653,7 @@
         /* ----- SEKCE RECENZE ----- */
         .reviews-container {
             position: relative;
-            padding: 0 var(--spacing-unit); /* Jednotné paddingy */
+            padding: 0; /* Odstraněno padding na mobilu */
         }
         .swiper-viewport {
             overflow: hidden;
@@ -675,18 +682,18 @@
             cursor: pointer;
             background-color: var(--main-red);
             border-radius: 9999px;
-            padding: 0.75rem;
+            padding: 0.5rem; /* Zmenšeno pro mobil */
             transition: background-color 0.2s;
         }
         .review-swiper-button:hover {
             background-color: var(--main-red-hover);
         }
-        .review-swiper-button-prev { left: 0; }
-        .review-swiper-button-next { right: 0; }
+        .review-swiper-button-prev { left: -10px; } /* Posunuto blíže k okraji */
+        .review-swiper-button-next { right: -10px; } /* Posunuto blíže k okraji */
         .review-swiper-button svg {
             color: var(--white);
-            width: 1.5rem;
-            height: 1.5rem;
+            width: 1.25rem; /* Zmenšeno pro mobil */
+            height: 1.25rem; /* Zmenšeno pro mobil */
         }
 
         /* ----- SEKCE ROZVOZ (tlačítka) ----- */
@@ -704,12 +711,12 @@
             flex-direction: column;
             align-items: center;
             gap: var(--spacing-unit);
-            margin-top: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 1.5); /* Zmenšeno pro mobil */
         }
 
         /* ----- SEKCE BURGERY & KUŘECÍ ----- */
         .other-offers-section {
-            padding: calc(var(--spacing-unit) * 3) 0 calc(var(--spacing-unit) * 4);
+            padding: calc(var(--spacing-unit) * 2) 0 calc(var(--spacing-unit) * 3); /* Zmenšeno pro mobil */
             color: var(--white);
             position: relative;
             overflow: hidden;
@@ -729,17 +736,17 @@
             overflow: hidden; /* Zamezí přesahu textu */
         }
         .other-offers-bg-text span {
-            font-size: 6rem; /* Mírně zmenšeno pro lepší adaptaci */
+            font-size: 3rem; /* Zmenšeno pro mobil */
             white-space: nowrap;
         }
         .other-offers-bg-text .top-text {
-            margin-top: -2rem;
-            margin-left: -3rem;
+            margin-top: -1rem; /* Zmenšeno pro mobil */
+            margin-left: -1rem; /* Zmenšeno pro mobil */
             transform: rotate(-12deg);
         }
         .other-offers-bg-text .bottom-text {
-            margin-bottom: -2rem;
-            margin-right: 3rem;
+            margin-bottom: -1rem; /* Zmenšeno pro mobil */
+            margin-right: 1rem; /* Zmenšeno pro mobil */
             transform: rotate(12deg);
         }
         .other-offers-header {
@@ -748,7 +755,7 @@
             z-index: 10;
         }
         .other-offers-grid {
-            margin-top: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 1.5); /* Zmenšeno pro mobil */
             display: grid;
             grid-template-columns: 1fr;
             gap: var(--spacing-unit);
@@ -770,14 +777,14 @@
         /* ----- SEKCE SOCIÁLNÍ SÍTĚ ----- */
         .social-section-header {
             text-align: center;
-            margin-bottom: calc(var(--spacing-unit) * 2);
+            margin-bottom: calc(var(--spacing-unit) * 1.5); /* Zmenšeno pro mobil */
         }
         .social-icons {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: calc(var(--spacing-unit) * 1.5);
-            margin: calc(var(--spacing-unit) * 1.5) 0 calc(var(--spacing-unit) * 2);
+            gap: var(--spacing-unit); /* Zmenšeno pro mobil */
+            margin: var(--spacing-unit) 0 calc(var(--spacing-unit) * 1.5); /* Zmenšeno pro mobil */
         }
         .social-icons a {
             transition: transform 0.2s;
@@ -786,8 +793,8 @@
             transform: scale(1.1);
         }
         .social-icons svg {
-            width: 2.5rem; /* Větší ikony */
-            height: 2.5rem;
+            width: 2rem; /* Zmenšeno pro mobil */
+            height: 2rem; /* Zmenšeno pro mobil */
         }
         .social-icons .tiktok-icon path {
             fill: var(--black);
@@ -800,7 +807,7 @@
             width: 100%;
         }
         .footer .container {
-            padding: calc(var(--spacing-unit) * 3) 0;
+            padding: calc(var(--spacing-unit) * 2) 0; /* Zmenšeno pro mobil */
         }
         .footer a:hover {
             text-decoration: underline;
@@ -808,44 +815,45 @@
         .footer-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: calc(var(--spacing-unit) * 2); /* Vzdušnější mezery */
+            gap: var(--spacing-unit); /* Zmenšeno pro mobil */
             font-size: 1rem;
             align-items: start;
         }
         .footer-column {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-unit);
+            gap: 0.75rem; /* Zmenšeno pro mobil */
         }
         .footer-heading {
             font-family: var(--font-main);
-            font-size: 1.5rem; /* Větší nadpisy */
+            font-size: 1.25rem; /* Zmenšeno pro mobil */
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin: 0;
             padding-bottom: 0.5rem;
+            text-align: center; /* Zarovnáno na střed pro mobil */
         }
         .footer-info, .opening-hours, .footer-contact-list {
             font-weight: 400; /* Lehčí font-weight pro text */
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
-            font-size: 0.95rem; /* Mírně menší text */
+            gap: 0.5rem; /* Zmenšeno pro mobil */
+            font-size: 0.9rem; /* Zmenšeno pro mobil */
         }
-        .opening-hours { gap: 0.625rem; }
+        .opening-hours { gap: 0.5rem; } /* Zmenšeno pro mobil */
         .opening-hours .day-row {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 1rem;
+            gap: 0.75rem; /* Zmenšeno pro mobil */
         }
         .opening-hours .day-row .note {
             text-align: right;
         }
         .opening-hours .day-row .note .details {
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.75rem; /* Zmenšeno pro mobil */
             text-transform: uppercase;
             line-height: 1.25;
             display: block; /* Zajištění nového řádku */
@@ -861,30 +869,30 @@
         .footer-contact-list li {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
+            gap: 0.75rem; /* Zmenšeno pro mobil */
         }
         .footer-contact-list svg {
-            height: 1.5rem;
-            width: 1.5rem;
+            height: 1.25rem; /* Zmenšeno pro mobil */
+            width: 1.25rem; /* Zmenšeno pro mobil */
             flex-shrink: 0;
             margin-top: 0.125rem;
             color: var(--main-red);
         }
         .footer-divider {
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-            margin: calc(var(--spacing-unit) * 3) 0 calc(var(--spacing-unit) * 1.5);
+            margin: calc(var(--spacing-unit) * 2) 0 var(--spacing-unit); /* Zmenšeno pro mobil */
         }
         .footer-bottom {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.875rem;
+            font-size: 0.8rem; /* Zmenšeno pro mobil */
             font-weight: 400;
         }
         .footer-bottom-copyright {
             text-align: center;
-            margin-bottom: var(--spacing-unit);
+            margin-bottom: 0.75rem; /* Zmenšeno pro mobil */
         }
         .footer-bottom-copyright p {
             margin: 0;
@@ -900,22 +908,7 @@
             display: none;
         }
 
-        /* ----- RESPONZIVNÍ STYLY ----- */
-        @media (max-width: 767px) {
-            .hero-content h1 { font-size: 2.5rem; white-space: normal; line-height: 1.1; }
-            .hero-content .cta-text { font-size: 1.125rem; }
-            .reviews-container { padding: 0; }
-            .review-swiper-button-prev { left: -10px; }
-            .review-swiper-button-next { right: -10px; }
-            .section { padding: calc(var(--spacing-unit) * 2) 0; } /* Menší padding na mobilu */
-            .info-banner { gap: var(--spacing-unit); padding: var(--spacing-unit); }
-            .info-banner-item { text-align: left; } /* Zarovnání pro mobil */
-            .info-banner-item__text .title, .info-banner-item__text .subtitle { text-align: left; }
-            .other-offers-bg-text span { font-size: 4rem; }
-            .other-offers-bg-text .top-text { margin-top: -1rem; margin-left: -1rem; }
-            .other-offers-bg-text .bottom-text { margin-bottom: -1rem; margin-right: 1rem; }
-        }
-
+        /* ----- RESPONZIVNÍ STYLY pro breakpointy ----- */
         @media (min-width: 640px) { /* sm */
             .hero-content .buttons, .delivery-buttons {
                 flex-direction: row;
@@ -923,31 +916,96 @@
                 gap: calc(var(--spacing-unit) * 1.5);
             }
             .other-offers-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-unit); }
-            .info-banner { flex-direction: row; flex-wrap: wrap; justify-content: space-around; } /* Více položek na řádek */
+            .info-banner { flex-direction: row; flex-wrap: wrap; justify-content: space-around; padding: var(--spacing-unit) * 1.5; }
+            .info-banner-item svg { height: 2.25rem; width: 2.25rem; }
+            .info-banner-item__text .title { font-size: 1.125rem; }
+            .info-banner-item__text .subtitle { font-size: 1rem; }
+            .button { font-size: 1.05rem; }
+            .section-header-subtitle { font-size: 1.35rem; }
+            .section-title, .title { font-size: 2.4rem; }
+            .hero-content h1 { font-size: 3.2rem; }
+            .hero-content .cta-text { font-size: 1.3rem; }
+            .menu-section-header { margin-bottom: calc(var(--spacing-unit) * 2.5); }
+            .menu-grid { gap: calc(var(--spacing-unit) * 1.2); }
+            .menu-card { padding: calc(var(--spacing-unit) * 1.2); }
+            .menu-card .card-category { font-size: 1.6rem; min-height: 70px; }
+            .menu-card .card-link { font-size: 1.05rem; }
+            .menu-card .card-subtitle { font-size: 1.2rem; min-height: 50px; }
+            .menu-card .card-list { font-size: 0.98rem; gap: 0.6rem; }
+            .section-text { font-size: 1.05rem; }
+            .feature-list { font-size: 1.05rem; gap: 0.8rem; }
+            .feature-item svg { height: 1.6rem; width: 1.6rem; }
+            .gallery-button { padding: 0.6rem; }
+            .gallery-button svg { height: 1.4rem; width: 1.4rem; }
+            .image-gallery-dots { margin-top: 1rem; gap: 0.6rem; }
+            .gallery-dot { height: 0.85rem; width: 0.85rem; }
+            .review-swiper-button { padding: 0.6rem; }
+            .review-swiper-button svg { height: 1.4rem; width: 1.4rem; }
+            .other-offers-section { padding: calc(var(--spacing-unit) * 2.5) 0 calc(var(--spacing-unit) * 3.5); }
+            .other-offers-bg-text span { font-size: 5rem; }
+            .social-icons { gap: calc(var(--spacing-unit) * 1.2); margin: calc(var(--spacing-unit) * 1.2) 0 calc(var(--spacing-unit) * 1.8); }
+            .social-icons svg { width: 2.25rem; height: 2.25rem; }
+            .footer .container { padding: calc(var(--spacing-unit) * 2.5) 0; }
+            .footer-grid { gap: calc(var(--spacing-unit) * 1.5); }
+            .footer-heading { font-size: 1.35rem; }
+            .footer-info, .opening-hours, .footer-contact-list { font-size: 0.95rem; gap: 0.6rem; }
+            .opening-hours .day-row .note .details { font-size: 0.78rem; }
+            .footer-contact-list svg { height: 1.4rem; width: 1.4rem; }
+            .footer-divider { margin: calc(var(--spacing-unit) * 2.5) 0 calc(var(--spacing-unit) * 1.2); }
+            .footer-bottom { font-size: 0.85rem; }
         }
 
         @media (min-width: 768px) { /* md */
             .container { padding: 0 calc(var(--spacing-unit) * 2); }
             .header-logo { left: calc(var(--spacing-unit) * 2); } /* Posunutí loga */
             .info-banner-container { padding: 0; }
-            .info-banner { flex-wrap: nowrap; justify-content: space-between; }
-            .menu-grid { grid-template-columns: repeat(2, 1fr); }
+            .info-banner { flex-wrap: nowrap; justify-content: space-between; padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5); }
+            .info-banner-item svg { height: 2.5rem; width: 2.5rem; }
+            .info-banner-item__text .title { font-size: 1.125rem; }
+            .info-banner-item__text .subtitle { font-size: 1rem; }
+            .menu-grid { grid-template-columns: repeat(2, 1fr); gap: calc(var(--spacing-unit) * 1.5); }
             .menu-card.span-2 { grid-column: span 2; }
             .reviews-container { padding: 0; }
             .review-swiper-button-prev { left: -2.5rem; }
             .review-swiper-button-next { right: -2.5rem; }
             .footer-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
             .footer-column { justify-content: flex-start; gap: var(--spacing-unit); }
+            .footer-heading { text-align: left; } /* Zarovnání vlevo na desktopu */
             .footer-bottom { flex-direction: row; }
             .footer-bottom-copyright { text-align: left; margin-bottom: 0; }
             .footer-bottom-links { flex-direction: row; gap: 1rem; }
             .footer-bottom-links .separator { display: inline; }
+
             .section-header-subtitle { font-size: 1.75rem; }
-            .section-title, .title { font-size: 3.5rem; }
-            .hero-content h1 { font-size: 4.5rem; }
-            .hero-content .cta-text { font-size: 1.5rem; }
-            .menu-card .card-category { min-height: 100px; } /* Větší min-height na desktopu */
-            .menu-card .card-subtitle { min-height: 60px; } /* Větší min-height na desktopu */
+            .section-title, .title { font-size: 3rem; } /* Zmenšeno pro střední obrazovky */
+            .hero-content h1 { font-size: 3.8rem; }
+            .hero-content .cta-text { font-size: 1.4rem; }
+            .menu-card .card-category { min-height: 80px; font-size: 1.75rem; }
+            .menu-card .card-link { font-size: 1.1rem; }
+            .menu-card .card-subtitle { min-height: 55px; font-size: 1.25rem; }
+            .menu-card .card-list { font-size: 1rem; }
+            .section-subtitle { font-size: 1.25rem; }
+            .section-text { font-size: 1.125rem; }
+            .feature-list { font-size: 1.125rem; gap: 1rem; }
+            .feature-item svg { height: 1.75rem; width: 1.75rem; }
+            .gallery-button { padding: 0.75rem; }
+            .gallery-button svg { height: 1.5rem; width: 1.5rem; }
+            .image-gallery-dots { margin-top: 1.5rem; gap: 0.75rem; }
+            .gallery-dot { height: 1rem; width: 1rem; }
+            .review-swiper-button { padding: 0.75rem; }
+            .review-swiper-button svg { height: 1.5rem; width: 1.5rem; }
+            .other-offers-section { padding: calc(var(--spacing-unit) * 3) 0 calc(var(--spacing-unit) * 4); }
+            .other-offers-bg-text span { font-size: 6rem; }
+            .social-icons { gap: calc(var(--spacing-unit) * 1.5); margin: calc(var(--spacing-unit) * 1.5) 0 calc(var(--spacing-unit) * 2); }
+            .social-icons svg { width: 2.5rem; height: 2.5rem; }
+            .footer .container { padding: calc(var(--spacing-unit) * 3) 0; }
+            .footer-grid { gap: calc(var(--spacing-unit) * 2); }
+            .footer-heading { font-size: 1.5rem; }
+            .footer-info, .opening-hours, .footer-contact-list { font-size: 0.98rem; }
+            .opening-hours .day-row .note .details { font-size: 0.8rem; }
+            .footer-contact-list svg { height: 1.5rem; width: 1.5rem; }
+            .footer-divider { margin: calc(var(--spacing-unit) * 3) 0 calc(var(--spacing-unit) * 1.5); }
+            .footer-bottom { font-size: 0.875rem; }
         }
 
         @media (min-width: 1024px) { /* lg */
@@ -958,14 +1016,17 @@
             .delivery-content { order: -1; }
             .other-offers-grid { grid-template-columns: repeat(4, 1fr); gap: calc(var(--spacing-unit) * 1.5); }
             .section-header-subtitle { font-size: 2.25rem; }
-            .section-title, .title { font-size: 4rem; }
-            .hero-content h1 { font-size: 5rem; }
-            .hero-content .cta-text { font-size: 24px; }
+            .section-title, .title { font-size: 3.5rem; } /* Plynulé škálování pro větší obrazovky */
+            .hero-content h1 { font-size: 4.5rem; }
+            .hero-content .cta-text { font-size: 1.5rem; }
+            .menu-card .card-category { min-height: 100px; }
+            .menu-card .card-subtitle { min-height: 60px; }
             .other-offers-bg-text span { font-size: 8rem; }
         }
 
         @media (min-width: 1280px) { /* xl */
             .hero-content h1 { font-size: 65px; }
+            .section-title, .title { font-size: 4rem; }
         }
     </style>
 </head>
@@ -1276,7 +1337,7 @@
                                         <stop stop-color="#fdf497" offset="0" /><stop stop-color="#fdf497" offset="0.05" /><stop stop-color="#fd5949" offset="0.45" /><stop stop-color="#d6249f" offset="0.6" /><stop stop-color="#285AEB" offset="0.9" />
                                     </radialGradient>
                                 </defs>
-                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.314.935 20.644.522 19.86.217 19.094-.083 18.223-.285 16.947-.344 15.667-.405 15.26-.42 12-.42zM12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.057.36-2.227-.413-1.266.057-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.17.249 1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 6.875A5.125 5.125 0 1012 17.125 5.125 5.125 0 0012 6.875zM12 15a3 3 0 110-6 3 3 0 010 6zM20.965 5.253a1.44 1.44 0 10-2.88 0 1.44 1.44 0 002.88 0z" fill="url(#ig-grad)" />
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.314.935 20.644.522 19.86.217 19.094-.083 18.223-.285 16.947-.344 15.667-.405 15.26-.42 12-.42zM12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.057.36-2.227-.413-1.266.057-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.819-.679-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.17.249 1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 6.875A5.125 5.125 0 1012 17.125 5.125 5.125 0 0012 6.875zM12 15a3 3 0 110-6 3 3 0 010 6zM20.965 5.253a1.44 1.44 0 10-2.88 0 1.44 1.44 0 002.88 0z" fill="url(#ig-grad)" />
                             </svg>
                         </a>
                         <a href="https://www.tiktok.com/@pizzakladno?_t=ZN-8tbxv0q0T6k&_r=1" target="_blank" aria-label="Přejít na TikTok Pizzerie San Marino">
@@ -1440,7 +1501,8 @@
                 updateGallery();
             });
 
-            updateGallery(); // Načtení prvního obrázku a teček po načtení stránky
+            // Call updateGallery once to set the initial image and dots
+            updateGallery();
         });
 
 
@@ -1498,6 +1560,11 @@
 
             dayRows.forEach(row => {
                 const dataDay = parseInt(row.getAttribute('data-day'));
+                // Note: JavaScript getDay() returns 0 for Sunday, 1 for Monday.
+                // Your data-day seems to be 1 for Monday, 0 for Sunday.
+                // Adjusting logic to match your data structure if Monday is 1, Sunday is 0.
+                // If Monday is the first day of your week (data-day="1"), then adjust for Sunday.
+                // If data-day="0" is Sunday, and getDay() returns 0 for Sunday, then it matches.
                 if (dataDay === today) {
                     row.classList.add('active-day');
                 }
