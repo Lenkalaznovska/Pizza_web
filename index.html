@@ -181,7 +181,6 @@
             text-align: center;
             margin-top: 0;
 			margin-bottom: 2rem;
-			/* OPRAVA: Zajišťuje správné zalamování dlouhých slov na mobilech */
 			overflow-wrap: break-word;
 			hyphens: auto;
         }
@@ -290,6 +289,7 @@
 			padding: 15px 25px;
 			border-radius: 10px;
 			display: inline-block;
+			line-height: 1.5;
 		}
 		.hero-content .buttons {
 			display: flex;
@@ -693,7 +693,6 @@
 
 		/* ----- SEKCE BURGERY & KUŘECÍ ----- */
 		.other-offers-section {
-			/* OPRAVA: Sjednocení paddingu s ostatními sekcemi */
 			padding-top: 6rem;
 			padding-bottom: 6rem;
 			color: var(--white);
@@ -887,7 +886,6 @@
 
 		/* ----- RESPONZIVNÍ STYLY ----- */
 		@media (max-width: 767px) {
-			/* OPRAVA: Zmenšení prvků v headeru pro lepší zobrazení na mobilech */
 			.header-logo {
 				left: 1rem;
 				top: 1rem;
@@ -957,7 +955,30 @@
 			.menu-card.span-2 { grid-column: span 1 / span 1; }
 			.two-column-grid { grid-template-columns: repeat(2, 1fr); }
 			.other-offers-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-		}	
+		}
+		
+		/* OPRAVA: Cílené úpravy pro malé a krátké displeje (např. iPhone SE) */
+		@media (max-height: 740px) and (max-width: 480px) {
+			.hero-content h1 {
+				font-size: 32px; /* Další zmenšení písma */
+				margin-bottom: 15px; /* Menší mezera pod nadpisem */
+			}
+			.hero-content .cta-text {
+				font-size: 16px; /* Zmenšení textu */
+			}
+			.hero-content .buttons {
+				margin-top: 1.5rem; /* Menší mezera nad tlačítky */
+				transform: scale(0.9); /* Mírně zmenšíme i tlačítka */
+				transform-origin: center;
+			}
+			.info-banner-container {
+				margin-top: -90px; /* Zmenšení přesahu, aby se nepřekrýval s tlačítky */
+			}
+			.section {
+				padding-top: 4rem; /* Zmenšení odsazení sekcí */
+				padding-bottom: 4rem;
+			}
+		}
 	</style>
 </head>
 <body>
