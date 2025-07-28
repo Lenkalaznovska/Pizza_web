@@ -40,22 +40,16 @@
     <meta property="og:locale" content="cs_CZ" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Pizzerie San Marino – Pizza jinak již od roku 1994" />
-    <meta name="description" content="Pizzerie San Marino to jsou originální pizzy, legendární burgry, kuřecí speciality Wing It a další dobroty. Online objednání s doručením až k vašim dveřím." />
     <meta property="og:url" content="https://www.pizzakladno.cz/" />
     <meta property="og:site_name" content="Pizzerie San Marino Kladno" />
     <meta property="og:image" content="images/pizzerie-san-marino-kladno-nabidka-jidla.webp" />
-    <meta property="og:image" content="images/pizzerie-san-marino-kladno-nabidka-jidla.jpg" />
-    <meta property="og:image" content="https://www.pizzakladno.cz//images/pizzerie-san-marino-kladno-nabidka-jidla.webp" />
     <meta property="og:image:alt" content="Nabídka jídel z Pizzerie San Marino Kladno: pizza v krabici, burger, hranolky, omáčka a těstovinový salát na stole." />
     <meta property="og:image:type" content="image/webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Pizzerie San Marino – Pizza jinak již od roku 1994" />
-    <meta name="description" content="Pizzerie San Marino to jsou originální pizzy, legendární burgry, kuřecí speciality Wing It a další dobroty. Online objednání s doručením až k vašim dveřím." />
     <meta name="twitter:image" content="images/pizzerie-san-marino-kladno-nabidka-jidla.webp" />
-    <meta property="og:image" content="images/pizzerie-san-marino-kladno-nabidka-jidla.jpg" />
-    <meta property="og:image" content="https://www.pizzakladno.cz//images/pizzerie-san-marino-kladno-nabidka-jidla.webp" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.css" media="print" onload="this.media='all'">
     <script src="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.js" defer></script>
     <script>
@@ -79,7 +73,6 @@
         "@type": "Restaurant",
         "name": "Pizzerie San Marino Kladno",
         "image": "images/pizzerie-san-marino-kladno-nabidka-jidla.webp",
-        "image": "images/pizzerie-san-marino-kladno-nabidka-jidla.jpg",
         "@id": "https://www.pizzakladno.cz/",
         "url": "https://www.pizzakladno.cz/",
         "telephone": "+420604633373",
@@ -222,6 +215,24 @@
                 margin-bottom: 2rem;
             }
         }
+        /* Nové breakpointy pro větší monitory */
+        @media (min-width: 1280px) {
+            .section-header-subtitle {
+                font-size: 2.5rem;
+            }
+            .section-title, .title {
+                font-size: 3rem;
+            }
+        }
+        @media (min-width: 1440px) {
+            .section-header-subtitle {
+                font-size: 2.75rem;
+            }
+            .section-title, .title {
+                font-size: 3.5rem;
+            }
+        }
+
 
         /* ----- ANIMACE ----- */
         @keyframes lure-pulse {
@@ -290,6 +301,7 @@
             color: var(--white);
             width: 90%;
             z-index: 50;
+            max-width: 1000px; /* Omezení šířky obsahu */
         }
         .hero-content h1 {
             font-family: var(--font-main);
@@ -381,6 +393,28 @@
             .button {
                 font-size: 1.125rem;
                 padding: 1rem 2rem;
+            }
+        }
+        @media (min-width: 1280px) { /* xl */
+            .header-logo {
+                left: 3rem; /* Větší odsazení pro širší displeje */
+            }
+            .hero-content h1 {
+                font-size: 75px; /* Větší nadpis */
+            }
+        }
+        @media (min-width: 1440px) { /* 2xl */
+            .header-logo {
+                left: 4rem; /* Ještě větší odsazení */
+            }
+            .header-logo img {
+                height: 90px; /* Větší logo */
+            }
+            .hero-content h1 {
+                font-size: 85px; /* Ještě větší nadpis */
+            }
+            .hero-content .cta-text {
+                font-size: 28px;
             }
         }
 
@@ -477,6 +511,26 @@
             .info-banner-item__text .subtitle {
                 font-size: 1rem;
                 margin-top: -25px;
+            }
+        }
+        @media (min-width: 1280px) {
+            .info-banner-item__text .title {
+                font-size: 1.25rem;
+            }
+            .info-banner-item__text .subtitle {
+                font-size: 1.1rem;
+            }
+        }
+        @media (min-width: 1440px) {
+            .info-banner-item svg {
+                height: 3rem;
+                width: 3rem;
+            }
+            .info-banner-item__text .title {
+                font-size: 1.35rem;
+            }
+            .info-banner-item__text .subtitle {
+                font-size: 1.2rem;
             }
         }
 
@@ -641,6 +695,32 @@
                 grid-column: span 1;
             }
         }
+        @media (min-width: 1280px) { /* xl */
+            .menu-card .card-category {
+                font-size: 2rem;
+                min-height: 120px;
+            }
+            .menu-card .card-subtitle {
+                font-size: 1.4rem;
+                min-height: 70px;
+            }
+            .menu-card .card-list {
+                font-size: 1.05rem;
+            }
+        }
+        @media (min-width: 1440px) { /* 2xl */
+            .menu-card .card-category {
+                font-size: 2.25rem;
+                min-height: 140px;
+            }
+            .menu-card .card-subtitle {
+                font-size: 1.5rem;
+                min-height: 80px;
+            }
+            .menu-card .card-list {
+                font-size: 1.1rem;
+            }
+        }
 
 
         /* ----- SEKCE S BÍLÝM TEXTEM ----- */
@@ -668,6 +748,10 @@
             grid-template-columns: 1fr;
             gap: 2rem; /* Upraveno pro mobil */
             align-items: center;
+        }
+        .text-content-column {
+            max-width: 600px; /* Omezení šířky textového sloupce pro lepší čitelnost */
+            margin: 0 auto; /* Vycentrování */
         }
         .section-subtitle {
             margin-top: 0.75rem; /* Upraveno */
@@ -771,6 +855,10 @@
             .two-column-grid {
                 gap: 4rem;
             }
+            .text-content-column {
+                max-width: none; /* Zrušení omezení na středních a větších obrazovkách */
+                margin: 0;
+            }
             .section-subtitle {
                 margin-top: 1rem;
                 font-size: 1.25rem;
@@ -824,6 +912,40 @@
                 order: -1;
             }
         }
+        @media (min-width: 1280px) { /* xl */
+            .text-content-column {
+                max-width: 700px; /* Mírné omezení i zde pro lepší čitelnost */
+            }
+            .section-subtitle {
+                font-size: 1.4rem;
+            }
+            .section-text {
+                font-size: 1.05rem;
+            }
+            .feature-item {
+                font-size: 1.05rem;
+            }
+            .image-gallery-main {
+                max-width: 32rem; /* Větší galerie obrázků */
+            }
+        }
+        @media (min-width: 1440px) { /* 2xl */
+            .text-content-column {
+                max-width: 800px;
+            }
+            .section-subtitle {
+                font-size: 1.5rem;
+            }
+            .section-text {
+                font-size: 1.1rem;
+            }
+            .feature-item {
+                font-size: 1.1rem;
+            }
+            .image-gallery-main {
+                max-width: 36rem; /* Ještě větší galerie */
+            }
+        }
 
 
         /* ----- SEKCE RECENZE ----- */
@@ -848,7 +970,7 @@
         .swiper-container-reviews .swiper-slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: contain; /* Použij contain, aby se obrázky celé vešly, pokud nejsou v poměru 4:3 */
         }
         .review-swiper-button {
             position: absolute;
@@ -886,6 +1008,26 @@
                 height: 1.5rem;
             }
         }
+        @media (min-width: 1280px) {
+            .review-swiper-button-prev { left: -3.5rem; } /* Větší odsazení pro širší displeje */
+            .review-swiper-button-next { right: -3.5rem; }
+            .review-swiper-button {
+                padding: 1rem; /* Větší tlačítka */
+            }
+            .review-swiper-button svg {
+                width: 1.8rem;
+                height: 1.8rem;
+            }
+        }
+        @media (min-width: 1440px) {
+            .review-swiper-button-prev { left: -4.5rem; }
+            .review-swiper-button-next { right: -4.5rem; }
+            .review-swiper-button svg {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+
 
         /* ----- SEKCE ROZVOZ (tlačítka) ----- */
         .delivery-image-wrapper img {
@@ -918,6 +1060,16 @@
             }
             .delivery-buttons {
                 margin-top: 3rem;
+            }
+        }
+        @media (min-width: 1280px) {
+            .delivery-image-wrapper img {
+                max-width: 38rem; /* Větší obrázek pro širší displeje */
+            }
+        }
+        @media (min-width: 1440px) {
+            .delivery-image-wrapper img {
+                max-width: 44rem;
             }
         }
 
@@ -1018,6 +1170,32 @@
                 gap: 2rem;
             }
         }
+        @media (min-width: 1280px) {
+            .other-offers-bg-text span {
+                font-size: 10rem;
+            }
+            .other-offers-bg-text .top-text {
+                margin-top: -3rem;
+                margin-left: -4rem;
+            }
+            .other-offers-bg-text .bottom-text {
+                margin-bottom: -3rem;
+                margin-right: 4rem;
+            }
+        }
+        @media (min-width: 1440px) {
+            .other-offers-bg-text span {
+                font-size: 12rem;
+            }
+            .other-offers-bg-text .top-text {
+                margin-top: -4rem;
+                margin-left: -5rem;
+            }
+            .other-offers-bg-text .bottom-text {
+                margin-bottom: -4rem;
+                margin-right: 5rem;
+            }
+        }
 
         /* ----- SEKCE SOCIÁLNÍ SÍTĚ ----- */
         .social-section-header {
@@ -1058,7 +1236,24 @@
                 height: 2rem;
             }
         }
-
+        @media (min-width: 1280px) {
+            .social-icons {
+                gap: 3rem;
+            }
+            .social-icons svg {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+        @media (min-width: 1440px) {
+            .social-icons {
+                gap: 4rem;
+            }
+            .social-icons svg {
+                width: 3rem;
+                height: 3rem;
+            }
+        }
 
         /* ----- PATIČKA ----- */
         .footer {
@@ -1214,6 +1409,44 @@
         }
         @media (min-width: 1024px) { /* lg */
             .container { padding: 0 3rem; }
+        }
+        @media (min-width: 1280px) { /* xl */
+            .footer-grid {
+                gap: 4.5rem;
+                font-size: 1.05rem;
+            }
+            .footer-heading {
+                font-size: 1.4rem;
+            }
+            .footer-info, .opening-hours, .footer-contact-list {
+                font-size: 1.05rem;
+            }
+            .footer-contact-list svg {
+                height: 1.6rem;
+                width: 1.6rem;
+            }
+            .footer-bottom {
+                font-size: 0.95rem;
+            }
+        }
+        @media (min-width: 1440px) { /* 2xl */
+            .footer-grid {
+                gap: 5.5rem;
+                font-size: 1.1rem;
+            }
+            .footer-heading {
+                font-size: 1.5rem;
+            }
+            .footer-info, .opening-hours, .footer-contact-list {
+                font-size: 1.1rem;
+            }
+            .footer-contact-list svg {
+                height: 1.75rem;
+                width: 1.75rem;
+            }
+            .footer-bottom {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -1524,7 +1757,7 @@
                                         <stop stop-color="#fdf497" offset="0" /><stop stop-color="#fdf497" offset="0.05" /><stop stop-color="#fd5949" offset="0.45" /><stop stop-color="#d6249f" offset="0.6" /><stop stop-color="#285AEB" offset="0.9" />
                                     </radialGradient>
                                 </defs>
-                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.314.935 20.644.522 19.86.217 19.094-.083 18.223-.285 16.947-.344 15.667-.405 15.26-.42 12-.42zM12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.057.36-2.227-.413-1.266.057-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.17.249 1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 6.875A5.125 5.125 0 1012 17.125 5.125 5.125 0 0012 6.875zM12 15a3 3 0 110-6 3 3 0 010 6zM20.965 5.253a1.44 1.44 0 10-2.88 0 1.44 1.44 0 002.88 0z" fill="url(#ig-grad)" />
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.314.935 20.644.522 19.86.217 19.094-.083 18.223-.285 16.947-.344 15.667-.405 15.26-.42 12-.42zM12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.057.36-2.227-.413-1.266.057-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.819-.679-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.17.249 1.805.413 2.227.217-.562.477.96.896-1.382.42-.419.819.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 6.875A5.125 5.125 0 1012 17.125 5.125 5.125 0 0012 6.875zM12 15a3 3 0 110-6 3 3 0 010 6zM20.965 5.253a1.44 1.44 0 10-2.88 0 1.44 1.44 0 002.88 0z" fill="url(#ig-grad)" />
                             </svg>
                         </a>
                         <a href="https://www.tiktok.com/@pizzakladno?_t=ZN-8tbxv0q0T6k&_r=1" target="_blank" aria-label="Přejít na TikTok Pizzerie San Marino">
