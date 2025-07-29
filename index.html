@@ -346,7 +346,7 @@
 			background-color: var(--main-red-hover);
 		}
 
-		/* ----- INFO BANNER (pod sliderem) ----- */
+		/* ----- INFO BANNER (pod sliderem) - OPRAVENO ----- */
 		.info-banner-container {
 			position: relative;
 			z-index: 20;
@@ -362,13 +362,13 @@
 			color: var(--black);
 			border-radius: 1rem;
 			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-			padding: 1rem 1.5rem;
+			padding: 2rem;
 			display: flex;
-			flex-direction: row;
-            flex-wrap: wrap;
-			align-items: stretch;
-			justify-content: center;
-			gap: 2.5rem;
+			flex-wrap: wrap;
+			align-items: flex-start;
+			justify-content: space-around;
+			gap: 2rem;
+			width: 100%;
 			max-width: 1152px;
 			transition: box-shadow 0.5s ease-in-out;
 		}
@@ -377,19 +377,20 @@
 		}
 		.info-banner-item {
 			display: flex;
-			align-items: flex-start; /* Změna pro lepší zarovnání */
-			gap: 0.75rem;
+			align-items: flex-start;
+			gap: 1rem;
 		}
 		.info-banner-item svg {
 			height: 2.5rem;
 			width: 2.5rem;
 			color: var(--main-red);
             flex-shrink: 0;
-            margin-top: 0.125rem; /* Posun ikony pro zarovnání s nadpisem */
+            margin-top: 0.125rem;
 		}
 		.info-banner-item__text {
 			display: flex;
 			flex-direction: column;
+			gap: 0.25rem;
 		}
 		.info-banner-item__text .title {
 			font-weight: 700;
@@ -399,11 +400,19 @@
 		.info-banner-item__text .subtitle {
 			color: var(--black);
 			font-size: 1rem;
+			line-height: 1.4;
 		}
 		.info-banner-item__text .subtitle a {
 			color: var(--main-red);
 			text-decoration: underline;
 			font-weight: 600;
+		}
+		.info-banner-item__text .subtitle a:hover {
+			color: var(--main-red-hover);
+		}
+		.info-banner-item__text .subtitle .delivery-link {
+			display: block;
+			margin-top: 0.25rem;
 		}
 
 		/* ----- SEKCE "NA CO MÁŠ CHUŤ?" ----- */
@@ -453,7 +462,7 @@
 			z-index: 10;
 			display: flex;
 			flex-direction: column;
-			flex-grow: 1; 
+			flex-grow: 1; 
 		}
 		.menu-card .card-category {
 			font-family: var(--font-main);
@@ -516,7 +525,7 @@
 		}
 		.menu-card .card-button-wrapper {
 			padding-top: 2rem;
-            margin-top: auto; 
+            margin-top: auto; 
 		}
 		.button-white-green { background-color: var(--white); color: var(--main-green); }
 		.button-white-green:hover { background-color: #e6f2ed; }
@@ -533,8 +542,8 @@
 			background-repeat: no-repeat;
             color: var(--white);
         }
-        .bg-green-pattern p, 
-        .bg-green-pattern span, 
+        .bg-green-pattern p, 
+        .bg-green-pattern span, 
         .bg-green-pattern .section-subtitle,
 		.bg-green-pattern strong {
 			text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
@@ -652,7 +661,7 @@
 			position: relative;
 		}
 		.swiper-viewport {
-			overflow: hidden; 
+			overflow: hidden; 
 		}
 		.swiper-container-reviews .swiper-slide {
 			aspect-ratio: 4 / 3;
@@ -945,36 +954,24 @@
 			.header-logo img {
 				height: 60px;
 			}
-			.hero-content h1 { 
-				white-space: normal; 
+			.hero-content h1 { 
+				white-space: normal; 
 			}
 			.hero-content .buttons {
 				margin-top: 2rem;
 			}
+			/* --- OPRAVENÁ INFO LIŠTA PRO MOBIL --- */
             .info-banner {
-                gap: 1rem;
-                padding: 0.5rem 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2rem;
+                padding: 1.5rem;
             }
             .info-banner-item {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.25rem;
-                padding: 0;
-            }
-            .info-banner-item svg {
-                height: 2rem;
-                width: 2rem;
-                margin-top: 0;
-            }
-            .info-banner-item__text {
-                align-items: center;
-            }
-            .info-banner-item__text .subtitle .delivery-link {
-                display: block;
-                margin-top: 0.25rem;
+                width: 100%;
             }
 			.review-swiper-button-prev,
-            .review-swiper-button-next { 
+            .review-swiper-button-next { 
 				left: auto;
                 right: auto;
 			}
@@ -1117,9 +1114,9 @@
 					<div class="info-banner-item__text">
 						<span class="title">Rozvoz jídla</span>
 						<span class="subtitle">
-                            <span>Dovezeme ti to 11:00 - 21:15</span>
-                            <a href="cenik-rozvozu-pizzerie-san-marino-kladno.pdf" target="_blank" rel="noopener noreferrer" class="delivery-link">Ceník rozvozu</a>
-                        </span>
+                                <span>Dovezeme ti to 11:00 - 21:15</span>
+                                <a href="cenik-rozvozu-pizzerie-san-marino-kladno.pdf" target="_blank" rel="noopener noreferrer" class="delivery-link">Ceník rozvozu</a>
+                            </span>
 					</div>
 				</div>
 				<div class="info-banner-item">
@@ -1284,18 +1281,18 @@
 								</div>
 						</div>
 					</div>
-                    <div class="review-swiper-nav">
-                        <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                            </svg>
-                        </div>
-                        <div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </div>
-                    </div>
+                        <div class="review-swiper-nav">
+                            <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </div>
+                            <div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                        </div>
 				</div>
 			</div>
 		</section>
@@ -1547,12 +1544,12 @@
 			const dots = dotsContainer.querySelectorAll('.gallery-dot');
 
 			const updateGallery = () => {
-                if (galleryData.images.length > 0) {
-				    galleryImage.src = galleryData.images[galleryData.currentIndex];
-				    dots.forEach((dot, index) => {
-					    dot.classList.toggle('active', index === galleryData.currentIndex);
-				    });
-                }
+                if (galleryData.images.length > 0) {
+				    galleryImage.src = galleryData.images[galleryData.currentIndex];
+				    dots.forEach((dot, index) => {
+					    dot.classList.toggle('active', index === galleryData.currentIndex);
+				    });
+                }
 			};
 		
 			const nextImage = () => {
