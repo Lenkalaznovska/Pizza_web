@@ -333,7 +333,7 @@
 		.info-banner-container {
 			position: relative;
 			z-index: 20;
-			margin-top: -115px; /* Upraveno pro menší lištu */
+			margin-top: -125px; /* Upraveno pro novou výšku lišty */
 			width: 100%;
 			display: flex;
 			justify-content: center;
@@ -345,7 +345,7 @@
 			color: var(--black);
 			border-radius: 1rem;
 			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-			padding: 1rem; /* OPRAVA: Zmenšený padding pro menší výšku */
+			padding: 1rem;
 			display: flex;
 			flex-wrap: wrap;
 			align-items: flex-start;
@@ -366,8 +366,8 @@
 			gap: 0.25rem;
 		}
 		.info-banner-item svg {
-			height: 2rem; /* OPRAVA: Zmenšená ikona */
-			width: 2rem;
+			height: 2.5rem; /* OPRAVA: Ikona zvětšena zpět */
+			width: 2.5rem;
 			color: var(--main-red);
             margin-bottom: 0.25rem;
 		}
@@ -375,18 +375,18 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			gap: 0.25rem;
+			gap: 0.15rem; /* OPRAVA: Zmenšená mezera mezi texty */
 		}
 		.info-banner-item__text .title {
 			font-weight: 700;
 			color: var(--black);
-			font-size: 0.9rem; /* OPRAVA: Zmenšené písmo */
+			font-size: 1rem; /* OPRAVA: Zvětšené písmo */
 			text-transform: uppercase;
 			letter-spacing: 0.05em;
 		}
 		.info-banner-item__text .subtitle {
 			color: var(--black);
-			font-size: 0.85rem; /* OPRAVA: Zmenšené písmo */
+			font-size: 0.9rem; /* OPRAVA: Zvětšené písmo */
 			line-height: 1.2;
 		}
 		.info-banner-item__text .subtitle a {
