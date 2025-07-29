@@ -333,7 +333,7 @@
 		.info-banner-container {
 			position: relative;
 			z-index: 20;
-			margin-top: -135px;
+			margin-top: -115px; /* Upraveno pro menší lištu */
 			width: 100%;
 			display: flex;
 			justify-content: center;
@@ -345,10 +345,10 @@
 			color: var(--black);
 			border-radius: 1rem;
 			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-			padding: 1.5rem;
+			padding: 1rem; /* OPRAVA: Zmenšený padding pro menší výšku */
 			display: flex;
 			flex-wrap: wrap;
-			align-items: flex-start; /* Zarovnání na začátek pro případ různých výšek */
+			align-items: flex-start;
 			justify-content: space-around;
 			gap: 1.5rem;
 			width: 100%;
@@ -360,46 +360,43 @@
 		}
 		.info-banner-item {
 			display: flex;
-			flex-direction: column; /* OPRAVA: Vertikální rozložení */
-			align-items: center;    /* OPRAVA: Horizontální centrování */
+			flex-direction: column;
+			align-items: center;
 			text-align: center;
 			gap: 0.25rem;
 		}
 		.info-banner-item svg {
-			height: 2.25rem;
-			width: 2.25rem;
+			height: 2rem; /* OPRAVA: Zmenšená ikona */
+			width: 2rem;
 			color: var(--main-red);
-            margin-bottom: 0.5rem; /* Mezera pod ikonou */
+            margin-bottom: 0.25rem;
 		}
 		.info-banner-item__text {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			gap: 0.35rem; /* Mezera mezi nadpisem a podnadpisem */
+			gap: 0.25rem;
 		}
 		.info-banner-item__text .title {
 			font-weight: 700;
 			color: var(--black);
-			font-size: 1rem;
+			font-size: 0.9rem; /* OPRAVA: Zmenšené písmo */
 			text-transform: uppercase;
 			letter-spacing: 0.05em;
 		}
 		.info-banner-item__text .subtitle {
 			color: var(--black);
-			font-size: 0.9rem;
+			font-size: 0.85rem; /* OPRAVA: Zmenšené písmo */
 			line-height: 1.2;
 		}
 		.info-banner-item__text .subtitle a {
 			color: var(--main-red);
 			text-decoration: underline;
-			font-weight: 400; /* Běžná tloušťka */
+			font-weight: 700; /* OPRAVA: Oba odkazy jsou nyní tučné */
 		}
 		.info-banner-item__text .subtitle a:hover {
 			color: var(--main-red-hover);
 		}
-        .info-banner-item__text .subtitle a.bold-link {
-            font-weight: 700; /* Tučná tloušťka pro specifický odkaz */
-        }
 
 		/* ----- SEKCE "NA CO MÁŠ CHUŤ?" ----- */
 		.menu-section-header,
@@ -1104,7 +1101,7 @@
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6"></path><path d="M16 3v4"></path><path d="M8 3v4"></path><path d="M4 11h16"></path><path d="M15 19l2 2l4 -4"></path></svg>
 					<div class="info-banner-item__text">
 						<span class="title">REZERVACE</span>
-						<span class="subtitle"><a href="#" data-tel="true" class="bold-link">Rezervovat místo</a></span>
+						<span class="subtitle"><a href="#" data-tel="true">Rezervovat místo</a></span>
 					</div>
 				</div>
 			</div>
