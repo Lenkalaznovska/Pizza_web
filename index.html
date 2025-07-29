@@ -329,7 +329,7 @@
 			background-color: var(--main-red-hover);
 		}
 
-		/* ----- INFO BANNER (pod sliderem) - UPRAVENO ----- */
+		/* ----- INFO BANNER (pod sliderem) - OPRAVENO ----- */
 		.info-banner-container {
 			position: relative;
 			z-index: 20;
@@ -348,7 +348,7 @@
 			padding: 2rem;
 			display: flex;
 			flex-wrap: wrap;
-			align-items: flex-start;
+			align-items: center;
 			justify-content: space-around;
 			gap: 2rem;
 			width: 100%;
@@ -360,7 +360,7 @@
 		}
 		.info-banner-item {
 			display: flex;
-			align-items: flex-start;
+			align-items: center; /* OPRAVA: Změněno na center pro vertikální zarovnání */
 			gap: 1rem;
 		}
 		.info-banner-item svg {
@@ -368,7 +368,6 @@
 			width: 2.5rem;
 			color: var(--main-red);
             flex-shrink: 0;
-            margin-top: 0.125rem;
 		}
 		.info-banner-item__text {
 			display: flex;
@@ -389,12 +388,14 @@
 		.info-banner-item__text .subtitle a {
 			color: var(--main-red);
 			text-decoration: underline;
-			font-weight: 600;
-			margin-left: 0.5rem;
+			font-weight: 400; /* OPRAVA: Výchozí tloušťka pro odkazy */
 		}
 		.info-banner-item__text .subtitle a:hover {
 			color: var(--main-red-hover);
 		}
+        .info-banner-item__text .subtitle a.bold-link {
+            font-weight: 700; /* OPRAVA: Speciální třída pro tučný odkaz */
+        }
 		.info-banner-item__text .subtitle .delivery-link {
 			display: block;
 			margin-top: 0.25rem;
@@ -954,6 +955,7 @@
             }
             .info-banner-item {
                 width: 100%;
+				align-items: center;
             }
 			.review-swiper-button-prev,
             .review-swiper-button-next { 
@@ -1089,22 +1091,22 @@
 				<div class="info-banner-item">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5"></path></svg>
 					<div class="info-banner-item__text">
-						<span class="title">Rozvoz Jídla</span>
+						<span class="title">ROZVOZ JÍDLA</span>
 						<span class="subtitle">11:00 - 21:15 <a href="cenik-rozvozu-pizzerie-san-marino-kladno.pdf" target="_blank" rel="noopener noreferrer">Ceník</a></span>
 					</div>
 				</div>
 				<div class="info-banner-item">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 12l3.5 0"></path><path d="M12 7v5"></path></svg>
 					<div class="info-banner-item__text">
-						<span class="title">Otevírací doba</span>
+						<span class="title">OTEVÍRACÍ DOBA</span>
 						<span class="subtitle">10:45 - 21:15</span>
 					</div>
 				</div>
 				<div class="info-banner-item">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6"></path><path d="M16 3v4"></path><path d="M8 3v4"></path><path d="M4 11h16"></path><path d="M15 19l2 2l4 -4"></path></svg>
 					<div class="info-banner-item__text">
-						<span class="title">Rezervace</span>
-						<span class="subtitle"><a href="#" data-tel="true">Rezervovat místo</a></span>
+						<span class="title">REZERVACE</span>
+						<span class="subtitle"><a href="#" data-tel="true" class="bold-link">Rezervovat místo</a></span>
 					</div>
 				</div>
 			</div>
