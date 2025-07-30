@@ -330,11 +330,11 @@
 			background-color: var(--main-red-hover);
 		}
 
-		/* ----- INFO BANNER (pod sliderem) - UPRAVENO DLE POŽADAVKU ----- */
+		/* ----- INFO BANNER (pod sliderem) - FINÁLNÍ STYL DLE OBRÁZKU ----- */
 		.info-banner-container {
 			position: relative;
 			z-index: 20;
-			margin-top: -65px; /* Sníženo pro menší lištu */
+			margin-top: -70px; /* Upraveno pro novou výšku */
 			width: 100%;
 			display: flex;
 			justify-content: center;
@@ -344,16 +344,16 @@
 		.info-banner {
 			background-color: var(--white);
 			color: var(--black);
-			border-radius: 1.5rem; /* Upraveno: Méně výrazné zakulacení */
+			border-radius: 1.5rem; 
 			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-			padding: 0.5rem 1.5rem; /* Upraveno: Menší horizontální padding */
+			padding: 1rem 2rem; /* Vzdušnější vzhled */
 			display: flex;
 			flex-wrap: wrap;
-			align-items: center; /* Centrování obsahu vertikálně */
+			align-items: center;
 			justify-content: space-around;
-			gap: 1rem; /* Upraveno: Menší mezera mezi položkami */
+			gap: 2rem; /* Větší mezera mezi položkami */
 			width: 100%;
-			max-width: 900px; /* Upravená šířka */
+			max-width: 960px; 
 			transition: box-shadow 0.3s ease-in-out;
 		}
 		.info-banner:hover {
@@ -361,39 +361,40 @@
 		}
 		.info-banner-item {
 			display: flex;
-			flex-direction: row; /* Ikona vedle textu */
-			align-items: center; /* Vertikální zarovnání ikony a textu */
-			gap: 0.5rem; /* Upraveno: Menší mezera mezi ikonou a textem */
+			flex-direction: row;
+			align-items: center;
+			gap: 0.85rem; /* Větší mezera mezi ikonou a textem */
 		}
 		.info-banner-item svg {
-			height: 2.25rem;
-			width: 2.25rem;
+			height: 2.5rem; /* Větší ikona */
+			width: 2.5rem;
 			color: var(--main-red);
 			flex-shrink: 0;
 		}
 		.info-banner-item__text {
 			display: flex;
 			flex-direction: column;
-			align-items: flex-start; /* Zarovnání textu doleva */
-			gap: 0;
+			align-items: flex-start;
+			gap: 0.1rem; /* Mezera mezi titulky */
 		}
 		.info-banner-item__text .title {
-			font-weight: 700;
+			font-weight: 900; /* Zvýrazněno */
 			color: var(--black);
-			font-size: 0.9rem;
+			font-size: 1rem; /* Zvětšeno */
 			text-transform: uppercase;
 			letter-spacing: 0.05em;
-			line-height: 1.2; 
+			line-height: 1.4; 
 		}
 		.info-banner-item__text .subtitle {
-			color: var(--black);
+			color: #4b5563; /* Tmavě šedá */
 			font-size: 0.9rem;
-			line-height: 1.2; 
+			font-weight: 400; /* Standardní řez */
+			line-height: 1.4; 
 		}
 		.info-banner-item__text .subtitle a {
 			color: var(--main-red);
 			text-decoration: underline;
-			font-weight: 700;
+			font-weight: 700; /* Odkazy zůstávají tučné */
 		}
 		.info-banner-item__text .subtitle a:hover {
 			color: var(--main-red-hover);
@@ -948,16 +949,16 @@
             .info-banner {
                 flex-direction: column; /* Položky pod sebou */
 				align-items: flex-start; /* Zarovnání položek doleva */
-                gap: 1rem; /* Snížená mezera mezi položkami */
-                padding: 1.25rem 1.5rem;
-				border-radius: 1.5rem; /* Standardní zakulacení pro vertikální layout */
+                gap: 1.5rem; /* Větší mezera mezi položkami */
+                padding: 1.5rem; /* Větší padding */
+				border-radius: 1.5rem;
 				max-width: 500px;
             }
 			.info-banner-container {
-				margin-top: -95px; /* Úprava pozice pro mobil */
+				margin-top: -110px; /* Úprava pozice pro mobil */
 			}
             .info-banner-item {
-                width: auto; /* Zrušení 100% šířky, aby se přizpůsobilo obsahu */
+                width: auto; 
             }
 			.review-swiper-button-prev,
             .review-swiper-button-next { 
