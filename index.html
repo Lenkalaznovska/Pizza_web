@@ -357,7 +357,7 @@
         }
 
         /* Desktop Styles for Nav */
-        @media (min-width: 1024px) {
+        @media (min-width: 1024px) { 
             .nav-hamburger-btn {
                 display: none;
             }
@@ -373,15 +373,15 @@
                 color: var(--white);
             }
             .nav-link {
-                font-weight: 700; /* Tučné písmo */
-                text-transform: uppercase; /* Tiskací písmo */
+                font-weight: 700; 
+                text-transform: uppercase; 
                 transition: color 0.2s;
             }
             .nav-link:hover {
-                color: var(--main-red); /* Červený hover efekt */
+                color: var(--main-red); 
             }
             .nav-actions {
-                display: none; /* Skrytí tlačítek v navigační liště */
+                display: none; 
             }
         }
         @media (min-width: 1280px) {
@@ -477,9 +477,9 @@
 		}
 		.info-bar-item__text {
 			display: flex;
-			flex-direction: column;
-			text-align: left;
-			gap: 0;
+			align-items: center; /* Změna pro zarovnání vedle sebe */
+			gap: 0.5rem; /* Mezera mezi texty */
+			flex-wrap: wrap; /* Umožní zalamování na mobilu */
 		}
 		.info-bar-item__text .title {
 			font-weight: 900;
@@ -1390,18 +1390,18 @@
 								</div>
 						</div>
 					</div>
-                            <div class="review-swiper-nav">
-                                <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                                    </svg>
-                                </div>
-                                <div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </div>
-                            </div>
+                            <div class="review-swiper-nav">
+                                <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                                    </svg>
+                                </div>
+                                <div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
+                            </div>
 				</div>
 			</div>
 		</section>
@@ -1588,7 +1588,7 @@
 	<script>
 	document.addEventListener('DOMContentLoaded', () => {
 
-        // --- Nová Navigace ---
+        // --- Navigace ---
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const closeBtn = document.getElementById('mobile-menu-close-btn');
