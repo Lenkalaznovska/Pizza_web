@@ -235,7 +235,7 @@
 		}
 
 		/* ----- HLAVIČKA A HERO SLIDER ----- */
-        header {
+		header {
 			position: relative;
 			height: 100vh;
 		}
@@ -257,7 +257,6 @@
 			height: 100%;
 			overflow: hidden;
 			background-color: var(--black);
-			z-index: 1;
 		}
 		.hero-slider .slides {
 			display: flex;
@@ -334,71 +333,69 @@
 		.button-red:hover {
 			background-color: var(--main-red-hover);
 		}
-
-		/* ----- INFO LIŠTA DLE VZORU (BEZ TAILWIND) ----- */
-		.info-bar-container {
-			position: relative;
-			z-index: 20;
-			margin-top: -4.5rem;
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			padding: 0 1rem;
-		}
-		.info-bar {
-			background-color: var(--white);
-			color: #1f2937; /* text-gray-800 */
-			border-radius: 1rem; /* rounded-2xl */
-			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); /* shadow-xl */
-			display: flex;
-			flex-direction: column; /* Mobile-first: sloupce pod sebou */
-			align-items: center;
-			justify-content: center;
-			gap: 2rem; /* mezera mezi položkami na mobilu */
-			padding: 1.5rem;
-			width: 100%;
-			max-width: 72rem;
-			transition: all 0.3s ease-in-out;
-		}
-		.info-bar:hover {
-			box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
-			transform: scale(1.02) translateY(-0.25rem);
-		}
-		.info-bar-item {
-			display: flex;
-			align-items: center;
-			gap: 1rem;
-		}
-		.info-bar-item svg {
-			height: 3rem;
-			width: 3rem;
-			color: var(--main-red);
-			flex-shrink: 0;
-		}
-		.info-bar-item__text {
-			display: flex;
-			flex-direction: column;
-			text-align: left;
-		}
-		.info-bar-item__text .title {
-			font-weight: 900;
-			text-transform: uppercase;
-			font-size: 1.125rem;
-			letter-spacing: 0.05em;
-			color: #1f2937;
-		}
-		.info-bar-item__text .subtitle {
-			color: #6b7280; /* text-gray-500 */
-			font-size: 1rem;
-			font-weight: 400;
-		}
-		.info-bar-item__text .subtitle a {
-			color: var(--main-red);
-			text-decoration: underline;
-			font-weight: 600;
-		}
 		
-		/* ----- SEKCE "NA CO MÁŠ CHUŤ?" ----- */
+        /* ----- INFO LIŠTA DLE VZORU (BEZ TAILWIND) ----- */
+        .info-bar-container {
+            position: absolute;
+            bottom: 2rem; /* Posunuto nahoru */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            width: 90%;
+            max-width: 960px;
+        }
+        .info-bar {
+            background-color: var(--white);
+            color: #1f2937;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease-in-out;
+        }
+        .info-bar:hover {
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+            transform: scale(1.02);
+        }
+        .info-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .info-bar-item svg {
+            height: 3rem;
+            width: 3rem;
+            color: var(--main-red);
+            flex-shrink: 0;
+        }
+        .info-bar-item__text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .info-bar-item__text .title {
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.125rem;
+            letter-spacing: 0.05em;
+            color: #1f2937;
+        }
+        .info-bar-item__text .subtitle {
+            color: #6b7280;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .info-bar-item__text .subtitle a {
+            color: var(--main-red);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        /* ----- SEKCE "NA CO MÁŠ CHUŤ?" ----- */
 		.menu-section-header,
 		.social-section-header,
 		.other-offers-header {
@@ -1445,28 +1442,6 @@
 
 	<script>
 	document.addEventListener('DOMContentLoaded', () => {
-
-        // --- Nová Navigace ---
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeBtn = document.getElementById('mobile-menu-close-btn');
-        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-        if (hamburgerBtn && mobileMenu) {
-            hamburgerBtn.addEventListener('click', () => {
-                mobileMenu.classList.add('is-open');
-            });
-        }
-        if (closeBtn && mobileMenu) {
-            closeBtn.addEventListener('click', () => {
-                mobileMenu.classList.remove('is-open');
-            });
-        }
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('is-open');
-            });
-        });
 		
 		const slides = document.querySelector('.slides');
 		if (slides) {
