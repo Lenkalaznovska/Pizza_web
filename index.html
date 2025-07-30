@@ -371,15 +371,18 @@
             .nav-tel-button span {
                 display: none;
             }
+			.nav-order-online {
+				display: none;
+			}
         }
-        @media (min-width: 1280px) { /* Změněno z 1024px na 1280px pro více prostoru */
+        @media (min-width: 1280px) {
             .nav-logo img {
                 height: 5rem;
             }
             .nav-links {
                 display: flex;
                 align-items: center;
-                gap: 2rem;
+                gap: 1.5rem;
                 color: var(--white);
                 font-weight: 500;
             }
@@ -399,7 +402,7 @@
                 display: inline;
             }
             .nav-order-online {
-                display: block; /* Zobrazí se "Objednat online" */
+                display: block;
                 color: var(--white);
                 font-weight: 700;
                 font-size: 1.125rem;
@@ -486,8 +489,8 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
 
-		/* ----- NOVÝ INFO BANNER DLE VZORU ----- */
-		.info-banner-container {
+		/* ----- INFO LIŠTA DLE VZORU ----- */
+		.info-bar-section {
 			position: relative;
 			z-index: 20;
 			margin-top: -4.5rem;
@@ -496,7 +499,7 @@
 			justify-content: center;
 			padding: 0 1rem;
 		}
-		.info-banner {
+		.info-bar {
 			background-color: var(--white);
 			color: #1f2937;
 			border-radius: 1rem;
@@ -510,56 +513,42 @@
 			max-width: 72rem;
 			transition: all 0.3s ease-in-out;
 		}
-		.info-banner:hover {
+		.info-bar:hover {
 			box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
 			transform: scale(1.02) translateY(-0.25rem);
 		}
-		.info-banner-item {
+		.info-bar-item {
 			display: flex;
 			align-items: center;
 			gap: 1rem;
 		}
-		.info-banner-item svg {
+		.info-bar-item svg {
 			height: 3rem;
 			width: 3rem;
 			color: var(--main-red);
 			flex-shrink: 0;
 		}
-		.info-banner-item__text {
+		.info-bar-item__text {
 			display: flex;
 			flex-direction: column;
 			text-align: left;
 		}
-		.info-banner-item__text .title {
+		.info-bar-item__text .title {
 			font-weight: 900;
 			text-transform: uppercase;
 			font-size: 1.125rem;
 			letter-spacing: 0.05em;
 		}
-		.info-banner-item__text .subtitle {
+		.info-bar-item__text .subtitle {
 			color: #6b7280;
 			font-size: 1rem;
 		}
-		.info-banner-item__text .subtitle a {
+		.info-bar-item__text .subtitle a {
 			color: var(--main-red);
 			text-decoration: underline;
 			font-weight: 600;
 		}
 
-		@media (min-width: 768px) {
-			.info-banner {
-				flex-direction: row;
-				gap: 2rem;
-				padding: 1.25rem 2.5rem;
-			}
-		}
-
-		@media (min-width: 1024px) {
-			.info-banner {
-				gap: 4rem;
-			}
-		}
-		
 		/* ----- SEKCE "NA CO MÁŠ CHUŤ?" ----- */
 		.menu-section-header,
 		.social-section-header,
@@ -1658,27 +1647,27 @@
 	<script>
 	document.addEventListener('DOMContentLoaded', () => {
 
-        // --- Nová Navigace ---
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeBtn = document.getElementById('mobile-menu-close-btn');
-        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+        // --- Nová Navigace ---
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('mobile-menu-close-btn');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-        if (hamburgerBtn && mobileMenu) {
-            hamburgerBtn.addEventListener('click', () => {
-                mobileMenu.classList.add('is-open');
-            });
-        }
-        if (closeBtn && mobileMenu) {
-            closeBtn.addEventListener('click', () => {
-                mobileMenu.classList.remove('is-open');
-            });
-        }
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('is-open');
-            });
-        });
+        if (hamburgerBtn && mobileMenu) {
+            hamburgerBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('is-open');
+            });
+        }
+        if (closeBtn && mobileMenu) {
+            closeBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-open');
+            });
+        }
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-open');
+            });
+        });
 		
 		const slides = document.querySelector('.slides');
 		if (slides) {
