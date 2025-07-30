@@ -78,16 +78,15 @@
         "openingHoursSpecification": [
             {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "dayOfWeek": ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday"],
                 "opens": "11:00",
                 "closes": "21:15"
             },
             {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Monday",
-                "opens": "11:00",
-                "closes": "21:15",
-                "description": "V pondělí si u nás objednáš jen online nebo po telefonu. Jídlo si pak můžeš vyzvednout u výdejního okénka nebo ti ho dovezeme až ke dveřím."
+                "dayOfWeek": "Tuesday",
+                 "opens": "11:00",
+                "closes": "21:15"
             }
         ],
         "menu": "https://www.pizzakladno.cz/",
@@ -345,14 +344,14 @@
 		.info-banner {
 			background-color: var(--white);
 			color: var(--black);
-			border-radius: 9999px; /* Zakulacení do pilulky */
+			border-radius: 1.5rem; /* Upraveno: Méně výrazné zakulacení */
 			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
 			padding: 0.5rem 2rem; /* Snížená výška a upravený padding */
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center; /* Centrování obsahu vertikálně */
 			justify-content: space-around;
-			gap: 2rem; /* Mezera mezi položkami */
+			gap: 1.5rem; /* Upraveno: Menší mezera mezi položkami */
 			width: 100%;
 			max-width: 900px; /* Upravená šířka */
 			transition: box-shadow 0.3s ease-in-out;
