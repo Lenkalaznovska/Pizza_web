@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="cs"><head>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -329,11 +331,11 @@
 			background-color: var(--main-red-hover);
 		}
 
-		/* ----- INFO BANNER (pod sliderem) - FINÁLNÍ OPRAVA ----- */
+		/* ----- INFO BANNER (pod sliderem) - UPRAVENO DLE POŽADAVKU ----- */
 		.info-banner-container {
 			position: relative;
 			z-index: 20;
-			margin-top: -125px; /* Upraveno pro novou výšku lišty */
+			margin-top: -65px; /* Sníženo pro menší lištu */
 			width: 100%;
 			display: flex;
 			justify-content: center;
@@ -343,56 +345,56 @@
 		.info-banner {
 			background-color: var(--white);
 			color: var(--black);
-			border-radius: 1rem;
+			border-radius: 9999px; /* Zakulacení do pilulky */
 			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-			padding: 1rem;
+			padding: 0.5rem 2rem; /* Snížená výška a upravený padding */
 			display: flex;
 			flex-wrap: wrap;
-			align-items: flex-start;
+			align-items: center; /* Centrování obsahu vertikálně */
 			justify-content: space-around;
-			gap: 1.5rem;
+			gap: 2rem; /* Mezera mezi položkami */
 			width: 100%;
-			max-width: 1152px;
-			transition: box-shadow 0.5s ease-in-out;
+			max-width: 900px; /* Upravená šířka */
+			transition: box-shadow 0.3s ease-in-out;
 		}
 		.info-banner:hover {
-			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+			box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
 		}
 		.info-banner-item {
 			display: flex;
-			flex-direction: column;
-			align-items: center;
-			text-align: center;
-			gap: 0.25rem;
+			flex-direction: row; /* Ikona vedle textu */
+			align-items: center; /* Vertikální zarovnání ikony a textu */
+			gap: 0.75rem; /* Mezera mezi ikonou a textem */
 		}
 		.info-banner-item svg {
-			height: 2.5rem; /* OPRAVA: Ikona zvětšena zpět */
-			width: 2.5rem;
+			height: 2.25rem;
+			width: 2.25rem;
 			color: var(--main-red);
-            margin-bottom: 0.25rem;
+			flex-shrink: 0;
 		}
 		.info-banner-item__text {
 			display: flex;
 			flex-direction: column;
-			align-items: center;
-			gap: 0.15rem; /* OPRAVA: Zmenšená mezera mezi texty */
+			align-items: flex-start; /* Zarovnání textu doleva */
+			gap: 0;
 		}
 		.info-banner-item__text .title {
 			font-weight: 700;
 			color: var(--black);
-			font-size: 1rem; /* OPRAVA: Zvětšené písmo */
+			font-size: 0.9rem;
 			text-transform: uppercase;
 			letter-spacing: 0.05em;
+			line-height: 1.3;
 		}
 		.info-banner-item__text .subtitle {
 			color: var(--black);
-			font-size: 0.9rem; /* OPRAVA: Zvětšené písmo */
-			line-height: 1.2;
+			font-size: 0.9rem;
+			line-height: 1.3;
 		}
 		.info-banner-item__text .subtitle a {
 			color: var(--main-red);
 			text-decoration: underline;
-			font-weight: 700; /* OPRAVA: Oba odkazy jsou nyní tučné */
+			font-weight: 700;
 		}
 		.info-banner-item__text .subtitle a:hover {
 			color: var(--main-red-hover);
@@ -445,7 +447,7 @@
 			z-index: 10;
 			display: flex;
 			flex-direction: column;
-			flex-grow: 1; 
+			flex-grow: 1; 
 		}
 		.menu-card .card-category {
 			font-family: var(--font-main);
@@ -508,7 +510,7 @@
 		}
 		.menu-card .card-button-wrapper {
 			padding-top: 2rem;
-            margin-top: auto; 
+            margin-top: auto; 
 		}
 		.button-white-green { background-color: var(--white); color: var(--main-green); }
 		.button-white-green:hover { background-color: #e6f2ed; }
@@ -525,8 +527,8 @@
 			background-repeat: no-repeat;
             color: var(--white);
         }
-        .bg-green-pattern p, 
-        .bg-green-pattern span, 
+        .bg-green-pattern p, 
+        .bg-green-pattern span, 
         .bg-green-pattern .section-subtitle,
 		.bg-green-pattern strong {
 			text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
@@ -644,7 +646,7 @@
 			position: relative;
 		}
 		.swiper-viewport {
-			overflow: hidden; 
+			overflow: hidden; 
 		}
 		.swiper-container-reviews .swiper-slide {
 			aspect-ratio: 4 / 3;
@@ -937,23 +939,29 @@
 			.header-logo img {
 				height: 60px;
 			}
-			.hero-content h1 { 
-				white-space: normal; 
+			.hero-content h1 { 
+				white-space: normal; 
 			}
 			.hero-content .buttons {
 				margin-top: 2rem;
 			}
-			/* --- OPRAVENÁ INFO LIŠTA PRO MOBIL --- */
+			/* --- INFO LIŠTA PRO MOBIL - UPRAVENO DLE POŽADAVKU --- */
             .info-banner {
-                flex-direction: column;
-                gap: 2rem;
-                padding: 1.5rem;
+                flex-direction: column; /* Položky pod sebou */
+				align-items: flex-start; /* Zarovnání položek doleva */
+                gap: 1rem; /* Snížená mezera mezi položkami */
+                padding: 1.25rem 1.5rem;
+				border-radius: 1.5rem; /* Standardní zakulacení pro vertikální layout */
+				max-width: 500px;
             }
+			.info-banner-container {
+				margin-top: -95px; /* Úprava pozice pro mobil */
+			}
             .info-banner-item {
-                width: 100%;
+                width: auto; /* Zrušení 100% šířky, aby se přizpůsobilo obsahu */
             }
 			.review-swiper-button-prev,
-            .review-swiper-button-next { 
+            .review-swiper-button-next { 
 				left: auto;
                 right: auto;
 			}
@@ -1034,7 +1042,9 @@
 				padding: 0.75rem 1rem;
 			}
 		}
-	</style></head><body>
+	</style>
+</head>
+<body>
 
 	<header>
 		<div class="header-logo">
@@ -1252,18 +1262,18 @@
 								</div>
 						</div>
 					</div>
-                        <div class="review-swiper-nav">
-                            <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                                </svg>
+                            <div class="review-swiper-nav">
+                                <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                                    </svg>
+                                </div>
+                                <div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
-                        </div>
 				</div>
 			</div>
 		</section>
@@ -1599,4 +1609,5 @@
 		}
 	});
 	</script>
-	</body></html>
+	</body>
+</html>
