@@ -848,7 +848,7 @@
 			margin-top: 3rem;
 		}
 
-		/* ----- SEKCE GALERIE (dříve Ostatní nabídka) ----- */
+		/* ----- SEKCE GALERIE ----- */
 		.other-offers-section {
 			padding-top: 6rem;
 			padding-bottom: 6rem;
@@ -1200,25 +1200,25 @@
 <body>
 
 	<header>
-        <div class="header-desktop">
-            <nav class="header-desktop-nav">
-                <ul>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#gallery">Galerie</a></li>
-                    <li><a href="#reviews">Recenze</a></li>
-                </ul>
-            </nav>
-            <a href="#top" class="header-desktop-logo" aria-label="Přejít na začátek stránky">
-                <img src="images/logo-pizzerie-san-marino-kladno.webp" alt="Logo Pizzerie San Marino Kladno">
-            </a>
-            <nav class="header-desktop-nav">
-                <ul>
-                    <li><a href="#delivery">Rozvoz</a></li>
+		<div class="header-desktop">
+			<nav class="header-desktop-nav">
+				<ul>
+					<li><a href="#menu">Menu</a></li>
+					<li><a href="#gallery">Galerie</a></li>
+					<li><a href="#reviews">Recenze</a></li>
+				</ul>
+			</nav>
+			<a href="#top" class="header-desktop-logo" aria-label="Přejít na začátek stránky">
+				<img src="images/logo-pizzerie-san-marino-kladno.webp" alt="Logo Pizzerie San Marino Kladno">
+			</a>
+			<nav class="header-desktop-nav">
+				 <ul>
+					<li><a href="#delivery">Rozvoz</a></li>
 					<li><a href="#social">Sledujte nás</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
-                </ul>
-            </nav>
-        </div>
+					<li><a href="#contact">Kontakt</a></li>
+				</ul>
+			</nav>
+		</div>
 
 		<div class="header-mobile">
 			<div class="header-mobile-logo">
@@ -1407,7 +1407,7 @@
 								<span>Bohatá porce kvalitních surovin.</span>
 							</div>
 						</div>
-                        <p class="section-text" style="text-align: left;">
+						<p class="section-text" style="text-align: left;">
 							Chceš pizzu přesně podle svého gusta? U nás jsi pánem své objednávky ty. Vyber si z našich čerstvých surovin a vytvoř si pizzu podle svých chutí – víc sýra, extra zelenina, pořádná dávka masa nebo prostě odeber to, co ti nevyhovuje! 🧀🥓🥬 Tady vzniká originál přesně pro tebe.
 						</p>
 					</div>
@@ -1426,7 +1426,7 @@
 							</button>
 						</div>
 						<div id="gallery-dots-container" class="image-gallery-dots">
-						</div>
+							</div>
 					</div>
 				</div>
 			</div>
@@ -1506,7 +1506,7 @@
 					<p class="section-header-subtitle">Co nabízíme mimo pizzy?</p>
 					<h2 class="title">Další speciality, které si zamiluješ</h2>
 				</div>
-                <div class="gallery-container">
+				<div class="gallery-container">
 					<div class="swiper-container swiper-container-gallery">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide"><img src="images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp" loading="lazy" alt="Dvojitý burger se slaninou a hranolky."></div>
@@ -1654,19 +1654,19 @@
 	<script>
 	document.addEventListener('DOMContentLoaded', () => {
         
-        // Funkce pro mobilní navigaci
+        // --- FUNKCE PRO MOBILNÍ NAVIGACI ---
 		const navToggle = document.querySelector('.nav-toggle');
-		const mobileNav = document.querySelector('.mobile-nav-overlay');
+		const navOverlay = document.querySelector('.mobile-nav-overlay');
 		const body = document.body;
-		if (navToggle && mobileNav) {
+		if (navToggle && navOverlay) {
 			navToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
+				e.stopPropagation();
 				body.classList.toggle('nav-open');
                 const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
 				navToggle.setAttribute('aria-expanded', !isExpanded);
 			});
             // Zavření menu po kliknutí na odkaz
-            mobileNav.querySelectorAll('a').forEach(link => {
+            navOverlay.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     body.classList.remove('nav-open');
                     navToggle.setAttribute('aria-expanded', 'false');
@@ -1687,14 +1687,13 @@
 			}
 		}
 
-		// ZMĚNA: Aktualizované obrázky pro galerii "Naše pizza"
 		const pizzaGalleryImages = [
-            'images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp',
-            'images/pizza-sunka-zelenina-san-marino-kladno.webp',
-            'images/detske-menu-v-pizzerii-san-marino-kladno-mala-pizza-pro-deti-se-syrem-a-zeleninou-a-zampiony-podavana-s-oblibenym-kinder-vajickem-jako-prekvapenim.webp',
-            'images/oblibena-pizza-havaj-s-ananasem-a-sunkou-servirovana-na-taliri-v-prijemnem-prostredi-pizzerie-san-marino-kladno.webp',
-            'images/pizza-s-brokolici-testovinami-a-vejcem-san-marino-kladno.webp',
-            'images/dve-cerstve-upecene-pizzy-v-krabicich-pripravene-na-rozvoz-vlevo-pizza-se-slaninou-vpravo-syrova-pizza-s-nivou-hermelinem-a-olivami.webp'
+			'images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp',
+			'images/pizza-sunka-zelenina-san-marino-kladno.webp',
+			'images/detske-menu-v-pizzerii-san-marino-kladno-mala-pizza-pro-deti-se-syrem-a-zeleninou-a-zampiony-podavana-s-oblibenym-kinder-vajickem-jako-prekvapenim.webp',
+			'images/oblibena-pizza-havaj-s-ananasem-a-sunkou-servirovana-na-taliri-v-prijemnem-prostredi-pizzerie-san-marino-kladno.webp',
+			'images/pizza-s-brokolici-testovinami-a-vejcem-san-marino-kladno.webp',
+			'images/dve-cerstve-upecene-pizzy-v-krabicich-pripravene-na-rozvoz-vlevo-pizza-se-slaninou-vpravo-syrova-pizza-s-nivou-hermelinem-a-olivami.webp'
 		];
 
 		let reviewImagePaths = [
@@ -1726,9 +1725,9 @@
 		const prevBtn = document.getElementById('gallery-prev');
 		const nextBtn = document.getElementById('gallery-next');
 		const dotsContainer = document.getElementById('gallery-dots-container');
-        let currentImageIndex = 0;
 
 		if (galleryImage && prevBtn && nextBtn && dotsContainer) {
+			let currentImageIndex = 0;
 			pizzaGalleryImages.forEach((_, index) => {
 				const dot = document.createElement('button');
 				dot.classList.add('gallery-dot');
@@ -1797,7 +1796,7 @@
 					},
 				});
 
-                new Swiper('.swiper-container-gallery', {
+				new Swiper('.swiper-container-gallery', {
 					loop: true,
 					slidesPerView: 1,
 					spaceBetween: 20,
