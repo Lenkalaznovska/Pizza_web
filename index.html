@@ -1653,8 +1653,8 @@
 
 	<script>
 	document.addEventListener('DOMContentLoaded', () => {
-        
-        // --- FUNKCE PRO MOBILNÍ NAVIGACI ---
+        
+        // --- FUNKCE PRO MOBILNÍ NAVIGACI ---
 		const navToggle = document.querySelector('.nav-toggle');
 		const navOverlay = document.querySelector('.mobile-nav-overlay');
 		const body = document.body;
@@ -1662,16 +1662,16 @@
 			navToggle.addEventListener('click', (e) => {
 				e.stopPropagation();
 				body.classList.toggle('nav-open');
-                const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
 				navToggle.setAttribute('aria-expanded', !isExpanded);
 			});
-            // Zavření menu po kliknutí na odkaz
-            navOverlay.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    body.classList.remove('nav-open');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                });
-            });
+            // Zavření menu po kliknutí na odkaz
+            navOverlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    body.classList.remove('nav-open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
 		}
 		
 		const slides = document.querySelector('.slides');
@@ -1687,16 +1687,15 @@
 			}
 		}
 
-		const galleryData = {
-			currentIndex: 0,
-			images: [
-				'images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp',
-				'images/pizza-sunka-zelenina-san-marino-kladno.webp',
-				'images/oblibena-pizza-havaj-s-ananasem-a-sunkou-servirovana-na-taliri-v-prijemnem-prostredi-pizzerie-san-marino-kladno.webp',
-				'images/detske-menu-v-pizzerii-san-marino-kladno-mala-pizza-pro-deti-se-syrem-a-zeleninou-a-zampiony-podavana-s-oblibenym-kinder-vajickem-jako-prekvapenim.webp',
-				'images/dve-cerstve-upecene-pizzy-v-krabicich-pripravene-na-rozvoz-vlevo-pizza-se-slaninou-vpravo-syrova-pizza-s-nivou-hermelinem-a-olivami.webp'
-			]
-		};
+		// NOVÝ KÓD PRO PŘIDÁNÍ OBRÁZKU DO GALERIE
+		const pizzaGalleryImages = [
+			'images/pizza-s-brokolici-testovinami-a-vejcem-san-marino-kladno.webp', // NOVÝ OBRÁZEK
+			'images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp',
+			'images/pizza-sunka-zelenina-san-marino-kladno.webp',
+			'images/oblibena-pizza-havaj-s-ananasem-a-sunkou-servirovana-na-taliri-v-prijemnem-prostredi-pizzerie-san-marino-kladno.webp',
+			'images/detske-menu-v-pizzerii-san-marino-kladno-mala-pizza-pro-deti-se-syrem-a-zeleninou-a-zampiony-podavana-s-oblibenym-kinder-vajickem-jako-prekvapenim.webp',
+			'images/dve-cerstve-upecene-pizzy-v-krabicich-pripravene-na-rozvoz-vlevo-pizza-se-slaninou-vpravo-syrova-pizza-s-nivou-hermelinem-a-olivami.webp'
+		];
 
 		let reviewImagePaths = [
 			'images/dokonala-pizza-od-detstvi-kladno-recenze.webp',
@@ -1729,7 +1728,7 @@
 		const dotsContainer = document.getElementById('gallery-dots-container');
 
 		if (galleryImage && prevBtn && nextBtn && dotsContainer) {
-			galleryData.images.forEach((_, index) => {
+			pizzaGalleryImages.forEach((_, index) => { // Používá nový seznam obrázků
 				const dot = document.createElement('button');
 				dot.classList.add('gallery-dot');
 				dot.setAttribute('aria-label', `Přejít na obrázek ${index + 1}`);
@@ -1737,28 +1736,29 @@
 				dotsContainer.appendChild(dot);
 			});
 			const dots = dotsContainer.querySelectorAll('.gallery-dot');
+			let currentImageIndex = 0;
 
 			const updateGallery = () => {
-                if (galleryData.images.length > 0) {
-				    galleryImage.src = galleryData.images[galleryData.currentIndex];
-				    dots.forEach((dot, index) => {
-					    dot.classList.toggle('active', index === galleryData.currentIndex);
-				    });
-                }
+                if (pizzaGalleryImages.length > 0) {
+				    galleryImage.src = pizzaGalleryImages[currentImageIndex];
+				    dots.forEach((dot, index) => {
+					    dot.classList.toggle('active', index === currentImageIndex);
+				    });
+                }
 			};
 		
 			const nextImage = () => {
-				galleryData.currentIndex = (galleryData.currentIndex + 1) % galleryData.images.length;
+				currentImageIndex = (currentImageIndex + 1) % pizzaGalleryImages.length;
 				updateGallery();
 			};
 		
 			const prevImage = () => {
-				galleryData.currentIndex = (galleryData.currentIndex - 1 + galleryData.images.length) % galleryData.images.length;
+				currentImageIndex = (currentImageIndex - 1 + pizzaGalleryImages.length) % pizzaGalleryImages.length;
 				updateGallery();
 			};
 
 			const goToImage = (index) => {
-				galleryData.currentIndex = index;
+				currentImageIndex = index;
 				updateGallery();
 			};
 		
