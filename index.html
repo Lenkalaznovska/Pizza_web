@@ -236,23 +236,23 @@
 		}
 
 		/* ----- HLAVIČKA A HERO SLIDER ----- */
-		.header-logo {
-			position: absolute;
-			z-index: 101;
-			left: 1.5rem;
-			top: 1.5rem;
-		}
-		.header-logo img {
-			height: 80px;
-			width: auto;
-		}
-        
-        /* Navigace v hlavičce */
-        .header-nav {
+		.header-bar {
             position: absolute;
-            top: 2.5rem;
-            right: 2.5rem;
             z-index: 101;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            background: rgba(0,0,0,0.3);
+            padding: 0.5rem 2rem;
+            border-radius: 9999px;
+            backdrop-filter: blur(5px);
+        }
+        .header-logo img {
+            height: 50px;
+            width: auto;
         }
         .header-nav ul {
             list-style: none;
@@ -265,7 +265,7 @@
             color: var(--white);
             font-weight: 700;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.15rem;
             transition: color 0.2s ease-in-out;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
@@ -275,7 +275,7 @@
 
         /* Hamburger tlačítko */
         .nav-toggle {
-            display: none; /* Skryto na desktopu */
+            display: none;
             position: absolute;
             top: 2rem;
             right: 1.5rem;
@@ -978,6 +978,9 @@
 
 		/* ----- RESPONZIVNÍ STYLY ----- */
 		@media (max-width: 1023px) {
+            .header-bar {
+                display: none;
+            }
             .nav-toggle {
                 display: block;
             }
@@ -994,6 +997,12 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+            }
+            .header-logo {
+                position: absolute;
+                left: 1rem;
+                top: 1rem;
+                z-index: 101;
             }
             body.nav-open .header-nav {
                 transform: translateX(0);
@@ -1039,10 +1048,6 @@
 			.bg-green-pattern .two-column-grid,
 			.other-offers-section .other-offers-grid {
 				margin-top: 40px;
-			}
-			.header-logo {
-				left: 1rem;
-				top: 1rem;
 			}
 			.header-logo img {
 				height: 60px;
@@ -1103,13 +1108,6 @@
 				line-height: 1.1;
 			}
 			.container { padding-left: 3rem; padding-right: 3rem; }
-			.header-logo {
-				left: 2.5rem;
-				top: 1.5rem;
-			}
-			.header-logo img {
-				height: 80px;
-			}
 			.info-banner-container { padding-left: 0; padding-right: 0; }
 			.info-banner { flex-wrap: nowrap; }
 			.menu-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1155,25 +1153,26 @@
 <body>
 
 	<header>
-		<div class="header-logo">
-			<a href="#top" aria-label="Přejít na začátek stránky">
-				<img src="images/logo-pizzerie-san-marino-kladno.webp" alt="Logo Pizzerie San Marino Kladno" width="709" height="342">
-			</a>
-		</div>
+        <div class="header-bar">
+            <div class="header-logo">
+                <a href="#top" aria-label="Přejít na začátek stránky">
+                    <img src="images/logo-pizzerie-san-marino-kladno.webp" alt="Logo Pizzerie San Marino Kladno">
+                </a>
+            </div>
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#reviews">Recenze</a></li>
+                    <li><a href="#delivery">Rozvoz</a></li>
+                    <li><a href="#social">Sledujte nás</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
         
         <button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
             <span class="hamburger"></span>
         </button>
-
-        <nav class="header-nav">
-            <ul>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#reviews">Recenze</a></li>
-                <li><a href="#delivery">Rozvoz</a></li>
-                <li><a href="#social">Sledujte nás</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-            </ul>
-        </nav>
         
 		<div class="hero-slider">
 			<div class="slides">
