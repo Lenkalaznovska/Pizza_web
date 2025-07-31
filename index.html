@@ -524,7 +524,7 @@
 			z-index: 10;
 			display: flex;
 			flex-direction: column;
-			flex-grow: 1; 
+			flex-grow: 1; 
 		}
 		.menu-card .card-category {
 			font-family: var(--font-main);
@@ -587,7 +587,7 @@
 		}
 		.menu-card .card-button-wrapper {
 			padding-top: 2rem;
-            margin-top: auto; 
+            margin-top: auto; 
 		}
 		.button-white-green { background-color: var(--white); color: var(--main-green); }
 		.button-white-green:hover { background-color: #e6f2ed; }
@@ -604,8 +604,8 @@
 			background-repeat: no-repeat;
             color: var(--white);
         }
-        .bg-green-pattern p, 
-        .bg-green-pattern span, 
+        .bg-green-pattern p, 
+        .bg-green-pattern span, 
         .bg-green-pattern .section-subtitle,
 		.bg-green-pattern strong {
 			text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
@@ -723,7 +723,7 @@
 			position: relative;
 		}
 		.swiper-viewport {
-			overflow: hidden; 
+			overflow: hidden; 
 		}
 		.swiper-container-reviews .swiper-slide {
 			aspect-ratio: 4 / 3;
@@ -787,7 +787,7 @@
 			margin-top: 3rem;
 		}
 
-		/* ----- SEKCE BURGERY & KUŘECÍ ----- */
+		/* ----- SEKCE GALERIE (dříve Ostatní nabídka) ----- */
 		.other-offers-section {
 			padding-top: 6rem;
 			padding-bottom: 6rem;
@@ -821,24 +821,58 @@
 			margin-right: 3rem;
 			transform: rotate(12deg);
 		}
-		.other-offers-grid {
-			margin-top: 3rem;
-			display: grid;
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
+		.gallery-container {
 			position: relative;
 			z-index: 10;
 		}
-		.other-offers-grid img {
+		.swiper-container-gallery {
+			overflow: hidden;
+		}
+		.swiper-container-gallery .swiper-slide {
 			aspect-ratio: 1 / 1;
-			width: 100%;
-			object-fit: cover;
+			background-color: transparent;
 			border-radius: 0.5rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+		}
+		.swiper-container-gallery .swiper-slide img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
 			transition: all 0.3s ease;
 		}
-		.other-offers-grid img:hover {
+		.swiper-container-gallery .swiper-slide:hover img {
 			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-            transform: scale(1.03);
+			transform: scale(1.03);
+		}
+		.gallery-swiper-nav {
+			display: flex;
+			justify-content: center;
+			gap: 1rem;
+			margin-top: 1.5rem;
+		}
+		.gallery-swiper-button {
+			position: static;
+			transform: none;
+			z-index: 20;
+			cursor: pointer;
+			background-color: var(--white);
+			border-radius: 9999px;
+			padding: 0.75rem;
+			transition: background-color 0.2s;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.gallery-swiper-button:hover {
+			background-color: #f3f4f6;
+		}
+		.gallery-swiper-button svg {
+			color: var(--main-red);
+			width: 1.5rem;
+			height: 1.5rem;
 		}
 
 		/* ----- SEKCE SOCIÁLNÍ SÍTĚ ----- */
@@ -978,8 +1012,21 @@
 
 		/* ----- RESPONZIVNÍ STYLY ----- */
 		@media (max-width: 1023px) {
+            /* --- OPRAVA HAMBURGER MENU --- */
             .header-bar {
-                display: none;
+                position: static;
+                transform: none;
+                background: none;
+                padding: 0;
+                backdrop-filter: none;
+                display: block;
+                width: 100%;
+            }
+            .header-logo {
+                position: absolute;
+                left: 1rem;
+                top: 1rem;
+                z-index: 101;
             }
             .nav-toggle {
                 display: block;
@@ -997,12 +1044,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-            }
-            .header-logo {
-                position: absolute;
-                left: 1rem;
-                top: 1rem;
-                z-index: 101;
+                z-index: 999; /* Nižší než toggle button */
             }
             body.nav-open .header-nav {
                 transform: translateX(0);
@@ -1046,14 +1088,14 @@
 				line-height: 1.2;
 			}
 			.bg-green-pattern .two-column-grid,
-			.other-offers-section .other-offers-grid {
+			.other-offers-section .gallery-container {
 				margin-top: 40px;
 			}
 			.header-logo img {
 				height: 60px;
 			}
-			.hero-content h1 { 
-				white-space: normal; 
+			.hero-content h1 { 
+				white-space: normal; 
 			}
 			.hero-content .buttons {
 				margin-top: 2rem;
@@ -1074,13 +1116,10 @@
                 width: auto;
             }
 			.review-swiper-button-prev,
-            .review-swiper-button-next { 
+            .review-swiper-button-next { 
 				left: auto;
                 right: auto;
 			}
-            .other-offers-section .other-offers-grid {
-                margin-top: 40px;
-            }
             .other-offers-bg-text span {
                 font-size: 4rem;
             }
@@ -1092,7 +1131,6 @@
 				justify-content: center;
 				gap: 2.5rem;
 			}
-			.other-offers-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 		}
 
 		@media (min-width: 768px) {
@@ -1125,7 +1163,6 @@
 			.button { font-size: 1.125rem; padding: 1rem 2rem; }
 			.menu-grid { grid-template-columns: repeat(3, 1fr); }
 			.menu-card.span-2 { grid-column: span 1 / span 1; }
-			.other-offers-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
 		}
 		
 		@media (max-height: 740px) and (max-width: 480px) {
@@ -1162,6 +1199,7 @@
             <nav class="header-nav">
                 <ul>
                     <li><a href="#menu">Menu</a></li>
+                    <li><a href="#gallery">Galerie</a></li>
                     <li><a href="#reviews">Recenze</a></li>
                     <li><a href="#delivery">Rozvoz</a></li>
                     <li><a href="#social">Sledujte nás</a></li>
@@ -1435,7 +1473,7 @@
 			</div>
 		</section>
 
-		<section class="section bg-green-pattern other-offers-section">
+		<section id="gallery" class="section bg-green-pattern other-offers-section">
 			<div class="other-offers-bg-text">
 				<span class="top-text">PIZZA SAN</span>
 				<span class="bottom-text">MARINO</span>
@@ -1445,11 +1483,23 @@
 					<p class="section-header-subtitle">Co nabízíme mimo pizzy?</p>
 					<h2 class="title">Další speciality, které si zamiluješ</h2>
 				</div>
-				<div class="other-offers-grid">
-					<img src="images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp" loading="lazy" alt="Dvojitý burger se slaninou a hranolky.">
-					<img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" loading="lazy" alt="Burger s batátovými hranolky.">
-					<img src="images/smazena-kureci-kridla-a-stripsy-wing-it-kladno.webp" loading="lazy" alt="Smažená kuřecí křídla a stripsy.">
-					<img src="images/wing-it-kureci-popkorn-kladno.webp" loading="lazy" alt="Kuřecí popcorn s hranolky v boxu.">
+				<div class="gallery-container">
+					<div class="swiper-container swiper-container-gallery">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><img src="images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp" loading="lazy" alt="Dvojitý burger se slaninou a hranolky."></div>
+							<div class="swiper-slide"><img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" loading="lazy" alt="Burger s batátovými hranolky."></div>
+							<div class="swiper-slide"><img src="images/smazena-kureci-kridla-a-stripsy-wing-it-kladno.webp" loading="lazy" alt="Smažená kuřecí křídla a stripsy."></div>
+							<div class="swiper-slide"><img src="images/wing-it-kureci-popkorn-kladno.webp" loading="lazy" alt="Kuřecí popcorn s hranolky v boxu."></div>
+						</div>
+					</div>
+					<div class="gallery-swiper-nav">
+						<div class="gallery-swiper-button gallery-swiper-button-prev" aria-label="Předchozí obrázek">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+						</div>
+						<div class="gallery-swiper-button gallery-swiper-button-next" aria-label="Následující obrázek">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -1582,19 +1632,21 @@
 	<script>
 	document.addEventListener('DOMContentLoaded', () => {
         
-        // Funkce pro mobilní navigaci
+        // --- OPRAVENÁ FUNKCE PRO MOBILNÍ NAVIGACI ---
 		const navToggle = document.querySelector('.nav-toggle');
 		const nav = document.querySelector('.header-nav');
+		const body = document.body;
 		if (navToggle && nav) {
-			navToggle.addEventListener('click', () => {
-				document.body.classList.toggle('nav-open');
+			navToggle.addEventListener('click', (e) => {
+				e.stopPropagation(); // Zabrání prokliknutí na jiné elementy
+				body.classList.toggle('nav-open');
                 const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
 				navToggle.setAttribute('aria-expanded', !isExpanded);
 			});
             // Zavření menu po kliknutí na odkaz
             nav.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    document.body.classList.remove('nav-open');
+                    body.classList.remove('nav-open');
                     navToggle.setAttribute('aria-expanded', 'false');
                 });
             });
@@ -1705,6 +1757,7 @@
 			});
 
 			if (typeof Swiper !== 'undefined') {
+				// Swiper pro Recenze
 				new Swiper('.swiper-container-reviews', {
 					loop: true,
 					slidesPerView: 1,
@@ -1720,6 +1773,25 @@
 					breakpoints: {
 						640: { slidesPerView: 2, spaceBetween: 20 },
 						1024: { slidesPerView: 3, spaceBetween: 30 },
+					},
+				});
+
+				// NOVÝ Swiper pro Galerii
+				new Swiper('.swiper-container-gallery', {
+					loop: true,
+					slidesPerView: 1,
+					spaceBetween: 20,
+					autoplay: {
+						delay: 4000,
+						disableOnInteraction: false,
+					},
+					navigation: {
+						nextEl: '.gallery-swiper-button-next',
+						prevEl: '.gallery-swiper-button-prev',
+					},
+					breakpoints: {
+						640: { slidesPerView: 2, spaceBetween: 20 },
+						1024: { slidesPerView: 4, spaceBetween: 30 },
 					},
 				});
 			}
