@@ -277,9 +277,6 @@
         /* Hamburger tlačítko */
         .nav-toggle {
             display: none;
-            position: absolute;
-            top: 2rem;
-            right: 1.5rem;
             z-index: 1000;
             background: transparent;
             border: none;
@@ -408,11 +405,11 @@
 			background-color: var(--main-red-hover);
 		}
 
-		/* ----- INFO BANNER (pod sliderem) - UPRAVENO DLE POŽADAVKU ----- */
+		/* ----- INFO BANNER (pod sliderem) ----- */
 		.info-banner-container {
 			position: relative;
 			z-index: 20;
-			margin-top: -80px; /* Upraveno pro vyšší lištu */
+			margin-top: -80px;
 			width: 100%;
 			display: flex;
 			justify-content: center;
@@ -424,14 +421,14 @@
 			color: var(--black);
 			border-radius: 9999px;
 			box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-			padding: 1rem 2.5rem; /* Vzdušnější padding */
+			padding: 1rem 2.5rem;
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;
 			justify-content: center;
-			gap: 3rem; /* Větší mezera mezi položkami */
+			gap: 3rem;
 			width: 100%;
-			max-width: 960px; /* Upravená šířka */
+			max-width: 960px;
 			transition: box-shadow 0.3s ease-in-out;
 		}
 		.info-banner:hover {
@@ -441,10 +438,10 @@
 			display: flex;
 			flex-direction: row;
 			align-items: center;
-			gap: 1rem; /* Mezera mezi ikonou a textem */
+			gap: 1rem;
 		}
 		.info-banner-item svg {
-			height: 2.75rem; /* Zvětšená ikona */
+			height: 2.75rem;
 			width: 2.75rem;
 			color: var(--main-red);
 			flex-shrink: 0;
@@ -453,21 +450,21 @@
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
-			gap: 0; /* Menší mezera mezi řádky */
 		}
 		.info-banner-item__text .title {
-			font-weight: 900; /* Zvýrazněný nadpis */
+			font-weight: 900;
 			color: var(--black);
-			font-size: 1rem; /* Zvětšené písmo */
+			font-size: 1rem;
 			text-transform: uppercase;
 			letter-spacing: 0.05em;
-			line-height: 1.1; /* Snížená výška řádku */
+			line-height: 1.2;
+            margin-bottom: 2px; /* Zmenšení mezery */
 		}
 		.info-banner-item__text .subtitle {
 			color: var(--black);
-			font-size: 1rem; /* Zvětšené písmo */
-			font-weight: 400; /* Standardní tloušťka */
-			line-height: 1.1; /* Snížená výška řádku */
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.2;
 		}
 		.info-banner-item__text .subtitle a {
 			color: var(--main-red);
@@ -922,6 +919,7 @@
 			gap: 3.5rem;
 			font-size: 1rem;
 			align-items: start;
+            margin-top: 4rem;
 		}
 		.footer-column {
 			display: flex;
@@ -1013,24 +1011,34 @@
 
 		/* ----- RESPONZIVNÍ STYLY ----- */
 		@media (max-width: 1023px) {
-            /* --- OPRAVA HAMBURGER MENU --- */
+            /* --- ZMĚNA VZHLEDU MOBILNÍ HLAVIČKY --- */
             .header-bar {
-                position: static;
-                transform: none;
-                background: none;
-                padding: 0;
-                backdrop-filter: none;
-                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
                 width: 100%;
+                transform: none;
+                border-radius: 0;
+                padding: 0.5rem 1rem;
+                background: rgba(0,0,0,0.5);
+                backdrop-filter: blur(5px);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 101;
+				gap: 1rem;
             }
             .header-logo {
-                position: absolute;
-                left: 1rem;
-                top: 1rem;
-                z-index: 101;
+                position: static;
+                z-index: auto;
             }
+			.header-logo img {
+				height: 50px;
+			}
             .nav-toggle {
                 display: block;
+                position: static;
+                z-index: auto;
             }
             .header-nav {
                 position: fixed;
@@ -1045,15 +1053,16 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                z-index: 999; /* Nižší než toggle button */
+                z-index: 999;
             }
-            body.nav-open .header-nav {
-                transform: translateX(0);
-            }
-            .header-nav ul {
-                flex-direction: column;
+			.header-nav ul {
+				display: flex; /* Změna z none na flex pro zobrazení v overlay */
+				flex-direction: column;
                 gap: 2.5rem;
                 text-align: center;
+			}
+            body.nav-open .header-nav {
+                transform: translateX(0);
             }
             .header-nav a {
                 font-size: 1.75rem;
@@ -1092,26 +1101,23 @@
 			.other-offers-section .gallery-container {
 				margin-top: 40px;
 			}
-			.header-logo img {
-				height: 60px;
-			}
 			.hero-content h1 { 
 				white-space: normal; 
 			}
 			.hero-content .buttons {
 				margin-top: 2rem;
 			}
-			/* --- INFO LIŠTA PRO MOBIL - UPRAVENO DLE POŽADAVKU --- */
+			/* --- INFO LIŠTA PRO MOBIL --- */
             .info-banner {
                 flex-direction: column;
 				align-items: flex-start;
-                gap: 1.5rem; /* Upravená mezera */
+                gap: 1.5rem;
                 padding: 1.5rem 1.75rem;
 				border-radius: 1.5rem;
 				max-width: 500px;
             }
 			.info-banner-container {
-				margin-top: -110px; /* Upravená pozice pro mobil */
+				margin-top: -110px;
 			}
             .info-banner-item {
                 width: auto;
@@ -1207,11 +1213,10 @@
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </nav>
+			<button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
+				<span class="hamburger"></span>
+			</button>
         </div>
-        
-        <button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
-            <span class="hamburger"></span>
-        </button>
         
 		<div class="hero-slider">
 			<div class="slides">
@@ -1632,13 +1637,13 @@
 	<script>
 	document.addEventListener('DOMContentLoaded', () => {
         
-        // --- OPRAVENÁ FUNKCE PRO MOBILNÍ NAVIGACI ---
+        // --- FUNKCE PRO MOBILNÍ NAVIGACI ---
 		const navToggle = document.querySelector('.nav-toggle');
 		const nav = document.querySelector('.header-nav');
 		const body = document.body;
 		if (navToggle && nav) {
 			navToggle.addEventListener('click', (e) => {
-				e.stopPropagation(); // Zabrání prokliknutí na jiné elementy
+				e.stopPropagation();
 				body.classList.toggle('nav-open');
                 const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
 				navToggle.setAttribute('aria-expanded', !isExpanded);
