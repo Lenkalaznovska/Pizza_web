@@ -247,7 +247,7 @@
 			background: rgba(0, 0, 0, 0.6);
             padding: 1rem 2.5rem;
             border-radius: 10px;
-            gap: 2.5rem; /* PŘIDÁNO: Mezera mezi navigačními bloky a logem */
+            gap: 2.5rem;
         }
 		@media (min-width: 1024px) {
 			.header-desktop {
@@ -274,16 +274,15 @@
         .header-desktop-nav a:hover {
             color: var(--main-red);
         }
-		/* ZMĚNA: Přesunuto z .header-logo-nav-item na novou třídu pro logo */
-		.header-desktop-logo img {
+        .header-desktop-logo img {
 			height: 80px;
 			width: auto;
 			display: block;
 			transition: transform 0.2s ease-in-out;
 		}
-		.header-desktop-logo:hover img {
-			transform: scale(1.05);
-		}
+        .header-desktop-logo:hover img {
+            transform: scale(1.05);
+        }
 
 		/* Mobilní hlavička */
 		.header-mobile {
@@ -1201,7 +1200,7 @@
 <body>
 
 	<header>
-                <div class="header-desktop">
+		        <div class="header-desktop">
             <nav class="header-desktop-nav">
                 <ul>
                     <li><a href="#menu">Menu</a></li>
@@ -1377,11 +1376,10 @@
 			<div class="container">
 				<div class="two-column-grid">
 					<div class="text-content-column">
-						<p class="section-header-subtitle">Naše pizza, náš originál</p>
+						<p class="section-header-subtitle">Naše pizza, náš originál již od roku 1994</p>
 						<h2 class="section-title">Proč naše pizza s tradicí již od roku 1994?</h2>
-						<p class="section-subtitle" style="text-align: left;">Jsme TOP 4. Pizzerie v Kladně!🏅</p>
 						<p class="section-text" style="text-align: left;">
-							Tohle není žádná Itálie, to je naše tradice už od roku 1994! Chceš pizzu přesně podle svýho gusta? U nás si ji můžeš sestavit sám! Vyber si z našich čerstvých surovin a vytvoř si pizzu podle svých chutí – víc sýra, extra zelenina, pořádná dávka masa nebo prostě odeber to, co ti nevyhovuje! 🧀🥓🥬
+							Nečekej Itálii, tohle je naše poctivá kladenská tradice, díky které patříme mezi TOP 4 pizzerie ve městě! 🏅 Každý kousek je jedinečný, protože ho tvoří vyladěné receptury a ten nejlepší základ:
 						</p>
 						<div class="feature-list">
 							<div class="feature-item">
@@ -1408,16 +1406,10 @@
 								</svg>
 								<span>Bohatá porce kvalitních surovin.</span>
 							</div>
-							<div class="feature-item">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-								</svg>
-								<span>Vyladěné recepty, které dělají naši pizzu jedinečnou.</span>
-							</div>
 						</div>
-						<a href="https://reservoeats.cz/san-marino-kladno-37#pizza-mala-o-24cm-603" target="_blank" rel="noopener noreferrer" class="button button-red section-button">
-							Vytvoř si vlastní pizzu
-						</a>
+						<p class="section-text" style="text-align: left;">
+							Chceš pizzu přesně podle svého gusta? U nás jsi pánem své objednávky ty. Vyber si z našich čerstvých surovin a vytvoř si pizzu podle svých chutí – víc sýra, extra zelenina, pořádná dávka masa nebo prostě odeber to, co ti nevyhovuje! 🧀🥓🥬 Tady vzniká originál přesně pro tebe.
+						</p>
 					</div>
 					<div class="image-gallery">
 						<div class="image-gallery-main">
@@ -1434,7 +1426,7 @@
 							</button>
 						</div>
 						<div id="gallery-dots-container" class="image-gallery-dots">
-							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -1450,7 +1442,7 @@
 					<div class="swiper-viewport">
 						<div class="swiper-container swiper-container-reviews">
 							<div class="swiper-wrapper" id="reviews-wrapper">
-								</div>
+							</div>
 						</div>
 					</div>
                     <div class="review-swiper-nav">
@@ -1696,7 +1688,6 @@
 		}
 
 		// --- GALERIE S OBRÁZKY PIZZ ---
-		// ZMĚNA: Pole obrázků přeuspořádáno podle tvého požadavku
 		const pizzaGalleryImages = [
 			'images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp',
 			'images/pizza-sunka-zelenina-san-marino-kladno.webp',
