@@ -244,19 +244,17 @@
             transform: translateX(-50%);
             display: none;
             align-items: center;
+			justify-content: space-between;
 			background: rgba(0, 0, 0, 0.6);
-            padding: 0.5rem 1.5rem;
+            padding: 0.5rem 2rem;
             border-radius: 10px;
-            width: 90%;
-            max-width: 1280px;
+			width: 90%;
+			max-width: 1280px;
         }
 		@media (min-width: 1024px) {
 			.header-desktop {
 				display: flex;
 			}
-            .header-desktop-nav {
-                width: 100%;
-            }
 		}
         .header-desktop-nav ul {
             list-style: none;
@@ -264,8 +262,7 @@
             padding: 0;
             display: flex;
 			align-items: center;
-			justify-content: space-between;
-			width: 100%;
+			gap: 2.5rem;
         }
         .header-desktop-nav a {
             color: var(--white);
@@ -279,7 +276,7 @@
         .header-desktop-nav a:hover {
             color: var(--main-red);
         }
-		.header-logo-nav-item img {
+		.header-logo img {
 			height: 80px;
 			width: auto;
 			display: block;
@@ -1201,14 +1198,12 @@
 <body>
 
 	<header>
-        <div class="header-desktop">
+		        <div class="header-desktop">
+			<a href="#top" class="header-logo" aria-label="Přejít na začátek stránky">
+				<img src="images/logo-pizzerie-san-marino-kladno.webp" alt="Logo Pizzerie San Marino Kladno">
+			</a>
             <nav class="header-desktop-nav">
                 <ul>
-                    <li class="header-logo-nav-item">
-						<a href="#top" aria-label="Přejít na začátek stránky">
-							<img src="images/logo-pizzerie-san-marino-kladno.webp" alt="Logo Pizzerie San Marino Kladno">
-						</a>
-					</li>
                     <li><a href="#menu">Menu</a></li>
                     <li><a href="#gallery">Galerie</a></li>
                     <li><a href="#reviews">Recenze</a></li>
