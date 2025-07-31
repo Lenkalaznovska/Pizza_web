@@ -244,14 +244,14 @@
             transform: translateX(-50%);
             display: flex;
             align-items: center;
-            gap: 2.5rem;
+            gap: 3rem; /* Zvětšená mezera */
             background: rgba(0,0,0,0.3);
-            padding: 0.5rem 2rem;
+            padding: 0.6rem 2.5rem; /* Upravený padding */
             border-radius: 9999px;
             backdrop-filter: blur(5px);
         }
         .header-logo img {
-            height: 50px;
+            height: 65px; /* Zvětšené logo */
             width: auto;
         }
         .header-nav ul {
@@ -259,7 +259,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem; /* Zvětšená mezera mezi položkami */
         }
         .header-nav a {
             color: var(--white);
@@ -268,6 +268,7 @@
             font-size: 1.15rem;
             transition: color 0.2s ease-in-out;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+			white-space: nowrap; /* Zajistí, že text zůstane na jednom řádku */
         }
         .header-nav a:hover {
             color: var(--main-red);
@@ -1548,7 +1549,6 @@
 
 	<footer id="contact" class="footer bg-green-pattern">
 		<div class="container">
-			<h2 class="section-title">Kontakty a další informace</h2>
 			<div class="footer-grid">
 
 				<div class="footer-column">
