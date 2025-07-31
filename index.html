@@ -236,32 +236,33 @@
 		}
 
 		/* ----- HLAVIČKA A HERO SLIDER ----- */
-		.header-bar {
+		.header-desktop {
             position: absolute;
             z-index: 101;
             top: 1.5rem;
             left: 50%;
             transform: translateX(-50%);
-            display: flex;
+            display: none; /* Skryto defaultně, zobrazeno pro PC */
             align-items: center;
-            gap: 3rem;
             background: rgba(0,0,0,0.3);
             padding: 0.6rem 2.5rem;
             border-radius: 9999px;
             backdrop-filter: blur(5px);
         }
-        .header-logo img {
-            height: 65px;
-            width: auto;
-        }
-        .header-nav ul {
+		@media (min-width: 1024px) {
+			.header-desktop {
+				display: flex;
+			}
+		}
+        .header-desktop-nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
+			align-items: center;
             gap: 2.5rem;
         }
-        .header-nav a {
+        .header-desktop-nav a {
             color: var(--white);
             font-weight: 700;
             text-decoration: none;
@@ -270,17 +271,39 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
 			white-space: nowrap;
         }
-        .header-nav a:hover {
+        .header-desktop-nav a:hover {
             color: var(--main-red);
         }
+		.header-logo-nav-item img {
+			height: 80px; /* Větší logo v PC menu */
+			width: auto;
+		}
 
-        /* Hamburger tlačítko */
+		/* Mobilní hlavička */
+		.header-mobile {
+			display: flex; /* Zobrazeno defaultně, skryto na PC */
+			justify-content: space-between;
+			align-items: center;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			padding: 0.5rem 1rem;
+			background-color: var(--black);
+			z-index: 1001;
+		}
+		@media (min-width: 1024px) {
+			.header-mobile {
+				display: none;
+			}
+		}
+		.header-mobile-logo img {
+			height: 50px;
+			width: auto;
+		}
         .nav-toggle {
-            display: none;
-            position: absolute;
-            top: 2rem;
-            right: 1.5rem;
-            z-index: 1000;
+            display: block;
+            z-index: 1002;
             background: transparent;
             border: none;
             cursor: pointer;
@@ -307,21 +330,45 @@
             background: var(--white);
             transition: all 0.25s ease-in-out;
         }
-        .hamburger::before {
-            top: -8px;
-        }
-        .hamburger::after {
-            top: 8px;
-        }
-        body.nav-open .hamburger {
-            background: transparent;
-        }
-        body.nav-open .hamburger::before {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-        body.nav-open .hamburger::after {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
+        .hamburger::before { top: -8px; }
+        .hamburger::after { top: 8px; }
+        body.nav-open .hamburger { background: transparent; }
+        body.nav-open .hamburger::before { transform: rotate(45deg) translate(6px, 6px); }
+        body.nav-open .hamburger::after { transform: rotate(-45deg) translate(5px, -5px); }
+
+		/* Mobilní navigační overlay */
+		.mobile-nav-overlay {
+			position: fixed;
+			top: 0;
+			right: 0;
+			width: 100%;
+			height: 100vh;
+			background: rgba(10, 10, 10, 0.95);
+			backdrop-filter: blur(5px);
+			transform: translateX(100%);
+			transition: transform 0.3s ease-in-out;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 1000;
+		}
+		body.nav-open .mobile-nav-overlay {
+			transform: translateX(0);
+		}
+		.mobile-nav-overlay ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			gap: 2.5rem;
+			text-align: center;
+		}
+		.mobile-nav-overlay a {
+			color: var(--white);
+			font-size: 1.75rem;
+			font-weight: 700;
+		}
         
 		.hero-slider {
 			position: absolute;
@@ -1013,54 +1060,6 @@
 		}
 
 		/* ----- RESPONZIVNÍ STYLY ----- */
-		@media (max-width: 1023px) {
-            .header-bar {
-				flex-direction: column;
-				gap: 1.5rem;
-				padding: 1rem;
-				border-radius: 1.5rem;
-				width: 90%;
-				max-width: 500px;
-			}
-			.header-logo img {
-				height: 60px;
-			}
-			.header-nav {
-				display: none;
-			}
-            .nav-toggle {
-                display: block;
-				position: absolute;
-				top: 1rem;
-				right: 1rem;
-            }
-			body.nav-open .header-nav {
-				position: fixed;
-				top: 0;
-				right: 0;
-				width: 100%;
-				height: 100vh;
-				background: rgba(10, 10, 10, 0.95);
-				backdrop-filter: blur(5px);
-				transform: translateX(0);
-				transition: transform 0.3s ease-in-out;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				z-index: 999;
-			}
-			.header-nav ul {
-				flex-direction: column;
-			}
-			body.nav-open .header-nav ul {
-				display: flex;
-			}
-            .header-nav a {
-                font-size: 1.75rem;
-                text-shadow: none;
-            }
-        }
-		
 		@media (max-width: 540px) {
 			.bg-green-pattern .section-subtitle {
 				display: flex;
@@ -1188,27 +1187,44 @@
 <body>
 
 	<header>
-        <div class="header-bar">
-            <div class="header-logo">
-                <a href="#top" aria-label="Přejít na začátek stránky">
-                    <img src="images/logo-pizzerie-san-marino-kladno.webp" alt="Logo Pizzerie San Marino Kladno">
-                </a>
-            </div>
-            <nav class="header-nav">
+		<div class="header-desktop">
+            <nav class="header-desktop-nav">
                 <ul>
                     <li><a href="#menu">Menu</a></li>
                     <li><a href="#gallery">Galerie</a></li>
+                    <li class="header-logo-nav-item">
+						<a href="#top" aria-label="Přejít na začátek stránky">
+							<img src="images/logo-pizzerie-san-marino-kladno.webp" alt="Logo Pizzerie San Marino Kladno">
+						</a>
+					</li>
                     <li><a href="#reviews">Recenze</a></li>
                     <li><a href="#delivery">Rozvoz</a></li>
-                    <li><a href="#social">Sledujte nás</a></li>
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </nav>
         </div>
-        
-        <button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
-            <span class="hamburger"></span>
-        </button>
+
+		<div class="header-mobile">
+			<div class="header-mobile-logo">
+				<a href="#top" aria-label="Přejít na začátek stránky">
+					<img src="images/logo-pizzerie-san-marino-kladno.webp" alt="Logo Pizzerie San Marino Kladno">
+				</a>
+			</div>
+			<button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
+				<span class="hamburger"></span>
+			</button>
+		</div>
+		
+		<nav class="mobile-nav-overlay">
+			<ul>
+				<li><a href="#menu">Menu</a></li>
+				<li><a href="#gallery">Galerie</a></li>
+				<li><a href="#reviews">Recenze</a></li>
+				<li><a href="#delivery">Rozvoz</a></li>
+				<li><a href="#social">Sledujte nás</a></li>
+				<li><a href="#contact">Kontakt</a></li>
+			</ul>
+		</nav>
         
 		<div class="hero-slider">
 			<div class="slides">
@@ -1262,7 +1278,7 @@
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 12l3.5 0"></path><path d="M12 7v5"></path></svg>
 					<div class="info-banner-item__text">
 						<span class="title">OTEVÍRACÍ DOBA</span>
-						<span class="subtitle">10:45 - 21:15</span>
+						<span class="subtitle">11:00 - 21:15</span>
 					</div>
 				</div>
 				<div class="info-banner-item">
@@ -1631,9 +1647,9 @@
         
         // --- FUNKCE PRO MOBILNÍ NAVIGACI ---
 		const navToggle = document.querySelector('.nav-toggle');
-		const nav = document.querySelector('.header-nav');
+		const navOverlay = document.querySelector('.mobile-nav-overlay');
 		const body = document.body;
-		if (navToggle && nav) {
+		if (navToggle && navOverlay) {
 			navToggle.addEventListener('click', (e) => {
 				e.stopPropagation();
 				body.classList.toggle('nav-open');
@@ -1641,7 +1657,7 @@
 				navToggle.setAttribute('aria-expanded', !isExpanded);
 			});
             // Zavření menu po kliknutí na odkaz
-            nav.querySelectorAll('a').forEach(link => {
+            navOverlay.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     body.classList.remove('nav-open');
                     navToggle.setAttribute('aria-expanded', 'false');
