@@ -285,13 +285,13 @@
 		/* Mobilní hlavička */
 		.header-mobile {
 			display: flex;
-			justify-content: space-between; /* Změna pro logo vlevo, menu vpravo */
+			justify-content: space-between;
 			align-items: center;
 			position: absolute;
-			top: 0;
+			top: 1rem; /* Posunutí od horního okraje */
 			left: 0;
 			width: 100%;
-			padding: 0.5rem 1rem;
+			padding: 0.5rem 1.5rem; /* Zvětšení bočního odsazení */
 			background-color: transparent;
 			z-index: 1001;
 		}
@@ -301,14 +301,14 @@
 			}
 		}
 		.header-mobile-logo img {
-			height: 50px;
+			height: 60px; /* Zvětšení loga na mobilu */
 			width: auto;
 		}
         .nav-toggle {
             display: block;
             z-index: 1002;
             background: rgba(0,0,0,0.5);
-			border-radius: 8px; /* Mírné zaoblení */
+			border-radius: 8px;
             border: none;
             cursor: pointer;
             padding: 0.5rem;
@@ -319,7 +319,7 @@
             display: block;
             position: relative;
             width: 28px;
-            height: 3px; /* Ztluštění čar */
+            height: 3px;
             background: var(--white);
             transition: all 0.25s ease-in-out;
             margin: auto;
@@ -330,19 +330,19 @@
             position: absolute;
             left: 0;
             width: 28px;
-            height: 3px; /* Ztluštění čar */
+            height: 3px;
             background: var(--white);
             transition: all 0.25s ease-in-out;
         }
-        .hamburger::before { top: -8px; } /* Větší rozestup */
+        .hamburger::before { top: -8px; }
         .hamburger::after { top: 8px; }
         body.nav-open .hamburger { background: transparent; }
-        body.nav-open .hamburger::before { transform: rotate(45deg) translate(6px, 6px); } /* Upravena transformace */
-        body.nav-open .hamburger::after { transform: rotate(-45deg) translate(6px, -6px); } /* Upravena transformace */
+        body.nav-open .hamburger::before { transform: rotate(45deg) translate(6px, 6px); }
+        body.nav-open .hamburger::after { transform: rotate(-45deg) translate(6px, -6px); }
 		body.nav-open .nav-toggle {
 			position: fixed;
-			top: 0.5rem;
-			right: 1rem;
+			top: 1.5rem; /* Sjednocení pozice s .header-mobile */
+			right: 1.5rem;
 		}
 
 		/* Mobilní navigační overlay */
