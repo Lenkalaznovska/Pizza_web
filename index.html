@@ -841,16 +841,16 @@
  /* ----- SEKCE ROZVOZ JÍDLA (NOVÝ STYL) ----- */
 .delivery-card {
     display: grid;
-    grid-template-columns: 1fr; /* Na mobilu začínáme jedním sloupcem */
+    grid-template-columns: 1fr; /* Mobile-first: jeden sloupec */
     align-items: center;
     background: var(--main-green);
-    border-radius: 30px; /* Menší zaoblení pro mobil */
-    overflow: hidden; /* Zajišťuje, že nic nepřetéká */
+    border-radius: 30px;
+    overflow: hidden;
     color: var(--white);
 }
 
 .delivery-content {
-    padding: 2.5rem 1.5rem; /* Vzdušné odsazení */
+    padding: 2.5rem 1.5rem; /* Vzdušné odsazení pro mobil */
     text-align: center;
 }
 
@@ -891,7 +891,7 @@
     background-color: transparent;
     color: var(--white);
     border: 2px solid var(--white);
-    padding: calc(0.75rem - 2px) calc(1.5rem - 2px); /* Kompenzace za border */
+    padding: calc(0.75rem - 2px) calc(1.5rem - 2px);
 }
 
 .button.button-outline:hover {
@@ -901,34 +901,35 @@
 .delivery-image-wrapper img {
     width: 100%;
     height: 100%;
-    max-height: 350px; /* Omezení výšky obrázku na mobilu */
     object-fit: cover;
     display: block;
 }
 
-/* ----- Desktop styl pro sekci rozvozu (přepisuje mobilní) ----- */
+/* ----- Desktop styl pro sekci rozvozu ----- */
 @media (min-width: 1024px) {
     .delivery-card {
-        grid-template-columns: 55fr 45fr; /* Dva sloupce na desktopu */
+        grid-template-columns: 55fr 45fr;
         border-radius: 50px;
+        padding: 2rem; /* Vytvoří rámeček a zmenší vnitřní obsah */
+        gap: 2rem; /* Mezera mezi textem a obrázkem */
     }
     .delivery-content {
+        padding: 1rem; /* Mírné vnitřní odsazení textu */
         text-align: left;
-        padding: 3rem 4rem;
     }
     .delivery-title {
         font-size: 2.5rem;
         line-height: 1.1;
     }
     .delivery-buttons {
-        flex-direction: row; /* Tlačítka vedle sebe */
+        flex-direction: row;
         justify-content: flex-start;
     }
     .button.button-outline {
         padding: calc(1rem - 2px) calc(2rem - 2px);
     }
     .delivery-image-wrapper img {
-       max-height: none; /* Bez omezení výšky */
+       border-radius: 30px; /* Zaoblení samotného obrázku */
     }
 }
 
@@ -1221,11 +1222,11 @@
  }
 
  @media (min-width: 640px) {
-    .hero-content .buttons {
-        flex-direction: row;
-        justify-content: center;
-        gap: 2.5rem;
-    }
+     .hero-content .buttons {
+         flex-direction: row;
+         justify-content: center;
+         gap: 2.5rem;
+     }
  }
 
  @media (min-width: 768px) {
@@ -1417,9 +1418,9 @@ Dopřej si pořádnou dávku chuti a nech si ji přivést až ke dveřím! 🚀
 <div class="menu-card">
 <img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" loading="lazy" alt="Burger s batátovými hranolky a omáčkou od Pizzerie San Marino." class="menu-card-bg-image">
 <div class="menu-card-content">
-<h3 class="card-category">Legendární burgery</h3>
+<h3 class="card-category">Legendární šťavnaté burgery</h3>
 <a href="https://reservoeats.cz/san-marino-kladno-37#burgery-606" target="_blank" rel="noopener noreferrer" class="card-link">Prohlédni si všechny burgery</a>
-<p class="card-subtitle">Burgery jako kráva🔥</p>
+<p class="card-subtitle">Legendární burgery🔥</p>
 <ul class="card-list">
 <li><span>CHEESE Burger</span><span class="price">od 149 Kč</span></li>
 <li><span>BACON Burger</span><span class="price">od 159 Kč</span></li>
@@ -1553,15 +1554,15 @@ Vytvoř si vlastní pizzu
                 <h2 class="delivery-title">ROZVOZ JÍDLA KLADNO.<br>BEZ POPLATKŮ, BEZ STAROSTÍ</h2>
                 <p>Hlad? Nestíháš? Nebo si chceš prostě užít jídlo v pohodlí domova? Rozvážíme po celém Kladně i okolí. <strong>Rychle, spolehlivě a bez zbytečných příplatků.</strong></p>
                 <p>U nás platíš jen za jídlo a samotný rozvoz. Bez skrytých poplatků, bez přirážek, bez překvapení.</p>
-                <div class="delivery-buttons">
-                    <a href="#" data-tel="true" class="button button-red">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <div class="delivery-buttons animate-lure-pulse">
+                    <a href="#" data-tel="true" class="button button-red animate-glow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
                         </svg>
                         <span>+420 604 633 373</span>
                     </a>
-                    <a href="https://reservoeats.cz/san-marino-kladno-37" class="button button-outline" target="_blank" rel="noopener noreferrer">
+                    <a href="https://reservoeats.cz/san-marino-kladno-37" class="button button-outline animate-glow" target="_blank" rel="noopener noreferrer">
                         <span>Objednat online</span>
                     </a>
                 </div>
