@@ -236,24 +236,32 @@
 		}
 
 		/* ----- HLAVIČKA A HERO SLIDER ----- */
-		.header-desktop {
-            position: absolute;
-            z-index: 101;
-            top: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: none; /* Skryto defaultně, zobrazeno pro PC */
-            align-items: center;
+		.header-container-desktop {
+			position: absolute;
+			z-index: 101;
+			top: 0;
+			left: 0;
+			width: 100%;
+			display: none; /* Skryto defaultně, zobrazeno pro PC */
+			align-items: center;
+			justify-content: space-between;
+			padding: 1rem 2.5rem;
+		}
+		.header-logo-desktop img {
+			height: 80px;
+			width: auto;
+		}
+		.header-desktop-nav-menu {
 			background: rgba(0, 0, 0, 0.6);
-            padding: 1rem 2.5rem;
-            border-radius: 10px;
-        }
+			padding: 1rem 2.5rem;
+			border-radius: 10px;
+		}
 		@media (min-width: 1024px) {
-			.header-desktop {
+			.header-container-desktop {
 				display: flex;
 			}
 		}
-        .header-desktop-nav ul {
+        .header-desktop-nav-menu ul {
             list-style: none;
             margin: 0;
             padding: 0;
@@ -261,7 +269,7 @@
 			align-items: center;
             gap: 2.5rem;
         }
-        .header-desktop-nav a {
+        .header-desktop-nav-menu a {
             color: var(--white);
             font-weight: 700;
             text-decoration: none;
@@ -270,26 +278,21 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
 			white-space: nowrap;
         }
-        .header-desktop-nav a:hover {
+        .header-desktop-nav-menu a:hover {
             color: var(--main-red);
         }
-		.header-logo-nav-item img {
-			height: 80px;
-			width: auto;
-			display: block;
-		}
 
 		/* Mobilní hlavička */
 		.header-mobile {
 			display: flex;
-			justify-content: space-between;
+			justify-content: flex-end; /* Posune hamburger doprava */
 			align-items: center;
-			position: fixed;
+			position: absolute; /* Změna z fixed na absolute */
 			top: 0;
 			left: 0;
 			width: 100%;
 			padding: 0.5rem 1rem;
-			background-color: var(--black);
+			background-color: transparent; /* Odebrání černého pozadí */
 			z-index: 1001;
 		}
 		@media (min-width: 1024px) {
@@ -297,25 +300,22 @@
 				display: none;
 			}
 		}
-		.header-mobile-logo img {
-			height: 50px;
-			width: auto;
-		}
         .nav-toggle {
             display: block;
             z-index: 1002;
-            background: transparent;
+            background: rgba(0,0,0,0.5); /* Lehké pozadí pro lepší viditelnost */
+			border-radius: 50%;
             border: none;
             cursor: pointer;
             padding: 0.5rem;
-            width: 40px;
-            height: 40px;
+            width: 44px; /* Zvětšení pro lepší klikatelnost */
+            height: 44px;
         }
         .hamburger {
             display: block;
             position: relative;
-            width: 28px;
-            height: 3px;
+            width: 24px; /* Zmenšení čar */
+            height: 2px;
             background: var(--white);
             transition: all 0.25s ease-in-out;
             margin: auto;
@@ -325,16 +325,22 @@
             content: '';
             position: absolute;
             left: 0;
-            width: 28px;
-            height: 3px;
+            width: 24px;
+            height: 2px;
             background: var(--white);
             transition: all 0.25s ease-in-out;
         }
-        .hamburger::before { top: -8px; }
-        .hamburger::after { top: 8px; }
+        .hamburger::before { top: -7px; } /* Úprava rozestupu */
+        .hamburger::after { top: 7px; }
         body.nav-open .hamburger { background: transparent; }
-        body.nav-open .hamburger::before { transform: rotate(45deg) translate(6px, 6px); }
+        body.nav-open .hamburger::before { transform: rotate(45deg) translate(5px, 5px); }
         body.nav-open .hamburger::after { transform: rotate(-45deg) translate(5px, -5px); }
+		body.nav-open .nav-toggle {
+			position: fixed; /* Fixace pozice při otevřeném menu */
+			top: 0.5rem;
+			right: 1rem;
+		}
+
 
 		/* Mobilní navigační overlay */
 		.mobile-nav-overlay {
@@ -1195,25 +1201,23 @@
 <body>
 
 	<header>
-        <div class="header-desktop">
-            <nav class="header-desktop-nav">
-                <ul>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#gallery">Galerie</a></li>
-                    <li><a href="#reviews">Recenze</a></li>
-                    <li><a href="#delivery">Rozvoz</a></li>
+		<div class="header-container-desktop">
+			<a href="#top" class="header-logo-desktop" aria-label="Přejít na začátek stránky">
+				<img src="images/logo-pizzerie-san-marino-kladno.webp" alt="Logo Pizzerie San Marino Kladno">
+			</a>
+			<nav class="header-desktop-nav-menu">
+				<ul>
+					<li><a href="#menu">Menu</a></li>
+					<li><a href="#gallery">Galerie</a></li>
+					<li><a href="#reviews">Recenze</a></li>
+					<li><a href="#delivery">Rozvoz</a></li>
 					<li><a href="#social">Sledujte nás</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
-                </ul>
-            </nav>
-        </div>
+					<li><a href="#contact">Kontakt</a></li>
+				</ul>
+			</nav>
+		</div>
 
 		<div class="header-mobile">
-			<div class="header-mobile-logo">
-				<a href="#top" aria-label="Přejít na začátek stránky">
-					<img src="images/logo-pizzerie-san-marino-kladno.webp" alt="Logo Pizzerie San Marino Kladno">
-				</a>
-			</div>
 			<button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
 				<span class="hamburger"></span>
 			</button>
@@ -1695,7 +1699,7 @@
 
 		let reviewImagePaths = [
 			'images/dokonala-pizza-od-detstvi-kladno-recenze.webp',
-			'images/exkluzivni-jidlo-kladno-recenze-san-marino.webp',
+			'images/exkluzni-jidlo-kladno-recenze-san-marino.webp',
 			'images/hodnoceni-jidlo-11-z-10-pizzerie-kladno.webp',
 			'images/hodnoceni-pizzerie-san-marino-kladno-fakt-dobry.webp',
 			'images/nejlepsi-double-cheese-burger-kladno-recenze.webp',
