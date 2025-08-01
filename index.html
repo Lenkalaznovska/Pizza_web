@@ -236,17 +236,17 @@
  }
 
  /* ----- HLAVIČKA A HERO SLIDER ----- */
- .header-container-desktop {
- position: absolute;
- z-index: 101;
- top: 0;
- left: 0;
- width: 100%;
- display: none;
- align-items: center;
- justify-content: space-between;
- padding: 1rem 2.5rem;
- }
+.header-container-desktop {
+    position: absolute;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    align-items: baseline; /* Změněno z 'center' na 'baseline' */
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+}
  .header-logo-desktop img {
  height: 80px;
  width: auto;
@@ -1005,7 +1005,7 @@
  transform: none;
  z-index: 20;
  cursor: pointer;
- background-color: var(--main-red); /* ZMĚNA: Sjednocení na červenou */
+ background-color: var(--main-red);
  border-radius: 9999px;
  padding: 0.75rem;
  transition: background-color 0.2s;
@@ -1014,10 +1014,10 @@
  justify-content: center;
  }
  .gallery-swiper-button:hover {
- background-color: var(--main-red-hover); /* ZMĚNA: Sjednocení na tmavší červenou */
+ background-color: var(--main-red-hover);
  }
  .gallery-swiper-button svg {
- color: var(--white); /* ZMĚNA: Sjednocení na bílou ikonu */
+ color: var(--white);
  width: 1.5rem;
  height: 1.5rem;
  }
@@ -1418,9 +1418,9 @@ Dopřej si pořádnou dávku chuti u nás v restauraci, nebo si ji nech přivéz
 <div class="menu-card">
 <img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" loading="lazy" alt="Burger s batátovými hranolky a omáčkou od Pizzerie San Marino." class="menu-card-bg-image">
 <div class="menu-card-content">
-<h3 class="card-category">Legendární šťavnaté burgery</h3>
+<h3 class="card-category">Legendární burgery</h3>
 <a href="https://reservoeats.cz/san-marino-kladno-37#burgery-606" target="_blank" rel="noopener noreferrer" class="card-link">Prohlédni si všechny burgery</a>
-<p class="card-subtitle">Legendární burgery🔥</p>
+<p class="card-subtitle">Burgery jako kráva🔥</p>
 <ul class="card-list">
 <li><span>CHEESE Burger</span><span class="price">od 149 Kč</span></li>
 <li><span>BACON Burger</span><span class="price">od 159 Kč</span></li>
@@ -1562,7 +1562,7 @@ Vytvoř si vlastní pizzu
                         </svg>
                         <span>+420 604 633 373</span>
                     </a>
-                                        <a href="https://reservoeats.cz/san-marino-kladno-37" class="button button-red animate-glow" target="_blank" rel="noopener noreferrer">
+                    <a href="https://reservoeats.cz/san-marino-kladno-37" class="button button-outline animate-glow" target="_blank" rel="noopener noreferrer">
                         <span>Objednat online</span>
                     </a>
                 </div>
@@ -1587,19 +1587,19 @@ Vytvoř si vlastní pizzu
 <div class="gallery-container">
 <div class="swiper-container swiper-container-gallery">
 <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="images/cerstvy-zeleninovy-salat-stestovinami-a-kurecim-masem.webp" loading="lazy" alt="Čerstvý zeleninový salát s těstovinami a kuřecím masem z Pizzerie San Marino Kladno."></div>
-    <div class="swiper-slide"><img src="images/velikonocni-burger-special-na-taliri.webp" loading="lazy" alt="Velikonoční burger speciál na talíři, sezónní nabídka restaurace v Kladně."></div>
-    <div class="swiper-slide"><img src="images/dvojity-cheeseburger-se-slaninou-hranolky-a-dipem.webp" loading="lazy" alt="Šťavnatý dvojitý cheeseburger se slaninou, hranolky a dipem, specialita z Kladna."></div>
-    <div class="swiper-slide"><img src="images/wing-it-kureci-stripsy.webp" loading="lazy" alt="Křupavé kuřecí stripsy 'Wing It' s omáčkou, oblíbená pochoutka v San Marino Kladno."></div>
-    <div class="swiper-slide"><img src="images/smazena-kureci-kridla-a-stripsy-wing-it-kladno.webp" loading="lazy" alt="Smažená kuřecí křídla a stripsy 'Wing It' s hranolky, rozvoz po Kladně."></div>
-    <div class="swiper-slide"><img src="images/michany-letni-drink.webp" loading="lazy" alt="Barevný míchaný letní drink s ovocem z nabídky Pizzerie San Marino Kladno."></div>
-    <div class="swiper-slide"><img src="images/syrove-mozzarella-tycky-s-vyberem-omacek-a-dipu.webp" loading="lazy" alt="Smažené sýrové mozzarella tyčky s výběrem omáček a dipů jako předkrm."></div>
-    <div class="swiper-slide"><img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" loading="lazy" alt="Gurmánský burger s křupavými batátovými hranolky a domácí omáčkou v Kladně."></div>
-    <div class="swiper-slide"><img src="images/wing-it-kureci-popkorn-kladno.webp" loading="lazy" alt="Kuřecí popcorn 'Wing It' v boxu s hranolky, ideální na cesty i na doma."></div>
-    <div class="swiper-slide"><img src="images/double-burger-se-slaninou-a-bramborove-hranolky.webp" loading="lazy" alt="Vysoký double burger se slaninou, čedarem a křupavými bramborovými hranolky."></div>
-    <div class="swiper-slide"><img src="images/osvezujici-letni-drink-se-sirupem-monin.webp" loading="lazy" alt="Osvěžující letní drink se sirupem Monin, ledem a mátou."></div>
-    <div class="swiper-slide"><img src="images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp" loading="lazy" alt="Legendární dvojitý burger 'Jako Kráva' se slaninou, omáčkou a hranolky z Pizzerie San Marino Kladno."></div>
-    <div class="swiper-slide"><img src="images/prilohy-hranolky-batatove-bramborove-hranolky-cibulove-krouzky.webp" loading="lazy" alt="Výběr příloh: zlatavé hranolky, batátové hranolky a cibulové kroužky."></div>
+<div class="swiper-slide"><img src="images/dvojity-cheeseburger-se-slaninou-hranolky-a-dipem.webp" loading="lazy" alt="Dvojitý cheeseburger se slaninou, hranolky a dipem."></div>
+<div class="swiper-slide"><img src="images/cerstvy-zeleninovy-salat-stestovinami-a-kurecim-masem.webp" loading="lazy" alt="Čerstvý zeleninový salát s těstovinami a kuřecím masem."></div>
+<div class="swiper-slide"><img src="images/double-burger-se-slaninou-a-bramborove-hranolky.webp" loading="lazy" alt="Double burger se slaninou a bramborové hranolky."></div>
+<div class="swiper-slide"><img src="images/michany-letni-drink.webp" loading="lazy" alt="Míchaný letní drink."></div>
+<div class="swiper-slide"><img src="images/wing-it-kureci-popkorn-kladno.webp" loading="lazy" alt="Kuřecí popcorn s hranolky v boxu značky Wing It."></div>
+<div class="swiper-slide"><img src="images/velikonocni-burger-special-na-taliri.webp" loading="lazy" alt="Velikonoční burger speciál na talíři."></div>
+<div class="swiper-slide"><img src="images/syrove-mozzarella-tycky-s-vyberem-omacek-a-dipu.webp" loading="lazy" alt="Sýrové mozzarella tyčky s výběrem omáček a dipů."></div>
+<div class="swiper-slide"><img src="images/osvezujici-letni-drink-se-sirupem-monin.webp" loading="lazy" alt="Osvěžující letní drink se sirupem Monin."></div>
+<div class="swiper-slide"><img src="images/smazena-kureci-kridla-a-stripsy-wing-it-kladno.webp" loading="lazy" alt="Smažená kuřecí křídla a stripsy."></div>
+<div class="swiper-slide"><img src="images/wing-it-kureci-stripsy.webp" loading="lazy" alt="Kuřecí stripsy značky Wing It."></div>
+<div class="swiper-slide"><img src="images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp" loading="lazy" alt="Burger s batátovými hranolky."></div>
+<div class="swiper-slide"><img src="images/prilohy-hranolky-batatove-bramborove-hranolky-cibulove-krouzky.webp" loading="lazy" alt="Přílohy: hranolky, batátové hranolky, cibulové kroužky."></div>
+<div class="swiper-slide"><img src="images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp" loading="lazy" alt="Dvojitý burger 'Jako kráva' se slaninou a hranolky."></div>
 </div>
 </div>
 <div class="gallery-swiper-nav">
@@ -1661,7 +1661,7 @@ Ať Vám neuniknou slevy, soutěže, novinky, akce a další exkluzivní obsah!
 <div class="footer-grid">
 
 <div class="footer-column">
-<h3 class="footer-heading">Provozovatel</h3>
+<h4 class="footer-heading">Provozovatel</h4>
 <div class="footer-info">
 <p>ALFA plus s.r.o.</p>
 <p>Železničářů 2350, 27201 Kladno</p>
@@ -1671,7 +1671,7 @@ Ať Vám neuniknou slevy, soutěže, novinky, akce a další exkluzivní obsah!
 </div>
 
 <div class="footer-column">
-<h3 class="footer-heading">Otevírací doba</h3>
+<h4 class="footer-heading">Otevírací doba</h4>
 <div class="opening-hours">
 <div data-day="1" class="day-row">
 <span>Pondělí</span>
@@ -1690,7 +1690,7 @@ Ať Vám neuniknou slevy, soutěže, novinky, akce a další exkluzivní obsah!
 </div>
 
 <div class="footer-column">
-<h3 class="footer-heading">Kontakty</h3>
+<h4 class="footer-heading">Kontakty</h4>
 <ul class="footer-contact-list">
 <li>
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -1788,7 +1788,7 @@ images: [
 
 let reviewImagePaths = [
 'images/dokonala-pizza-od-detstvi-kladno-recenze.webp',
-'images/exkluzni-jidlo-kladno-recenze-san-marino.webp',
+'images/exkluzivni-jidlo-kladno-recenze-san-marino.webp',
 'images/hodnoceni-jidlo-11-z-10-pizzerie-kladno.webp',
 'images/hodnoceni-pizzerie-san-marino-kladno-fakt-dobry.webp',
 'images/nejlepsi-double-cheese-burger-kladno-recenze.webp',
