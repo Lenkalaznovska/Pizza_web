@@ -285,14 +285,14 @@
 		/* Mobilní hlavička */
 		.header-mobile {
 			display: flex;
-			justify-content: flex-end; /* Posune hamburger doprava */
+			justify-content: space-between; /* Změna pro logo vlevo, menu vpravo */
 			align-items: center;
-			position: absolute; /* Změna z fixed na absolute */
+			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
 			padding: 0.5rem 1rem;
-			background-color: transparent; /* Odebrání černého pozadí */
+			background-color: transparent;
 			z-index: 1001;
 		}
 		@media (min-width: 1024px) {
@@ -300,22 +300,26 @@
 				display: none;
 			}
 		}
+		.header-mobile-logo img {
+			height: 50px;
+			width: auto;
+		}
         .nav-toggle {
             display: block;
             z-index: 1002;
-            background: rgba(0,0,0,0.5); /* Lehké pozadí pro lepší viditelnost */
-			border-radius: 50%;
+            background: rgba(0,0,0,0.5);
+			border-radius: 8px; /* Mírné zaoblení */
             border: none;
             cursor: pointer;
             padding: 0.5rem;
-            width: 44px; /* Zvětšení pro lepší klikatelnost */
+            width: 44px;
             height: 44px;
         }
         .hamburger {
             display: block;
             position: relative;
-            width: 24px; /* Zmenšení čar */
-            height: 2px;
+            width: 28px;
+            height: 3px; /* Ztluštění čar */
             background: var(--white);
             transition: all 0.25s ease-in-out;
             margin: auto;
@@ -325,22 +329,21 @@
             content: '';
             position: absolute;
             left: 0;
-            width: 24px;
-            height: 2px;
+            width: 28px;
+            height: 3px; /* Ztluštění čar */
             background: var(--white);
             transition: all 0.25s ease-in-out;
         }
-        .hamburger::before { top: -7px; } /* Úprava rozestupu */
-        .hamburger::after { top: 7px; }
+        .hamburger::before { top: -8px; } /* Větší rozestup */
+        .hamburger::after { top: 8px; }
         body.nav-open .hamburger { background: transparent; }
-        body.nav-open .hamburger::before { transform: rotate(45deg) translate(5px, 5px); }
-        body.nav-open .hamburger::after { transform: rotate(-45deg) translate(5px, -5px); }
+        body.nav-open .hamburger::before { transform: rotate(45deg) translate(6px, 6px); } /* Upravena transformace */
+        body.nav-open .hamburger::after { transform: rotate(-45deg) translate(6px, -6px); } /* Upravena transformace */
 		body.nav-open .nav-toggle {
-			position: fixed; /* Fixace pozice při otevřeném menu */
+			position: fixed;
 			top: 0.5rem;
 			right: 1rem;
 		}
-
 
 		/* Mobilní navigační overlay */
 		.mobile-nav-overlay {
@@ -1218,6 +1221,11 @@
 		</div>
 
 		<div class="header-mobile">
+			<div class="header-mobile-logo">
+				<a href="#top" aria-label="Přejít na začátek stránky">
+					<img src="images/logo-pizzerie-san-marino-kladno.webp" alt="Logo Pizzerie San Marino Kladno">
+				</a>
+			</div>
 			<button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
 				<span class="hamburger"></span>
 			</button>
@@ -1233,7 +1241,7 @@
 				<li><a href="#contact">Kontakt</a></li>
 			</ul>
 		</nav>
-        
+        
 		<div class="hero-slider">
 			<div class="slides">
 				<div class="slide">
@@ -1444,18 +1452,18 @@
 								</div>
 						</div>
 					</div>
-                        <div class="review-swiper-nav">
-                            <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                                </svg>
-                            </div>
-                            <div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
-                        </div>
+                        <div class="review-swiper-nav">
+                            <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </div>
+                            <div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                        </div>
 				</div>
 			</div>
 		</section>
@@ -1652,8 +1660,8 @@
 
 	<script>
 	document.addEventListener('DOMContentLoaded', () => {
-        
-        // --- FUNKCE PRO MOBILNÍ NAVIGACI ---
+        
+        // --- FUNKCE PRO MOBILNÍ NAVIGACI ---
 		const navToggle = document.querySelector('.nav-toggle');
 		const navOverlay = document.querySelector('.mobile-nav-overlay');
 		const body = document.body;
@@ -1661,16 +1669,16 @@
 			navToggle.addEventListener('click', (e) => {
 				e.stopPropagation();
 				body.classList.toggle('nav-open');
-                const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
 				navToggle.setAttribute('aria-expanded', !isExpanded);
 			});
-            // Zavření menu po kliknutí na odkaz
-            navOverlay.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    body.classList.remove('nav-open');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                });
-            });
+            // Zavření menu po kliknutí na odkaz
+            navOverlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    body.classList.remove('nav-open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
 		}
 		
 		const slides = document.querySelector('.slides');
@@ -1738,12 +1746,12 @@
 			const dots = dotsContainer.querySelectorAll('.gallery-dot');
 
 			const updateGallery = () => {
-                if (galleryData.images.length > 0) {
-				    galleryImage.src = galleryData.images[galleryData.currentIndex];
-				    dots.forEach((dot, index) => {
-					    dot.classList.toggle('active', index === galleryData.currentIndex);
-				    });
-                }
+                if (galleryData.images.length > 0) {
+				    galleryImage.src = galleryData.images[galleryData.currentIndex];
+				    dots.forEach((dot, index) => {
+					    dot.classList.toggle('active', index === galleryData.currentIndex);
+				    });
+                }
 			};
 		
 			const nextImage = () => {
