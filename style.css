@@ -801,34 +801,99 @@ height: 1.5rem;
       display: block;
 }
 
-/* ----- Desktop styl pro sekci rozvozu ----- */
-@media (min-width: 1024px) {
-      .delivery-card {
-          grid-template-columns: 55fr 45fr;
-          border-radius: 50px;
-          padding: 2rem; /* Vytvoří rámeček a zmenší vnitřní obsah */
-          gap: 2rem; /* Mezera mezi textem a obrázkem */
-      }
-      .delivery-content {
-          padding: 1rem; /* Mírné vnitřní odsazení textu */
-          text-align: left;
-      }
-      .delivery-title {
-          font-size: 2.5rem;
-          line-height: 1.1;
-      }
-      .delivery-buttons {
-          flex-direction: row;
-          justify-content: flex-start;
-      }
-      .button.button-outline {
-          padding: calc(1rem - 2px) calc(2rem - 2px);
-      }
-      .delivery-image-wrapper img {
-         border-radius: 30px; /* Zaoblení samotného obrázku */
-      }
+/* ----- SEKCE ROZVOZ JÍDLA (NOVÝ STYL) ----- */
+.delivery-card {
+    display: grid;
+    grid-template-columns: 1fr; /* Na mobilu začínáme jedním sloupcem */
+    align-items: center;
+    background: var(--main-green);
+    border-radius: 30px; /* Menší zaoblení pro mobil */
+    overflow: hidden; /* Zajišťuje, že nic nepřetéká */
+    color: var(--white);
 }
 
+.delivery-content {
+    padding: 2.5rem 1.5rem; /* Vzdušné odsazení */
+    text-align: center;
+}
+
+.delivery-subtitle {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.delivery-title {
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.delivery-content p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.delivery-buttons {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column; /* Na mobilu pod sebou */
+    align-items: center;
+    gap: 1rem;
+}
+
+.button.button-outline {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    padding: calc(0.75rem - 2px) calc(1.5rem - 2px); /* Kompenzace za border */
+}
+
+.button.button-outline:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.delivery-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    max-height: 350px; /* Omezení výšky obrázku na mobilu */
+    object-fit: cover;
+    display: block;
+}
+
+/* ----- Desktop styl pro sekci rozvozu (přepisuje mobilní) ----- */
+@media (min-width: 1024px) {
+    .delivery-card {
+        grid-template-columns: 55fr 45fr; /* Dva sloupce na desktopu */
+        border-radius: 50px;
+    }
+    .delivery-content {
+        text-align: left;
+        padding: 3rem 4rem;
+    }
+    .delivery-title {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+    .delivery-buttons {
+        flex-direction: row; /* Tlačítka vedle sebe */
+        justify-content: flex-start;
+    }
+    .button.button-outline {
+        padding: calc(1rem - 2px) calc(2rem - 2px);
+    }
+    .delivery-image-wrapper img {
+       max-height: none; /* Bez omezení výšky */
+    }
+}
 
 /* ----- SEKCE GALERIE (dříve Ostatní nabídka) ----- */
 .other-offers-section {
