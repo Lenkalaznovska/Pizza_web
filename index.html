@@ -103,7 +103,7 @@
     }
     </script>
 
-  <style>
+ <style>
 		/* ----- ZÁKLADNÍ NASTAVENÍ A PROMĚNNÉ ----- */
 		:root {
 			--main-red: #E20B18;
@@ -638,9 +638,7 @@
 			align-items: center;
 			justify-content: center;
 			gap: 0.5rem;
-		}
-		.menu-card .card-subtitle::after {
-			content: attr(data-icon);
+			white-space: nowrap; /* TOTO JSEM PŘIDAL */
 		}
 		.menu-card .card-list {
 			list-style: none;
@@ -1122,12 +1120,6 @@
 			}
 			.hero-content .buttons {
 				margin-top: 2rem;
-			}
-			/* --- Mobilní styl pro podnadpisy v kartách --- */
-			.menu-card .card-subtitle {
-				flex-direction: column;
-				min-height: auto;
-				gap: 0.25rem;
 			}
 			/* --- INFO LIŠTA PRO MOBIL --- */
             .info-banner {
