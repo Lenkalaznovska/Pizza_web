@@ -128,7 +128,7 @@
  padding: 0;
  box-sizing: border-box;
  }
-        html {
+         html {
  scroll-behavior: smooth;
  }
  html, body {
@@ -137,17 +137,17 @@
  color: var(--black);
  overflow-x: hidden;
  }
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-        }
+         @media (prefers-reduced-motion: reduce) {
+             html {
+                 scroll-behavior: auto;
+             }
+             *, *::before, *::after {
+                 animation-duration: 0.01ms !important;
+                 animation-iteration-count: 1 !important;
+                 transition-duration: 0.01ms !important;
+                 scroll-behavior: auto !important;
+             }
+         }
  a {
  color: inherit;
  text-decoration: none;
@@ -177,40 +177,40 @@
  margin-bottom: 1rem;
  font-weight: bold;
  }
-        .bg-green-pattern .section-header-subtitle,
-        .other-offers-section .section-header-subtitle {
-            color: var(--white);
-        }
-        .section-title, .title {
-            font-size: 2.5rem;
+         .bg-green-pattern .section-header-subtitle,
+         .other-offers-section .section-header-subtitle {
+             color: var(--white);
+         }
+         .section-title, .title {
+             font-size: 2.5rem;
  font-weight: 900;
  text-transform: uppercase;
  letter-spacing: 0.025em;
-            text-align: center;
-            margin-top: 0;
+             text-align: center;
+             margin-top: 0;
  margin-bottom: 2rem;
  hyphens: auto;
  line-height: 1.1;
-        }
-        .bg-green-pattern .section-title,
-        .other-offers-section .title {
-            color: var(--white);
-        }
-        .section-white .title,
-        .menu-section-header .title {
-            color: var(--black);
-        }
-        @media (min-width: 768px) {
-            .menu-section-header, .text-content-column {
-                text-align: left;
-            }
-            .menu-section-header .title, .text-content-column .section-title {
-                text-align: left;
-            }
-            .menu-section-header .section-header-subtitle, .text-content-column .section-header-subtitle {
-                text-align: left;
-            }
-        }
+         }
+         .bg-green-pattern .section-title,
+         .other-offers-section .title {
+             color: var(--white);
+         }
+         .section-white .title,
+         .menu-section-header .title {
+             color: var(--black);
+         }
+         @media (min-width: 768px) {
+             .menu-section-header, .text-content-column {
+                 text-align: left;
+             }
+             .menu-section-header .title, .text-content-column .section-title {
+                 text-align: left;
+             }
+             .menu-section-header .section-header-subtitle, .text-content-column .section-header-subtitle {
+                 text-align: left;
+             }
+         }
 
  /* ----- ANIMACE ----- */
  @keyframes lure-pulse {
@@ -264,26 +264,26 @@
  display: flex;
  }
  }
-        .header-desktop-nav-menu ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
+         .header-desktop-nav-menu ul {
+             list-style: none;
+             margin: 0;
+             padding: 0;
+             display: flex;
  align-items: center;
-            gap: 2.5rem;
-        }
-        .header-desktop-nav-menu a {
-            color: var(--white);
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 1.15rem;
-            transition: color 0.2s ease-in-out;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+             gap: 2.5rem;
+         }
+         .header-desktop-nav-menu a {
+             color: var(--white);
+             font-weight: 700;
+             text-decoration: none;
+             font-size: 1.15rem;
+             transition: color 0.2s ease-in-out;
+             text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
  white-space: nowrap;
-        }
-        .header-desktop-nav-menu a:hover {
-            color: var(--main-red);
-        }
+         }
+         .header-desktop-nav-menu a:hover {
+             color: var(--main-red);
+         }
 
  /* Mobilní hlavička */
  .header-mobile {
@@ -307,41 +307,41 @@
  height: 80px;
  width: auto;
  }
-        .nav-toggle {
-            display: block;
-            z-index: 1002;
-            background: rgba(0,0,0,0.5);
+         .nav-toggle {
+             display: block;
+             z-index: 1002;
+             background: rgba(0,0,0,0.5);
  border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            width: 44px;
-            height: 44px;
-        }
-        .hamburger {
-            display: block;
-            position: relative;
-            width: 28px;
-            height: 3px;
-            background: var(--white);
-            transition: all 0.25s ease-in-out;
-            margin: auto;
-        }
-        .hamburger::before,
-        .hamburger::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            width: 28px;
-            height: 3px;
-            background: var(--white);
-            transition: all 0.25s ease-in-out;
-        }
-        .hamburger::before { top: -8px; }
-        .hamburger::after { top: 8px; }
-        body.nav-open .hamburger { background: transparent; }
-        body.nav-open .hamburger::before { transform: rotate(45deg) translate(6px, 6px); }
-        body.nav-open .hamburger::after { transform: rotate(-45deg) translate(6px, -6px); }
+             border: none;
+             cursor: pointer;
+             padding: 0.5rem;
+             width: 44px;
+             height: 44px;
+         }
+         .hamburger {
+             display: block;
+             position: relative;
+             width: 28px;
+             height: 3px;
+             background: var(--white);
+             transition: all 0.25s ease-in-out;
+             margin: auto;
+         }
+         .hamburger::before,
+         .hamburger::after {
+             content: '';
+             position: absolute;
+             left: 0;
+             width: 28px;
+             height: 3px;
+             background: var(--white);
+             transition: all 0.25s ease-in-out;
+         }
+         .hamburger::before { top: -8px; }
+         .hamburger::after { top: 8px; }
+         body.nav-open .hamburger { background: transparent; }
+         body.nav-open .hamburger::before { transform: rotate(45deg) translate(6px, 6px); }
+         body.nav-open .hamburger::after { transform: rotate(-45deg) translate(6px, -6px); }
  body.nav-open .nav-toggle {
  position: fixed;
  top: 1rem;
@@ -521,7 +521,7 @@
  text-transform: uppercase;
  letter-spacing: 0.05em;
  line-height: 1.2;
-            margin-bottom: 2px; /* Zmenšení mezery */
+             margin-bottom: 2px; /* Zmenšení mezery */
  }
  .info-banner-item__text .subtitle {
  color: var(--black);
@@ -548,13 +548,13 @@
  display: grid;
  grid-template-columns: 1fr;
  gap: 2rem;
-            align-items: stretch;
+             align-items: stretch;
  }
-        @media (min-width: 768px) {
-            .menu-grid {
-                grid-auto-rows: 1fr;
-            }
-        }
+         @media (min-width: 768px) {
+             .menu-grid {
+                 grid-auto-rows: 1fr;
+             }
+         }
  .menu-card {
  position: relative;
  border-radius: 1.5rem;
@@ -577,7 +577,7 @@
  }
  .menu-card:hover {
  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-            transform: translateY(-5px);
+             transform: translateY(-5px);
  }
  .menu-card-bg-image {
  position: absolute;
@@ -585,7 +585,7 @@
  width: 100%;
  height: 100%;
  object-fit: cover;
-            z-index: 1;
+             z-index: 1;
  }
  .menu-card-content {
  position: relative;
@@ -617,10 +617,10 @@
  margin-bottom: 1rem;
  transition: transform 0.3s ease;
  min-height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.25rem;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             gap: 0.25rem;
  }
  .menu-card .card-link:hover {
  text-decoration: underline;
@@ -656,7 +656,7 @@
  }
  .menu-card .card-button-wrapper {
  padding-top: 2rem;
-            margin-top: auto; 
+             margin-top: auto; 
  }
  .button-white-green { background-color: var(--white); color: var(--main-green); }
  .button-white-green:hover { background-color: #e6f2ed; }
@@ -666,23 +666,23 @@
  .button-white-dark:hover { background-color: #f3f4f6; }
 
  /* ----- SEKCE S POZADÍM ----- */
-        .bg-green-pattern {
-            background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
+         .bg-green-pattern {
+             background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
  background-size: cover;
  background-position: center center;
  background-repeat: no-repeat;
-            color: var(--white);
-        }
-        .bg-green-pattern p, 
-        .bg-green-pattern span, 
-        .bg-green-pattern .section-subtitle,
+             color: var(--white);
+         }
+         .bg-green-pattern p, 
+         .bg-green-pattern span, 
+         .bg-green-pattern .section-subtitle,
  .bg-green-pattern strong {
  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
  }
  .section-green-bg {
  padding: 2rem;
  border-radius: 1.5rem;
-            background-color: transparent;
+             background-color: transparent;
  }
  .two-column-grid {
  display: grid;
@@ -736,7 +736,7 @@
  height: 100%;
  object-fit: cover;
  border-radius: 1rem;
-            transition: none;
+             transition: none;
  }
  .gallery-button {
  position: absolute;
@@ -750,9 +750,9 @@
  z-index: 10;
  cursor: pointer;
  }
-        .gallery-button:active {
-            transform: translateY(-50%);
-        }
+         .gallery-button:active {
+             transform: translateY(-50%);
+         }
  .gallery-button:hover {
  background-color: var(--main-red-hover);
  }
@@ -810,12 +810,12 @@
  height: 100%;
  object-fit: contain;
  }
-        .review-swiper-nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
+         .review-swiper-nav {
+             display: flex;
+             justify-content: center;
+             gap: 1rem;
+             margin-top: 1.5rem;
+         }
  .review-swiper-button {
  position: static;
  transform: none;
@@ -825,9 +825,9 @@
  border-radius: 9999px;
  padding: 0.75rem;
  transition: background-color 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+             display: flex;
+             align-items: center;
+             justify-content: center;
  }
  .review-swiper-button:hover {
  background-color: var(--main-red-hover);
@@ -838,23 +838,100 @@
  height: 1.5rem;
  }
 
- /* ----- SEKCE ROZVOZ (tlačítka) ----- */
- .delivery-image-wrapper img {
- width: 100%;
- max-width: 32rem;
- margin-left: auto;
- margin-right: auto;
- object-fit: cover;
- border-radius: 1rem;
- box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
- }
- .delivery-buttons {
- display: flex;
- flex-direction: column;
- align-items: center;
- gap: 1rem;
- margin-top: 3rem;
- }
+ /* ----- SEKCE ROZVOZ JÍDLA (NOVÝ STYL) ----- */
+.delivery-card {
+    display: grid;
+    grid-template-columns: 1fr; /* Na mobilu začínáme jedním sloupcem */
+    align-items: center;
+    background: var(--main-green);
+    border-radius: 30px; /* Menší zaoblení pro mobil */
+    overflow: hidden; /* Zajišťuje, že nic nepřetéká */
+    color: var(--white);
+}
+
+.delivery-content {
+    padding: 2.5rem 1.5rem; /* Vzdušné odsazení */
+    text-align: center;
+}
+
+.delivery-subtitle {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.delivery-title {
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.delivery-content p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.delivery-buttons {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column; /* Na mobilu pod sebou */
+    align-items: center;
+    gap: 1rem;
+}
+
+.button.button-outline {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    padding: calc(0.75rem - 2px) calc(1.5rem - 2px); /* Kompenzace za border */
+}
+
+.button.button-outline:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.delivery-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    max-height: 350px; /* Omezení výšky obrázku na mobilu */
+    object-fit: cover;
+    display: block;
+}
+
+/* ----- Desktop styl pro sekci rozvozu (přepisuje mobilní) ----- */
+@media (min-width: 1024px) {
+    .delivery-card {
+        grid-template-columns: 55fr 45fr; /* Dva sloupce na desktopu */
+        border-radius: 50px;
+    }
+    .delivery-content {
+        text-align: left;
+        padding: 3rem 4rem;
+    }
+    .delivery-title {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+    .delivery-buttons {
+        flex-direction: row; /* Tlačítka vedle sebe */
+        justify-content: flex-start;
+    }
+    .button.button-outline {
+        padding: calc(1rem - 2px) calc(2rem - 2px);
+    }
+    .delivery-image-wrapper img {
+       max-height: none; /* Bez omezení výšky */
+    }
+}
+
 
  /* ----- SEKCE GALERIE (dříve Ostatní nabídka) ----- */
  .other-offers-section {
@@ -862,7 +939,7 @@
  padding-bottom: 6rem;
  position: relative;
  overflow: hidden;
-            background-color: #1a1a1a;
+             background-color: #1a1a1a;
  }
  .other-offers-bg-text {
  position: absolute;
@@ -966,16 +1043,16 @@
  .social-icons .tiktok-icon path {
  fill: var(--black);
  }
-        .elfsight-app-fda31c74-30c8-40aa-be79-2c7ae5fced3d {
-            max-width: 100%;
-            overflow-x: auto;
-        }
+         .elfsight-app-fda31c74-30c8-40aa-be79-2c7ae5fced3d {
+             max-width: 100%;
+             overflow-x: auto;
+         }
 
  /* ----- PATIČKA ----- */
  .footer {
  color: var(--white);
  width: 100%;
-            background-color: var(--main-green);
+             background-color: var(--main-green);
  }
  .footer .container {
  padding-top: 4rem;
@@ -990,7 +1067,7 @@
  gap: 3.5rem;
  font-size: 1rem;
  align-items: start;
-            margin-top: 4rem;
+             margin-top: 4rem;
  }
  .footer-column {
  display: flex;
@@ -1030,8 +1107,8 @@
  }
  .opening-hours .day-row.active-day {
  font-weight: 700;
-            color: var(--white);
-            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+             color: var(--white);
+             text-shadow: 0 0 5px rgba(0,0,0,0.5);
  }
  .footer-contact-list {
  list-style: none;
@@ -1119,36 +1196,36 @@
  margin-top: 2rem;
  }
  /* --- INFO LIŠTA PRO MOBIL --- */
-            .info-banner {
-                flex-direction: column;
+             .info-banner {
+                 flex-direction: column;
  align-items: flex-start;
-                gap: 1.5rem;
-                padding: 1.5rem 1.75rem;
+                 gap: 1.5rem;
+                 padding: 1.5rem 1.75rem;
  border-radius: 1.5rem;
  max-width: 500px;
-            }
+             }
  .info-banner-container {
  margin-top: -110px;
  }
-            .info-banner-item {
-                width: auto;
-            }
+             .info-banner-item {
+                 width: auto;
+             }
  .review-swiper-button-prev,
-            .review-swiper-button-next { 
+             .review-swiper-button-next { 
  left: auto;
-                right: auto;
+                 right: auto;
  }
-            .other-offers-bg-text span {
-                font-size: 4rem;
-            }
+             .other-offers-bg-text span {
+                 font-size: 4rem;
+             }
  }
 
  @media (min-width: 640px) {
- .hero-content .buttons, .delivery-buttons {
- flex-direction: row;
- justify-content: center;
- gap: 2.5rem;
- }
+    .hero-content .buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2.5rem;
+    }
  }
 
  @media (min-width: 768px) {
@@ -1168,7 +1245,7 @@
  .info-banner { flex-wrap: nowrap; }
  .menu-grid { grid-template-columns: repeat(2, 1fr); }
  .menu-card.span-2 { grid-column: span 2 / span 2; }
-            .two-column-grid { grid-template-columns: repeat(2, 1fr); }
+             .two-column-grid { grid-template-columns: repeat(2, 1fr); }
  .footer-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
  .footer-column { justify-content: flex-start; gap: 1rem; }
  .footer-bottom { flex-direction: row; }
@@ -1452,55 +1529,48 @@ Vytvoř si vlastní pizzu
 </div>
 </div>
 </div>
-                                <div class="review-swiper-nav">
-                                    <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                                        </svg>
-                                    </div>
-                                    <div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </div>
-                                </div>
+                                        <div class="review-swiper-nav">
+                                            <div class="review-swiper-button review-swiper-button-prev" aria-label="Předchozí recenze">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                                                </svg>
+                                            </div>
+                                            <div class="review-swiper-button review-swiper-button-next" aria-label="Následující recenze">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </div>
+                                        </div>
 </div>
 </div>
 </section>
 
-<section id="delivery" class="section section-white">
-<div class="container">
-<div class="bg-green-pattern section-green-bg">
-<div class="two-column-grid">
-<div class="delivery-content text-content-column">
-    <p class="section-header-subtitle">Doručení objednávky</p>
-    <h2 class="section-title">Rozvoz jídla Kladno a okolí</h2>
-    <div class="section-text" style="text-align: left; display: flex; flex-direction: column; gap: 1rem;">
-        <p>Nechte vaření na nás a vychutnejte si jídlo v pohodlí vašeho domova. <strong>Jedinečné pizzy</strong> s křupavým okrajem, <strong>legendárních burgery</strong> a <strong>kuřecí speciality</strong> či dalších dobroty. Zajišťujeme <strong>rozvoz jídla v Kladně a okolí</strong>.</p>
-        <p>U nás hrajeme fér. Cena, kterou vidíte, je konečná. Naší prioritou je vaše spokojenost a jistota, že za své peníze dostáváte to nejlepší.</p>
-        <p>Objednat si <strong>jídlo domů</strong> nebylo nikdy snazší. Stačí pár kliknutí online nebo nám zavolejte. O vše ostatní se postaráme my a vaše objednávka bude brzy u vás. Jsme tu pro vás každý den!</p>
+<section id="delivery" class="section">
+    <div class="container">
+        <div class="delivery-card">
+            <div class="delivery-content">
+                <span class="delivery-subtitle">Rozvoz jídla</span>
+                <h2 class="delivery-title">ROZVOZ JÍDLA KLADNO.<br>BEZ POPLATKŮ, BEZ STAROSTÍ</h2>
+                <p>Hlad? Nestíháš? Nebo si chceš prostě užít jídlo v pohodlí domova? Rozvážíme po celém Kladně i okolí. <strong>Rychle, spolehlivě a bez zbytečných příplatků.</strong></p>
+                <p>U nás platíš jen za jídlo a samotný rozvoz. Bez skrytých poplatků, bez přirážek, bez překvapení.</p>
+                <div class="delivery-buttons">
+                    <a href="#" data-tel="true" class="button button-red">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
+                        </svg>
+                        <span>+420 604 633 373</span>
+                    </a>
+                    <a href="https://reservoeats.cz/san-marino-kladno-37" class="button button-outline" target="_blank" rel="noopener noreferrer">
+                        <span>Objednat online</span>
+                    </a>
+                </div>
+            </div>
+            <div class="delivery-image-wrapper">
+                 <img src="images/pizzerie-san-marino-rozvoz-jidel-kladno-a-okoli.webp" loading="lazy" alt="Rozvozové auto Pizzerie San Marino pro rychlý dovoz pizzy a burgerů po Kladně.">
+            </div>
+        </div>
     </div>
-    <div class="delivery-buttons animate-lure-pulse">
-        <a href="#" data-tel="true" class="button button-red animate-glow">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
-                <path d="M15 7a2 2 0 0 1 2 2"></path>
-                <path d="M15 3a6 6 0 0 1 6 6"></path>
-            </svg>
-            <span>Zavolej a objednej</span>
-        </a>
-        <a href="https://reservoeats.cz/san-marino-kladno-37" class="button button-red animate-glow" target="_blank" rel="noopener noreferrer">
-            <span>Objednej online</span>
-        </a>
-    </div>
-</div>
-<div class="delivery-image-wrapper">
-    <img src="images/pizzerie-san-marino-rozvoz-jidel-kladno-a-okoli.webp" loading="lazy" alt="Rozvozové auto Pizzerie San Marino pro rychlý dovoz pizzy a burgerů po Kladně.">
-</div>
-</div>
-</div>
-</div>
 </section>
 
 <section id="gallery" class="section bg-green-pattern other-offers-section">
