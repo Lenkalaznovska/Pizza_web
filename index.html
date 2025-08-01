@@ -236,17 +236,18 @@
  }
 
  /* ----- HLAVIČKA A HERO SLIDER ----- */
- .header-container-desktop {
- position: absolute;
- z-index: 101;
- top: 0;
- left: 0;
- width: 100%;
- display: none;
- align-items: center;
- justify-content: space-between;
- padding: 1rem 2.5rem;
- }
+.header-container-desktop {
+    position: absolute;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: flex-start; /* Změněno z space-between */
+    gap: 2.5rem;                 /* Přidáno pro mezeru mezi logem a navigací */
+    padding: 1rem 2.5rem;
+}
  .header-logo-desktop img {
  height: 80px;
  width: auto;
