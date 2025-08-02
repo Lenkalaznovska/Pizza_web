@@ -220,8 +220,21 @@
     70% { transform: scale(1.08); box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
  }
+ @keyframes pulse-scale {
+    0% { transform: scale(1); }
+    70% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+ }
+ @keyframes pulse-glow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+    70% { box-shadow: 0 0 10px 20px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+ }
  .animate-lure-pulse {
-    animation: lure-pulse 1.8s infinite;
+    animation: pulse-scale 1.8s infinite;
+ }
+ .animate-glow {
+    animation: pulse-glow 1.8s infinite;
  }
 
  /* ----- HLAVIČKA A HERO SLIDER ----- */
@@ -1140,7 +1153,7 @@
             Dopřej si pořádnou dávku chuti u nás, nebo si ji nech přivézt až ke dveřím! 🚀
         </p>
         <div class="buttons animate-lure-pulse">
-            <a href="#" data-tel="true" class="button button-red">
+            <a href="#" data-tel="true" class="button button-red animate-glow">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
@@ -1149,7 +1162,7 @@
                 </svg>
                 <span>Zavolej a objednej</span>
             </a>
-            <a href="https://reservoeats.cz/san-marino-kladno-37" class="button button-red" target="_blank" rel="noopener noreferrer">
+            <a href="https://reservoeats.cz/san-marino-kladno-37" class="button button-red animate-glow" target="_blank" rel="noopener noreferrer">
                 <span>Objednej online</span>
             </a>
         </div>
@@ -1203,7 +1216,7 @@
                             <li><span>Pizza QUATRO</span><span class="price">od 213 Kč</span></li>
                         </ul>
                         <div class="card-button-wrapper animate-lure-pulse">
-                            <a href="https://reservoeats.cz/san-marino-kladno-37#pizza-mala-o-24cm-603" target="_blank" rel="noopener noreferrer" class="button button-white-green">Objednej si pizzu</a>
+                            <a href="https://reservoeats.cz/san-marino-kladno-37#pizza-mala-o-24cm-603" target="_blank" rel="noopener noreferrer" class="button button-white-green animate-glow">Objednej si pizzu</a>
                         </div>
                     </div>
                 </div>
@@ -1220,7 +1233,7 @@
                             <li><span>BARBECUE Burger</span><span class="price">od 159 Kč</span></li>
                         </ul>
                         <div class="card-button-wrapper animate-lure-pulse">
-                            <a href="https://reservoeats.cz/san-marino-kladno-37#burgery-606" target="_blank" rel="noopener noreferrer" class="button button-white-red">Objednej si burger</a>
+                            <a href="https://reservoeats.cz/san-marino-kladno-37#burgery-606" target="_blank" rel="noopener noreferrer" class="button button-white-red animate-glow">Objednej si burger</a>
                         </div>
                     </div>
                 </div>
@@ -1237,7 +1250,7 @@
                             <li><span>Obalovaná křídla</span><span class="price">od 169 Kč</span></li>
                         </ul>
                         <div class="card-button-wrapper animate-lure-pulse">
-                            <a href="https://reservoeats.cz/san-marino-kladno-37#kureci-speciality-611" target="_blank" rel="noopener noreferrer" class="button button-white-dark">Objednej si kuřecí</a>
+                            <a href="https://reservoeats.cz/san-marino-kladno-37#kureci-speciality-611" target="_blank" rel="noopener noreferrer" class="button button-white-dark animate-glow">Objednej si kuřecí</a>
                         </div>
                     </div>
                 </div>
@@ -1347,14 +1360,14 @@
                     <p>U nás hrajeme fér. Cena, kterou vidíte, je konečná – <strong>žádné skryté poplatky</strong>.</p>
                     <p>Objednat si <strong>jídlo domů</strong> nebylo nikdy snazší. Stačí pár kliknutí online nebo nám zavolejte. O vše ostatní se postaráme my a vaše objednávka bude brzy u vás. Jsme tu pro vás každý den!</p>
                     <div class="delivery-buttons animate-lure-pulse">
-                        <a href="#" data-tel="true" class="button button-red">
+                        <a href="#" data-tel="true" class="button button-red animate-glow">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
                             </svg>
                             <span>+420 604 633 373</span>
                         </a>
-                        <a href="https://reservoeats.cz/san-marino-kladno-37" class="button button-outline" target="_blank" rel="noopener noreferrer">
+                        <a href="https://reservoeats.cz/san-marino-kladno-37" class="button button-outline animate-glow" target="_blank" rel="noopener noreferrer">
                             <span>Objednat online</span>
                         </a>
                     </div>
