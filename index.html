@@ -162,7 +162,7 @@ a {
 }
 
 /* ----- STYLY SEKCE & SJEDNOCENÍ VZHLEDU ----- */
-.section {
+.section, .footer {
     padding-top: 6rem;
     padding-bottom: 6rem;
 }
@@ -171,7 +171,7 @@ a {
     background-color: var(--white);
     color: var(--black);
 }
-.section-green {
+.section-green, .footer.section-green {
     background-color: var(--main-green);
     color: var(--white);
     background-image: url('images/pizzerie-san-marino-kladno-zelene-pozadi-na-webu.webp');
@@ -181,7 +181,10 @@ a {
 }
 .section-green p, 
 .section-green span,
-.section-green strong {
+.section-green strong,
+.footer.section-green p,
+.footer.section-green span,
+.footer.section-green strong {
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
@@ -568,7 +571,7 @@ body.nav-open .mobile-nav-overlay {
     inset: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.4); /* Ztmavení pro lepší kontrast */
+    background-color: rgba(0,0,0,0.4);
     z-index: 2;
 }
 .menu-card:hover {
@@ -821,14 +824,12 @@ body.nav-open .mobile-nav-overlay {
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
-    background: var(--main-green);
+    background-color: rgba(0,0,0,0.2);
     border-radius: 30px;
     overflow: hidden;
-    color: var(--white); /* Text v této komponentě bude vždy bílý */
 }
 .delivery-content {
     padding: 2.5rem 1.5rem;
-    text-align: center;
 }
 .delivery-content p {
     line-height: 1.6;
@@ -866,11 +867,6 @@ body.nav-open .mobile-nav-overlay {
     }
     .delivery-content {
         padding: 1rem;
-        text-align: left;
-    }
-    .delivery-content .section-header-subtitle,
-    .delivery-content .section-title {
-        text-align: left;
     }
     .delivery-buttons {
         flex-direction: row;
@@ -884,37 +880,7 @@ body.nav-open .mobile-nav-overlay {
     }
 }
 
-/* ----- SEKCE GALERIE (dříve Ostatní nabídka) ----- */
-#gallery {
-    position: relative;
-    overflow: hidden;
-}
-.other-offers-bg-text {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    opacity: 0.1;
-    font-weight: 900;
-    color: var(--white);
-    pointer-events: none;
-}
-.other-offers-bg-text span {
-    font-size: 8rem;
-}
-.other-offers-bg-text .top-text {
-    margin-top: -2rem;
-    margin-left: -3rem;
-    transform: rotate(-12deg);
-}
-.other-offers-bg-text .bottom-text {
-    margin-bottom: -2rem;
-    margin-right: 3rem;
-    transform: rotate(12deg);
-}
+/* ----- SEKCE GALERIE ----- */
 .gallery-container {
     position: relative;
     z-index: 10;
@@ -970,15 +936,26 @@ body.nav-open .mobile-nav-overlay {
 }
 
 /* ----- PATIČKA ----- */
-.footer {
-    color: var(--black);
-    width: 100%;
-    background-color: var(--white);
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+.footer.section-green .footer-heading {
+    color: var(--white);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
-.footer a:hover {
+.footer.section-green .footer-contact-list svg {
+    color: var(--white);
+}
+.footer.section-green .footer-divider {
+    border-top-color: rgba(255, 255, 255, 0.2);
+}
+.footer.section-green .day-row.active-day {
+    color: var(--white);
+    font-weight: 900;
+}
+.footer.section-green a {
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+.footer.section-green a:hover {
     text-decoration: underline;
+    color: var(--white);
 }
 .footer-grid {
     display: grid;
@@ -986,7 +963,7 @@ body.nav-open .mobile-nav-overlay {
     gap: 3.5rem;
     font-size: 1rem;
     align-items: start;
-    margin-top: 4rem;
+    margin-top: 0; /* Odstraněn margin, protože padding už je na footeru */
 }
 .footer-column {
     display: flex;
@@ -1079,7 +1056,7 @@ body.nav-open .mobile-nav-overlay {
 .footer-social-icons {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start; /* Zarovnání doleva */
     gap: 1.25rem;
     margin-top: 1rem;
 }
@@ -1096,7 +1073,8 @@ body.nav-open .mobile-nav-overlay {
 }
 .footer-social-icons .social-facebook { color: #1877F2; }
 .footer-social-icons .social-instagram { color: #E1306C; }
-.footer-social-icons .social-tiktok { color: #000000; }
+.footer-social-icons .social-tiktok { color: var(--white); } /* Změna na bílou pro zelené pozadí */
+
 
 /* ----- RESPONZIVNÍ STYLY ----- */
 @media (max-width: 540px) {
@@ -1115,7 +1093,7 @@ body.nav-open .mobile-nav-overlay {
 }
  
 @media (max-width: 767px) {
-    .section {
+    .section, .footer {
         padding-top: 5rem;
         padding-bottom: 5rem;
     }
@@ -1149,9 +1127,6 @@ body.nav-open .mobile-nav-overlay {
     }
     .info-banner-item {
         width: auto;
-    }
-    .other-offers-bg-text span {
-        font-size: 4rem;
     }
 }
 
@@ -1187,7 +1162,7 @@ body.nav-open .mobile-nav-overlay {
 }
 
 @media (max-height: 740px) and (max-width: 480px) {
-    .section {
+    .section, .footer {
         padding-top: 4rem;
         padding-bottom: 4rem;
     }
@@ -1494,10 +1469,9 @@ body.nav-open .mobile-nav-overlay {
             </div>
         </div>
     </section>
-
 </main>
 
-<footer id="contact" class="footer">
+<footer id="contact" class="footer section-green">
     <div class="container">
         <div class="footer-grid">
             <div class="footer-column">
