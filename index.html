@@ -743,7 +743,7 @@ header {
 }
 .delivery-content .section-header-subtitle,
 .delivery-content .section-title {
-   text-align: center;
+   text-align: center;
 }
 .delivery-content .section-header-subtitle {
 	color: var(--white);
@@ -944,7 +944,7 @@ header {
 	color: var(--main-red);
 }
 .footer-info p, .footer-bottom p {
-   color: var(--black);
+   color: var(--black);
 }
 .footer-info, .opening-hours, .footer-contact-list {
 	font-weight: 500;
@@ -1148,8 +1148,8 @@ header {
 		bottom: 35px;
 	}
 	.info-banner {
-	  flex-wrap: nowrap;
-	  justify-content: space-around;
+	  flex-wrap: nowrap;
+	  justify-content: space-around;
 	}
 	.info-banner-item__text .title,
 	.info-banner-item__text .subtitle {
@@ -1157,13 +1157,18 @@ header {
 	}
 	.menu-grid { grid-template-columns: repeat(2, 1fr); }
 	.menu-card.span-2 { grid-column: span 2 / span 2; }
-	.two-column-grid { grid-template-columns: repeat(2, 1fr); }
+	.two-column-grid { grid-template-columns: 1fr; } /* Fallback reset */
 	.footer-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
 	.footer-column { justify-content: flex-start; gap: 1rem; }
 	.footer-bottom { flex-direction: row; }
 	.footer-bottom-copyright { text-align: left; margin-bottom: 0; }
 	.footer-bottom-links { flex-direction: row; gap: 1rem; }
 	.footer-bottom-links .separator { display: inline; }
+}
+@media (min-width: 992px) {
+	.two-column-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 @media (min-width: 1200px) {
 	.button { font-size: 1.125rem; padding: 1rem 2rem; }
@@ -1179,6 +1184,11 @@ header {
 	.menu-card .card-list li > span:first-child {
 		overflow: hidden;
 		text-overflow: ellipsis;
+	}
+}
+@media (min-width: 1024px) and (max-height: 650px) {
+	.info-banner-container {
+		bottom: -45px;
 	}
 }
 @media (max-height: 740px) and (max-width: 480px) {
