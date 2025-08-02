@@ -1079,6 +1079,14 @@
           border-radius: 1.5rem;
           max-width: 500px;
       }
+      .info-banner-item svg {
+          height: 4rem;
+          width: 4rem;
+      }
+      .info-banner-item__text .title,
+      .info-banner-item__text .subtitle {
+          line-height: 1.25;
+      }
       .review-swiper-button-prev,
       .review-swiper-button-next {
           left: auto;
@@ -1107,11 +1115,15 @@
       .info-banner-container {
           padding-left: 0;
           padding-right: 0;
-          bottom: 25px;
+          bottom: 35px;
      }
       .info-banner {
         flex-wrap: nowrap;
         justify-content: space-around;
+      }
+      .info-banner-item__text .title,
+      .info-banner-item__text .subtitle {
+          line-height: 1.5;
       }
       .menu-grid { grid-template-columns: repeat(2, 1fr); }
       .menu-card.span-2 { grid-column: span 2 / span 2; }
@@ -1674,7 +1686,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     }
-
+    
     // --- ZVÝRAZNĚNÍ AKTUÁLNÍHO DNE V OTEVÍRACÍ DOBĚ ---
     const currentDayRow = document.querySelector(
         `.day-row[data-day="${new Date().getDay()}"]`
@@ -1688,7 +1700,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('a[data-tel="true"]').forEach((el) => {
         el.href = "tel:+420" + phone;
     });
-
+    
     const emailLink = document.querySelector('a[data-email-user]');
     if (emailLink) {
         const user = emailLink.dataset.emailUser;
