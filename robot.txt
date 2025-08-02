@@ -47,6 +47,3 @@ Disallow: /
 # Povolení přístupu pro standardní roboty
 User-agent: *
 Allow: /
-
-# Odkaz na sitemapu
-Sitemap: https://www.pizzakladno.cz/sitemap.xml
