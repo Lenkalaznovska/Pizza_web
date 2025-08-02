@@ -344,7 +344,7 @@
  /* ----- INFO BANNER (pod sliderem) ----- */
  .info-banner-container {
      position: absolute;
-     bottom: -15px; /* ZMĚNA: Posunuto o 15px dolů na mobilu */
+     bottom: -30px; /* ZMĚNA: Posunuto o 15px dolů na mobilu */
      left: 50%;
      transform: translate(-50%, 50%);
      z-index: 100;
@@ -379,8 +379,8 @@
      gap: 1rem;
  }
  .info-banner-item svg {
-     height: 3.75rem; /* ZMĚNA: Zvětšení ikony */
-     width: 3.75rem;  /* ZMĚNA: Zvětšení ikony */
+     height: 4rem; /* ZMĚNA: Zvětšení ikony */
+     width: 4rem;  /* ZMĚNA: Zvětšení ikony */
      color: var(--main-red);
      flex-shrink: 0;
  }
@@ -1074,8 +1074,8 @@
      .info-banner {
          flex-direction: column;
          align-items: flex-start;
-         gap: 1.5rem;
-         padding: 1.5rem 1.75rem;
+         gap: 1rem; /* ZMĚNA: Snížení mezer na mobilu */
+         padding: 1.25rem 1.5rem; /* ZMĚNA: Snížení mezer na mobilu */
          border-radius: 1.5rem;
          max-width: 500px;
      }
@@ -1107,7 +1107,7 @@
      .info-banner-container { 
         padding-left: 0; 
         padding-right: 0;
-        bottom: 15px; /* ZMĚNA: Posunuto o 15px nahoru na PC */
+        bottom: 25px; /* ZMĚNA: Posunuto o 10px nahoru na PC */
     }
      .info-banner { flex-wrap: nowrap; }
      .menu-grid { grid-template-columns: repeat(2, 1fr); }
