@@ -359,12 +359,12 @@
      color: var(--black);
      border-radius: 10px;
      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-     padding: 1rem 1rem;
+     padding: 1rem 2.5rem;
      display: flex;
      flex-wrap: wrap;
      align-items: center;
      justify-content: center;
-     gap: 1rem;
+     gap: 3rem;
      width: 100%;
      max-width: 960px;
      transition: box-shadow 0.3s ease-in-out;
@@ -376,7 +376,13 @@
      display: flex;
      flex-direction: row;
      align-items: center;
-     gap: 3rem;
+     gap: 1rem;
+ }
+ .info-banner-item svg {
+     height: 4rem; /* ZMĚNA: Zvětšení ikony */
+     width: 4rem;  /* ZMĚNA: Zvětšení ikony */
+     color: var(--main-red);
+     flex-shrink: 0;
  }
  .info-banner-item__text {
      display: flex;
@@ -389,7 +395,7 @@
      font-size: 1rem;
      text-transform: uppercase;
      letter-spacing: 0.05em;
-     line-height: 1;
+     line-height: 1.2;
      margin-bottom: 2px;
  }
  .info-banner-item__text .subtitle {
