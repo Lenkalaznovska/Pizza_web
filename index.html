@@ -1028,6 +1028,9 @@
     .menu-card .card-list {
         gap: 0.85rem;
     }
+    .menu-card .card-list li > span:first-child {
+        margin-right: 0.5rem;
+    }
  }
  @media (max-width: 540px) {
     .bg-green-pattern .section-subtitle {
@@ -1123,7 +1126,17 @@
     .button { font-size: 1.125rem; padding: 1rem 2rem; }
     .menu-grid { grid-template-columns: repeat(3, 1fr); }
     .menu-card.span-2 { grid-column: span 1 / span 1; }
-    .menu-card .card-list { font-size: 1.1rem; gap: 0.9rem; } /* Větší písmo a mezery pro iPad Pro a Nest Hub */
+    .menu-card .card-list {
+        font-size: 1.1rem; 
+        gap: 0.9rem;
+    }
+    .menu-card .card-list li {
+        white-space: nowrap;
+    }
+    .menu-card .card-list li > span:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
  }
  @media (max-height: 740px) and (max-width: 480px) {
     .hero-content .cta-text {
