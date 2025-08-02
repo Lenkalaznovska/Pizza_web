@@ -344,9 +344,9 @@
  /* ----- INFO BANNER (pod sliderem) ----- */
  .info-banner-container {
      position: absolute;
-     bottom: 0; /* ZMĚNA: Posunuto na spodní okraj */
+     bottom: 0; 
      left: 50%;
-     transform: translate(-50%, -50%); /* ZMĚNA: Posunuto nahoru o polovinu výšky */
+     transform: translate(-50%, -50%); 
      z-index: 100;
      width: 100%;
      display: flex;
@@ -379,8 +379,8 @@
      gap: 1rem;
  }
  .info-banner-item svg {
-     height: 2.75rem;
-     width: 2.75rem;
+     height: 3.25rem; /* ZMĚNA: Zvětšení ikony */
+     width: 3.25rem;  /* ZMĚNA: Zvětšení ikony */
      color: var(--main-red);
      flex-shrink: 0;
  }
@@ -415,7 +415,7 @@
 
  /* ----- SEKCE "NA CO MÁŠ CHUŤ?" ----- */
  #menu {
-     padding-top: 7rem; /* ZMĚNA: Sníženo odsazení, protože lišta už nepřesahuje */
+     padding-top: 7rem; 
  }
  .menu-section-header,
  .social-section-header,
@@ -1052,7 +1052,7 @@
          padding-bottom: 5rem;
      }
      #menu {
-         padding-top: 5rem; /* ZMĚNA: Sníženo odsazení pro mobilní zobrazení */
+         padding-top: 5rem;
      }
      .section-header-subtitle {
          font-size: 1.75rem;
@@ -1064,6 +1064,9 @@
      .bg-green-pattern .two-column-grid,
      .other-offers-section .gallery-container {
          margin-top: 40px;
+     }
+     .hero-content {
+        top: 45%; /* ZMĚNA: Posunutí obsahu nahoru na mobilu */
      }
      .hero-content h1 {
          white-space: normal;
@@ -1133,6 +1136,9 @@
      }
  }
  @media (max-height: 740px) and (max-width: 480px) {
+     .hero-content {
+        top: 42%; /* ZMĚNA: Další posunutí obsahu nahoru na velmi krátkých obrazovkách */
+     }
      .hero-content .cta-text {
          font-size: 16px;
      }
@@ -1142,7 +1148,7 @@
          transform-origin: center;
      }
      #menu {
-         padding-top: 7rem; /* ZMĚNA: Upraveno pro krátké obrazovky */
+         padding-top: 7rem;
      }
      .info-banner {
          padding: 0.75rem 1rem;
