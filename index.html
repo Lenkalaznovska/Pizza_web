@@ -116,7 +116,7 @@
 			text-align: center;
 			padding: 1rem;
 			position: relative;
-			z-index: 9999;
+			z-index: 1000;
 			font-size: 1rem;
 			font-weight: 500;
 			display: flex;
@@ -349,19 +349,16 @@
 		}
 
 		.header-container-desktop {
-			position: absolute;
+			position: relative;
 			z-index: 101;
-			top: 0;
-			left: 0;
 			width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: flex-start;
-			padding: 1rem 2.5rem
+			background-color: rgba(255, 255, 255, 0.9);
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			padding: 0.5rem 2.5rem;
 		}
 
 		.header-container-desktop img {
-			height: 90px;
+			height: 70px;
 			width: auto
 		}
 
@@ -1556,13 +1553,13 @@
 	</style>
 	<body>
 		<div id="notification-banner">
-			<p>📣 <strong>POZOR!</strong> Změnili jsme otevírací dobu! Přes týden (Po–Čt) teď máme otevřeno od 16:00. <a href="#contact">Mrkni na detaily.</a></p>
+			<p>📣 <strong>POZOR, ZMĚNA!</strong> Naše nová otevírací a rozvozová doba je: **Po–Čt 16:00–21:00** a **Pá–Ne 11:00–21:00**. <a href="#contact">Mrkni na detaily.</a></p>
 			<button id="close-banner-btn" aria-label="Zavřít upozornění">&times;</button>
 		</div>
+		<div class=header-container-desktop>
+			<a href=#top title="Přejít na začátek stránky"><img alt="Logo Pizzerie San Marino Kladno" src=images/logo-pizzerie-san-marino-kladno.webp height=342 width=709></a>
+		</div>
 		<header>
-			<div class=header-container-desktop>
-				<a href=#top title="Přejít na začátek stránky"><img alt="Logo Pizzerie San Marino Kladno" src=images/logo-pizzerie-san-marino-kladno.webp height=342 width=709></a>
-			</div>
 			<div class=hero-slider>
 				<div class=slides>
 					<div class=slide><img alt="Detail naší originální pizzy s uzeným masem a špenátem." src=images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp height=1080 width=1920></div>
@@ -1867,7 +1864,9 @@
 				}
 				if (banner) {
 					banner.addEventListener('click', () => {
-						document.getElementById('contact').scrollIntoView();
+						document.getElementById('contact').scrollIntoView({
+							behavior: 'smooth'
+						});
 					});
 				}
 				const e = document.querySelector(".slides");
