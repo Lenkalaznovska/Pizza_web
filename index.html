@@ -349,16 +349,19 @@
 		}
 
 		.header-container-desktop {
-			position: relative;
+			position: absolute;
 			z-index: 101;
+			top: 0;
+			left: 0;
 			width: 100%;
-			background-color: rgba(255, 255, 255, 0.9);
-			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-			padding: 0.5rem 2.5rem;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			padding: 1rem 2.5rem
 		}
 
 		.header-container-desktop img {
-			height: 70px;
+			height: 90px;
 			width: auto
 		}
 
@@ -461,7 +464,7 @@
 
 		.info-banner-container {
 			position: absolute;
-			bottom: -30px;
+			bottom: 0;
 			left: 50%;
 			transform: translate(-50%, 50%);
 			z-index: 100;
@@ -1428,7 +1431,7 @@
 			.info-banner-container {
 				padding-left: 0;
 				padding-right: 0;
-				bottom: 35px
+				bottom: 65px
 			}
 
 			.info-banner {
@@ -1556,10 +1559,10 @@
 			<p>📣 <strong>POZOR, ZMĚNA!</strong> Naše nová otevírací a rozvozová doba je: **Po–Čt 16:00–21:00** a **Pá–Ne 11:00–21:00**. <a href="#contact">Mrkni na detaily.</a></p>
 			<button id="close-banner-btn" aria-label="Zavřít upozornění">&times;</button>
 		</div>
-		<div class=header-container-desktop>
-			<a href=#top title="Přejít na začátek stránky"><img alt="Logo Pizzerie San Marino Kladno" src=images/logo-pizzerie-san-marino-kladno.webp height=342 width=709></a>
-		</div>
 		<header>
+			<div class=header-container-desktop>
+				<a href=#top title="Přejít na začátek stránky"><img alt="Logo Pizzerie San Marino Kladno" src=images/logo-pizzerie-san-marino-kladno.webp height=342 width=709></a>
+			</div>
 			<div class=hero-slider>
 				<div class=slides>
 					<div class=slide><img alt="Detail naší originální pizzy s uzeným masem a špenátem." src=images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp height=1080 width=1920></div>
