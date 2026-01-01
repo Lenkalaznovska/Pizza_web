@@ -1627,7 +1627,7 @@
                         <path d="M4 11h16"></path>
                         <path d="M15 19l2 2l4 -4"></path>
                     </svg>
-                    <div class=info-banner-item__text><span class=title>REZERVACE</span> <span class=subtitle><a href="tel:+420604633373">Rezervuj si místo: +420 604 633 373</a></span></div>
+                    <div class=info-banner-item__text><span class=title>REZERVACE</span> <span class=subtitle><a href="tel:+420604633373">+420 604 633 373</a></span></div>
                 </div>
             </div>
         </section>
@@ -1979,29 +1979,35 @@
                 const dayRow = sourceContainer.querySelector(`.day-row[data-day="${today}"]`);
                 if (!dayRow) return;
 
-                let infoText = "";
                 const mainTime = dayRow.querySelector('span:last-of-type');
                 const noteTime = dayRow.querySelector('.note > span');
                 const details = dayRow.querySelector('.details');
-
-                if (noteTime) {
-                    infoText = noteTime.textContent.trim();
-                } else if (mainTime) {
-                    infoText = mainTime.textContent.trim();
-                }
-
-                if (details) {
-                    infoText += " (" + details.textContent.trim() + ")";
-                }
-
                 const rozvozTimeEl = document.getElementById('rozvoz-time');
                 const openingTimeHeaderEl = document.getElementById('opening-time-header');
-                if (rozvozTimeEl) {
-                    rozvozTimeEl.textContent = infoText;
+
+                let rozvozText = "";
+                let openingText = "";
+
+                const timeValue = noteTime ? noteTime.textContent.trim() : (mainTime ? mainTime.textContent.trim() : "");
+
+                // Logika pro Rozvoz
+                if (timeValue === "ZAVŘENO") {
+                    rozvozText = "ZAVŘENO";
+                } else {
+                    rozvozText = timeValue; // Jen čas
                 }
-                if (openingTimeHeaderEl) {
-                    openingTimeHeaderEl.textContent = infoText;
+
+                // Logika pro Otevírací dobu
+                if (timeValue === "ZAVŘENO") {
+                    openingText = "ZAVŘENO";
+                } else if (details && details.textContent.includes("Online")) {
+                    openingText = "POUZE ONLINE OBJEDNÁVKY";
+                } else {
+                    openingText = timeValue; // Čas pro dny s běžným provozem
                 }
+
+                if (rozvozTimeEl) rozvozTimeEl.textContent = rozvozText;
+                if (openingTimeHeaderEl) openingTimeHeaderEl.textContent = openingText;
             };
             updateHeaderTimes();
             document.querySelectorAll('a[data-tel="true"]').forEach((e => {
@@ -2015,5 +2021,4 @@
         }))
     </script>
 </body>
-
 </html>
