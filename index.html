@@ -44,19 +44,15 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Pizzerie San Marino Kladno","image":"images/pizzerie-san-marino-kladno-nabidka-jidla.webp","@id":"https://www.pizzakladno.cz/","url":"https://www.pizzakladno.cz/","telephone":"+420604633373","address":{"@type":"PostalAddress","streetAddress":"Obránců míru 2721","addressLocality":"Kladno","postalCode":"27201","addressCountry":"CZ"},"geo":{"@type":"GeoCoordinates","latitude":"50.1337","longitude":"14.1154"},"menu":"https://speedlo.cz/app/sanmarino/kladno/wb/home","servesCuisine":["Pizza","Burger","Kuřecí speciality","Saláty","Těstoviny"],"priceRange":"$$","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","ratingCount":"2380"},"potentialAction":{"@type":"OrderAction","target":{"@type":"EntryPoint","urlTemplate":"https://speedlo.cz/app/sanmarino/kladno/wb/home","inLanguage":"cs","actionPlatform":["http://schema.org/DesktopWebPlatform","http://schema.org/MobileWebPlatform"]},"deliveryMethod":["http://schema.org/DeliveryModeDirect","http://schema.org/DeliveryModePickUp"]},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday"],"opens":"16:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"11:00","closes":"21:00"}],"sameAs":["https://www.facebook.com/profile.php?id=100095016576324","https://www.instagram.com/pizzakladno/","https://www.tiktok.com/@pizzakladno","https://www.foodora.cz/restaurant/i8wo/pizzerie-san-marino","https://www.firmy.cz/detail/293070-pizzerie-san-marino-kladno-krocehlavy.html"]}</script>
     <style>
         :root{--main-red:#E20B18;--main-red-hover:#c00a15;--main-green:#017D4D;--white:#fff;--black:#000;--font-main:'Montserrat',sans-serif}
-        #notification-banner{background-color:var(--main-red);color:var(--white);text-align:center;padding:1rem;position:relative;z-index:1000;font-size:clamp(.875rem,2.5vw,1rem);font-weight:500;display:flex;justify-content:center;align-items:center;cursor:pointer}
-        #notification-banner p{margin:0;padding:0 .5rem 0 0}
-        #notification-banner p a{color:var(--white);text-decoration:underline;font-weight:700}
-        #notification-banner p a:hover{text-decoration:none}
-        #notification-banner .mobile-break{display:none}
-        #close-banner-btn{position:absolute;top:50%;right:1rem;transform:translateY(-50%);background:none;border:none;color:var(--white);font-size:2rem;font-weight:700;cursor:pointer;line-height:1;padding:0 .5rem}
-        #close-banner-btn:hover{opacity:.8}
+        /* Banner - Dovolená */
+        #notification-banner{background-color:var(--main-red);color:var(--white);text-align:center;padding:1rem;position:relative;z-index:1000;font-size:clamp(0.9rem,2vw,1.1rem);font-weight:700}
+        
+        /* Layout */
         canvas,img,picture,svg,video{display:block;max-width:100%;height:auto}
         h1,h2,h3,h4,h5,h6,p{overflow-wrap:break-word}
         *{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth}
         body,html{font-family:var(--font-main);background:var(--white);color:var(--black);overflow-x:hidden}
-        @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,::after,::before{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}
         a{color:inherit;text-decoration:none}
         .container{width:100%;max-width:1280px;margin-left:auto;margin-right:auto;padding-left:1.5rem;padding-right:1.5rem}
         .section{padding-top:4rem;padding-bottom:4rem}
@@ -91,31 +87,21 @@
         .info-banner{background-color:var(--white);color:var(--black);border-radius:10px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);padding:1rem 1.5rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2rem;width:100%;max-width:960px;transition:box-shadow .3s ease-in-out}
         .info-banner:hover{box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04)}
         .info-banner-item{display:flex;flex-direction:row;align-items:center;gap:1rem}
-        .info-banner-item svg{color:var(--main-red);flex-shrink:0}
-        .info-banner-item .icon-car{width:4rem;height:4rem}
-        .info-banner-item .icon-calendar,.info-banner-item .icon-clock{width:4.5rem;height:4.5rem}
-        .info-banner-item__text{display:flex;flex-direction:column;align-items:flex-start}
+        .info-banner-item svg{color:var(--main-red);width:3rem;height:3rem;flex-shrink:0}
         .info-banner-item__text .title{font-weight:900;color:var(--black);font-size:1rem;text-transform:uppercase;letter-spacing:.05em;line-height:1.4;margin-bottom:.1rem}
         .info-banner-item__text .subtitle{color:var(--black);font-size:1rem;font-weight:400;line-height:1.4}
-        .info-banner-item__text .subtitle a{color:var(--main-red);text-decoration:underline;font-weight:700}
-        .info-banner-item__text .subtitle a:hover{color:var(--main-red-hover)}
         #menu{padding-top:10rem}
-        .menu-section-header,.other-offers-header,.social-section-header{margin-bottom:3rem}
         .menu-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:stretch}
-        @media(min-width:768px){.menu-grid{grid-auto-rows:1fr}}
+        @media(min-width:768px){.menu-grid{grid-auto-rows:1fr;grid-template-columns:repeat(3,1fr)}}
         .menu-card{position:relative;border-radius:1.5rem;overflow:hidden;display:flex;flex-direction:column;text-align:center;color:var(--white);box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);transition:all .3s ease}
         .menu-card::before{content:'';position:absolute;inset:0;width:100%;height:100%;background-color:rgba(0,0,0,.4);z-index:2}
         .menu-card:hover{box-shadow:0 25px 50px -12px rgba(0,0,0,.25);transform:translateY(-5px)}
         .menu-card-bg-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
         .menu-card-content{position:relative;z-index:10;display:flex;flex-direction:column;flex-grow:1;padding:2rem}
-        .menu-card .card-category{font-family:var(--font-main);font-size:1.75rem;font-weight:900;text-transform:uppercase;text-shadow:0 2px 4px rgba(0,0,0,.5);margin-bottom:.75rem;min-height:100px;display:flex;align-items:center;justify-content:center}
-        .menu-card .card-link,.menu-card .card-list{text-shadow:0 1px 3px rgba(0,0,0,.6)}
-        .menu-card .card-link{font-weight:600;text-decoration:none;margin-bottom:1rem;transition:transform .3s ease;min-height:24px;display:flex;align-items:center;justify-content:center;gap:.25rem}
-        .menu-card .card-link:hover{text-decoration:underline}
-        .menu-card .card-subtitle{font-size:1.25rem;font-weight:700;margin-bottom:1rem;padding-top:1rem;text-shadow:0 1px 3px rgba(0,0,0,.3);min-height:60px;display:flex;align-items:center;justify-content:center;gap:.5rem}
-        .menu-card .card-list{list-style:none;padding:0;margin:0;text-align:left;font-size:1rem;display:flex;flex-direction:column;gap:.75rem}
-        .menu-card .card-list li{display:flex;justify-content:space-between}
-        .menu-card .card-list .price{font-weight:600}
+        .card-category{font-family:var(--font-main);font-size:1.75rem;font-weight:900;text-transform:uppercase;text-shadow:0 2px 4px rgba(0,0,0,.5);margin-bottom:.75rem;min-height:100px;display:flex;align-items:center;justify-content:center}
+        .card-list{list-style:none;padding:0;margin:1rem 0;text-align:left;font-size:1rem;display:flex;flex-direction:column;gap:.75rem}
+        .card-list li{display:flex;justify-content:space-between}
+        .card-list .price{font-weight:600}
         .menu-card .card-button-wrapper{padding-top:2rem;margin-top:auto}
         .button-white-green{background-color:var(--white);color:var(--main-green)}
         .button-white-green:hover{background-color:#e6f2ed}
@@ -164,16 +150,9 @@
         .button.button-outline{background-color:transparent;color:var(--white);border:2px solid var(--white);padding:calc(.75rem - 2px) calc(1.5rem - 2px)}
         .button.button-outline:hover{background-color:rgba(255,255,255,.15)}
         .delivery-image-wrapper img{width:100%;height:100%;object-fit:cover;display:block}
-        
-        @media (max-width: 639px) { .desktop-only { display: none !important; } }
-        @media (min-width: 640px) { .mobile-only { display: none !important; } }
+        @media (max-width: 639px) { .mobile-only { display: inline; } .desktop-only { display: none; } .info-banner{flex-direction:column;gap:1rem} }
+        @media (min-width: 640px) { .mobile-only { display: none; } .desktop-only { display: inline; } }
         .delivery-buttons .button svg, .info-banner-item svg { width: 1.5rem; height: 1.5rem; }
-        
-        .day-icons { display: flex; gap: 5px; justify-content: flex-end; margin-top: 5px; }
-        .icon-small { width: 16px; height: 16px; stroke: var(--main-red); }
-        .footer-legend { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px; font-size: 0.8rem; font-weight: 600; color: var(--black); }
-        .footer-legend-item { display: flex; align-items: center; gap: 5px; }
-
         @media(min-width:1024px){.delivery-card{grid-template-columns:55fr 45fr;border-radius:50px;padding:2rem;gap:2rem}.delivery-content{padding:1rem;text-align:left}.delivery-content .section-header-subtitle,.delivery-content .section-title{text-align:left}.delivery-content .section-title{font-size:2.5rem;line-height:1.1}.delivery-buttons{flex-direction:row;justify-content:flex-start}.delivery-buttons .button{white-space:nowrap}.button.button-outline{padding:calc(1rem - 2px) calc(2rem - 2px)}.delivery-image-wrapper img{border-radius:30px}}
         .other-offers-section{padding-top:4rem;padding-bottom:4rem;position:relative;overflow:hidden;background-color:#1a1a1a}
         .other-offers-bg-text{position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;justify-content:space-between;align-items:center;opacity:.1;font-weight:900;color:var(--white);pointer-events:none}
@@ -189,56 +168,37 @@
         .gallery-swiper-button{position:static;transform:none;z-index:20;cursor:pointer;background-color:var(--main-red);border-radius:9999px;padding:.75rem;transition:background-color .2s;display:flex;align-items:center;justify-content:center}
         .gallery-swiper-button:hover{background-color:var(--main-red-hover)}
         .gallery-swiper-button svg{color:var(--white);width:1.5rem;height:1.5rem}
-        .footer{color:var(--black);width:100%;background-color:var(--white)}
-        .footer .container{padding-top:3rem;padding-bottom:3rem}
-        .footer a:hover{text-decoration:underline}
+        .footer{color:var(--black);width:100%;background-color:var(--white);padding-top:3rem;padding-bottom:3rem}
         .footer-grid{display:grid;grid-template-columns:1fr;gap:3.5rem;font-size:1rem;align-items:start;margin-top:3rem}
         .footer-column{display:flex;flex-direction:column;gap:1.5rem}
         .footer-heading{font-family:var(--font-main);font-size:1.25rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em;margin:0;padding-bottom:.5rem;color:var(--main-red)}
-        .footer-bottom p,.footer-info p{color:var(--black)}
-        .footer-contact-list,.footer-info,.opening-hours{font-weight:500;display:flex;flex-direction:column;gap:.75rem}
-        .opening-hours{gap:.625rem}
-        .opening-hours .day-row{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
-        .opening-hours .day-row .note{text-align:right}
-        .opening-hours .day-row .note .details{font-weight:700;font-size:.875rem;text-transform:uppercase;line-height:1.25}
-        .opening-hours .day-row.active-day{font-weight:700;color:var(--main-red);text-shadow:none}
+        .opening-hours { display: flex; flex-direction: column; width: 100%; max-width: 350px; }
+        .day-row{ display: grid; grid-template-columns: 120px 1fr 100px; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid #eee; }
+        .day-row span { font-weight: 500; }
+        .day-row .note { font-weight: 700; text-align: center; }
+        .day-icons{ display: flex; justify-content: flex-end; gap: 5px; font-size: 1.1rem; }
+        .footer-legend{display:flex;flex-wrap:wrap;gap:15px;margin-top:15px;font-size:0.85rem;font-weight:600}
+        .footer-legend-item{display:flex;align-items:center;gap:5px}
+        .no-seating-alert{margin-top:15px;padding:10px;background:#fef2f2;border:1px solid var(--main-red);color:var(--main-red);font-weight:700;font-size:0.85rem;border-radius:5px;text-align:center}
         .footer-contact-list{list-style:none;padding:0}
         .footer-contact-list li{display:flex;align-items:flex-start;gap:1rem}
         .footer-contact-list svg{height:1.5rem;width:1.5rem;flex-shrink:0;margin-top:.125rem;color:var(--main-red)}
         .footer-divider{border-top:1px solid rgba(0,0,0,.1);margin-top:3rem;margin-bottom:2rem}
-        .footer-bottom{display:flex;flex-direction:column;justify-content:space-between;align-items:center;font-size:.875rem;font-weight:500}
-        .footer-bottom-copyright{text-align:center;margin-bottom:1rem}
-        .footer-bottom-copyright p{margin:0}
-        .footer-bottom-links{display:flex;flex-direction:column;align-items:center;gap:.5rem;text-align:center}
-        .footer-bottom-links .separator{display:none}
-        .footer-social-icons{display:flex;align-items:center;justify-content:flex-start;gap:1.25rem;margin-top:1.5rem}
-        .footer-social-icons a{transition:transform .2s}
-        .footer-social-icons a:hover{transform:scale(1.15)}
-        .footer-social-icons a svg{width:28px;height:28px;fill:currentColor}
-        .footer-social-icons .social-facebook{color:#1877f2}
-        .footer-social-icons .social-instagram{color:#e1306c}
-        .footer-social-icons .social-tiktok{color:#000}
-        @media(max-width:380px){.menu-card .card-list{gap:.85rem;font-size:.9rem}.menu-card .card-list li>span:first-child{margin-right:.5rem}}
-        @media(max-width:540px){.bg-green-pattern .section-subtitle{display:flex;flex-direction:column;align-items:center;gap:.5rem;white-space:nowrap}.bg-green-pattern .section-button{margin-left:auto;margin-right:auto;display:table}}
-        @media(max-width:767px){#notification-banner{flex-direction:column;line-height:1.4;padding:.8rem 1rem}#notification-banner p{padding:0}#notification-banner .mobile-break{display:block}.section{padding-top:3rem;padding-bottom:3rem}#menu{padding-top:8rem}.section-header-subtitle{font-size:1.75rem}.section-title{font-size:2rem;line-height:1.2}.bg-green-pattern .two-column-grid,.other-offers-section .gallery-container{margin-top:40px}.hero-content h1{white-space:normal}.hero-content .buttons{margin-top:2rem}.info-banner-container{bottom:5px}.info-banner{flex-direction:column;align-items:flex-start;gap:1rem;padding:1rem;border-radius:1.5rem;max-width:500px}.info-banner-item .icon-car{width:2.5rem;height:2.5rem}.info-banner-item .icon-calendar,.info-banner-item .icon-clock{width:3rem;height:3rem}.info-banner-item__text .title{margin-bottom:2px}.info-banner-item__text .subtitle,.info-banner-item__text .title{line-height:1.15}.review-swiper-button-next,.review-swiper-button-prev{left:auto;right:auto}.other-offers-bg-text span{font-size:4rem}.footer-social-icons{justify-content:center}}
-        @media(min-width:640px){.hero-content .buttons{flex-direction:row;justify-content:center;gap:2.5rem}}
-        @media(min-width:768px){.section-header-subtitle{font-size:2.25rem}.section-title{font-size:2.5rem;line-height:1.1}.container{padding-left:3rem;padding-right:3rem}.info-banner-container{padding-left:0;padding-right:0;bottom:75px}.info-banner{flex-wrap:nowrap;justify-content:space-around}.info-banner-item__text .subtitle,.info-banner-item__text .title{line-height:1.5}.menu-grid{grid-template-columns:repeat(2,1fr)}.menu-card.span-2{grid-column:span 2/span 2}.two-column-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(3,1fr);align-items:stretch}.footer-column{justify-content:flex-start;gap:1rem}.footer-bottom{flex-direction:row}.footer-bottom-copyright{text-align:left;margin-bottom:0}.footer-bottom-links{flex-direction:row;gap:1rem}.footer-bottom-links .separator{display:inline}}
-        @media(min-width:768px) and (max-width:991px){.footer-contact-list,.opening-hours{font-size:.875rem}}
-        @media(min-width:992px){.two-column-grid{grid-template-columns:repeat(2,1fr)}}
-        @media(min-width:1200px){.button{font-size:1.125rem;padding:1rem 2rem}.menu-grid{grid-template-columns:repeat(3,1fr)}.menu-card.span-2{grid-column:span 1/span 1}.menu-card .card-list{font-size:1.1rem;gap:.9rem}.menu-card .card-list li{white-space:nowrap}.menu-card .card-list li>span:first-child{overflow:hidden;text-overflow:ellipsis}}
-        @media(min-width:1024px) and (max-height:650px){.info-banner-container{bottom:20px}}
-        @media(max-height:740px) and (max-width:480px){.hero-content .cta-text{font-size:16px}.hero-content .buttons{margin-top:1.5rem;transform:scale(.9);transform-origin:center}#menu{padding-top:8rem}.info-banner{padding:.75rem 1rem}}
+        .footer-bottom{display:flex;flex-direction:column;justify-content:between;align-items:center;font-size:.875rem;font-weight:500}
+        @media(min-width:768px){.footer-grid{grid-template-columns:repeat(3,1fr)}.footer-bottom{flex-direction:row}}
     </style>
 </head>
 <body>
-    <div id="notification-banner"><p>📣 Upozornění: Restaurace není otevřená k posezení. Objednávejte online nebo telefonicky!</p></div>
+    <div id="notification-banner">
+        <p>🍹 DOVOLENÁ 1.7. – 14.7. 2026 🏖️<br>
+        Upozornění: Restaurace není otevřená k posezení. Objednávejte online nebo telefonicky!</p>
+    </div>
+    
     <header>
         <div class="header-container-desktop"><a href="https://www.pizzakladno.cz"><img alt="Logo Pizzerie San Marino Kladno" src="images/logo-pizzerie-san-marino-kladno.webp" height="279" width="135" decoding="async"></a></div>
         <div class="hero-slider">
             <div class="slides">
-                <div class="slide"><img fetchpriority="high" alt="Detail naší originální pizzy s uzeným masem a špenátem." src="images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp" height="1080" width="1920"></div>
-                <div class="slide"><img alt="Legendární dvojitý burger 'Jako kráva' se slaninou a hranolky." src="images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp" height="1080" width="1920" loading="lazy" decoding="async"></div>
-                <div class="slide"><img alt="Ukázka našich dobrot s rozvozem po Kladně." src="images/pizzerie-san-marino-kladno-nabidka-jidla.webp" height="1080" width="1920" loading="lazy" decoding="async"></div>
+                <div class="slide"><img fetchpriority="high" src="images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp" alt="Pizza"></div>
             </div>
         </div>
         <div class="hero-content">
@@ -246,30 +206,28 @@
             <p class="cta-text">🤤 Tvůj hlad nepočká – a my to víme!<br>Restaurace není otevřená k posezení. Objednej si online nebo telefonicky a vyzvedni si jídlo u nás, nebo si ho nech dovézt! 🚀</p>
             <div class="animate-lure-pulse buttons">
                 <a href="tel:+420604633373" class="button animate-glow button-red" data-tel="true" aria-label="Zavolej a objednej">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="24" width="24"><path d="M0 0h24v24H0z" fill="none" stroke="none"></path><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="24" width="24"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path><path d="M15 7a2 2 0 0 1 2 2"></path><path d="M15 3a6 6 0 0 1 6 6"></path></svg>
                     <span class="mobile-only">Zavolej a objednej</span>
                     <span class="desktop-only">+420 604 633 373</span>
                 </a>
                 <a href="https://speedlo.cz/app/sanmarino/kladno/wb/home" rel="noopener noreferrer" target="_blank" class="button animate-glow button-red" aria-label="Objednej online">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="24" width="24"><path d="M0 0h24v24H0z" fill="none" stroke="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17h-11v-14h-2"/><path d="M6 5l14 1l-1 7h-13"/></svg>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="24" width="24"><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17h-11v-14h-2"/><path d="M6 5l14 1l-1 7h-13"/></svg>
                     <span>Objednej online</span>
                 </a>
             </div>
         </div>
         <section class="info-banner-container">
             <div class="info-banner">
-                <div class="info-banner-item"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-car"><path d="M0 0h24v24H0z" fill="none" stroke="none"></path><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5"></path></svg><div class="info-banner-item__text"><span class="title">ROZVOZ JÍDLA</span><span class="subtitle" id="rozvoz-time"></span></div></div>
-                <div class="info-banner-item"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-clock"><path d="M0 0h24v24H0z" fill="none" stroke="none"></path><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 12l3.5 0"></path><path d="M12 7v5"></path></svg><div class="info-banner-item__text"><span class="title">OTEVÍRACÍ DOBA</span><span class="subtitle" id="opening-time-header"></span></div></div>
+                <div class="info-banner-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17h10M17 17l-2-5h-9l-2 5M12 12V7h5"/></svg><div class="info-banner-item__text"><span class="title">ROZVOZ JÍDLA</span><span class="subtitle" id="rozvoz-time"></span></div></div>
+                <div class="info-banner-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg><div class="info-banner-item__text"><span class="title">OTEVÍRACÍ DOBA</span><span class="subtitle" id="opening-time-header"></span></div></div>
                 <div class="info-banner-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg" class="icon-calendar"><path d="M16 11V3H8v8"/><path d="M22 11v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6"/><path d="M6 11h12"/><path d="M12 19v-4"/></svg>
-                    <div class="info-banner-item__text">
-                        <span class="title">OBJEDNÁVKY</span>
-                        <span class="subtitle">Pouze s sebou</span>
-                    </div>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17h-11v-14h-2"/></svg>
+                    <div class="info-banner-item__text"><span class="title">OBJEDNÁVKY</span><br><span>Pouze s sebou</span></div>
                 </div>
             </div>
         </section>
     </header>
+
     <main>
         <section class="section section-white" id="menu">
             <div class="container">
@@ -325,7 +283,7 @@
                                 <span class="desktop-only">+420 604 633 373</span>
                             </a>
                             <a href="https://speedlo.cz/app/sanmarino/kladno/wb/home" rel="noopener noreferrer" target="_blank" class="button animate-glow button-outline" aria-label="Objednej online">
-                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="24" width="24"><path d="M0 0h24v24H0z" fill="none" stroke="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17h-11v-14h-2"/><path d="M6 5l14 1l-1 7h-13"/></svg>
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="24" width="24"><path d="M0 0h24v24H0z" fill="none" stroke="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17h-11v-14h-2"/><path d="M6 5l14 1l-1 7h-13"></path></svg>
                                 <span>Objednej online</span>
                             </a>
                         </div>
@@ -361,28 +319,27 @@
             </div>
         </section>
     </main>
+
     <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column"><h3 class="footer-heading">Provozovatel</h3><div class="footer-info"><p>ALFA plus s.r.o.</p><p>Železničářů 2350, 27201 Kladno</p><p>IČ: 46349154</p><p>DIČ: CZ46349154</p></div></div>
                 <div class="footer-column"><h3 class="footer-heading">Otevírací doba</h3>
                     <div class="opening-hours" id="opening-hours-source">
-                        <div class="day-row" data-day="1"><span>Pondělí</span> <span>ZAVŘENO</span></div>
-                        <div class="day-row" data-day="2"><span>Úterý</span> <span>ZAVŘENO</span></div>
-                        <div class="day-row" data-day="3"><span>Středa</span><div class="note"><span>16:00 - 21:00</span></div><div class="day-icons">📱💻🛍️</div></div>
-                        <div class="day-row" data-day="4"><span>Čtvrtek</span><div class="note"><span>16:00 - 21:00</span></div><div class="day-icons">📱💻🛍️</div></div>
-                        <div class="day-row" data-day="5"><span>Pátek</span><div class="note"><span>16:00 - 21:00</span></div><div class="day-icons">📱💻🛍️</div></div>
-                        <div class="day-row" data-day="6"><span>Sobota</span><div class="note"><span>11:00 - 21:00</span></div><div class="day-icons">📱💻🛍️</div></div>
-                        <div class="day-row" data-day="0"><span>Neděle</span><div class="note"><span>11:00 - 21:00</span></div><div class="day-icons">📱💻🛍️</div></div>
+                        <div class="day-row" data-day="1"><span>Pondělí</span> <span>ZAVŘENO</span> <div class="day-icons"></div></div>
+                        <div class="day-row" data-day="2"><span>Úterý</span> <span>ZAVŘENO</span> <div class="day-icons"></div></div>
+                        <div class="day-row" data-day="3"><span>Středa</span><div class="note">16:00-21:00</div><div class="day-icons">📱💻🛍️</div></div>
+                        <div class="day-row" data-day="4"><span>Čtvrtek</span><div class="note">16:00-21:00</div><div class="day-icons">📱💻🛍️</div></div>
+                        <div class="day-row" data-day="5"><span>Pátek</span><div class="note">16:00-21:00</div><div class="day-icons">📱💻🛍️</div></div>
+                        <div class="day-row" data-day="6"><span>Sobota</span><div class="note">11:00-21:00</div><div class="day-icons">📱💻🛍️</div></div>
+                        <div class="day-row" data-day="0"><span>Neděle</span><div class="note">11:00-21:00</div><div class="day-icons">📱💻🛍️</div></div>
                     </div>
-                    
-                    <!-- LEGENDA IKON -->
                     <div class="footer-legend">
                         <div class="footer-legend-item">📱 Telefon</div>
                         <div class="footer-legend-item">💻 Online</div>
                         <div class="footer-legend-item">🛍️ Osobní odběr</div>
                     </div>
-                    <p style="margin-top:15px; font-size: 0.8rem; font-weight: 700; color: var(--main-red);">Upozornění: Restaurace není otevřená k posezení.</p>
+                    <p class="no-seating-alert">Upozornění: Restaurace není otevřená k posezení.</p>
                 </div>
                 <div class="footer-column"><h3 class="footer-heading">Kontakty</h3>
                     <ul class="footer-contact-list">
@@ -402,54 +359,40 @@
         </div>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded",(()=>{
-            const banner=document.getElementById('notification-banner');
-            const closeBtn=document.getElementById('close-banner-btn');
-            if(banner&&sessionStorage.getItem('sanMarinoBannerClosed')){banner.style.display='none'}
-            if(closeBtn){closeBtn.addEventListener('click',(e)=>{e.stopPropagation();banner.style.display='none';sessionStorage.setItem('sanMarinoBannerClosed','true')})}
-            if(banner){banner.addEventListener('click',()=>{document.getElementById('contact').scrollIntoView({behavior:'smooth'})})}
-            const slidesEl=document.querySelector(".slides");
-            if(slidesEl){const slidesCount=document.querySelectorAll(".slide").length;let n=0;slidesCount>0&&setInterval((()=>{n=(n+1)%slidesCount,slidesEl.style.transform=`translateX(-${100*n}%)`}),5e3)}
-            const galleryData={currentIndex:0,images:["images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp","images/nejoblibenejsi-pizza-sunka-zelenina-san-marino-kladno.webp","images/oblibena-pizza-havaj-s-ananasem-a-sunkou-servirovana-na-taliri-v-prijemnem-prostredi-pizzerie-san-marino-kladno.webp","images/detske-menu-v-pizzerii-san-marino-kladno-mala-pizza-pro-deti-se-syrem-a-zeleninou-a-zampiony-podavana-s-oblibenym-kinder-vajickem-jako-prekvapenim.webp","images/dve-cerstve-upecene-pizzy-v-krabicich-pripravene-na-rozvoz-vlevo-pizza-se-slaninou-vpravo-syrova-pizza-s-nivou-hermelinem-a-olivami.webp","images/pizza-s-brokolici-testovinami-a-vejcem-san-marino-kladno.webp"]};
-            const reviewImages=["images/dokonala-pizza-od-detstvi-kladno-recenze.webp","images/exkluzivni-jidlo-kladno-recenze-san-marino.webp","images/hodnoceni-jidlo-11-z-10-pizzerie-kladno.webp","images/hodnoceni-pizzerie-san-marino-kladno-fakt-dobry.webp","images/nejlepsi-double-cheese-burger-kladno-recenze.webp","images/nejlepsi-pizza-kladno-recenze.webp","images/nejlepsi-pizza-srdcovka-kladno-google-recenze.webp","images/nejlepsi-pizzerie-kladno-recenze.webp","images/poctivy-burger-cerstve-suroviny-kladno-recenze.webp","images/recenze-burger-salat-san-marino-kladno.webp","images/recenze-kureci-speciality-wing-it-kladno-lepsi-nez-kfc.webp","images/recenze-nejlepsi-pizza-v-okoli-kladna.webp","images/recenze-osvedcena-chut-san-marino-kladno.webp","images/recenze-pizzerie-san-marino-kladno-raketa.webp","images/recenze-super-pizza-prijemna-obsluha-san-marino-kladno.webp","images/rychly-rozvoz-nejlepsi-pizza-kladno-recenze.webp","images/vyborna-pizza-skvela-obsluha-kladno-recenze.webp"];
-            reviewImages.sort(()=>Math.random()-.5);
-            const galleryImg=document.getElementById("gallery-image"),prevBtn=document.getElementById("gallery-prev"),nextBtn=document.getElementById("gallery-next"),dotsCont=document.getElementById("gallery-dots-container");
-            if(galleryImg&&prevBtn&&nextBtn&&dotsCont){
-                const updateGallery=()=>{galleryImg.src=galleryData.images[galleryData.currentIndex],dots.forEach(((e,n)=>{e.classList.toggle("active",n===galleryData.currentIndex)}))},next=()=>{galleryData.currentIndex=(galleryData.currentIndex+1)%galleryData.images.length,updateGallery()},prev=()=>{galleryData.currentIndex=(galleryData.currentIndex-1+galleryData.images.length)%galleryData.images.length,updateGallery()},goTo=n=>{galleryData.currentIndex=n,updateGallery()};
-                galleryData.images.forEach(((e,n)=>{const btn=document.createElement("button");btn.classList.add("gallery-dot"),btn.setAttribute("aria-label",`Přejít na obrázek ${n+1}`),btn.addEventListener("click",(()=>goTo(n))),dotsCont.appendChild(btn)}));
-                const dots=dotsCont.querySelectorAll(".gallery-dot");prevBtn.addEventListener("click",prev),nextBtn.addEventListener("click",next),updateGallery()
+        document.addEventListener("DOMContentLoaded", () => {
+            // Banner closure
+            const banner = document.getElementById('notification-banner');
+            const closeBtn = document.getElementById('close-banner-btn');
+            if(banner && sessionStorage.getItem('sanMarinoBannerClosed')) { banner.style.display = 'none'; }
+            if(closeBtn) { closeBtn.addEventListener('click', (e) => { e.stopPropagation(); banner.style.display = 'none'; sessionStorage.setItem('sanMarinoBannerClosed', 'true'); }); }
+            
+            // Slider
+            const slidesEl = document.querySelector(".slides");
+            if(slidesEl){
+                const slidesCount = document.querySelectorAll(".slide").length;
+                let n = 0;
+                slidesCount > 0 && setInterval(() => { n = (n + 1) % slidesCount; slidesEl.style.transform = `translateX(-${100 * n}%)`; }, 5e3);
             }
-            if("undefined"!=typeof Swiper){
-                new Swiper(".swiper-container-reviews",{slidesPerView:1,spaceBetween:20,autoplay:{delay:5e3,disableOnInteraction:!1},navigation:{nextEl:".review-swiper-button-next",prevEl:".review-swiper-button-prev"},breakpoints:{640:{slidesPerView:2,spaceBetween:20},1024:{slidesPerView:3,spaceBetween:30}},virtual:{slides:reviewImages,renderSlide:(e,t)=>{const n=e.split("/").pop().replace(/-/g," ").replace(".webp","");return`<div class="swiper-slide"><img src="${e}" loading="lazy" alt="Recenze zákazníka: ${n}." decoding="async"></div>`}}});
-                new Swiper(".swiper-container-gallery",{loop:!0,slidesPerView:1,spaceBetween:20,autoplay:{delay:4e3,disableOnInteraction:!1},navigation:{nextEl:".gallery-swiper-button-next",prevEl:".gallery-swiper-button-prev"},breakpoints:{640:{slidesPerView:2,spaceBetween:20},1024:{slidesPerView:4,spaceBetween:30}}})
+
+            // Otevírací doba
+            const today = new Date().getDay();
+            const sourceContainer = document.getElementById('opening-hours-source');
+            if(sourceContainer){
+                const dayRow = sourceContainer.querySelector(`.day-row[data-day="${today}"]`);
+                if(dayRow) dayRow.classList.add("active-day");
             }
-            const activeDayRow=document.querySelector(`.day-row[data-day="${(new Date).getDay()}"]`);
-            activeDayRow&&activeDayRow.classList.add("active-day");
-            const updateHeaderTimes=()=>{
-                const today=(new Date).getDay();
-                // Zobrazit ikonky pouze když je otevřeno (Středa=3, Čtvrtek=4, Pátek=5, Sobota=6, Neděle=0)
-                if([3,4,5,6,0].includes(today)) { document.getElementById('order-methods-footer').style.display = 'block'; }
-                
-                const sourceContainer=document.getElementById('opening-hours-source');
-                if(!sourceContainer)return;
-                const dayRow=sourceContainer.querySelector(`.day-row[data-day="${today}"]`);
-                if(!dayRow)return;
-                const mainTimeSpan=dayRow.querySelector('span:last-of-type');
-                const noteTimeSpan=dayRow.querySelector('.note > span');
-                const detailsPara=dayRow.querySelector('.details');
-                const rozvozTimeEl=document.getElementById('rozvoz-time');
-                const openingTimeHeaderEl=document.getElementById('opening-time-header');
-                let rozvozText="",openingText="";
-                const timeValue=noteTimeSpan?noteTimeSpan.textContent.trim():(mainTimeSpan?mainTimeSpan.textContent.trim():"");
-                if(timeValue==="ZAVŘENO"){rozvozText="ZAVŘENO";openingText="ZAVŘENO"}
-                else{rozvozText=timeValue;if(detailsPara&&detailsPara.textContent.includes("Online")){openingText="POUZE ONLINE OBJEDNÁVKY"}else{openingText=timeValue}}
-                if(rozvozTimeEl)rozvozTimeEl.textContent=rozvozText;if(openingTimeHeaderEl)openingTimeHeaderEl.textContent=openingText
+            
+            const updateHeaderTimes = () => {
+                const openTimes = { 3:"16:00-21:00", 4:"16:00-21:00", 5:"16:00-21:00", 6:"11:00-21:00", 0:"11:00-21:00" };
+                const timeStr = openTimes[today] || "ZAVŘENO";
+                if(document.getElementById('rozvoz-time')) document.getElementById('rozvoz-time').textContent = timeStr;
+                if(document.getElementById('opening-time-header')) document.getElementById('opening-time-header').textContent = timeStr;
             };
             updateHeaderTimes();
-            document.querySelectorAll('a[data-tel="true"]').forEach((e=>{e.href="tel:+420604633373"}));
-            const emailSpan=document.querySelector("span[data-email-user]");
-            if(emailSpan){const fullEmail=emailSpan.dataset.emailUser+"@"+emailSpan.dataset.emailDomain;emailSpan.textContent=fullEmail}
-        }))
+            
+            // Telefon
+            document.querySelectorAll('a[data-tel="true"]').forEach(e => e.href="tel:+420604633373");
+        });
     </script>
 </body>
 </html>
