@@ -6,9 +6,18 @@
     <lastmod>2026-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <!-- Hlavní fotky a TOP výběr -->
     <image:image>
       <image:loc>https://www.pizzakladno.cz/images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp</image:loc>
       <image:title>Originální pizza s uzeným masem a špenátem – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/burger-jako-krava-kladno-dvojity-se-slaninou-omacka-a-hranolky.webp</image:loc>
+      <image:title>Legendární dvojitý burger Jako kráva se slaninou a hranolky – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/pizzerie-san-marino-kladno-nabidka-jidla.webp</image:loc>
+      <image:title>Nabídka jídel a rozvoz po Kladně – Pizzerie San Marino</image:title>
     </image:image>
     <image:image>
       <image:loc>https://www.pizzakladno.cz/images/nejoblibenejsi-pizza-sunka-zelenina-san-marino-kladno.webp</image:loc>
@@ -23,12 +32,58 @@
       <image:title>Kuřecí speciality Wing It – Pizzerie San Marino Kladno</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.pizzakladno.cz/images/pizzerie-san-marino-kladno-nabidka-jidla.webp</image:loc>
-      <image:title>Nabídka jídel a rozvoz po Kladně – Pizzerie San Marino</image:title>
-    </image:image>
-    <image:image>
       <image:loc>https://www.pizzakladno.cz/images/pizzerie-san-marino-rozvoz-jidel-kladno-a-okoli.webp</image:loc>
       <image:title>Rozvoz jídla Kladno a okolí – Pizzerie San Marino</image:title>
+    </image:image>
+    <!-- Fotky pizz načítané přes JavaScript v galerii -->
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/oblibena-pizza-havaj-s-ananasem-a-sunkou-servirovana-na-taliri-v-prijemnem-prostredi-pizzerie-san-marino-kladno.webp</image:loc>
+      <image:title>Oblíbená pizza Havaj s ananasem a šunkou – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/detske-menu-v-pizzerii-san-marino-kladno-mala-pizza-pro-deti-se-syrem-a-zeleninou-a-zampiony-podavana-s-oblibenym-kinder-vajickem-jako-prekvapenim.webp</image:loc>
+      <image:title>Dětská pizza s Kinder vajíčkem – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/dve-cerstve-upecene-pizzy-v-krabicich-pripravene-na-rozvoz-vlevo-pizza-se-slaninou-vpravo-syrova-pizza-s-nivou-hermelinem-a-olivami.webp</image:loc>
+      <image:title>Čerstvě upečené pizzy v krabicích připravené na rozvoz – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/pizza-s-brokolici-testovinami-a-vejcem-san-marino-kladno.webp</image:loc>
+      <image:title>Originální pizza s brokolicí, těstovinami a vejcem – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <!-- Další speciality -->
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/cerstvy-zeleninovy-salat-stestovinami-a-kurecim-masem.webp</image:loc>
+      <image:title>Čerstvý zeleninový salát s těstovinami a kuřecím masem – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/dvojity-cheeseburger-se-slaninou-hranolky-a-dipem.webp</image:loc>
+      <image:title>Dvojitý cheeseburger se slaninou, hranolky a dipem – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/wing-it-kureci-stripsy.webp</image:loc>
+      <image:title>Křupavé kuřecí stripsy Wing It – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/smazena-kureci-kridla-a-stripsy-wing-it-kladno.webp</image:loc>
+      <image:title>Smažená kuřecí křídla a stripsy Wing It – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/wing-it-kureci-popkorn-kladno.webp</image:loc>
+      <image:title>Kuřecí popcorn Wing It s hranolky – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/double-burger-se-slaninou-a-bramborove-hranolky.webp</image:loc>
+      <image:title>Double burger se slaninou a bramborovými hranolky – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/syrove-mozzarella-tycky-s-vyberem-omacek-a-dipu.webp</image:loc>
+      <image:title>Smažené sýrové mozzarella tyčky s dipy – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/prilohy-hranolky-batatove-bramborove-hranolky-cibulove-krouzky.webp</image:loc>
+      <image:title>Hranolky, batátové hranolky a cibulové kroužky – Pizzerie San Marino Kladno</image:title>
     </image:image>
   </url>
 </urlset>
