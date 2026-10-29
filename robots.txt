@@ -1,0 +1,26 @@
+# Povolení přístupu pro všechny standardní vyhledávače (Google, Seznam, Bing)
+User-agent: *
+Allow: /
+
+# Blokování nevyžádaných a zahraničních robotů
+User-agent: BUbiNG
+User-agent: Baidu
+User-agent: Baiduspider
+User-agent: Yandex
+User-agent: YandexBot
+User-agent: Sogou
+User-agent: Sogou web spider
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: Crawlera
+User-agent: Nutch
+User-agent: BLEXBot
+User-agent: SurveyBot
+User-agent: ZoominfoBot
+User-agent: spbot
+Disallow: /
+
+# Mapa stránek
+Sitemap: https://www.pizzakladno.cz/sitemap.xml

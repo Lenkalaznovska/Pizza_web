@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.pizzakladno.cz/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/pizza-uzene-maso-spenat-vejce-pizzerie-san-marino-kladno.webp</image:loc>
+      <image:title>Originální pizza s uzeným masem a špenátem – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/nejoblibenejsi-pizza-sunka-zelenina-san-marino-kladno.webp</image:loc>
+      <image:title>Nejoblíbenější pizza se šunkou a zeleninou – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/burger-s-batatovymi-hranolky-a-omackou-san-marino-kladno.webp</image:loc>
+      <image:title>Legendární burger s batátovými hranolky a omáčkou – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/kureci-speciality-wing-it-kladno.webp</image:loc>
+      <image:title>Kuřecí speciality Wing It – Pizzerie San Marino Kladno</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/pizzerie-san-marino-kladno-nabidka-jidla.webp</image:loc>
+      <image:title>Nabídka jídel a rozvoz po Kladně – Pizzerie San Marino</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pizzakladno.cz/images/pizzerie-san-marino-rozvoz-jidel-kladno-a-okoli.webp</image:loc>
+      <image:title>Rozvoz jídla Kladno a okolí – Pizzerie San Marino</image:title>
+    </image:image>
+  </url>
+</urlset>
